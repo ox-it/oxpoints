@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.entities.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import java.lang.reflect.Method;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
 
 /**

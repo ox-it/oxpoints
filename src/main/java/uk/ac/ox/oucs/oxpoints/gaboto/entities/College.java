@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.entities.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import java.lang.reflect.Method;
@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Unit;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
  */
-public class Group extends Unit {
+public class College extends Unit {
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -26,7 +26,7 @@ public class Group extends Unit {
 
   @Override
   public String getType(){
-    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Group";
+    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#College";
   }
 
 

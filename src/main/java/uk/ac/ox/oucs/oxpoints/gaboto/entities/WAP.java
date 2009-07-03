@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.entities.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import java.lang.reflect.Method;
@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Unit;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
  */
-public class Division extends Unit {
+public class WAP extends Place {
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -26,7 +26,7 @@ public class Division extends Unit {
 
   @Override
   public String getType(){
-    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Division";
+    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#WAP";
   }
 
 

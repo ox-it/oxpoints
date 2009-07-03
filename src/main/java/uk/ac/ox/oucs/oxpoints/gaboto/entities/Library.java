@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.entities.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
@@ -21,7 +21,7 @@ import org.oucs.gaboto.entities.utils.SimpleURIProperty;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Unit;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 
 /**

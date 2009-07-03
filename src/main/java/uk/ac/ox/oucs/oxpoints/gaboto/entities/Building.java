@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.entities.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import java.lang.reflect.Method;
@@ -16,7 +16,7 @@ import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
 
 import org.oucs.gaboto.entities.utils.PassiveProperty;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
 
 /**

@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.entities.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
@@ -32,9 +32,9 @@ import org.oucs.gaboto.exceptions.GabotoRuntimeException;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.generated.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.generated.Location;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.OxpEntity;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 
 
 /**
