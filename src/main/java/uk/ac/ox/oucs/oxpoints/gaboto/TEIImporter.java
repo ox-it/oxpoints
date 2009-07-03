@@ -52,19 +52,19 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.generated.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.generated.Location;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Building;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Carpark;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.College;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Department;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Image;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Library;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Museum;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.OxpEntity;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Room;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Unit;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.Website;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Department;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Library;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Museum;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Room;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
 
 /**
  * 
@@ -303,11 +303,7 @@ public class TEIImporter {
 		String code = libraryEl.getAttribute("olisCode");
 		lib.setOLISCode(code);
 
-		// lib url
-		Website hp = findLibWebsite(libraryEl, lib.getTimeSpan());
-		if(hp instanceof Website){
-			lib.setLibraryHomepage(hp);
-		}
+		lib.setLibraryHomepage(findLibWebsite(libraryEl, lib.getTimeSpan()));
 	}
 	
 	/**
@@ -379,27 +375,14 @@ public class TEIImporter {
 		
 		
 		// find Website
-		Website hp = findHomepage(unitEl, ts);
-		if(hp instanceof Website){
-			unit.setHomepage(hp);
-		}
+		unit.setHomepage(findHomepage(unitEl, ts));
 		
-		// find ITHomepage
-		Website itHP = findITWebsite(unitEl, ts);
-		if(hp instanceof Website){
-			unit.setItHomepage(itHP);
-		}
+		unit.setItHomepage(findITWebsite(unitEl, ts));
 		
-		// find Weblearn
-		Website weblearn = findWeblearn(unitEl, ts);
-		if(hp instanceof Website){
-			unit.setWeblearn(weblearn);
-		}
+    unit.setWeblearn(findWeblearn(unitEl, ts));
 		
 		// get address
-		Address address = findAddress(unitEl);
-		if(address instanceof Address)
-			unit.setAddress(address);
+    unit.setAddress(findAddress(unitEl));
 		
 		// add buildings
 		getBuildings(unit, unitEl, ts);
@@ -473,10 +456,7 @@ public class TEIImporter {
 		building.setName(findName(buildingEl));
 		
 		// find Website
-		Website hp = findHomepage(buildingEl, building.getTimeSpan());
-		if(hp instanceof Website){
-			building.setHomepage(hp);
-		}
+    building.setHomepage(findHomepage(buildingEl, building.getTimeSpan()));
 
 		// location
 		building.setLocation(findLocation(buildingEl));
