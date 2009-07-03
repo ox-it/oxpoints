@@ -1,4 +1,4 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.beans.generated;
+package uk.ac.ox.oucs.oxpoints.gaboto.beans;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
