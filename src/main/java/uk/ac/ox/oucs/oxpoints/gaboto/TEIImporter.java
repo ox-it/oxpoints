@@ -218,17 +218,13 @@ public class TEIImporter {
     String activeID = relation.getAttribute("active");
     String passiveID = relation.getAttribute("passive");
     
-    try{
-      Unit passive = (Unit) entityLookup.get(passiveID.substring(1));
-      Unit active = (Unit) entityLookup.get(activeID.substring(1));
-  
-      if(passive == null || active == null)
-        throw new NullPointerException();
-      
-      passive.setSubsetOf(active);
-    } catch(NullPointerException e){
-      throw new RuntimeException("Could not load entity from id: " + activeID + " / " + passiveID + " (active/passive)");
-    }
+    Unit active = (Unit) entityLookup.get(activeID.substring(1));
+    if(active == null)
+      throw new RuntimeException("Could not load active entity from id: " + activeID );
+    Unit passive = (Unit) entityLookup.get(passiveID.substring(1));
+    if(passive == null )
+      throw new RuntimeException("Could not load passive entity from id: " + passiveID );
+    passive.setSubsetOf(active);
   }
   
   
