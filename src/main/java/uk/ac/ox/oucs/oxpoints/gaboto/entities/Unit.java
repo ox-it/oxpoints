@@ -17,7 +17,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-
 import org.oucs.gaboto.entities.GabotoEntity;
 
 import org.oucs.gaboto.entities.pool.EntityExistsCallback;
@@ -38,17 +37,18 @@ import org.oucs.gaboto.exceptions.GabotoRuntimeException;
 import org.oucs.gaboto.model.GabotoSnapshot;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Unit extends OxpEntity {
+  private String oUCSCode;
   private Address address;
   private Website homepage;
-  private String oUCSCode;
   private Website itHomepage;
   private String name;
   private Collection<Building> occupiedBuildings;
@@ -80,6 +80,24 @@ public class Unit extends OxpEntity {
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
   }
 
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getOUCSCode(){
+    return this.oUCSCode;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setOUCSCode(String oUCSCode){
+    this.oUCSCode = oUCSCode;
+  }
+
   @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
   public Address getAddress(){
     return this.address;
@@ -102,24 +120,6 @@ public class Unit extends OxpEntity {
     if( homepage != null )
       this.removeMissingReference( homepage.getUri() );
     this.homepage = homepage;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public String getOUCSCode(){
-    return this.oUCSCode;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setOUCSCode(String oUCSCode){
-    this.oUCSCode = oUCSCode;
   }
 
   @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage")
@@ -304,6 +304,11 @@ public class Unit extends OxpEntity {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
+    // Load SIMPLE_LITERAL_PROPERTY oUCSCode
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setOUCSCode(((Literal)stmt.getObject()).getString());
+
     // Load SIMPLE_COMPLEX_PROPERTY address
     stmt = res.getProperty(snapshot.getProperty("http://nwalsh.com/rdf/vCard#adr"));
     if(stmt != null && stmt.getObject().isAnon()){
@@ -323,11 +328,6 @@ public class Unit extends OxpEntity {
       };
       this.addMissingReference(missingReference, callback);
     }
-
-    // Load SIMPLE_LITERAL_PROPERTY oUCSCode
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setOUCSCode(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_URI_PROPERTY itHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage"));

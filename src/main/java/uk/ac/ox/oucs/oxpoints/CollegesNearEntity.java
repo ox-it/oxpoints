@@ -47,8 +47,8 @@ import org.oucs.gaboto.model.query.GabotoQueryImpl;
 import org.oucs.gaboto.timedim.TimeInstant;
 import org.oucs.gaboto.vocabulary.OxPointsVocab;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.generated.Location;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.generated.College;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
 
 import com.hp.hpl.jena.vocabulary.DC_11;
 

@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 import org.oucs.gaboto.entities.utils.SimpleLiteralProperty;
@@ -23,7 +22,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Carpark extends Place {
   private int capacity;
@@ -32,8 +31,6 @@ public class Carpark extends Place {
   private static Map<String, List<Method>> indirectPropertyLookupTable;
   static{
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
-    List<Method> list;
-
   }
 
   @Override

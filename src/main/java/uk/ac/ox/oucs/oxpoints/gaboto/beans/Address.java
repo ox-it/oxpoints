@@ -6,6 +6,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 
 import org.oucs.gaboto.beans.GabotoBean;
+
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 import org.oucs.gaboto.entities.utils.SimpleLiteralProperty;
@@ -15,7 +16,7 @@ import org.oucs.gaboto.model.GabotoSnapshot;
 
 /**
  * Gaboto generated bean.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateBean.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Address extends GabotoBean {
   private String postCode;
@@ -82,6 +83,6 @@ public class Address extends GabotoBean {
 
   }
   public String toString() {
-    return "[" + this.postCode + ", " + this.streetAddress + "]";
+    return this.postCode + ", " + this.streetAddress ;
   }
 }

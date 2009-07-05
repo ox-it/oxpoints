@@ -14,7 +14,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-
 import org.oucs.gaboto.entities.GabotoEntity;
 
 import org.oucs.gaboto.entities.pool.EntityExistsCallback;
@@ -34,15 +33,17 @@ import org.oucs.gaboto.model.GabotoSnapshot;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
+
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Place extends OxpEntity {
   private String name;
+  private String oUCSCode;
   private Place parent;
   private Location location;
   private Address address;
@@ -86,6 +87,24 @@ public class Place extends OxpEntity {
   )
   public void setName(String name){
     this.name = name;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getOUCSCode(){
+    return this.oUCSCode;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setOUCSCode(String oUCSCode){
+    this.oUCSCode = oUCSCode;
   }
 
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
@@ -201,6 +220,11 @@ public class Place extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setName(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY oUCSCode
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setOUCSCode(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_URI_PROPERTY parent
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin"));

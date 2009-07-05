@@ -12,7 +12,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Entrance extends Place {
 
@@ -20,8 +20,6 @@ public class Entrance extends Place {
   private static Map<String, List<Method>> indirectPropertyLookupTable;
   static{
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
-    List<Method> list;
-
   }
 
   @Override

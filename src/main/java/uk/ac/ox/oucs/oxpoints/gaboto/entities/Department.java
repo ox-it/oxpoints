@@ -12,7 +12,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Department extends Unit {
 
@@ -20,8 +20,6 @@ public class Department extends Unit {
   private static Map<String, List<Method>> indirectPropertyLookupTable;
   static{
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
-    List<Method> list;
-
   }
 
   @Override

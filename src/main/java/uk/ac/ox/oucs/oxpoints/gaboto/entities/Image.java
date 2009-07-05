@@ -28,7 +28,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Image extends OxpEntity {
   private String width;
@@ -39,8 +39,6 @@ public class Image extends OxpEntity {
   private static Map<String, List<Method>> indirectPropertyLookupTable;
   static{
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
-    List<Method> list;
-
   }
 
   @Override

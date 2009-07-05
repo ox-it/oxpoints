@@ -135,7 +135,7 @@ public class TEIImporter {
 		// create object
 		String name = el.getNodeName();
 		if(name.equals("place") && !relations){
-			String type = el.getAttribute("type");
+      String type = el.getAttribute("type");
 			try{
 				if(type.equals("college") || type.equals("ex-college")){
 					processUnit(el, new College());
@@ -233,31 +233,37 @@ public class TEIImporter {
 		String activeID = relation.getAttribute("active");
 		String passiveID = relation.getAttribute("passive");
 		
-		try{
-			Unit u = (Unit) entityLookup.get(activeID.substring(1));
-      Building b = (Building) entityLookup.get(passiveID.substring(1));
+    Unit u = (Unit) entityLookup.get(activeID.substring(1));
+    if (u == null)
+      throw new RuntimeException("Could not load entity from id: " + activeID);
+    
+    Building b = (Building) entityLookup.get(passiveID.substring(1));
+    if (b == null)
+      throw new RuntimeException("Could not load entity from id: " + passiveID);
 	
-			if(u == null || b == null)
-				throw new NullPointerException();
+    if(type.equals("geo primary")){
+      u.setPrimaryPlace(b);
+    } 
+    // If this is not a primary, but it has no other 
+    if(u.getPrimaryPlace() == null)
+      u.setPrimaryPlace(b);
 			
-			if(type.equals("geo primary")){
-        u.setPrimaryPlace(b);
-			} 
-			// If this is not a primary, but it has no other 
-      if(u.getPrimaryPlace() == null)
-				u.setPrimaryPlace(b);
-			
-			u.addOccupiedBuilding(b);
-		} catch(Exception e){
-			throw new RuntimeException("Could not load entity from id: " + activeID + " / " + passiveID + " (active/passive)", e);
-		}
+    u.addOccupiedBuilding(b);
 	}
 	
 
 	private void processCarpark(Element el) {
 		Carpark cp = new Carpark();
 
-		cp.setUri(gaboto.generateID());
+    String id = el.getAttribute("oxpID");
+    if (id == null)
+      throw new NullPointerException();
+    cp.setUri(gaboto.getConfig().getNSData() + id);
+		
+    // oucs code
+    String code = el.getAttribute("oucsCode");
+    cp.setOUCSCode(code);
+    
 		cp.setName(findName(el));
 		cp.setLocation(findLocation(el));
 		
@@ -287,6 +293,7 @@ public class TEIImporter {
 	 */
 	private void processBuilding(Element buildingEl){
 		getBuilding(buildingEl, null);
+		
 	}
 	
 
@@ -300,6 +307,8 @@ public class TEIImporter {
 		lib.setOLISCode(code);
 
 		lib.setLibraryHomepage(findLibWebsite(libraryEl, lib.getTimeSpan()));
+    if(lib.getOUCSCode() != null)
+      entityLookup.put(lib.getOUCSCode(), lib);
 	}
 	
 	/**
@@ -313,8 +322,9 @@ public class TEIImporter {
 		// add unit
 		entities.add(unit);
 		
-		if(unitEl.hasAttributeNS(XML_NS, "id"))
-			entityLookup.put(unitEl.getAttributeNS(XML_NS, "id"), unit);
+		
+    if(unit.getOUCSCode() != null)
+      entityLookup.put(unit.getOUCSCode(), unit);
 	}
 	
 	
@@ -326,16 +336,19 @@ public class TEIImporter {
 	 * @param unitEl
 	 */
 	private void _processUnit(Unit unit, Element unitEl){
-		// get ID
-		unit.setUri(gaboto.generateID());
-		
-		// get name
-		unit.setName(findName(unitEl));
-		
-		// oucs code
-		String code = unitEl.getAttributeNS(XML_NS, "id");
-		unit.setOUCSCode(code);
-		
+    // get ID
+    String id = unitEl.getAttribute("oxpID");
+    if (id == null)
+      throw new NullPointerException();
+    unit.setUri(gaboto.getConfig().getNSData() + id);
+    
+    // get name
+    unit.setName(findName(unitEl));
+    
+    // oucs code
+    String code = unitEl.getAttribute("oucsCode");
+    unit.setOUCSCode(code);
+    
 		// do we have a foundation date
 		TimeSpan ts = null;
 		TimeInstant start = null, end = null;
@@ -418,10 +431,20 @@ public class TEIImporter {
 	}
 
 	private Room getRoom(Building building, Element roomEl) {
-		Room room = new Room();
-		
-		// get uri
-		room.setUri(gaboto.generateID());
+    Room room = new Room();
+    String id = roomEl.getAttribute("oxpID");
+    if (id == null)
+      throw new NullPointerException();
+    room.setUri(gaboto.getConfig().getNSData() + id);
+    
+    // get name
+    room.setName(findName(roomEl));
+    
+    // oucs code
+    String code = roomEl.getAttribute("oucsCode");
+    room.setOUCSCode(code);
+    
+
 		
 		// building
 		room.setParent(building);
@@ -433,8 +456,8 @@ public class TEIImporter {
 		room.setName(findName(roomEl));
 		
 		entities.add(room);
-		if(roomEl.hasAttributeNS(XML_NS, "id"))
-			entityLookup.put(roomEl.getAttributeNS(XML_NS, "id"), room);
+    if(room.getOUCSCode() != null)
+      entityLookup.put(room.getOUCSCode(), room);
 		
 		return room;
 	}
@@ -442,10 +465,15 @@ public class TEIImporter {
 	private Building getBuilding(Element buildingEl, TimeSpan ts) {
 		Building building = new Building();
 
+    String id = buildingEl.getAttribute("oxpID");
+    if (id == null)
+      throw new NullPointerException();
+    building.setUri(gaboto.getConfig().getNSData() + id);
 		// get uri
-		building.setUri(gaboto.generateID());
 		
-		// time span
+    String code = buildingEl.getAttribute("oucsCode");
+    building.setOUCSCode(code);
+    // time span
 		building.setTimeSpan(ts);
 		
 		// get name
@@ -468,9 +496,9 @@ public class TEIImporter {
 		}	
 		
 		entities.add(building);
-		if(buildingEl.hasAttributeNS(XML_NS, "id"))
-			entityLookup.put(buildingEl.getAttributeNS(XML_NS, "id"), building);
 		
+    if(building.getOUCSCode() != null)
+      entityLookup.put(building.getOUCSCode(), building);
 		return building;
 	}
 

@@ -27,7 +27,7 @@ import org.oucs.gaboto.model.GabotoSnapshot;
 
 /**
  * Gaboto generated Entity.
- * @see net.sf.gaboto.generation.GabotoGenerator#generateEntity.
+ * @see net.sf.gaboto.generation.GabotoGenerator
  */
 abstract public class OxpEntity extends GabotoEntity {
   private Collection<Image> images;
@@ -36,8 +36,6 @@ abstract public class OxpEntity extends GabotoEntity {
   private static Map<String, List<Method>> indirectPropertyLookupTable;
   static{
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
-    List<Method> list;
-
   }
 
   @Override
