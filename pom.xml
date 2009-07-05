@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>uk.ac.ox.oucs.erewhon</groupId>
+  <artifactId>oxpoints</artifactId>
+  <version>0.1</version>
+  <packaging>jar</packaging>
+
+  <name>Oxpoints</name>
+  <url>http://gaboto.sourceforge.net/</url>
+  <inceptionYear>2009</inceptionYear>
+  <description>
+  A Gaboto view of the Oxpoints Ontology.
+  </description>
+
+  <organization>
+    <name>Oxford University Computing Services</name>
+    <url>http://erewhonoxford.wordpress.com/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Apache</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <url>https://${pom.artifactId}.svn.sourceforge.net/${pom.artifactId}/</url>
+    <connection>scm:svn:https://${pom.artifactId}.svn.sourceforge.net/${pom.artifactId}/</connection>
+    <developerConnection>scm:svn:https://${pom.artifactId}.svn.sourceforge.net/${pom.artifactId}/</developerConnection>
+  </scm>
+
+
+  <ciManagement>
+    <system>Hudson</system>
+    <url>http://oucs-timp.oucs.ox.ac.uk:8080/hudson/job/${pom.artifactId}/</url>
+  </ciManagement>
+
+  <dependencies>
+    <dependency>
+     <groupId>net.sf.gaboto</groupId>
+     <artifactId>gaboto</artifactId>
+     <version>0.3</version>
+    </dependency>
+    <dependency>
+     <groupId>net.sf.gaboto</groupId>
+     <artifactId>gaboto</artifactId>
+     <version>0.3</version>
+     <classifier>tests</classifier>
+     <scope>test</scope>
+    </dependency>
+
+    <dependency>
+     <groupId>xmlunit</groupId>
+     <artifactId>xmlunit</artifactId>
+     <version>1.2</version>
+     <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <forkMode>once</forkMode>
+          <!-- threadCount>1</threadCount-->
+          <!-- childDelegation>false</childDelegation -->
+          <useFile>true</useFile>
+          <includes>
+           <include>**/*Test.java</include>
+           <include>**/Test*.java</include>
+          </includes>
+          <excludes>
+	  <!-- Odd HACK-->
+            <exclude>**/**1*</exclude>
+            <exclude>**/**2*</exclude>
+            <exclude>**/**3*</exclude>
+            <exclude>**/**4*</exclude>
+            <exclude>**/**5*</exclude>
+            <exclude>**/**6*</exclude>
+	  <!-- Too slow -->
+          <!-- 
+            <exclude>**/TestPoolCreationPerformance.java</exclude>
+            <exclude>**/TestEntityPool*</exclude>
+            <exclude>**/TestGabotoSnapshot*</exclude>
+	    <exclude>**/TestSimpleConstructSPARQLQuery*</exclude>
+	    <exclude>**/BuildingsOccupiedByCollegeTest*</exclude>
+	    <exclude>**/TestGabotoEntity*</exclude>
+	    <exclude>**/TestGabotoTimeBasedEntity*</exclude>
+	    <exclude>**/TestPassiveProperties*</exclude>
+	    <exclude>**/GabotoTest*</exclude>
+	    <exclude>**/TestQueryListOfTypedEntities*</exclude>
+	    
+          -->
+	    
+	   </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadoc</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <resources>
+     <resource>
+      <filtering>false</filtering>
+      <directory>ontologies</directory>
+     </resource>
+     <resource>
+      <filtering>false</filtering>
+      <directory>src/resources</directory>
+     </resource>
+     <resource>
+      <filtering>false</filtering>
+      <directory>src/main/conf</directory>
+      <includes>
+       <include>log4j.properties</include>
+       <include>Gaboto.xml</include>
+      </includes>
+     </resource>
+    </resources>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <outputEncoding>UTF-8</outputEncoding>
+        </configuration>
+      </plugin>
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-surefire-report-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <configLocation>src/site/checkstyle.xml</configLocation>
+          <xrefLocation>xref</xrefLocation>
+        </configuration>
+      </plugin>
+<!-- java version issues
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <rulesets>
+            <ruleset>/rulesets/basic.xml</ruleset>
+          </rulesets>
+          <minmemory>128m</minmemory>
+          <maxmemory>256</maxmemory>
+          <format>xml</format>
+          <linkXref>true</linkXref>
+          <sourceEncoding>utf-8</sourceEncoding>
+          <minimumTokens>100</minimumTokens>
+          <targetJdk>1.6</targetJdk>
+        </configuration>
+      </plugin>
+-->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jdepend-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <configuration>
+         <tags>
+          <tag>@todo</tag>
+          <tag>FIXME</tag>
+          <tag>@deprecated</tag>
+          <tag>NOTE</tag>
+          <tag>HACK</tag>
+         </tags>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+      <plugin>
+       <groupId>net.sf</groupId>
+       <artifactId>stat-scm</artifactId>
+     </plugin>
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+         <footer><![CDATA[<center><div style="margin:1px; text-align:center; width: 468px; height:60px;"><script type="text/javascript">google_ad_client = "pub-7262107064058357"; google_ad_width = 468; google_ad_height = 60; google_ad_format = "468x60_as"; google_ad_type ="text"; google_ad_channel =""; google_page_url = document.location; google_color_bg = "236248255"; google_color_url = "0051255"; google_color_link = "0051255"; google_color_text = "000000"; google_color_border = "221170170";  </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div></center> ]]> </footer>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
+ <distributionManagement>
+<!--
+  <repository>
+   <id>localhost</id>
+   <name>Default Repository</name>
+   <url>file://localhost/var/www/maven2/</url>
+  </repository>
+  <site>
+   <id>localhost</id>
+   <url>file://localhost/var/www/${pom.artifactId}/</url>
+  </site>
+   <downloadUrl>http://bogof.nsms.ox.ac.uk/maven2/</downloadUrl>
+-->
+
+<!--
+    <repository>
+      <id>melati</id>
+      <name>melati</name>
+      <url>scp://melati.org/data/www/maven2/</url>
+    </repository>
+    <site>
+      <id>melati</id>
+      <url>scp://melati.org/data/www/uriinterface/</url>
+    </site>
+-->
+  <repository>
+   <id>bogof</id>
+   <name>bogof</name>
+   <url>scp://bogof.nsms.ox.ac.uk/home/maven2/repo/</url>
+  </repository>
+  <site>
+   <id>bogof</id>
+   <url>scp://bogof.nsms.ox.ac.uk:/home/maven2/project/${pom.artifactId}</url>
+  </site>
+
+ </distributionManagement>
+
+
+
+  <repositories>
+
+  <!--
+    <repository>
+      <releases />
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>melati</id>
+      <name>Melati Repository</name>
+      <url>http://melati.org/maven2/</url>
+    </repository>
+
+    <repository>
+      <releases />
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>bogof</id>
+      <name>bogof</name>
+      <url>http://bogof.nsms.ox.ac.uk/mvn/maven2/</url>
+    </repository>
+    -->
+  </repositories>
+
+  
+</project>
