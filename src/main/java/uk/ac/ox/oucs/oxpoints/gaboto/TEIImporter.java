@@ -260,9 +260,10 @@ public class TEIImporter {
       throw new NullPointerException();
     cp.setUri(gaboto.getConfig().getNSData() + id);
 		
-    // oucs code
     String code = el.getAttribute("oucsCode");
     cp.setOUCSCode(code);
+    String obn = el.getAttribute("obnCode");
+    cp.setOBNCode(obn);
     
 		cp.setName(findName(el));
 		cp.setLocation(findLocation(el));
@@ -444,6 +445,8 @@ public class TEIImporter {
     String code = roomEl.getAttribute("oucsCode");
     room.setOUCSCode(code);
     
+    String obn = roomEl.getAttribute("obnCode");
+    room.setOBNCode(obn);
 
 		
 		// building
@@ -473,6 +476,10 @@ public class TEIImporter {
 		
     String code = buildingEl.getAttribute("oucsCode");
     building.setOUCSCode(code);
+    
+    String obn = buildingEl.getAttribute("obnCode");
+    building.setOBNCode(obn);
+    
     // time span
 		building.setTimeSpan(ts);
 		
