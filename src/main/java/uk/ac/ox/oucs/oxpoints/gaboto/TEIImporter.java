@@ -50,6 +50,7 @@ import org.oucs.gaboto.timedim.TimeSpan;
 import org.oucs.gaboto.util.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
@@ -72,7 +73,47 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
  *
  */
 public class TEIImporter {
-	private Document document;
+	/**
+   * @author timp
+   * @since  6 Jul 2009
+   *
+   */
+  public class ElementRuntimeException extends RuntimeException {
+
+    /**
+     * Constructor.
+     * @param message
+     */
+    public ElementRuntimeException(String message) {
+      // TODO Auto-generated constructor stub
+    }
+
+    private static final long serialVersionUID = -6439480177218879551L;
+    private String message;
+    public ElementRuntimeException(Element el, String mess) {
+      super();
+      NamedNodeMap nnm = el.getAttributes();
+      int len = nnm.getLength();
+      String atts = "";
+      for (int i = 0; i < len; i++ )
+        atts += nnm.item(i) + ", ";
+      
+      this.message = mess + ": " + atts;  
+     }
+    /**
+     * {@inheritDoc}
+     * @see java.lang.Throwable#getMessage()
+     */
+    @Override
+    public String getMessage() {
+      return message;
+    }
+
+  }
+
+
+
+  private Document document;
 	private Gaboto gaboto;
 
 	public final static String XML_NS = "http://www.w3.org/XML/1998/namespace";
@@ -136,31 +177,31 @@ public class TEIImporter {
 		String name = el.getNodeName();
 		if(name.equals("place") && !relations){
       String type = el.getAttribute("type");
-			try{
-				if(type.equals("college") || type.equals("ex-college")){
-					processUnit(el, new College());
-				} else if(type.equals("unit")){
-					processUnit(el, new Unit());
-				} else if(type.equals("library")){
-					processLibrary(el);
-				} else if(type.equals("museum")){
-					processUnit(el, new Museum());
-				} else if(type.equals("department")){
-					processUnit(el, new Department());
-				} else if(type.equals("uas")){
-					processUnit(el, new Department());
-				} else if(type.equals("poi")){
-					processUnit(el, new Unit());
-				} else if(type.equals("building")){
-					processBuilding(el);
-				} else if(type.equals("carpark")){
-					processCarpark(el);
-				} else {
-					throw new RuntimeException("Unknown place type: " + type);
-				}
-			} catch(NullPointerException e){
-				throw new RuntimeException("No type defined for place", e);
+      if (type == null) {
+				throw new ElementRuntimeException(el, "No type defined for place");
 			}
+      if(type.equals("college") || type.equals("ex-college")){
+        processUnit(el, new College());
+      } else if(type.equals("unit")){
+        processUnit(el, new Unit());
+      } else if(type.equals("library")){
+        processLibrary(el);
+      } else if(type.equals("museum")){
+        processUnit(el, new Museum());
+      } else if(type.equals("department")){
+        processUnit(el, new Department());
+      } else if(type.equals("uas")){
+        processUnit(el, new Department());
+      } else if(type.equals("poi")){
+        processUnit(el, new Unit());
+      } else if(type.equals("building")){
+        processBuilding(el);
+      } else if(type.equals("carpark")){
+        processCarpark(el);
+      } else {
+        throw new RuntimeException("Unknown place type: " + type);
+      }
+
 		} else if(name.equals("relation") && relations){
 			String relName = el.getAttribute("name");
 			try{
@@ -569,7 +610,8 @@ public class TEIImporter {
 				
 				// get address element
 				Element addressEl = (Element)location.getElementsByTagName("address").item(0);
-				
+				if (addressEl == null)
+				  throw new ElementRuntimeException(el, "Expected address missing");
 				Address address = new Address();
 			
 				NodeList addressChildren = addressEl.getChildNodes();
