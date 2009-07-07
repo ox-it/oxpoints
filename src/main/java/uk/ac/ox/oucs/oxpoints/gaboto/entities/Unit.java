@@ -63,7 +63,7 @@ public class Unit extends OxpEntity {
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
     List<Method> list;
 
-    try{
+    try {
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
       list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
