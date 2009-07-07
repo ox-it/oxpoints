@@ -25,7 +25,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Carpark extends Place {
-  private int capacity;
+  private Integer capacity;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -41,18 +41,18 @@ public class Carpark extends Place {
   @SimpleLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#capacity",
     datatypeType = "javaprimitive",
-    javaType = "int"
+    javaType = "Integer"
   )
-  public int getCapacity(){
+  public Integer getCapacity(){
     return this.capacity;
   }
 
   @SimpleLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#capacity",
     datatypeType = "javaprimitive",
-    javaType = "int"
+    javaType = "Integer"
   )
-  public void setCapacity(int capacity){
+  public void setCapacity(Integer capacity){
     this.capacity = capacity;
   }
 
