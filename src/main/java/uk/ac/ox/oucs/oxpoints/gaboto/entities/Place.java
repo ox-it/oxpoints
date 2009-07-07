@@ -57,7 +57,7 @@ public class Place extends OxpEntity {
     indirectPropertyLookupTable = new HashMap<String, List<Method>>();
     List<Method> list;
 
-    try{
+    try {
       list = new ArrayList<Method>();
       list.add(Place.class.getMethod("getParent", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation", list);
