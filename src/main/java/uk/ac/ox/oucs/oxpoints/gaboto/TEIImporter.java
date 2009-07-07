@@ -316,7 +316,7 @@ public class TEIImporter {
 			String labelContent = label.getTextContent();
 			labelContent = labelContent.replaceAll("[a-zA-Z\\s]", "");
 			try{
-				int size = Integer.parseInt(labelContent);
+				Integer size = new Integer(Integer.parseInt(labelContent));
 				cp.setCapacity(size);
 			} catch(NumberFormatException e){
 				throw new RuntimeException("Could not ascertain carpark size.");
