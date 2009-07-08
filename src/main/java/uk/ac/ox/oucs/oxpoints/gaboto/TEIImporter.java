@@ -582,7 +582,12 @@ public class TEIImporter {
 				NodeList ptrs = trait.getElementsByTagName("ptr");
 				if(ptrs.getLength() > 0){
 					Website hp = new Website();
-					hp.setUri(((Element)ptrs.item(0)).getAttribute("target"));
+					String uri = ((Element)ptrs.item(0)).getAttribute("target");
+          if (uri == null)
+            throw new ElementRuntimeException(el, "URI Null");
+          if (uri.trim().equals(""))
+            throw new ElementRuntimeException(el, "URI empty");
+					hp.setUri(uri);
 					hp.setTimeSpan(ts);
 					
 					entities.add(hp);
