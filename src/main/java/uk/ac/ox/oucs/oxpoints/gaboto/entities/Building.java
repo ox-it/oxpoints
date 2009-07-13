@@ -69,8 +69,7 @@ public class Building extends Place {
 
   public Collection<PassiveEntitiesRequest> getPassiveEntitiesRequest(){
     Collection<PassiveEntitiesRequest> requests = super.getPassiveEntitiesRequest();
-    if(requests == null)
-      requests = new HashSet<PassiveEntitiesRequest>();
+
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
         return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
