@@ -74,8 +74,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
  */
 public class TEIImporter {
 	/**
-   * @author timp
-   * @since  6 Jul 2009
+   * @since  6 July 2009
    *
    */
   public class ElementRuntimeException extends RuntimeException {
@@ -85,7 +84,6 @@ public class TEIImporter {
      * @param message
      */
     public ElementRuntimeException(String message) {
-      // TODO Auto-generated constructor stub
     }
 
     private static final long serialVersionUID = -6439480177218879551L;
