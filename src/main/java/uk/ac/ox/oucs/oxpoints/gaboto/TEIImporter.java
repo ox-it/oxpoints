@@ -238,8 +238,11 @@ public class TEIImporter {
 			
 			Image img = new Image();
 			img.setTimeSpan(entity.getTimeSpan());
-			if (!graphic.getAttribute("url").startsWith("http"))
-        img.setUri("http://www.oucs.ox.ac.uk/oxpoints/" + graphic.getAttribute("url"));
+			if (graphic.getAttribute("url").startsWith("http:") ||
+			    graphic.getAttribute("url").startsWith("https:"))
+				img.setUrl(graphic.getAttribute("url"));
+                        else
+				img.setUrl("http://www.oucs.ox.ac.uk/oxpoints/" + graphic.getAttribute("url"));
 			
 			img.setWidth(graphic.getAttribute("width"));
 			img.setHeight(graphic.getAttribute("height"));
