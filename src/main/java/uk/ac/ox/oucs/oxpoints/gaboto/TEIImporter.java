@@ -39,12 +39,10 @@ import java.util.Map;
 import java.util.Set;
 
 import org.oucs.gaboto.GabotoConfiguration;
-import org.oucs.gaboto.GabotoLibrary;
+import org.oucs.gaboto.GabotoFactory;
 import org.oucs.gaboto.entities.GabotoEntity;
-import org.oucs.gaboto.exceptions.EntityAlreadyExistsException;
 import org.oucs.gaboto.exceptions.GabotoRuntimeException;
 import org.oucs.gaboto.model.Gaboto;
-import org.oucs.gaboto.model.GabotoFactory;
 import org.oucs.gaboto.timedim.TimeInstant;
 import org.oucs.gaboto.timedim.TimeSpan;
 import org.oucs.gaboto.util.XMLUtils;
@@ -162,7 +160,7 @@ public class TEIImporter {
 		for(GabotoEntity e : entities){
 			try {
 				gaboto.add(e);
-			} catch (EntityAlreadyExistsException e1) {
+			} catch (org.oucs.gaboto.model.EntityAlreadyExistsException e1) {
 				throw new RuntimeException(e.getUri() + " has already been added to the system."); 
 			} 
 		}
@@ -689,7 +687,7 @@ public class TEIImporter {
     if(! file.exists())
       throw new RuntimeException("Argument one needs to be a file");
     
-    GabotoLibrary.init(GabotoConfiguration.fromConfigFile());
+    GabotoFactory.init(GabotoConfiguration.fromConfigFile());
     Gaboto gab = GabotoFactory.getPersistentGaboto();
     new TEIImporter(gab, file).run();
   }
