@@ -62,7 +62,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 	
 	private List<College> listOfColleges;
 	
-	public CollegesNearEntity(String title, int number, TimeInstant ti) throws GabotoException {
+	public CollegesNearEntity(String title, int number, TimeInstant ti) {
 		super();
 		this.title = title;
 		this.timeInstant = ti;
