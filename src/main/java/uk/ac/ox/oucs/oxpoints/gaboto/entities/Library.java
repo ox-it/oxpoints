@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.oucs.gaboto.entities.GabotoEntity;
 
 import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
 import org.oucs.gaboto.entities.annotations.SimpleURIProperty;
@@ -20,6 +19,7 @@ import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
+import org.oucs.gaboto.nodes.GabotoEntity;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 

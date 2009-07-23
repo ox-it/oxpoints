@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.oucs.gaboto.GabotoRuntimeException;
-import org.oucs.gaboto.entities.GabotoEntity;
 
 import org.oucs.gaboto.entities.annotations.BagURIProperty;
 import org.oucs.gaboto.entities.annotations.ComplexProperty;
@@ -35,6 +34,7 @@ import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
+import org.oucs.gaboto.nodes.GabotoEntity;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 
