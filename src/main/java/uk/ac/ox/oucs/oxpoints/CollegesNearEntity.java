@@ -85,7 +85,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 	}
 
 	@Override
-	protected void doPrepare() throws GabotoException {
+	protected void doPrepare() {
 		// create snapshot
 		snapshot = getGaboto().getSnapshot(timeInstant);
 		
@@ -117,7 +117,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 
   @SuppressWarnings("boxing")
 	@Override
-	protected Object execute() throws GabotoException {
+	protected Object execute() {
 		// find entity with name
 		GabotoEntityPool entities = snapshot.loadEntitiesWithProperty(DC_11.title, title);
 		Iterator<GabotoEntity> it = entities.getEntities().iterator();
