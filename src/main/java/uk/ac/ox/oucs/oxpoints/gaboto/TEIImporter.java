@@ -40,8 +40,8 @@ import java.util.Set;
 
 import org.oucs.gaboto.GabotoConfiguration;
 import org.oucs.gaboto.GabotoFactory;
+import org.oucs.gaboto.GabotoRuntimeException;
 import org.oucs.gaboto.entities.GabotoEntity;
-import org.oucs.gaboto.exceptions.GabotoRuntimeException;
 import org.oucs.gaboto.model.Gaboto;
 import org.oucs.gaboto.timedim.TimeInstant;
 import org.oucs.gaboto.timedim.TimeSpan;

@@ -15,11 +15,11 @@ import java.util.Map;
 
 import org.oucs.gaboto.entities.GabotoEntity;
 
+import org.oucs.gaboto.entities.annotations.PassiveProperty;
+import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
 
-import org.oucs.gaboto.entities.utils.PassiveProperty;
-import org.oucs.gaboto.entities.utils.SimpleLiteralProperty;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 

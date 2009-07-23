@@ -13,11 +13,11 @@ import java.util.Map;
 
 import org.oucs.gaboto.entities.GabotoEntity;
 
+import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
+import org.oucs.gaboto.entities.annotations.SimpleURIProperty;
 import org.oucs.gaboto.entities.pool.EntityExistsCallback;
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
-import org.oucs.gaboto.entities.utils.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.utils.SimpleURIProperty;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 

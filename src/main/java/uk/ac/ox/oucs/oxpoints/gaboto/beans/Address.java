@@ -7,9 +7,9 @@ import com.hp.hpl.jena.rdf.model.Statement;
 
 import org.oucs.gaboto.beans.GabotoBean;
 
+import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
-import org.oucs.gaboto.entities.utils.SimpleLiteralProperty;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 

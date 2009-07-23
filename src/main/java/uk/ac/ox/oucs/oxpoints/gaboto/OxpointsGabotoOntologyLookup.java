@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.oucs.gaboto.GabotoRuntimeException;
 import org.oucs.gaboto.entities.GabotoEntity;
-import org.oucs.gaboto.exceptions.GabotoRuntimeException;
 
 import org.oucs.gaboto.model.GabotoOntologyLookup;
 

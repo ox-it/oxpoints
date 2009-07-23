@@ -14,20 +14,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import org.oucs.gaboto.GabotoRuntimeException;
 import org.oucs.gaboto.entities.GabotoEntity;
 
+import org.oucs.gaboto.entities.annotations.ComplexProperty;
+import org.oucs.gaboto.entities.annotations.IndirectProperty;
+import org.oucs.gaboto.entities.annotations.PassiveProperty;
+import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
+import org.oucs.gaboto.entities.annotations.SimpleURIProperty;
+import org.oucs.gaboto.entities.annotations.UnstoredProperty;
 import org.oucs.gaboto.entities.pool.EntityExistsCallback;
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
 
-import org.oucs.gaboto.entities.utils.ComplexProperty;
-import org.oucs.gaboto.entities.utils.IndirectProperty;
-import org.oucs.gaboto.entities.utils.PassiveProperty;
-import org.oucs.gaboto.entities.utils.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.utils.SimpleURIProperty;
-import org.oucs.gaboto.entities.utils.UnstoredProperty;
 
-import org.oucs.gaboto.exceptions.GabotoRuntimeException;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 

@@ -17,10 +17,10 @@ import java.util.Map;
 
 import org.oucs.gaboto.entities.GabotoEntity;
 
+import org.oucs.gaboto.entities.annotations.BagURIProperty;
 import org.oucs.gaboto.entities.pool.EntityExistsCallback;
 import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
-import org.oucs.gaboto.entities.utils.BagURIProperty;
 
 import org.oucs.gaboto.model.GabotoSnapshot;
 
