@@ -43,7 +43,7 @@ import org.oucs.gaboto.model.Gaboto;
 import org.oucs.gaboto.model.GabotoSnapshot;
 import org.oucs.gaboto.model.query.GabotoQueryImpl;
 import org.oucs.gaboto.nodes.GabotoEntity;
-import org.oucs.gaboto.timedim.TimeInstant;
+import org.oucs.gaboto.time.TimeInstant;
 import org.oucs.gaboto.vocabulary.OxPointsVocab;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
