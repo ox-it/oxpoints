@@ -37,12 +37,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
-import org.oucs.gaboto.entities.pool.GabotoEntityPoolConfiguration;
 import org.oucs.gaboto.model.Gaboto;
 import org.oucs.gaboto.model.GabotoSnapshot;
 import org.oucs.gaboto.model.query.GabotoQueryImpl;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
+import org.oucs.gaboto.node.pool.EntityPool;
+import org.oucs.gaboto.node.pool.EntityPoolConfiguration;
 import org.oucs.gaboto.time.TimeInstant;
 import org.oucs.gaboto.vocabulary.OxPointsVocab;
 
@@ -89,9 +89,9 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 		snapshot = getGaboto().getSnapshot(timeInstant);
 		
 		// get all colleges
-		GabotoEntityPoolConfiguration config = new GabotoEntityPoolConfiguration(snapshot);
+		EntityPoolConfiguration config = new EntityPoolConfiguration(snapshot);
 		config.addAcceptedType(OxPointsVocab.College_URI);
-		GabotoEntityPool colleges = GabotoEntityPool.createFrom(config);
+		EntityPool colleges = EntityPool.createFrom(config);
 		
 		// find colleges we are interested in
 		listOfColleges = new ArrayList<College>();
@@ -118,7 +118,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 	@Override
 	protected Object execute() {
 		// find entity with name
-		GabotoEntityPool entities = snapshot.loadEntitiesWithProperty(DC_11.title, title);
+		EntityPool entities = snapshot.loadEntitiesWithProperty(DC_11.title, title);
 		Iterator<GabotoEntity> it = entities.getEntities().iterator();
 		if(! it.hasNext())
 			throw new IllegalArgumentException("There is no entity with title '" + title + "'");
@@ -163,7 +163,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 		});
 		
 		//create result pool
-		GabotoEntityPool resultPool = new GabotoEntityPool(getGaboto(), snapshot);
+		EntityPool resultPool = new EntityPool(getGaboto(), snapshot);
 		for(int i = 0; i < number && i < listOfColleges.size(); i++)
 			resultPool.addEntity(listOfColleges.get(i));
 		

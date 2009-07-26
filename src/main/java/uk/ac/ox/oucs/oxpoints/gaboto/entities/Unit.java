@@ -19,22 +19,22 @@ import java.util.Map;
 
 import org.oucs.gaboto.GabotoRuntimeException;
 
-import org.oucs.gaboto.entities.annotations.BagURIProperty;
-import org.oucs.gaboto.entities.annotations.ComplexProperty;
-import org.oucs.gaboto.entities.annotations.IndirectProperty;
-import org.oucs.gaboto.entities.annotations.PassiveProperty;
-import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.annotations.SimpleURIProperty;
-import org.oucs.gaboto.entities.annotations.StaticProperty;
-import org.oucs.gaboto.entities.annotations.UnstoredProperty;
-import org.oucs.gaboto.entities.pool.EntityExistsCallback;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
-import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
 
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
+import org.oucs.gaboto.node.annotation.BagURIProperty;
+import org.oucs.gaboto.node.annotation.ComplexProperty;
+import org.oucs.gaboto.node.annotation.IndirectProperty;
+import org.oucs.gaboto.node.annotation.PassiveProperty;
+import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
+import org.oucs.gaboto.node.annotation.SimpleURIProperty;
+import org.oucs.gaboto.node.annotation.StaticProperty;
+import org.oucs.gaboto.node.annotation.UnstoredProperty;
+import org.oucs.gaboto.node.pool.EntityExistsCallback;
+import org.oucs.gaboto.node.pool.EntityPool;
+import org.oucs.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 
@@ -289,7 +289,7 @@ public class Unit extends OxpEntity {
       }
 
       public int getCollectionType() {
-        return GabotoEntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
@@ -300,7 +300,7 @@ public class Unit extends OxpEntity {
   }
 
 
-  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, GabotoEntityPool pool) {
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
@@ -322,7 +322,7 @@ public class Unit extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setHomepage((Website)entity);
         }
       };
@@ -334,7 +334,7 @@ public class Unit extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setItHomepage((Website)entity);
         }
       };
@@ -358,7 +358,7 @@ public class Unit extends OxpEntity {
 
         Resource missingReference = (Resource)node;
         EntityExistsCallback callback = new EntityExistsCallback(){
-          public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+          public void entityExists(EntityPool p, GabotoEntity entity) {
             addOccupiedBuilding((Building) entity);
           }
         };
@@ -371,7 +371,7 @@ public class Unit extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setPrimaryPlace((Place)entity);
         }
       };
@@ -383,7 +383,7 @@ public class Unit extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setSubsetOf((Unit)entity);
         }
       };
@@ -395,7 +395,7 @@ public class Unit extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setWeblearn((Website)entity);
         }
       };

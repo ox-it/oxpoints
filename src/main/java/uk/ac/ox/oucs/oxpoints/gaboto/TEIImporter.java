@@ -42,7 +42,7 @@ import org.oucs.gaboto.GabotoConfiguration;
 import org.oucs.gaboto.GabotoFactory;
 import org.oucs.gaboto.GabotoRuntimeException;
 import org.oucs.gaboto.model.Gaboto;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
 import org.oucs.gaboto.time.TimeInstant;
 import org.oucs.gaboto.time.TimeSpan;
 import org.oucs.gaboto.util.XMLUtils;

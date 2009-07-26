@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 
-import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.annotations.SimpleURIProperty;
-import org.oucs.gaboto.entities.pool.EntityExistsCallback;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
+import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
+import org.oucs.gaboto.node.annotation.SimpleURIProperty;
+import org.oucs.gaboto.node.pool.EntityExistsCallback;
+import org.oucs.gaboto.node.pool.EntityPool;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
@@ -81,7 +81,7 @@ public class Library extends Unit {
 
 
 
-  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, GabotoEntityPool pool) {
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
@@ -95,7 +95,7 @@ public class Library extends Unit {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setLibraryHomepage((Website)entity);
         }
       };

@@ -11,11 +11,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
+import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
+import org.oucs.gaboto.node.pool.EntityPool;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
@@ -62,7 +62,7 @@ public class Carpark extends Place {
 
 
 
-  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, GabotoEntityPool pool) {
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 

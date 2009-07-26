@@ -8,8 +8,8 @@ import java.util.Set;
 
 import org.oucs.gaboto.GabotoRuntimeException;
 
-import org.oucs.gaboto.model.GabotoOntologyLookup;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.model.OntologyLookup;
+import org.oucs.gaboto.node.GabotoEntity;
 
 
 
@@ -18,7 +18,7 @@ import org.oucs.gaboto.nodes.GabotoEntity;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 @SuppressWarnings("unchecked")
-public class OxpointsGabotoOntologyLookup implements GabotoOntologyLookup {
+public class OxpointsGabotoOntologyLookup implements OntologyLookup {
   private static Map<String,String> entityClassLookupNames;
   private static Map<String,Class<? extends GabotoEntity>> entityClassLookupClass;
   private static Map<Class<? extends GabotoEntity>, String> classToURILookup;

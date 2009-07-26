@@ -16,20 +16,20 @@ import java.util.Map;
 
 import org.oucs.gaboto.GabotoRuntimeException;
 
-import org.oucs.gaboto.entities.annotations.ComplexProperty;
-import org.oucs.gaboto.entities.annotations.IndirectProperty;
-import org.oucs.gaboto.entities.annotations.PassiveProperty;
-import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.annotations.SimpleURIProperty;
-import org.oucs.gaboto.entities.annotations.UnstoredProperty;
-import org.oucs.gaboto.entities.pool.EntityExistsCallback;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
-import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
 
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
+import org.oucs.gaboto.node.annotation.ComplexProperty;
+import org.oucs.gaboto.node.annotation.IndirectProperty;
+import org.oucs.gaboto.node.annotation.PassiveProperty;
+import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
+import org.oucs.gaboto.node.annotation.SimpleURIProperty;
+import org.oucs.gaboto.node.annotation.UnstoredProperty;
+import org.oucs.gaboto.node.pool.EntityExistsCallback;
+import org.oucs.gaboto.node.pool.EntityPool;
+import org.oucs.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
@@ -220,7 +220,7 @@ public class Place extends OxpEntity {
       }
 
       public int getCollectionType() {
-        return GabotoEntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
@@ -231,7 +231,7 @@ public class Place extends OxpEntity {
   }
 
 
-  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, GabotoEntityPool pool) {
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
@@ -255,7 +255,7 @@ public class Place extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setParent((Place)entity);
         }
       };
@@ -283,7 +283,7 @@ public class Place extends OxpEntity {
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+        public void entityExists(EntityPool p, GabotoEntity entity) {
           setHomepage((Website)entity);
         }
       };

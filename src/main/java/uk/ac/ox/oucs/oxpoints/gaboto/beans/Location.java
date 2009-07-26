@@ -6,12 +6,12 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 
 
-import org.oucs.gaboto.entities.annotations.SimpleLiteralProperty;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.nodes.GabotoBean;
+import org.oucs.gaboto.node.GabotoBean;
+import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
+import org.oucs.gaboto.node.pool.EntityPool;
 
 
 /**
@@ -74,7 +74,7 @@ public class Location extends GabotoBean {
                     
                 
 
-  public void loadFromResource(Resource res, GabotoSnapshot snapshot, GabotoEntityPool pool) {
+  public void loadFromResource(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromResource(res, snapshot, pool);
     Statement stmt;
 

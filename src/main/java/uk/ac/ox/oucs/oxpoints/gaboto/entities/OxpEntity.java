@@ -16,13 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 
-import org.oucs.gaboto.entities.annotations.BagURIProperty;
-import org.oucs.gaboto.entities.pool.EntityExistsCallback;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
 
 
 import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
+import org.oucs.gaboto.node.annotation.BagURIProperty;
+import org.oucs.gaboto.node.pool.EntityExistsCallback;
+import org.oucs.gaboto.node.pool.EntityPool;
 
 
 /**
@@ -74,7 +74,7 @@ abstract public class OxpEntity extends GabotoEntity {
 
 
 
-  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, GabotoEntityPool pool) {
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
@@ -90,7 +90,7 @@ abstract public class OxpEntity extends GabotoEntity {
 
         Resource missingReference = (Resource)node;
         EntityExistsCallback callback = new EntityExistsCallback(){
-          public void entityExists(GabotoEntityPool p, GabotoEntity entity) {
+          public void entityExists(EntityPool p, GabotoEntity entity) {
             addImage((Image) entity);
           }
         };

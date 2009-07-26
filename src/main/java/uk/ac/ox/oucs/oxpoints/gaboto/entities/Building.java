@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 
-import org.oucs.gaboto.entities.annotations.PassiveProperty;
-import org.oucs.gaboto.entities.pool.GabotoEntityPool;
-import org.oucs.gaboto.entities.pool.PassiveEntitiesRequest;
-import org.oucs.gaboto.nodes.GabotoEntity;
+import org.oucs.gaboto.node.GabotoEntity;
+import org.oucs.gaboto.node.annotation.PassiveProperty;
+import org.oucs.gaboto.node.pool.EntityPool;
+import org.oucs.gaboto.node.pool.PassiveEntitiesRequest;
 
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
@@ -81,7 +81,7 @@ public class Building extends Place {
       }
 
       public int getCollectionType() {
-        return GabotoEntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_BAG;
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_BAG;
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
