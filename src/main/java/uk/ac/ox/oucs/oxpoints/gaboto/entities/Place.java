@@ -14,22 +14,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import org.oucs.gaboto.GabotoRuntimeException;
+import net.sf.gaboto.GabotoRuntimeException;
+import net.sf.gaboto.model.GabotoSnapshot;
+import net.sf.gaboto.node.GabotoEntity;
+import net.sf.gaboto.node.annotation.ComplexProperty;
+import net.sf.gaboto.node.annotation.IndirectProperty;
+import net.sf.gaboto.node.annotation.PassiveProperty;
+import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+import net.sf.gaboto.node.annotation.SimpleURIProperty;
+import net.sf.gaboto.node.annotation.UnstoredProperty;
+import net.sf.gaboto.node.pool.EntityExistsCallback;
+import net.sf.gaboto.node.pool.EntityPool;
+import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
 
 
 
-import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.node.GabotoEntity;
-import org.oucs.gaboto.node.annotation.ComplexProperty;
-import org.oucs.gaboto.node.annotation.IndirectProperty;
-import org.oucs.gaboto.node.annotation.PassiveProperty;
-import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
-import org.oucs.gaboto.node.annotation.SimpleURIProperty;
-import org.oucs.gaboto.node.annotation.UnstoredProperty;
-import org.oucs.gaboto.node.pool.EntityExistsCallback;
-import org.oucs.gaboto.node.pool.EntityPool;
-import org.oucs.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;

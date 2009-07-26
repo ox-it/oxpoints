@@ -18,11 +18,12 @@ import java.util.Map;
 
 
 
-import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.node.GabotoEntity;
-import org.oucs.gaboto.node.annotation.BagURIProperty;
-import org.oucs.gaboto.node.pool.EntityExistsCallback;
-import org.oucs.gaboto.node.pool.EntityPool;
+import net.sf.gaboto.model.GabotoSnapshot;
+import net.sf.gaboto.node.GabotoEntity;
+import net.sf.gaboto.node.annotation.BagURIProperty;
+import net.sf.gaboto.node.pool.EntityExistsCallback;
+import net.sf.gaboto.node.pool.EntityPool;
+
 
 
 /**

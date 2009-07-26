@@ -13,9 +13,10 @@ import java.util.Map;
 
 
 
-import org.oucs.gaboto.model.GabotoSnapshot;
-import org.oucs.gaboto.node.annotation.SimpleLiteralProperty;
-import org.oucs.gaboto.node.pool.EntityPool;
+import net.sf.gaboto.model.GabotoSnapshot;
+import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+import net.sf.gaboto.node.pool.EntityPool;
+
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 

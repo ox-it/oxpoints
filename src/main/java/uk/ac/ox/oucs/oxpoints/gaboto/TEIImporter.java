@@ -38,14 +38,15 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.oucs.gaboto.GabotoConfiguration;
-import org.oucs.gaboto.GabotoFactory;
-import org.oucs.gaboto.GabotoRuntimeException;
-import org.oucs.gaboto.model.Gaboto;
-import org.oucs.gaboto.node.GabotoEntity;
-import org.oucs.gaboto.time.TimeInstant;
-import org.oucs.gaboto.time.TimeSpan;
-import org.oucs.gaboto.util.XMLUtils;
+import net.sf.gaboto.GabotoConfiguration;
+import net.sf.gaboto.GabotoFactory;
+import net.sf.gaboto.GabotoRuntimeException;
+import net.sf.gaboto.model.Gaboto;
+import net.sf.gaboto.node.GabotoEntity;
+import net.sf.gaboto.time.TimeInstant;
+import net.sf.gaboto.time.TimeSpan;
+import net.sf.gaboto.util.XMLUtils;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -160,7 +161,7 @@ public class TEIImporter {
 		for(GabotoEntity e : entities){
 			try {
 				gaboto.add(e);
-			} catch (org.oucs.gaboto.model.EntityAlreadyExistsException e1) {
+			} catch (net.sf.gaboto.model.EntityAlreadyExistsException e1) {
 				throw new RuntimeException(e.getUri() + " has already been added to the system."); 
 			} 
 		}

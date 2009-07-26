@@ -10,10 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 
-import org.oucs.gaboto.node.GabotoEntity;
-import org.oucs.gaboto.node.annotation.PassiveProperty;
-import org.oucs.gaboto.node.pool.EntityPool;
-import org.oucs.gaboto.node.pool.PassiveEntitiesRequest;
+import net.sf.gaboto.node.GabotoEntity;
+import net.sf.gaboto.node.annotation.PassiveProperty;
+import net.sf.gaboto.node.pool.EntityPool;
+import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
+
 
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
