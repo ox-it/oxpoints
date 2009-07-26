@@ -15,15 +15,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-
-
-
 import net.sf.gaboto.model.GabotoSnapshot;
+
 import net.sf.gaboto.node.GabotoEntity;
+
 import net.sf.gaboto.node.annotation.BagURIProperty;
+
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
-
 
 
 /**

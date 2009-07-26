@@ -5,14 +5,13 @@ import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 
-
-
-
 import net.sf.gaboto.model.GabotoSnapshot;
-import net.sf.gaboto.node.GabotoBean;
-import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
-import net.sf.gaboto.node.pool.EntityPool;
 
+import net.sf.gaboto.node.GabotoBean;
+
+import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+
+import net.sf.gaboto.node.pool.EntityPool;
 
 
 /**

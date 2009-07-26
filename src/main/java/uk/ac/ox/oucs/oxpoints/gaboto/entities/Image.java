@@ -13,16 +13,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-
-
-
 import net.sf.gaboto.model.GabotoSnapshot;
+
 import net.sf.gaboto.node.GabotoEntity;
+
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+
 import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
-
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 

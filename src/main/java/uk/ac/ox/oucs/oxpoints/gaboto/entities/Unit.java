@@ -18,8 +18,11 @@ import java.util.List;
 import java.util.Map;
 
 import net.sf.gaboto.GabotoRuntimeException;
+
 import net.sf.gaboto.model.GabotoSnapshot;
+
 import net.sf.gaboto.node.GabotoEntity;
+
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.IndirectProperty;
@@ -28,13 +31,10 @@ import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
 import net.sf.gaboto.node.annotation.StaticProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
+
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
-
-
-
-
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 

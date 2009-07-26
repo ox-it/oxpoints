@@ -6,10 +6,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.gaboto.GabotoRuntimeException;
-import net.sf.gaboto.model.OntologyLookup;
 import net.sf.gaboto.node.GabotoEntity;
+import net.sf.gaboto.GabotoRuntimeException;
 
+import net.sf.gaboto.model.OntologyLookup;
 
 
 
