@@ -61,6 +61,25 @@
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <plugins>
       <plugin>
+       <groupId>org.codehaus.mojo</groupId>
+       <artifactId>exec-maven-plugin</artifactId>
+       <executions>
+         <execution>
+          <id>GenerateGabotEntities</id>
+          <phase>generate-sources</phase>
+           <goals>
+             <goal>java</goal>
+           </goals>
+         </execution>
+       </executions>
+       <configuration>
+         <fork>true</fork>
+         <includeProjectDependencies>true</includeProjectDependencies>
+         <mainClass>net.sf.gaboto.generation.GabotoGenerator</mainClass>
+         <arguments/>
+       </configuration>       
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>

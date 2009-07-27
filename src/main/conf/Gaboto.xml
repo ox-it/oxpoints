@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Gaboto [
+    <!ENTITY oxp "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY v "http://nwalsh.com/rdf/vCard#" >
+    <!ENTITY geo "http://www.opengis.net/gml/" >
+    <!ENTITY gabotoKML "http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#" >
+]>
+<Gaboto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <config>
+        <lookupClass class="uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup" />
+        <namespaces graphs="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#"
+            data="http://m.ox.ac.uk/oxpoints/id/"/>
+
+        <namespacePrefixes>
+            <namespacePrefix prefix="oxp" ns="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#"/>
+        </namespacePrefixes>
+
+        <database>
+            <!-- We have our own copy of the driver, there is a bug in the jena one -->
+            <engineName>HSQLDB_GABOTO</engineName>
+            <!-- 
+                <url>jdbc:hsqldb:/dist/gaboto/db/oxpoints</url>
+            -->
+            <url>jdbc:hsqldb:mem:oxpoints</url>
+            <user>sa</user>
+            <password/>
+            <driver>org.hsqldb.jdbcDriver</driver>
+            <!--
+            <engineName>PostgreSQL</engineName>
+            <url>jdbc:postgresql:oxpoints</url>
+            <user>postgres</user>
+            <password></password>    
+            <driver>org.postgresql.Driver</driver>
+            -->
+            <!--
+                <engineName>PostgreSQL</engineName>
+                <url>jdbc:postgresql://sysdev-db1.oucs.ox.ac.uk:5432/oxpoints?ssl=true</url>
+                <user>oxpoints_web</user>
+                <password>2iBRosz=arg.T</password>
+                <driver>org.postgresql.Driver</driver>
+            -->
+            <!--
+            <engineName>MySQL</engineName>
+            <url>jdbc:mysql://localhost/oxp</url>
+            <user>root</user>
+            <password></password>
+            <driver>com.mysql.jdbc.Driver</driver>
+            -->
+        </database>
+    </config>
+
+
+    <GabotoBeans>
+        <GabotoBean name="Address" type="&v;Address">
+            <properties>
+                <property name="postCode" type="String" uri="&v;postal_code"/>
+                <property name="streetAddress" type="String" uri="&v;street_address"/>
+            </properties>
+        </GabotoBean>
+
+
+        <GabotoBean name="Location" type="&geo;Point">
+            <properties>
+                <property name="pos" type="String" uri="&geo;pos"/>
+            </properties>
+            <customMethods>
+                <method>
+                    <![CDATA[
+  public Double getLatitude() {
+    String p = getPos();
+    if (p == null) 
+      return null;
+    try {
+      return Double.valueOf(p.split(" ")[1]);
+    } catch (NumberFormatException e) {
+      return null;
+    }
+  }
+                     ]]>
+                </method>
+                <method>
+                    <![CDATA[
+  public Double getLongitude() {
+    String p = getPos();
+    if (p == null) 
+      return null;
+    try {
+      return Double.valueOf(p.split(" ")[0]);
+    } catch (NumberFormatException e) {
+      return null;
+    }
+  }
+                    ]]>
+                </method>
+            </customMethods>
+        </GabotoBean>
+
+    </GabotoBeans>
+
+
+    <GabotoEntities>
+
+        <!-- Common base class -->
+        <GabotoEntity name="OxpEntity" type="&oxp;OxpEntity" abstract="true">
+
+            <properties>
+                <property name="images" type="Image" collection="bag" uri="&oxp;inImage"/>
+            </properties>
+
+
+            <GabotoEntities>
+                <GabotoEntity name="Image" type="&oxp;Image">
+                    <properties>
+                        <property name="width" type="String" uri="&oxp;width"/>
+
+                        <property name="height" type="String" uri="&oxp;height"/>
+
+                        <passiveProperty name="imageContents" type="OxpEntity"
+                            relationshipType="N:M" uri="&oxp;inImage"/>
+                    </properties>
+
+                </GabotoEntity>
+
+                <GabotoEntity name="Place" type="&oxp;Place">
+                    <properties>
+                        <property name="name" type="String" uri="&dc;title"/>
+
+                        <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
+                        <property name="OBNCode"  type="String" uri="&oxp;hasOBNCode"/>
+                        <property name="parent" type="Place"
+                            uri="&oxp;physicallyContainedWithin">
+                            <indirectProperty uri="&oxp;hasLocation"/>
+                            <unstoredProperty uri="&gabotoKML;parent"/>
+                        </property>
+
+                        <property name="location" type="Location" uri="&oxp;hasLocation"/>
+
+                        <property name="address" type="Address" uri="&v;adr"/>
+
+                        <property name="homepage" type="Website" uri="&oxp;hasHomepage"/>
+
+                        <passiveProperty name="containedPlaces" type="Place" relationshipType="1:N"
+                            uri="&oxp;physicallyContainedWithin"/>
+                    </properties>
+
+                    <GabotoEntities>
+                        <GabotoEntity name="Building" type="&oxp;Building">
+                            <properties>
+                                <passiveProperty name="occupiedBy" type="Unit"
+                                    relationshipType="N:M" uri="&oxp;occupies"/>
+                            </properties>
+
+                        </GabotoEntity>
+
+                        <GabotoEntity name="Carpark" type="&oxp;Carpark">
+                            <properties>
+                                <property name="capacity" type="Integer" uri="&oxp;capacity"/>
+                            </properties>
+                        </GabotoEntity>
+
+                        <GabotoEntity name="DrainCover" type="&oxp;DrainCover"/>
+
+                        <GabotoEntity name="Entrance" type="&oxp;Entrance"/>
+
+                        <GabotoEntity name="Room" type="&oxp;Room"/>
+
+                        <GabotoEntity name="Site" type="&oxp;Site"/>
+
+                        <GabotoEntity name="WAP" type="&oxp;WAP"/>
+                    </GabotoEntities>
+                </GabotoEntity>
+
+                <GabotoEntity name="Unit" type="&oxp;Unit">
+                    <properties>
+                        <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
+                        <property name="address" type="Address" uri="&v;adr"/>
+
+                        <property name="homepage" type="Website" uri="&oxp;hasHomepage"/>
+
+                        <property name="itHomepage" type="Website" uri="&oxp;hasITHomepage"/>
+
+                        <property name="name" type="String" uri="&dc;title"/>
+
+                        <property name="occupiedBuildings" type="Building" collection="bag"
+                            uri="&oxp;occupies">
+                            <indirectProperty uri="&oxp;hasLocation" n="2"/>
+                        </property>
+
+                        <property name="primaryPlace" type="Place" uri="&oxp;primaryPlace">
+                            <indirectProperty name="location" uri="&oxp;hasLocation" n="1"/>
+                        </property>
+
+                        <property name="subsetOf" type="Unit" uri="&oxp;subsetOf">
+                            <indirectProperty uri="&oxp;hasLocation" n="3"/>
+                            <unstoredProperty uri="&gabotoKML;parent"/>
+                        </property>
+
+                        <property name="weblearn" type="Website" uri="&oxp;hasWeblearn"/>
+
+                        <passiveProperty name="hasSubsets" type="Unit" relationshipType="1:N"
+                            uri="&oxp;subsetOf"/>
+
+                    </properties>
+
+
+                    <customMethods>
+                        <method>
+                            <![CDATA[
+    @StaticProperty("http://purl.org/dc/elements/1.1/description")
+    public String getDescription(){
+        String description = "";
+        
+        if(getHomepage() != null)
+            description += "Website: <a href=\"" + getHomepage().getUri() + "\">" + getHomepage().getUri() + "</a><br/>";
+        if(getImages() != null && getImages().size() > 0){
+        	Image img = getImages().iterator().next();
+        	description += "<img src=\"" + img.getUri() + "\" width=\"" + img.getWidth() + "\" height=\"" + img.getHeight() + "\"/>";
+        }
+        
+        return description;
+    }
+                    ]]>
+                        </method>
+                    </customMethods>
+
+                    <GabotoEntities>
+                        <GabotoEntity name="College" type="&oxp;College"/>
+
+                        <GabotoEntity name="Department" type="&oxp;Department"/>
+
+                        <GabotoEntity name="Division" type="&oxp;Division"/>
+
+                        <GabotoEntity name="Faculty" type="&oxp;Faculty"/>
+
+                        <GabotoEntity name="Group" type="&oxp;Group"/>
+
+                        <GabotoEntity name="Library" type="&oxp;Library">
+                            <properties>
+                                <property name="OLISCode" type="String" uri="&oxp;hasOLISCode"/>
+
+                                <property name="libraryHomepage" type="Website"
+                                    uri="&oxp;hasLibraryHomepage"/>
+                            </properties>
+                        </GabotoEntity>
+
+                        <GabotoEntity name="Museum" type="&oxp;Museum"/>
+
+                        <GabotoEntity name="ServiceDepartment" type="&oxp;ServiceDepartment"/>
+                    </GabotoEntities>
+                </GabotoEntity>
+
+                <GabotoEntity name="Website" type="&oxp;Website">
+                    <properties>
+                        <passiveProperty name="isWeblearnIn" type="OxpEntity" relationshipType="1:N"
+                            uri="&oxp;hasWeblearn"/>
+
+                        <passiveProperty name="isITHomepageIn" type="OxpEntity"
+                            relationshipType="1:N" uri="&oxp;hasITHomepage"/>
+
+                        <passiveProperty name="isHomepageIn" type="OxpEntity" relationshipType="1:N"
+                            uri="&oxp;hasHomepage"/>
+
+                        <passiveProperty name="isLibraryHomepageIn" type="OxpEntity"
+                            relationshipType="1:N" uri="&oxp;hasLibraryHomepage"/>
+                    </properties>
+                </GabotoEntity>
+
+            </GabotoEntities>
+
+
+        </GabotoEntity>
+    </GabotoEntities>
+</Gaboto>
