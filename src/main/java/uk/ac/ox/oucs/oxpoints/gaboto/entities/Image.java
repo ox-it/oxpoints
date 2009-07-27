@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.gaboto.model.GabotoSnapshot;
+import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 

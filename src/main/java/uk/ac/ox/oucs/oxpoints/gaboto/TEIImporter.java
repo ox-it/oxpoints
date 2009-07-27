@@ -38,10 +38,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoConfiguration;
 import net.sf.gaboto.GabotoFactory;
 import net.sf.gaboto.GabotoRuntimeException;
-import net.sf.gaboto.model.Gaboto;
 import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
@@ -161,7 +161,7 @@ public class TEIImporter {
 		for(GabotoEntity e : entities){
 			try {
 				gaboto.add(e);
-			} catch (net.sf.gaboto.model.EntityAlreadyExistsException e1) {
+			} catch (net.sf.gaboto.EntityAlreadyExistsException e1) {
 				throw new RuntimeException(e.getUri() + " has already been added to the system."); 
 			} 
 		}

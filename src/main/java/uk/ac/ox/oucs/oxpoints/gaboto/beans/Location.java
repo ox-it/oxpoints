@@ -5,7 +5,7 @@ import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 
-import net.sf.gaboto.model.GabotoSnapshot;
+import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoBean;
 

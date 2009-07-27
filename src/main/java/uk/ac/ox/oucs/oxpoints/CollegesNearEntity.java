@@ -37,12 +37,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import net.sf.gaboto.model.Gaboto;
-import net.sf.gaboto.model.GabotoSnapshot;
-import net.sf.gaboto.model.query.GabotoQueryImpl;
+import net.sf.gaboto.Gaboto;
+import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.EntityPoolConfiguration;
+import net.sf.gaboto.query.GabotoQueryImpl;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.vocabulary.OxPointsVocab;
 
