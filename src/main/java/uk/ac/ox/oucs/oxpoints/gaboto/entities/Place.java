@@ -17,7 +17,6 @@ import java.util.Map;
 import net.sf.gaboto.GabotoRuntimeException;
 import net.sf.gaboto.GabotoSnapshot;
 
-
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.ComplexProperty;

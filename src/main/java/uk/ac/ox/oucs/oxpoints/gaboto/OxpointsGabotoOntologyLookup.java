@@ -8,8 +8,8 @@ import java.util.Set;
 
 import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.GabotoRuntimeException;
-import net.sf.gaboto.OntologyLookup;
 
+import net.sf.gaboto.OntologyLookup;
 
 
 
