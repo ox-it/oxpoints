@@ -60,6 +60,8 @@
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <plugins>
+<!-- NOTE if bootstrap issues -->
+<!-- comment out plugin, install and then uncomment and do it again -->
       <plugin>
        <groupId>org.codehaus.mojo</groupId>
        <artifactId>exec-maven-plugin</artifactId>
@@ -79,6 +81,7 @@
          <arguments/>
        </configuration>       
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -300,7 +303,7 @@
       <name>Melati Repository</name>
       <url>http://melati.org/maven2/</url>
     </repository>
-
+    -->
     <repository>
       <releases />
       <snapshots>
@@ -310,7 +313,7 @@
       <name>bogof</name>
       <url>http://bogof.nsms.ox.ac.uk/mvn/maven2/</url>
     </repository>
-    -->
+
   </repositories>
 
   
