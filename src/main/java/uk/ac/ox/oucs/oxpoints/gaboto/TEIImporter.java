@@ -158,6 +158,7 @@ public class TEIImporter {
 		}
 		
 		// add entities
+		System.err.println("Have read in " + entities.size() + " entities");
 		for(GabotoEntity e : entities){
 			try {
 				gaboto.add(e);
@@ -407,23 +408,29 @@ public class TEIImporter {
 				if(event.hasAttribute("type") && event.getAttribute("type").equals("founded")){
 					try{
 						start = new TimeInstant(Integer.parseInt(event.getAttribute("when")), null, null);
-					}catch(NumberFormatException e){
+					} catch(NumberFormatException e){
 						throw new RuntimeException("Could not parse date: " + event.getAttribute("when")  + " for " + unit.getName() );
 					}
-				} else if(event.hasAttribute("type") && event.getAttribute("type").equals("ended")){
-					try{
-						end = new TimeInstant(Integer.parseInt(event.getAttribute("when")), null, null);
-					}catch(NumberFormatException e){
-						throw new RuntimeException("Could not parse date: " + event.getAttribute("when")  + " for " + unit.getName() );
-					}
-				}
+        } else if(event.hasAttribute("type") && event.getAttribute("type").equals("ended")){
+          try{
+            end = new TimeInstant(Integer.parseInt(event.getAttribute("when")), null, null);
+          } catch(NumberFormatException e){
+            throw new RuntimeException("Could not parse date: " + event.getAttribute("when")  + " for " + unit.getName() );
+          }
+        } else if(event.hasAttribute("type") && event.getAttribute("type").equals("status")){
+          //FIXME 
+          System.err.println("FIXME What to do with status change events?");
+				} else throw new RuntimeException("Unrecognised event type: " + event.getAttribute("type"));
 			}
 		}
 		// have we found something
-		if(null != start && null != end)
-			ts = TimeSpan.createFromInstants(start, end);
-		else if(null != start)
-			ts = new TimeSpan(start.getStartYear(), start.getStartMonth(), start.getStartDay());
+    if(start != null) { 
+      if (end != null)
+        ts = TimeSpan.createFromInstants(start, end);
+      else 
+        ts = new TimeSpan(start.getStartYear(), start.getStartMonth(), start.getStartDay());
+    }
+			
 		
 		
 		// find Website
