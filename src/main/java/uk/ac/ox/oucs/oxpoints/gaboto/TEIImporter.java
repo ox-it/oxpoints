@@ -39,7 +39,6 @@ import java.util.Map;
 import java.util.Set;
 
 import net.sf.gaboto.Gaboto;
-import net.sf.gaboto.GabotoConfiguration;
 import net.sf.gaboto.GabotoFactory;
 import net.sf.gaboto.GabotoRuntimeException;
 import net.sf.gaboto.node.GabotoEntity;
@@ -393,9 +392,10 @@ public class TEIImporter {
     String code = unitEl.getAttribute("oucsCode");
     unit.setOUCSCode(code);
     
-		// do we have a foundation date
+		// Do we have a foundation date?
 		TimeSpan ts = null;
-		TimeInstant start = null, end = null;
+		TimeInstant start = null; 
+		TimeInstant end = null;
 		NodeList events = unitEl.getChildNodes();
 		for(int i = 0; i < events.getLength(); i++){
 			if(events.item(i).getNodeName().equals("event")){
@@ -431,19 +431,14 @@ public class TEIImporter {
         ts = new TimeSpan(start.getStartYear(), start.getStartMonth(), start.getStartDay());
     }
 			
-		
-		
-		// find Website
 		unit.setHomepage(findHomepage(unitEl, ts));
 		
 		unit.setItHomepage(findITWebsite(unitEl, ts));
 		
     unit.setWeblearn(findWeblearn(unitEl, ts));
 		
-		// get address
     unit.setAddress(findAddress(unitEl));
 		
-		// add buildings
 		getBuildings(unit, unitEl, ts);
 		
 		unit.setTimeSpan(ts);
@@ -695,7 +690,6 @@ public class TEIImporter {
     if(! file.exists())
       throw new RuntimeException("Argument one needs to be a file");
     
-    GabotoFactory.init(GabotoConfiguration.fromConfigFile());
     Gaboto gab = GabotoFactory.getPersistentGaboto();
     new TEIImporter(gab, file).run();
   }
