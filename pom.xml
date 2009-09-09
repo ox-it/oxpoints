@@ -46,7 +46,7 @@
     <dependency>
      <groupId>net.sf.gaboto</groupId>
      <artifactId>gaboto</artifactId>
-     <version>0.4</version>
+     <version>0.4.1</version>
     </dependency>
 
     <dependency>
