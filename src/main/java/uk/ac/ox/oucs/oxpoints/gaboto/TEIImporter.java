@@ -61,6 +61,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Library;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Museum;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Room;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
@@ -157,7 +158,7 @@ public class TEIImporter {
 		}
 		
 		// add entities
-		System.err.println("Have read in " + entities.size() + " entities");
+    System.err.println("Have read in " + entities.size() + " entities");
 		for(GabotoEntity e : entities){
 			try {
 				gaboto.add(e);
@@ -165,6 +166,7 @@ public class TEIImporter {
 				throw new RuntimeException(e.getUri() + " has already been added to the system."); 
 			} 
 		}
+    //System.err.println("Gaboto contains " + gaboto.getJenaModelViewOnNamedGraphSet().size() + " entities");
 	}
 	
 	
@@ -209,7 +211,7 @@ public class TEIImporter {
 				} else {
 					throw new RuntimeException("Unknown relation: " + relName);
 				}
-			}catch(NullPointerException e){
+			} catch(NullPointerException e){
 				throw new RuntimeException("No name defined for relation", e);
 			}
 		}
@@ -225,7 +227,17 @@ public class TEIImporter {
 		String id = figureEl.getAttribute("corresp");
 		
 		try{
-			OxpEntity entity = entityLookup.get(id.substring(1));
+			OxpEntity oxpoint = entityLookup.get(id.substring(1));
+      Place entity = null;
+      if (oxpoint instanceof Place)
+        entity = (Place)oxpoint;
+      else if (oxpoint instanceof Unit) {
+        entity = ((Unit) oxpoint).getPrimaryPlace();
+        if (entity == null)
+          throw new RuntimeException("No primary place found for " + oxpoint);
+      } else
+        throw new RuntimeException("Unexpected type " + oxpoint.getClass());
+			
 			
 			// try to find a graphic element
 			NodeList graphics = figureEl.getElementsByTagName("graphic");
@@ -506,6 +518,7 @@ public class TEIImporter {
     if(room.getOUCSCode() != null)
       entityLookup.put(room.getOUCSCode(), room);
 		
+    System.err.println("Found room " + room + " for building " + building);
 		return room;
 	}
 
@@ -607,34 +620,40 @@ public class TEIImporter {
 
 	private Address findAddress(Element el) {
 		NodeList locations = el.getChildNodes();
-		for(int i = 0; i < locations.getLength(); i++){
-			if(locations.item(i).getNodeName().equals("location")){
-				if(! (locations.item(i) instanceof Element))
+		for (int i = 0; i < locations.getLength(); i++) {
+			if (locations.item(i).getNodeName().equals("location")) {
+				if (! (locations.item(i) instanceof Element))
 					continue;
 				
 				Element location = (Element)locations.item(i);
-				if(! location.hasAttribute("type") || ! location.getAttribute("type").equals("address"))
+				if (! location.hasAttribute("type") || ! location.getAttribute("type").equals("address"))
 					continue;
 				
 				// get address element
 				Element addressEl = (Element)location.getElementsByTagName("address").item(0);
 				if (addressEl == null)
 				  throw new ElementRuntimeException(el, "Expected address missing");
+        String add = "";
+        String postCode = "";
 				Address address = new Address();
 			
 				NodeList addressChildren = addressEl.getChildNodes();
-				for(int j = 0; j < addressChildren.getLength(); j++){
-					if(! (addressChildren.item(j) instanceof Element))
+				for (int j = 0; j < addressChildren.getLength(); j++){
+					if (! (addressChildren.item(j) instanceof Element))
 						continue;
 					
 					Element addressPart = (Element) addressChildren.item(j);
 					
-					if(addressPart.getNodeName().equals("addrLine"))
-						address.setStreetAddress(addressPart.getTextContent());
-					else if(addressPart.getNodeName().equals("postCode"))
-						address.setPostCode(addressPart.getTextContent());
+					if (addressPart.getNodeName().equals("addrLine"))
+            add += addressPart.getTextContent();
+					else if (addressPart.getNodeName().equals("postCode"))
+            postCode += addressPart.getTextContent();
+          else
+            throw new RuntimeException("Unrecognized element:" + addressPart);
 				}
 				
+        address.setStreetAddress(add);
+        address.setPostCode(postCode);
 				return address;
 			}
 		}
