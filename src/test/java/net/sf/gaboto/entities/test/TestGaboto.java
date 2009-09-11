@@ -55,6 +55,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.vocabulary.DC_11;
 
 public class TestGaboto {
@@ -177,4 +178,27 @@ public class TestGaboto {
 		}
 			
 	}
+	
+  /**
+   * Test method for {@link net.sf.gaboto.Gaboto#equals(java.lang.Object)}.
+   */
+  @Test
+  public void testEqualsObject() {
+    System.err.println("testGabotoEquals");
+    Gaboto g1 = GabotoFactory.getEmptyInMemoryGaboto();
+    Model m1 = g1.getContextDescriptionGraph();
+    System.err.println("m1:"+m1);
+    Gaboto g2 = GabotoFactory.getEmptyInMemoryGaboto();
+    System.err.println("m1:"+m1);
+    Model m2 = g2.getContextDescriptionGraph();
+    System.err.println("m1:"+m1);
+    System.err.println("m2:"+m2);
+    assertTrue(m1.isIsomorphicWith(m2));
+    
+    assertEquals("Not equal", g1,g1);
+    assertEquals("Not equal", g2,g2);
+    assertEquals("Not equal", g1,g2);
+    assertEquals("Not equal", g2,g1);
+  }
+
 }
