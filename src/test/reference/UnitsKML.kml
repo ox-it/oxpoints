@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark OUCSCode="O_cathedral" id="http://m.ox.ac.uk/oxpoints/id/23233495">
+<name>Christ Church Cathedral, Christ Church</name>
+<description><![CDATA[Website: <a href="http://www.chch.ox.ac.uk/index.php?option=com_content&task=view&id=245&Itemid=300">http://www.chch.ox.ac.uk/index.php?option=com_content&task=view&id=245&Itemid=300</a><br/>]]></description>
+<Point>
+<coordinates>-1.25498,51.75004</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="rho" id="http://m.ox.ac.uk/oxpoints/id/23233595">
+<name>Rhodes House</name>
+<description><![CDATA[Website: <a href="http://www.rhodeshouse.ox.ac.uk">http://www.rhodeshouse.ox.ac.uk</a><br/>]]></description>
+<Point>
+<coordinates>-1.255162,51.757855</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="classics" id="http://m.ox.ac.uk/oxpoints/id/23233577">
+<name>Faculty of Classics</name>
+<description><![CDATA[Website: <a href="http://www.classics.ox.ac.uk/">http://www.classics.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.260252,51.756923</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="engfac" id="http://m.ox.ac.uk/oxpoints/id/23233578">
+<name>Faculty of English Language and Literature</name>
+<description><![CDATA[Website: <a href="http://www.english.ox.ac.uk/">http://www.english.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.248376,51.756936</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="histfac" id="http://m.ox.ac.uk/oxpoints/id/23233579">
+<name>Faculty of History</name>
+<description><![CDATA[Website: <a href="http://www.history.ox.ac.uk/">http://www.history.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.26317,51.753656</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="philfac" id="http://m.ox.ac.uk/oxpoints/id/23233589">
+<name>Faculty of Philosophy</name>
+<description><![CDATA[Website: <a href="http://www.philosophy.ox.ac.uk/">http://www.philosophy.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.255445,51.757428</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="ulib" id="http://m.ox.ac.uk/oxpoints/id/23233598">
+<name>University Library Services</name>
+<description><![CDATA[Website: <a href="http://www.ouls.ox.ac.uk">http://www.ouls.ox.ac.uk</a><br/>]]></description>
+<Point>
+<coordinates>-1.254023,51.754104</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="music" id="http://m.ox.ac.uk/oxpoints/id/23233586">
+<name>Faculty of Music</name>
+<description><![CDATA[Website: <a href="http://www.music.ox.ac.uk/">http://www.music.ox.ac.uk/</a><br/>]]></description>
+</Placemark>
+<Placemark OUCSCode="orient" id="http://m.ox.ac.uk/oxpoints/id/23233587">
+<name>Oriental Institute</name>
+<description><![CDATA[Website: <a href="http://www.orinst.ox.ac.uk/">http://www.orinst.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.26092,51.75592</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="" id="http://m.ox.ac.uk/oxpoints/id/23232537">
+<name>Oxford Glycobiology Institute</name>
+<description/>
+</Placemark>
+<Placemark OUCSCode="modlang" id="http://m.ox.ac.uk/oxpoints/id/23233584">
+<name>Faculty of Medieval and Modern Languages</name>
+<description><![CDATA[Website: <a href="http://www.mod-langs.ox.ac.uk/">http://www.mod-langs.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.262727,51.757231</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="" id="http://m.ox.ac.uk/oxpoints/id/23232536">
+<name>Scripps-Oxford Laboratory</name>
+<description/>
+</Placemark>
+<Placemark OUCSCode="O_equality" id="http://m.ox.ac.uk/oxpoints/id/23233576">
+<name>Equality and Diversity Unit</name>
+<description><![CDATA[Website: <a href="http://www.admin.ox.ac.uk/eop/">http://www.admin.ox.ac.uk/eop/</a><br/>]]></description>
+<Point>
+<coordinates>-1.263270,51.754230</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="libsys" id="http://m.ox.ac.uk/oxpoints/id/23233583">
+<name>Systems and Electronic Resources Service</name>
+<description><![CDATA[Website: <a href="http://www.lib.ox.ac.uk/">http://www.lib.ox.ac.uk/</a><br/>]]></description>
+</Placemark>
+<Placemark OUCSCode="sheld" id="http://m.ox.ac.uk/oxpoints/id/23233507">
+<name>Sheldonian Theatre</name>
+<description><![CDATA[Website: <a href="http://www.sheldon.ox.ac.uk">http://www.sheldon.ox.ac.uk</a><br/>]]></description>
+<Point>
+<coordinates>-1.25503,51.75437</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="univclub" id="http://m.ox.ac.uk/oxpoints/id/23233509">
+<name>Oxford University Club</name>
+<description><![CDATA[Website: <a href="http://www.club.ox.ac.uk/">http://www.club.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.261586,51.762919</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="phone" id="http://m.ox.ac.uk/oxpoints/id/23233593">
+<name>Phonetics Laboratory</name>
+<description><![CDATA[Website: <a href="http://www.phon.ox.ac.uk/">http://www.phon.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.262727,51.757231</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="oup" id="http://m.ox.ac.uk/oxpoints/id/23233500">
+<name>Oxford University Press</name>
+<description><![CDATA[Website: <a href="http://www.oup.co.uk/">http://www.oup.co.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.264647,51.758902</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="O_ous" id="http://m.ox.ac.uk/oxpoints/id/23233497">
+<name>Oxford Union Society</name>
+<description><![CDATA[Website: <a href="http://www.oxford-union.org/">http://www.oxford-union.org/</a><br/>]]></description>
+<Point>
+<coordinates>-1.259032,51.752976</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="parks" id="http://m.ox.ac.uk/oxpoints/id/23233502">
+<name>University Parks</name>
+<description><![CDATA[Website: <a href="http://www.parks.ox.ac.uk/">http://www.parks.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.25945806503295,51.76169126035423</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="O_univchurch" id="http://m.ox.ac.uk/oxpoints/id/23233498">
+<name>The University Church of St Mary the Virgin</name>
+<description><![CDATA[Website: <a href="http://www.university-church.ox.ac.uk/">http://www.university-church.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.25371,51.75276</coordinates>
+</Point>
+</Placemark>
+</Document>
+</kml>

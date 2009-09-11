@@ -1,0 +1,819 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://ns.ox.ac.uk/namespace/rdfcontext/2009/02/owl#"
+    xmlns:j.1="http://www.w3.org/2006/time#"
+    xmlns:j.2="http://www.w3.org/2004/03/trix/rdfg-1/" > 
+  <rdf:Description rdf:nodeID="A0">
+    <j.1:hasBeginning rdf:nodeID="A1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <j.1:hasDateTimeDescription rdf:nodeID="A3"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <j.1:hasBeginning rdf:nodeID="A5"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1341</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <j.1:hasDateTimeDescription rdf:nodeID="A8"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1226~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A4"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <j.1:hasBeginning rdf:nodeID="A11"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1554</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <j.1:hasBeginning rdf:nodeID="A14"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A15">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1555</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A16">
+    <j.1:hasBeginning rdf:nodeID="A17"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A18">
+    <j.1:hasBeginning rdf:nodeID="A19"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A20">
+    <j.1:hasDateTimeDescription rdf:nodeID="A21"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A22">
+    <j.1:hasDateTimeDescription rdf:nodeID="A23"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1870~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A24"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A25">
+    <j.1:hasBeginning rdf:nodeID="A26"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1937~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A27"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1263~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A28"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A29">
+    <j.1:hasDateTimeDescription rdf:nodeID="A30"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A31">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1966</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A32">
+    <j.1:hasDurationDescription rdf:nodeID="A33"/>
+    <j.1:hasBeginning rdf:nodeID="A34"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A35">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1624</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1458~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A36"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <j.1:hasDateTimeDescription rdf:nodeID="A37"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A38">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1714</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A39">
+    <j.1:hasBeginning rdf:nodeID="A2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A40">
+    <j.1:hasBeginning rdf:nodeID="A41"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A42">
+    <j.1:hasDateTimeDescription rdf:nodeID="A43"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1546~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A44"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <j.1:hasDateTimeDescription rdf:nodeID="A45"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A46">
+    <j.1:hasBeginning rdf:nodeID="A47"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-2008~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A18"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A21">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1950</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1879~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A48"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A49">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1379</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1420~461-0-0">
+    <j.0:hasTemporalDimension rdf:nodeID="A50"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1990~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A51"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A19">
+    <j.1:hasDateTimeDescription rdf:nodeID="A52"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1966~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A53"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A54">
+    <j.1:hasDateTimeDescription rdf:nodeID="A38"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A55">
+    <j.1:hasBeginning rdf:nodeID="A56"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1963~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A57"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A17">
+    <j.1:hasDateTimeDescription rdf:nodeID="A58"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A59">
+    <j.1:hasBeginning rdf:nodeID="A29"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A60">
+    <j.1:hasBeginning rdf:nodeID="A22"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1555~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A61"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A62">
+    <j.1:hasDateTimeDescription rdf:nodeID="A63"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A26">
+    <j.1:hasDateTimeDescription rdf:nodeID="A64"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1965~43-0-0">
+    <j.0:hasTemporalDimension rdf:nodeID="A65"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A27">
+    <j.1:hasBeginning rdf:nodeID="A66"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A34">
+    <j.1:hasDateTimeDescription rdf:nodeID="A67"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1610~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A0"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A43">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1870</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A47">
+    <j.1:hasDateTimeDescription rdf:nodeID="A68"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A50">
+    <j.1:hasDurationDescription rdf:nodeID="A69"/>
+    <j.1:hasBeginning rdf:nodeID="A70"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A71">
+    <j.1:hasBeginning rdf:nodeID="A72"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A73">
+    <j.1:hasBeginning rdf:nodeID="A74"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A24">
+    <j.1:hasBeginning rdf:nodeID="A42"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A45">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1226</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1517~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A13"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1624~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A75"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A76">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1517</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A77">
+    <j.1:hasDateTimeDescription rdf:nodeID="A78"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A79">
+    <j.1:hasBeginning rdf:nodeID="A80"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1438~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A81"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A52">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2008</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A82">
+    <j.1:hasDateTimeDescription rdf:nodeID="A83"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A84">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1990</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A63">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1878</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A64">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1886</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#gkg.rdf">
+    <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/rdfcontext/2009/02/owl#GlobalKnowledgeGraph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A85">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1438</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1221~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A60"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A86">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1264</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1877~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A87"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A66">
+    <j.1:hasDateTimeDescription rdf:nodeID="A88"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1878~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A89"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A89">
+    <j.1:hasBeginning rdf:nodeID="A62"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A65">
+    <j.1:hasDurationDescription rdf:nodeID="A90"/>
+    <j.1:hasBeginning rdf:nodeID="A91"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1326~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A92"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A93">
+    <j.1:hasDateTimeDescription rdf:nodeID="A86"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A94">
+    <j.1:hasBeginning rdf:nodeID="A95"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1554~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A71"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <j.1:hasDateTimeDescription rdf:nodeID="A96"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A72">
+    <j.1:hasDateTimeDescription rdf:nodeID="A12"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A74">
+    <j.1:hasDateTimeDescription rdf:nodeID="A9"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1877</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1927~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A40"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A28">
+    <j.1:hasBeginning rdf:nodeID="A77"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A97">
+    <j.1:hasDateTimeDescription rdf:nodeID="A15"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A83">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1929</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1910~98-0-0">
+    <j.0:hasTemporalDimension rdf:nodeID="A32"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A14">
+    <j.1:hasDateTimeDescription rdf:nodeID="A76"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A98">
+    <j.1:hasBeginning rdf:nodeID="A99"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A100">
+    <j.1:hasBeginning rdf:nodeID="A20"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A96">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A101">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1963</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A88">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1937</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A102">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1458</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1264~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A103"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A104">
+    <j.1:hasDateTimeDescription rdf:nodeID="A85"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A105">
+    <j.1:hasDateTimeDescription rdf:nodeID="A106"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A57">
+    <j.1:hasBeginning rdf:nodeID="A107"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A108">
+    <j.1:hasDateTimeDescription rdf:nodeID="A109"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A110">
+    <j.1:hasDateTimeDescription rdf:nodeID="A111"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A112">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1420</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A99">
+    <j.1:hasDateTimeDescription rdf:nodeID="A113"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A78">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1263</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1962~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A10"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A103">
+    <j.1:hasBeginning rdf:nodeID="A93"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A114">
+    <j.1:hasBeginning rdf:nodeID="A82"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A91">
+    <j.1:hasDateTimeDescription rdf:nodeID="A115"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1893~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A55"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A92">
+    <j.1:hasBeginning rdf:nodeID="A116"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A81">
+    <j.1:hasBeginning rdf:nodeID="A104"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1896~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A73"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A51">
+    <j.1:hasBeginning rdf:nodeID="A117"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A118">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1546</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A107">
+    <j.1:hasDateTimeDescription rdf:nodeID="A101"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A109">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1282</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A106">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1879</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A70">
+    <j.1:hasDateTimeDescription rdf:nodeID="A112"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1249~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A39"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A119">
+    <j.1:hasBeginning rdf:nodeID="A120"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1509~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A119"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A121">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A122">
+    <j.1:hasDateTimeDescription rdf:nodeID="A6"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1929~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A114"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A123">
+    <j.1:hasDurationDescription rdf:nodeID="A124"/>
+    <j.1:hasBeginning rdf:nodeID="A110"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A115">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1965</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A116">
+    <j.1:hasDateTimeDescription rdf:nodeID="A125"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A113">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1965</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A126">
+    <j.1:hasDateTimeDescription rdf:nodeID="A102"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A61">
+    <j.1:hasBeginning rdf:nodeID="A97"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A80">
+    <j.1:hasDateTimeDescription rdf:nodeID="A127"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1965~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A98"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A117">
+    <j.1:hasDateTimeDescription rdf:nodeID="A84"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A128">
+    <j.1:hasDateTimeDescription rdf:nodeID="A118"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1979~29-0-0">
+    <j.0:hasTemporalDimension rdf:nodeID="A123"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A44">
+    <j.1:hasBeginning rdf:nodeID="A128"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1786~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A46"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A23">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1221</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A67">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1910</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A129">
+    <j.1:hasDateTimeDescription rdf:nodeID="A35"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A124">
+    <j.1:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:days>
+    <j.1:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:months>
+    <j.1:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</j.1:years>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DurationDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1379~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A130"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A56">
+    <j.1:hasDateTimeDescription rdf:nodeID="A131"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A90">
+    <j.1:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:days>
+    <j.1:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:months>
+    <j.1:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</j.1:years>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DurationDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A132">
+    <j.1:hasBeginning rdf:nodeID="A122"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A133">
+    <j.1:hasDateTimeDescription rdf:nodeID="A121"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A120">
+    <j.1:hasDateTimeDescription rdf:nodeID="A134"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1427~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A94"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1886~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A25"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A135">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1427</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A36">
+    <j.1:hasBeginning rdf:nodeID="A126"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A53">
+    <j.1:hasBeginning rdf:nodeID="A136"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A137">
+    <j.1:hasBeginning rdf:nodeID="A133"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A58">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1876</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1314~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A79"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A125">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1326</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A138">
+    <j.1:hasDateTimeDescription rdf:nodeID="A49"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A41">
+    <j.1:hasDateTimeDescription rdf:nodeID="A139"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1714~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A140"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1341~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A132"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A69">
+    <j.1:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:days>
+    <j.1:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:months>
+    <j.1:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">461</j.1:years>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DurationDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A33">
+    <j.1:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:days>
+    <j.1:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</j.1:months>
+    <j.1:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">98</j.1:years>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DurationDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A111">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1979</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A131">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1893</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A75">
+    <j.1:hasBeginning rdf:nodeID="A129"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A141">
+    <j.1:hasBeginning rdf:nodeID="A108"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A68">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1786</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A48">
+    <j.1:hasBeginning rdf:nodeID="A105"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A134">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1509</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1950~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A100"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A30">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1571</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1249</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1876~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A16"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A140">
+    <j.1:hasBeginning rdf:nodeID="A54"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A136">
+    <j.1:hasDateTimeDescription rdf:nodeID="A31"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A37">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1610</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A95">
+    <j.1:hasDateTimeDescription rdf:nodeID="A135"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1897~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A137"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A87">
+    <j.1:hasBeginning rdf:nodeID="A7"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A127">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1314</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A139">
+    <j.1:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1927</j.1:year>
+    <j.1:unitType rdf:resource="http://www.w3.org/2006/time#unitYear"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#DateTimeDescription"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1282~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A141"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1571~dooms-day">
+    <j.0:hasTemporalDimension rdf:nodeID="A59"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/03/trix/rdfg-1/Graph"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A130">
+    <j.1:hasBeginning rdf:nodeID="A138"/>
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Interval"/>
+  </rdf:Description>
+</rdf:RDF>

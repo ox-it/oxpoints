@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:html="http://www.w3.org/1999/xhtml">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Oxford locations</title>
+         </titleStmt>
+         <editionStmt>
+            <p/>
+         </editionStmt>
+         <publicationStmt>
+            <p/>
+         </publicationStmt>
+         <sourceDesc>
+            <p>derived</p>
+         </sourceDesc>
+      </fileDesc>
+      <revisionDesc>
+         <change>
+            <date>$LastChangedDate: 2009-07-21 16:40:43 +0100 (Tue, 21 Jul 2009) $.</date>
+            <respStmt>
+               <name>$LastChangedBy: timp $</name>
+            </respStmt>
+            <item>$LastChangedRevision: 614 $</item>
+         </change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body html:onload="load(13)" html:onunload="GUnload()">
+         <listPlace>
+            <place oucsCode="O_stalban" oxpID="23232333" type="college">
+               <placeName>St Alban Hall</placeName>
+               <event when="1881" type="ended">
+                  <label>Merged with Merton College</label>
+               </event>
+               <event when="1420" type="founded">
+                  <label>Register of fellows</label>
+               </event>
+               <place oxpID="23232334" type="building">
+                  <placeName>St Alban Hall Entrance</placeName>
+                  <location>
+                     <geo>-1.251376 51.751379</geo>
+                  </location>
+               </place>
+            </place>
+         </listPlace>
+      </body>
+   </text>
+</TEI>
