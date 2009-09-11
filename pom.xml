@@ -302,11 +302,11 @@
   <repository>
    <id>bogof</id>
    <name>bogof</name>
-   <url>scp://bogof.nsms.ox.ac.uk/home/maven2/repo/</url>
+   <url>scp://maven2@bogof.nsms.ox.ac.uk/home/maven2/repo/</url>
   </repository>
   <site>
    <id>bogof</id>
-   <url>scp://bogof.nsms.ox.ac.uk:/home/maven2/project/${pom.artifactId}</url>
+   <url>scp://maven2@bogof.nsms.ox.ac.uk:/home/maven2/project/${pom.artifactId}</url>
   </site>
 
  </distributionManagement>
