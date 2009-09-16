@@ -279,7 +279,6 @@ public class TestGabotoTimeBasedEntity {
     assertEquals(b.getName(), name1);
   }
 
-  // FIXME Sometimes fails!!!!!
   //@Test 
   public void testAddEntityComplex() throws Exception {
    // Gaboto oxp = GabotoFactory.getPersistentGaboto();
