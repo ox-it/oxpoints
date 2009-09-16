@@ -430,7 +430,7 @@ public class TEIImporter {
             throw new RuntimeException("Could not parse date: " + event.getAttribute("when")  + " for " + unit.getName() );
           }
         } else if(event.hasAttribute("type") && event.getAttribute("type").equals("status")){
-          //FIXME 
+          //FIXME What to do with status change events?
           System.err.println("FIXME What to do with status change events?");
 				} else throw new RuntimeException("Unrecognised event type: " + event.getAttribute("type"));
 			}
