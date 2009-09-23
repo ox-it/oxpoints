@@ -93,19 +93,19 @@ public class TestGabotoEntity  {
 		b2.setLocation(loc2);
 		
 		Unit u = new Unit();
-		u.setUri(oxp.generateID());
+		u.setUri(oxp.generateIdUri());
 		u.setTimeSpan(new TimeSpan(1900,null,null));
 		u.setName("Test Unit");
 		u.setPrimaryPlace(b);
 		
 		Unit u2 = new Unit();
-		u2.setUri(oxp.generateID());
+		u2.setUri(oxp.generateIdUri());
 		u2.setTimeSpan(new TimeSpan(1900,null,null));
 		u2.setName("Test Unit");
 		u2.setPrimaryPlace(b2);
 		
 		Unit u3 = new Unit();
-		u3.setUri(oxp.generateID());
+		u3.setUri(oxp.generateIdUri());
 		u3.setTimeSpan(new TimeSpan(1900,null,null));
 		u3.setName("Test Unit");
 		u3.setSubsetOf(u2);
@@ -122,7 +122,7 @@ public class TestGabotoEntity  {
 		Gaboto oxp_mem = GabotoFactory.getInMemoryGaboto();
 		
 		Building b = new Building();
-		b.setUri(oxp.generateID());
+		b.setUri(oxp.generateIdUri());
 		b.setTimeSpan(new TimeSpan(1900,null,null));
 		b.setName("Test Building");
 		Location loc = new Location();
@@ -130,7 +130,7 @@ public class TestGabotoEntity  {
 		b.setLocation(loc);
 		
 		Unit u = new Unit();
-		u.setUri(oxp.generateID());
+		u.setUri(oxp.generateIdUri());
 		u.setTimeSpan(new TimeSpan(1900,null,null));
 		u.setName("Test Unit");
 		u.addOccupiedBuilding(b);
@@ -150,13 +150,13 @@ public class TestGabotoEntity  {
 	@Test
 	public void testTypedLiteral1() throws Exception{
 		
-		String uri1 = oxp.generateID();
+		String uri1 = oxp.generateIdUri();
 		Carpark cp1 = new Carpark();
 		cp1.setUri(uri1);
 		cp1.setName("small carpark");
 		cp1.setCapacity(30);
 		
-		final String uri2 = oxp.generateID();
+		final String uri2 = oxp.generateIdUri();
 		Carpark cp2 = new Carpark();
 		cp2.setUri(uri2);
 		cp2.setName("big carpark");

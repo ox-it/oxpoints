@@ -288,7 +288,7 @@ public class TestGabotoTimeBasedEntity {
       GabotoTimeBasedEntity entityTB = new GabotoTimeBasedEntity(
           Building.class, 
           oxp.getOntologyLookup().getTypeURIForEntityClass(Building.class), 
-          oxp_mem.generateID(), 
+          oxp_mem.generateIdUri(), 
           TimeUtils.getRandomTimespan());
 
       for (int j = 0; j < 200; j++) {
