@@ -53,9 +53,12 @@ public final class OxpointsFactory {
   public static Gaboto getOxpointsFromXML(String filenameIn) { 
     System.err.println("Reading oxp from " + filenameIn);
     File file = new File(filenameIn);
-    if(! file.exists())
-      throw new RuntimeException ("Cannot open file " + filenameIn);
-    
+    if(! file.exists()) {
+      file = new File("examples/oxpoints/" + filename);      
+      if(! file.exists()) {
+        throw new RuntimeException ("Cannot open file " + filenameIn);
+      }
+    }
     Gaboto oxp = GabotoFactory.getEmptyInMemoryGaboto();
     new TEIImporter(oxp, file).run();
     return oxp;
