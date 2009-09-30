@@ -1,0 +1,7 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://ns.ox.ac.uk/namespace/rdfcontext/2009/02/owl#" > 
+  <rdf:Description rdf:about="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#gkg.rdf">
+    <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/rdfcontext/2009/02/owl#GlobalKnowledgeGraph"/>
+  </rdf:Description>
+</rdf:RDF>

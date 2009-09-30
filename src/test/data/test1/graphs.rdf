@@ -1,0 +1,39 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ns0:     <http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://ns.ox.ac.uk/namespaces/oxpoints/graphs#default.rdf> { }
+
+<http://ns.ox.ac.uk/namespaces/oxpoints/graphs#gkg.rdf> {<http://m.ox.ac.uk/oxpoints/id/23232919>
+          a       ns0:Library ;
+          ns0:hasOLISCode "ECO StaffDesk"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode "O_lib_eco_7"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:occupies
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232912> ;
+          dc:title "Staff Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23233084>
+          a       ns0:Library ;
+          ns0:hasOLISCode "MUS Listening"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode "O_lib_mus_3"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:occupies
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233081> ;
+          dc:title "Listening Room"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://www.chch.ox.ac.uk>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
+}
+
