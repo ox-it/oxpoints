@@ -75,12 +75,12 @@ public class TestTEIImporter {
   }
   @Test
   public void testAllToRdf() throws Exception { 
-    File graphsFile = new File(Utils.actualOutputDir, "graphs.rdf");
+    File graphsFile = new File(Utils.actualOutputDir, Gaboto.GRAPH_FILE_NAME);
     FileOutputStream actualOutputStream = new FileOutputStream(graphsFile);
     oxp.write(actualOutputStream);
     actualOutputStream.close();
     
-    File contextFile = new File(Utils.actualOutputDir, "cdg.rdf");
+    File contextFile = new File(Utils.actualOutputDir, Gaboto.CDG_FILE_NAME);
     FileOutputStream contextOutputStream = new FileOutputStream(contextFile);
     oxp.writeCDG(contextOutputStream);
     contextOutputStream.close();
