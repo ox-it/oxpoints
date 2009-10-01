@@ -58,12 +58,12 @@ public class TestGaboto {
   public void testReadInputStream() throws Exception {
     Gaboto g = GabotoFactory.getEmptyInMemoryGaboto();
     assertEquals(0, g.getJenaModelViewOnNamedGraphSet().size());
-    File graphs = new File(rooted("src/test/data/test1"), Gaboto.GRAPH_FILE_NAME);
+    File graphs = new File(Utils.rooted("src/test/data/test1"), Gaboto.GRAPH_FILE_NAME);
     FileInputStream graphsFileInputStream; 
     graphsFileInputStream = new FileInputStream(graphs);
     
     g.read(graphsFileInputStream);
-    g.persistToDisk(rooted("src/test/data/test1"));
+    g.persistToDisk(Utils.rooted("src/test/data/test1"));
     
     assertEquals(21,g.getJenaModelViewOnNamedGraphSet().size());
   }
@@ -71,7 +71,7 @@ public class TestGaboto {
   @Test
   public void testPersistEmpty() throws Exception { 
     Gaboto g = GabotoFactory.getEmptyInMemoryGaboto();
-    g.persistToDisk(rooted("src/test/data/empty"));
+    g.persistToDisk(Utils.rooted("src/test/data/empty"));
     
   }
   /**
@@ -79,9 +79,9 @@ public class TestGaboto {
    */
   @Test
   public void testReadString() throws Exception {
-    Gaboto g = GabotoFactory.readPersistedGaboto(rooted("src/test/data/empty"));
+    Gaboto g = GabotoFactory.readPersistedGaboto(Utils.rooted("src/test/data/empty"));
     assertEquals(0, g.getJenaModelViewOnNamedGraphSet().size());
-    File graphs = new File(rooted("src/test/data/test1"), "graphs.rdf");
+    File graphs = new File(Utils.rooted("src/test/data/test1"), "graphs.rdf");
     FileInputStream graphsFileInputStream; 
     graphsFileInputStream = new FileInputStream(graphs);
     
@@ -92,7 +92,7 @@ public class TestGaboto {
       contents.append((char)c);
     }
     g.read(contents.toString());
-    g.persistToDisk(rooted("src/test/data/test1"));
+    g.persistToDisk(Utils.rooted("src/test/data/test1"));
     assertEquals(21,g.getJenaModelViewOnNamedGraphSet().size());
   }
 
@@ -101,9 +101,9 @@ public class TestGaboto {
    */
   @Test
   public void testReadInputStreamStringInputStreamString() throws Exception {
-    Gaboto g = GabotoFactory.readPersistedGaboto(rooted("src/test/data/empty"));
+    Gaboto g = GabotoFactory.readPersistedGaboto(Utils.rooted("src/test/data/empty"));
     assertEquals(0,g.getJenaModelViewOnNamedGraphSet().size());
-    File graphs = new File(rooted("src/test/data/test1"), Gaboto.GRAPH_FILE_NAME);
+    File graphs = new File(Utils.rooted("src/test/data/test1"), Gaboto.GRAPH_FILE_NAME);
     FileInputStream graphsFileInputStream; 
     graphsFileInputStream = new FileInputStream(graphs); 
     
@@ -111,13 +111,5 @@ public class TestGaboto {
     assertEquals(21,g.getJenaModelViewOnNamedGraphSet().size());
   }
   
-  String rooted(String relative) throws Exception {
-    File here = new java.io.File(".");
-    System.err.println(here.getCanonicalPath());
-    if (here.getCanonicalPath().endsWith("gaboto"))
-      return "examples/oxpoints/" + relative;
-    else 
-      return relative;
-  }
 
 }

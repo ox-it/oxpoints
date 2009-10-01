@@ -37,13 +37,14 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import org.custommonkey.xmlunit.XMLAssert;
 
 public final class Utils {
 
   
-  public static String referenceOutputDir = "src/test/reference";
+  public static String referenceOutputDir = rooted("src/test/reference");
   public static String actualOutputDir = "target";
 
   public static void assertFileContentsStringEqual(String fileName) throws Exception {
@@ -116,5 +117,18 @@ public final class Utils {
     }
   }
   
+  public static String rooted(String relative) {
+    File here = new java.io.File(".");
+    String path = null;
+    try {
+      path = here.getCanonicalPath();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+    if (path.endsWith("gaboto"))
+      return "examples/oxpoints/" + relative;
+    else 
+      return relative;
+  }
   
 }
