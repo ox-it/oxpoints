@@ -644,9 +644,11 @@ public class TEIImporter {
 					
 					Element addressPart = (Element) addressChildren.item(j);
 					
-					if (addressPart.getNodeName().equals("addrLine"))
+					if (addressPart.getNodeName().equals("addrLine")) {
+            if (add.length() > 0 )
+              add += ", ";
             add += addressPart.getTextContent();
-					else if (addressPart.getNodeName().equals("postCode"))
+					} else if (addressPart.getNodeName().equals("postCode"))
             postCode += addressPart.getTextContent();
           else
             throw new RuntimeException("Unrecognized element:" + addressPart);
