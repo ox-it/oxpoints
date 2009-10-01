@@ -13,10 +13,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233502">
     <j.1:inImage rdf:nodeID="A2"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233503"/>
     <j.1:occupies rdf:nodeID="A3"/>
     <j.1:hasHomepage rdf:resource="http://www.parks.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">parks</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233503"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">University Parks</dc:title>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
   </rdf:Description>
@@ -44,20 +44,20 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233497">
     <j.1:inImage rdf:nodeID="A9"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233651"/>
     <j.1:occupies rdf:nodeID="A10"/>
     <j.1:hasHomepage rdf:resource="http://www.oxford-union.org/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O_ous</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233651"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oxford Union Society</dc:title>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233593">
     <j.1:inImage rdf:nodeID="A11"/>
     <j.1:hasWeblearn rdf:resource="http://weblearn.ox.ac.uk/site/human/phone/"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233585"/>
     <j.1:occupies rdf:nodeID="A12"/>
     <j.1:hasHomepage rdf:resource="http://www.phon.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">phone</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233585"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phonetics Laboratory</dc:title>
     <j.0:adr rdf:nodeID="A13"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -67,10 +67,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233507">
     <j.1:inImage rdf:nodeID="A15"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233508"/>
     <j.1:occupies rdf:nodeID="A16"/>
     <j.1:hasHomepage rdf:resource="http://www.sheldon.ox.ac.uk"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sheld</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233508"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sheldonian Theatre</dc:title>
     <j.0:adr rdf:nodeID="A17"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -94,10 +94,10 @@
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233578">
     <j.1:inImage rdf:nodeID="A22"/>
     <j.1:hasWeblearn rdf:resource="http://weblearn.ox.ac.uk/site/human/english/"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233635"/>
     <j.1:occupies rdf:nodeID="A23"/>
     <j.1:hasHomepage rdf:resource="http://www.english.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">engfac</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233635"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Faculty of English Language and Literature</dc:title>
     <j.0:adr rdf:nodeID="A24"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -113,10 +113,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233598">
     <j.1:inImage rdf:nodeID="A27"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233620"/>
     <j.1:occupies rdf:nodeID="A28"/>
     <j.1:hasHomepage rdf:resource="http://www.ouls.ox.ac.uk"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ulib</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233620"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">University Library Services</dc:title>
     <j.0:adr rdf:nodeID="A29"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -132,10 +132,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233498">
     <j.1:inImage rdf:nodeID="A31"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233499"/>
     <j.1:occupies rdf:nodeID="A32"/>
     <j.1:hasHomepage rdf:resource="http://www.university-church.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O_univchurch</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233499"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The University Church of St Mary the Virgin</dc:title>
     <j.0:adr rdf:nodeID="A33"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -157,10 +157,10 @@
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233579">
     <j.1:inImage rdf:nodeID="A36"/>
     <j.1:hasWeblearn rdf:resource="http://weblearn.ox.ac.uk/site/human/modhist/"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233580"/>
     <j.1:occupies rdf:nodeID="A37"/>
     <j.1:hasHomepage rdf:resource="http://www.history.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">histfac</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233580"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Faculty of History</dc:title>
     <j.0:adr rdf:nodeID="A30"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -181,10 +181,10 @@
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233589">
     <j.1:inImage rdf:nodeID="A41"/>
     <j.1:hasWeblearn rdf:resource="http://weblearn.ox.ac.uk/site/human/philosophy/"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233590"/>
     <j.1:occupies rdf:nodeID="A7"/>
     <j.1:hasHomepage rdf:resource="http://www.philosophy.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">philfac</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233590"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Faculty of Philosophy</dc:title>
     <j.0:adr rdf:nodeID="A8"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -198,10 +198,10 @@
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233495">
     <j.1:inImage rdf:nodeID="A42"/>
     <j.1:subsetOf rdf:resource="http://m.ox.ac.uk/oxpoints/id/23232352"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233496"/>
     <j.1:occupies rdf:nodeID="A43"/>
     <j.1:hasHomepage rdf:resource="http://www.chch.ox.ac.uk/index.php?option=com_content&amp;task=view&amp;id=245&amp;Itemid=300"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O_cathedral</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233496"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Christ Church Cathedral</dc:title>
     <j.0:adr rdf:nodeID="A39"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -240,10 +240,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233500">
     <j.1:inImage rdf:nodeID="A5"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233501"/>
     <j.1:occupies rdf:nodeID="A40"/>
     <j.1:hasHomepage rdf:resource="http://www.oup.co.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oup</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233501"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oxford University Press</dc:title>
     <j.0:adr rdf:nodeID="A0"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -273,16 +273,16 @@
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A49">
-    <j.0:street_address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ioannou Centre for Classical and Byzantine  Studies66 St GilesOxford</j.0:street_address>
+    <j.0:street_address rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ioannou Centre for Classical and Byzantine  Studies, 66 St Giles, Oxford</j.0:street_address>
     <j.0:postal_code rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OX1 3LU</j.0:postal_code>
     <rdf:type rdf:resource="http://nwalsh.com/rdf/vCard#Address"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233576">
     <j.1:inImage rdf:nodeID="A34"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233614"/>
     <j.1:occupies rdf:nodeID="A21"/>
     <j.1:hasHomepage rdf:resource="http://www.admin.ox.ac.uk/eop/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">O_equality</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233614"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Equality and Diversity Unit</dc:title>
     <j.0:adr rdf:nodeID="A4"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -316,10 +316,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233509">
     <j.1:inImage rdf:nodeID="A26"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233702"/>
     <j.1:occupies rdf:nodeID="A53"/>
     <j.1:hasHomepage rdf:resource="http://www.club.ox.ac.uk/"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">univclub</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233702"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oxford University Club</dc:title>
     <j.0:adr rdf:nodeID="A50"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -329,10 +329,10 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://m.ox.ac.uk/oxpoints/id/23233595">
     <j.1:inImage rdf:nodeID="A1"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233596"/>
     <j.1:occupies rdf:nodeID="A46"/>
     <j.1:hasHomepage rdf:resource="http://www.rhodeshouse.ox.ac.uk"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rho</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233596"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rhodes House</dc:title>
     <j.0:adr rdf:nodeID="A52"/>
     <rdf:type rdf:resource="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit"/>
@@ -432,8 +432,8 @@
     <j.1:hasITHomepage rdf:resource="http://www.orinst.ox.ac.uk/general/it.shtml"/>
     <j.1:inImage rdf:nodeID="A48"/>
     <j.1:occupies rdf:nodeID="A6"/>
-    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233588"/>
     <j.1:hasOUCSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orient</j.1:hasOUCSCode>
+    <j.1:primaryPlace rdf:resource="http://m.ox.ac.uk/oxpoints/id/23233588"/>
     <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oriental Institute</dc:title>
   </rdf:Description>
   <rdf:Description rdf:nodeID="A58">
