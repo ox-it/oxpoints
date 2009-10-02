@@ -738,7 +738,7 @@
                </trait>
                <trait type="iturl">
                   <desc>
-                     <ptr target="http://www-lmh.lmh.ox.ac.uk/it/"/>
+                     <ptr target="http://www.lmh.ox.ac.uk/Students/IT.aspx"/>
                   </desc>
                </trait>
                <place oxpID="23232384" type="building" subtype="primary">
@@ -1499,7 +1499,8 @@
                </trait>
                <trait type="iturl">
                   <desc>
-                     <ptr target="http://www.sthildas.ox.ac.uk/information/computing/"/>
+                     <ptr
+			 target="http://www.st-hildas.ox.ac.uk/index.php/it/itfacilities.html"/>
                   </desc>
                </trait>
                <place oxpID="23232455" type="building" subtype="primary">
@@ -2285,7 +2286,7 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                </location>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.apsoc.ox.ac.uk/"/>
+                     <ptr target="http://www.spsw.ox.ac.uk/"/>
                   </desc>
                </trait>
                <trait type="weblearn">
@@ -2304,7 +2305,7 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                </location>
                <trait type="url">
                   <desc>
-                     <ptr target="http://athens.arch.ox.ac.uk"/>
+                     <ptr target="http://www.arch.ox.ac.uk/"/>
                   </desc>
                </trait>
 
@@ -2321,7 +2322,7 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
 
                <trait type="url">
                   <desc>
-                     <ptr target="http://athens.arch.ox.ac.uk/schoolarch/institute/"/>
+                     <ptr target="http://www.arch.ox.ac.uk/institute.html"/>
                   </desc>
                </trait>
 
@@ -2917,6 +2918,9 @@ data, and if so, how? -->
 
             <place oucsCode="diabres" oxpID="23232574" type="department">
                <placeName>Diabetes Research Laboratories</placeName>
+               <event when="2007" type="ended">
+		 <label>Absorbed into OCDEM</label>
+	       </event>
                <location type="address">
                   <address>
                      <addrLine>OCDEM, Churchill Hospital, Old Road, Headington, Oxford</addrLine>
@@ -3339,7 +3343,7 @@ data, and if so, how? -->
                </location>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.human-sciences.ox.ac.uk/"/>
+                     <ptr target="http://www.ihs.ox.ac.uk/"/>
                   </desc>
                </trait>
 	           </place>
@@ -4889,7 +4893,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://athens.arch.ox.ac.uk/schoolarch/institute/readingroom.html"/>
+                     <ptr target="http://www.arch.ox.ac.uk/library-and-archives.html"/>
                   </desc>
                </trait>
             </place>
@@ -5893,11 +5897,6 @@ data, and if so, how? -->
                      <ptr target="http://www.lib.ox.ac.uk/libraries/guides/HSC.html"/>
                   </desc>
                </trait>
-               <trait type="url">
-                  <desc>
-                     <ptr target="http://www.human-sciences.ox.ac.uk/"/>
-                  </desc>
-               </trait>
             </place>
             <place oucsCode="O_lib_hsc_1" oxpID="23232980" type="library" olisCode="HSC Main Libr">
                <placeName>Main Library</placeName>
@@ -6627,7 +6626,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.physchem.ox.ac.uk/"/>
+                     <ptr target="http://physchem.ox.ac.uk/"/>
                   </desc>
                </trait>
             </place>
@@ -7893,7 +7892,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.ouls.ox.ac.uk/rsl"/>
+                     <ptr target="http://www.ouls.ox.ac.uk/rsl/"/>
                   </desc>
                </trait>
             </place>
@@ -8106,7 +8105,7 @@ data, and if so, how? -->
                </location>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.ashmolean.org"/>
+                     <ptr target="http://www.ashmolean.org/"/>
                   </desc>
                </trait>
                <place oxpID="23233484" type="building" subtype="primary" obnCode="104">
@@ -8195,7 +8194,7 @@ data, and if so, how? -->
                </location>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.oum.ac.uk/"/>
+                     <ptr target="http://www.oum.ox.ac.uk/"/>
                   </desc>
                </trait>
                <place oxpID="23233493" type="building" subtype="primary" obnCode="252">
@@ -8806,13 +8805,16 @@ data, and if so, how? -->
                </location>
                <trait type="url">
                   <desc>
-                     <ptr target="http://colleges.ox.ac.uk/departments/archives/"/>
+                     <ptr target="http://www.oua.ox.ac.uk/"/>
                   </desc>
                </trait>
 
             </place>
             <place oucsCode="blu" oxpID="23233544" type="uas">
                <placeName>Business Liaison Unit</placeName>
+               <event when="2003" type="ended">
+		 <label>Disbanded</label>
+	       </event>
                <location type="address">
                   <address>
                      <addrLine>Ewert House, Ewert Place, Oxford</addrLine>
@@ -10898,8 +10900,7 @@ data, and if so, how? -->
   <relation name="occupies" active="#conted" passive="#b_0015" type="geo" />
   <relation name="occupies" active="#conted" passive="#b_0030" type="geo" />
   <relation name="occupies" active="#conted" passive="#b_0031" type="geo primary" />
-  <relation name="occupies" active="#conted" passive="#b_0055" type="geo" />
-  <relation name="occupies" active="#conted" passive="#e_129" type="geo" />
+ <relation name="occupies" active="#conted" passive="#b_0055" type="geo" />
   <relation name="occupies" active="#counsel" passive="#b_0033" type="geo primary" />
   <relation name="occupies" active="#crim" passive="#b_0020" type="geo primary" />
   <relation name="occupies" active="#devoff" passive="#b_0027" type="geo primary" />
