@@ -79,7 +79,7 @@ public class TestGaboto {
    */
   @Test
   public void testReadString() throws Exception {
-    Gaboto g = GabotoFactory.getGaboto(Utils.rooted("src/test/data/empty"));
+    Gaboto g = GabotoFactory.getEmptyInMemoryGaboto();
     assertEquals(0, g.getJenaModelViewOnNamedGraphSet().size());
     File graphs = new File(Utils.rooted("src/test/data/test1"), "graphs.rdf");
     FileInputStream graphsFileInputStream; 
