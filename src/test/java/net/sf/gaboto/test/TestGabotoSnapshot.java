@@ -54,6 +54,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.DC_11;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -164,15 +165,26 @@ public class TestGabotoSnapshot {
     EntityPool pool = nowSnap.loadEntitiesWithProperty(DC_11.title, "Somerville College");
     assertTrue("it is " + pool.getSize(), pool.getSize() == 1);
   }
+
   @Test
   public void testTimeSnapshots(){
     Gaboto oxp = OxpointsFactory.getOxpointsFromXML();
     
     GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
-    assertTrue("it is " + nowSnap.size(), nowSnap.size() == 15960);
-    
     GabotoSnapshot whenGreenWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1999), new Integer(11), new Integer(2)));
+    GabotoSnapshot beforeGreenExisted = oxp.getSnapshot(new TimeInstant(new Integer(1978), new Integer(11), new Integer(2)));
+
+    assertTrue("it is " + nowSnap.size(), nowSnap.size() == 15960);
+    assertFalse(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
+    assertTrue(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
+    
     assertTrue("it is " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 16022);
+    assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
+    assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
+
+    assertTrue("it is " + beforeGreenExisted.size(), beforeGreenExisted.size() == 15941);
+    assertFalse(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
+    assertTrue(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
   }
 	
 	
