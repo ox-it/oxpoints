@@ -435,9 +435,6 @@ public class TEIImporter {
 				} else throw new RuntimeException("Unrecognised event type: " + event.getAttribute("type"));
 			}
 		}
-		// 1420 is the date of foundation of StAlban's Hall
-		//if (start.getStartYear().equals(new Integer(1420)))
-		//  throw new RuntimeException("End:" + end);
 		
 		// have we found something
     if(start != null) { 
@@ -447,6 +444,10 @@ public class TEIImporter {
         ts = new TimeSpan(start.getStartYear(), start.getStartMonth(), start.getStartDay());
     }
 			
+    // 1420 is the date of foundation of StAlban's Hall
+    //if (start.getStartYear().equals(new Integer(1420)))
+    //  throw new RuntimeException("End:" + end + " ts:" + ts);
+    
 		unit.setHomepage(findHomepage(unitEl, ts));
 		
 		unit.setItHomepage(findITWebsite(unitEl, ts));
