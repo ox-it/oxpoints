@@ -156,12 +156,24 @@ public class TestGabotoSnapshot {
 		assertEquals(describedSnap.size(),collegeSnap.size());
 	}
 	
-	@Test
-	public void testLoadEntities(){
+  @Test
+  public void testLoadEntities(){
     Gaboto oxp = OxpointsFactory.getOxpointsFromXML();
-		
-		GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
-		EntityPool pool = nowSnap.loadEntitiesWithProperty(DC_11.title, "Somerville College");
+    
+    GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
+    EntityPool pool = nowSnap.loadEntitiesWithProperty(DC_11.title, "Somerville College");
     assertTrue("it is " + pool.getSize(), pool.getSize() == 1);
-	}
+  }
+  @Test
+  public void testTimeSnapshots(){
+    Gaboto oxp = OxpointsFactory.getOxpointsFromXML();
+    
+    GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
+    assertTrue("it is " + nowSnap.size(), nowSnap.size() == 15960);
+    
+    GabotoSnapshot whenGreenWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1999), new Integer(11), new Integer(2)));
+    assertTrue("it is " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 16022);
+  }
+	
+	
 }
