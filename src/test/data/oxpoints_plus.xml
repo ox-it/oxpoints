@@ -1090,20 +1090,11 @@
             <place oxpID="23232419" type="room">
               <placeName>Boat House</placeName>
             </place>
-            <place oxpID="23232420" type="room">
-              <placeName>Chapel and Fellows' Garden</placeName>
-            </place>
-            <place oxpID="23232421" type="room">
-              <placeName>Memorial Room</placeName>
-            </place>
-            <place oxpID="23232422" type="room">
-              <placeName>The Hall</placeName>
-            </place>
           </place>
           <place oxpID="23232420" type="building">
             <placeName>Chapel and Fellows' Garden</placeName>
           </place>
-          <place type="building" oxpID="23233914">
+          <place oxpID="23233914" type="building">
             <placeName>(unknown building)</placeName>
             <place oxpID="23232421" type="room">
               <placeName>Memorial Room</placeName>
