@@ -174,15 +174,15 @@ public class TestGabotoSnapshot {
     GabotoSnapshot whenGreenWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1999), new Integer(11), new Integer(2)));
     GabotoSnapshot beforeGreenExisted = oxp.getSnapshot(new TimeInstant(new Integer(1978), new Integer(11), new Integer(2)));
 
-    assertTrue("it is " + nowSnap.size(), nowSnap.size() == 15960);
+    assertTrue("it is " + nowSnap.size(), nowSnap.size() == 15918);
     assertFalse(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
     assertTrue(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
     
-    assertTrue("it is " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 16022);
+    assertTrue("it is " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 15964);
     assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
     assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
 
-    assertTrue("it is " + beforeGreenExisted.size(), beforeGreenExisted.size() == 15941);
+    assertTrue("it is " + beforeGreenExisted.size(), beforeGreenExisted.size() == 15895);
     assertFalse(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
     assertTrue(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
   }
