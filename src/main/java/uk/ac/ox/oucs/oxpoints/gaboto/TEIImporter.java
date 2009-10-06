@@ -81,7 +81,7 @@ public class TEIImporter {
 	public final static String XML_NS = "http://www.w3.org/XML/1998/namespace";
 	
 	private Set<OxpEntity> entities = new HashSet<OxpEntity>();
-	private Map<String, OxpEntity> oucsCodeToEntityLookup = new HashMap<String, OxpEntity>();
+	private Map<String, OxpEntity> oxpointsIdToEntityLookup = new HashMap<String, OxpEntity>();
 	
 	
 	public TEIImporter(Gaboto gaboto, File file) {
@@ -128,7 +128,7 @@ public class TEIImporter {
 			try {
 				gaboto.add(e);
 			} catch (net.sf.gaboto.EntityAlreadyExistsException e1) {
-				throw new RuntimeException(e.getUri() + " has already been added to the system."); 
+				//throw new RuntimeException(e.getUri() + " has already been added to the system."); 
 			} 
 		}
     //System.err.println("Gaboto contains " + gaboto.getJenaModelViewOnNamedGraphSet().size() + " entities");
@@ -186,6 +186,7 @@ public class TEIImporter {
 	
 
 	private void processFigure(Element figureEl) {
+	  /*
 		// try to find corresponding entity
 		if(! figureEl.hasAttribute("corresp")){
 			throw new RuntimeException("Ambiguous figure element");
@@ -194,7 +195,7 @@ public class TEIImporter {
 		String id = figureEl.getAttribute("corresp");
 		
 		try{
-			OxpEntity oxpoint = oucsCodeToEntityLookup.get(id.substring(1));
+			OxpEntity oxpoint = oxpointsIdToEntityLookup.get(id.substring(1));
       Place entity = null;
       if (oxpoint instanceof Place)
         entity = (Place)oxpoint;
@@ -233,16 +234,17 @@ public class TEIImporter {
 		} catch(NullPointerException e){
 			throw new RuntimeException("Could not load entity from id: " + id );
 		}
+		*/
 	}
 	
   private void processControls(Element relation){
     String activeID = relation.getAttribute("active");
     String passiveID = relation.getAttribute("passive");
     
-    Unit active = (Unit) oucsCodeToEntityLookup.get(activeID.substring(1));
+    Unit active = (Unit) oxpointsIdToEntityLookup.get(activeID.substring(1));
     if(active == null)
       throw new RuntimeException("Could not load active entity from id: " + activeID );
-    Unit passive = (Unit) oucsCodeToEntityLookup.get(passiveID.substring(1));
+    Unit passive = (Unit) oxpointsIdToEntityLookup.get(passiveID.substring(1));
     if(passive == null )
       throw new RuntimeException("Could not load passive entity from id: " + passiveID );
     passive.setSubsetOf(active);
@@ -254,11 +256,11 @@ public class TEIImporter {
 		String activeID = relation.getAttribute("active");
 		String passiveID = relation.getAttribute("passive");
 		
-    Unit u = (Unit) oucsCodeToEntityLookup.get(activeID.substring(1));
+    Unit u = (Unit) oxpointsIdToEntityLookup.get(activeID.substring(1));
     if (u == null)
       throw new RuntimeException("Could not load entity from id: " + activeID);
     
-    Place b = (Place) oucsCodeToEntityLookup.get(passiveID.substring(1));
+    Place b = (Place) oxpointsIdToEntityLookup.get(passiveID.substring(1));
     if (b == null)
       throw new RuntimeException("Could not load entity from id: " + passiveID);
 	
@@ -306,7 +308,7 @@ public class TEIImporter {
 		}
 		
 		entities.add(cp);
-    oucsCodeToEntityLookup.put(code, cp);
+    oxpointsIdToEntityLookup.put(id, cp);
 	}
 	
 	/**
@@ -315,7 +317,6 @@ public class TEIImporter {
 	 */
 	private void processBuilding(Element buildingEl){
 		getBuilding(buildingEl, null);
-		
 	}
 	
 
@@ -335,8 +336,6 @@ public class TEIImporter {
 		lib.setOLISCode(code);
 
 		lib.setLibraryHomepage(findLibWebsite(libraryEl, lib.getTimeSpan()));
-    if(lib.getOUCSCode() != null)
-      oucsCodeToEntityLookup.put(lib.getOUCSCode(), lib);
 	}
 	
 	/**
@@ -349,11 +348,11 @@ public class TEIImporter {
 		
 		// add unit
 		entities.add(unit);
-		
-		
-    if(unit.getOUCSCode() != null)
-      oucsCodeToEntityLookup.put(unit.getOUCSCode(), unit);
-	}
+    String id = unitEl.getAttribute("oxpID");
+    if (id == null)
+      throw new NullPointerException();
+    oxpointsIdToEntityLookup.put(id, unit);
+  }
 	
 	
 	
@@ -494,8 +493,7 @@ public class TEIImporter {
 		room.setName(findName(roomEl));
 		
 		entities.add(room);
-    if(room.getOUCSCode() != null)
-      oucsCodeToEntityLookup.put(room.getOUCSCode(), room);
+    oxpointsIdToEntityLookup.put(id, room);
 		
     System.err.println("Found room " + room + " for building " + building);
 		return room;
@@ -540,8 +538,7 @@ public class TEIImporter {
 		}	
 		
 		
-    if(building.getOUCSCode() != null)
-      oucsCodeToEntityLookup.put(building.getOUCSCode(), building);
+    oxpointsIdToEntityLookup.put(id, building);
 		return building;
 	}
 
