@@ -59,8 +59,11 @@ public final class OxpointsFactory {
         throw new RuntimeException ("Cannot open file " + filenameIn);
       }
     }
-    Gaboto oxp = GabotoFactory.getEmptyInMemoryGaboto();
-    new TEIImporter(oxp, file).run();
+    Gaboto oxp = null;
+    synchronized (oxp) { 
+      oxp = GabotoFactory.getEmptyInMemoryGaboto();
+      new TEIImporter(oxp, file).run();
+    }
     return oxp;
     
   }
