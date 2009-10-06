@@ -239,12 +239,16 @@
                         <GabotoEntity name="Library" type="&oxp;Library">
                             <properties>
                                 <property name="OLISCode" type="String" uri="&oxp;hasOLISCode"/>
-
+                                
                                 <property name="libraryHomepage" type="Website"
                                     uri="&oxp;hasLibraryHomepage"/>
                             </properties>
+                            <GabotoEntities>
+                             <GabotoEntity name="SubLibrary" type="&oxp;SubLibrary">
+                             </GabotoEntity>
+                            </GabotoEntities>
                         </GabotoEntity>
-
+                        
                         <GabotoEntity name="Museum" type="&oxp;Museum"/>
 
                         <GabotoEntity name="ServiceDepartment" type="&oxp;ServiceDepartment"/>
