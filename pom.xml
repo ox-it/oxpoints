@@ -87,7 +87,8 @@
     <plugins>
 <!-- NOTE if bootstrap issues -->
 <!-- comment out plugin, install and then uncomment and do it again -->
-<!-- This is borkn, run it from eclipse, it works there, suspect xml parser prolem :(
+<!-- This is borkn, run it from eclipse, it works there, suspect xml parser problem :(
+-->
       <plugin>
        <groupId>org.codehaus.mojo</groupId>
        <artifactId>exec-maven-plugin</artifactId>
@@ -111,7 +112,8 @@
 	 </arguments>
        </configuration>       
       </plugin>
--->
+ <!-- 
+      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
