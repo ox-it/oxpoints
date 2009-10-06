@@ -72,42 +72,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
  *
  */
 public class TEIImporter {
-	/**
-   * @since  6 July 2009
-   *
-   */
-  public class ElementRuntimeException extends RuntimeException {
-
-    /**
-     * Constructor.
-     * @param message
-     */
-    public ElementRuntimeException(String message) {
-    }
-
-    private static final long serialVersionUID = -6439480177218879551L;
-    private String message;
-    public ElementRuntimeException(Element el, String mess) {
-      super();
-      NamedNodeMap nnm = el.getAttributes();
-      int len = nnm.getLength();
-      String atts = "";
-      for (int i = 0; i < len; i++ )
-        atts += nnm.item(i) + ", ";
-      
-      this.message = mess + ": " + atts;  
-     }
-    /**
-     * {@inheritDoc}
-     * @see java.lang.Throwable#getMessage()
-     */
-    @Override
-    public String getMessage() {
-      return message;
-    }
-
-  }
-
 
 
   private Document document;
@@ -456,9 +420,10 @@ public class TEIImporter {
 		
     unit.setAddress(findAddress(unitEl));
 		
+		unit.setTimeSpan(ts);
+
 		getBuildings(unit, unitEl, ts);
 		
-		unit.setTimeSpan(ts);
 	}
 
 	
@@ -555,6 +520,7 @@ public class TEIImporter {
 		building.setLocation(findLocation(buildingEl));
 		
 		// rooms
+		entities.add(building);
 		NodeList rooms = buildingEl.getElementsByTagName("place");
 		for(int j = 0; j < rooms.getLength(); j++){
 			if(! (rooms.item(j) instanceof Element))
@@ -564,7 +530,6 @@ public class TEIImporter {
 			getRoom(building, roomEl);
 		}	
 		
-		entities.add(building);
 		
     if(building.getOUCSCode() != null)
       oucsCodeToEntityLookup.put(building.getOUCSCode(), building);
@@ -719,5 +684,43 @@ public class TEIImporter {
     Gaboto gab = GabotoFactory.getPersistentGaboto();
     new TEIImporter(gab, file).run();
   }
+	/**
+   * @since  6 July 2009
+   *
+   */
+  public class ElementRuntimeException extends RuntimeException {
+
+    /**
+     * Constructor.
+     * 
+     * @param message
+     */
+    public ElementRuntimeException(String message) {
+    }
+
+    private static final long serialVersionUID = -6439480177218879551L;
+    private String message;
+    public ElementRuntimeException(Element el, String mess) {
+      super();
+      NamedNodeMap nnm = el.getAttributes();
+      int len = nnm.getLength();
+      String atts = "";
+      for (int i = 0; i < len; i++ )
+        atts += nnm.item(i) + ", ";
+      
+      this.message = mess + ": " + atts;  
+     }
+    /**
+     * {@inheritDoc}
+     * 
+     * @see java.lang.Throwable#getMessage()
+     */
+    @Override
+    public String getMessage() {
+      return message;
+    }
+
+  }
+
 
 }
