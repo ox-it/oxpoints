@@ -110,7 +110,7 @@
 </Placemark>
 <Placemark OUCSCode="oup" id="http://m.ox.ac.uk/oxpoints/id/23233500">
 <name>Oxford University Press</name>
-<description><![CDATA[Website: <a href="http://www.oup.co.uk/">http://www.oup.co.uk/</a><br/>]]></description>
+<description><![CDATA[Website: <a href="http://ukcatalogue.oup.com/">http://ukcatalogue.oup.com/</a><br/>]]></description>
 <Point>
 <coordinates>-1.264647,51.758902</coordinates>
 </Point>
