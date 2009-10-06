@@ -10686,8 +10686,7 @@ data, and if so, how? -->
              <relation name="uses" type="room" active="#ouce" passive="#b_0023r1"/>
              <relation name="uses" type="room" active="#politics" passive="#b_0020r1"/>
 	    -->
-      </listPlace>
-      <listPlace>
+
         <place type="building" obnCode="101" oxpID="23233683" oucsCode="e_1">
           <placeName>Dartington House</placeName>
           <event when="1970" type="construction"/>
