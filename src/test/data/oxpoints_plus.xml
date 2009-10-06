@@ -4405,7 +4405,7 @@ data, and if so, how? -->
                   </address>
                </location>
                <trait type="url">
-                  <de sc>
+                  <desc>
                      <ptr target="http://www.ruskin-sch.ox.ac.uk/"/>
                   </desc>
                </trait>
