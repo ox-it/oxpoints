@@ -116,7 +116,7 @@ public class TEIImporter {
 	public final static String XML_NS = "http://www.w3.org/XML/1998/namespace";
 	
 	private Set<OxpEntity> entities = new HashSet<OxpEntity>();
-	private Map<String, OxpEntity> entityLookup = new HashMap<String, OxpEntity>();
+	private Map<String, OxpEntity> oucsCodeToEntityLookup = new HashMap<String, OxpEntity>();
 	
 	
 	public TEIImporter(Gaboto gaboto, File file) {
@@ -227,7 +227,7 @@ public class TEIImporter {
 		String id = figureEl.getAttribute("corresp");
 		
 		try{
-			OxpEntity oxpoint = entityLookup.get(id.substring(1));
+			OxpEntity oxpoint = oucsCodeToEntityLookup.get(id.substring(1));
       Place entity = null;
       if (oxpoint instanceof Place)
         entity = (Place)oxpoint;
@@ -272,10 +272,10 @@ public class TEIImporter {
     String activeID = relation.getAttribute("active");
     String passiveID = relation.getAttribute("passive");
     
-    Unit active = (Unit) entityLookup.get(activeID.substring(1));
+    Unit active = (Unit) oucsCodeToEntityLookup.get(activeID.substring(1));
     if(active == null)
       throw new RuntimeException("Could not load active entity from id: " + activeID );
-    Unit passive = (Unit) entityLookup.get(passiveID.substring(1));
+    Unit passive = (Unit) oucsCodeToEntityLookup.get(passiveID.substring(1));
     if(passive == null )
       throw new RuntimeException("Could not load passive entity from id: " + passiveID );
     passive.setSubsetOf(active);
@@ -287,11 +287,11 @@ public class TEIImporter {
 		String activeID = relation.getAttribute("active");
 		String passiveID = relation.getAttribute("passive");
 		
-    Unit u = (Unit) entityLookup.get(activeID.substring(1));
+    Unit u = (Unit) oucsCodeToEntityLookup.get(activeID.substring(1));
     if (u == null)
       throw new RuntimeException("Could not load entity from id: " + activeID);
     
-    Building b = (Building) entityLookup.get(passiveID.substring(1));
+    Place b = (Place) oucsCodeToEntityLookup.get(passiveID.substring(1));
     if (b == null)
       throw new RuntimeException("Could not load entity from id: " + passiveID);
 	
@@ -301,8 +301,8 @@ public class TEIImporter {
     // If this is not a primary, but it has no other 
     if(u.getPrimaryPlace() == null)
       u.setPrimaryPlace(b);
-			
-    u.addOccupiedBuilding(b);
+	  if (b instanceof Building )		
+      u.addOccupiedBuilding((Building)b);
 	}
 	
 
@@ -315,6 +315,8 @@ public class TEIImporter {
     cp.setUri(gaboto.getConfig().getNSData() + id);
 		
     String code = el.getAttribute("oucsCode");
+    if (code == null)
+      throw new NullPointerException("Carpark " + id + " has no oucsCode");
     cp.setOUCSCode(code);
     String obn = el.getAttribute("obnCode");
     cp.setOBNCode(obn);
@@ -336,10 +338,8 @@ public class TEIImporter {
 			}
 		}
 		
-		// add unit
 		entities.add(cp);
-		if(el.hasAttributeNS(XML_NS, "id"))
-			entityLookup.put(el.getAttributeNS(XML_NS, "id"), cp);
+    oucsCodeToEntityLookup.put(code, cp);
 	}
 	
 	/**
@@ -363,7 +363,7 @@ public class TEIImporter {
 
 		lib.setLibraryHomepage(findLibWebsite(libraryEl, lib.getTimeSpan()));
     if(lib.getOUCSCode() != null)
-      entityLookup.put(lib.getOUCSCode(), lib);
+      oucsCodeToEntityLookup.put(lib.getOUCSCode(), lib);
 	}
 	
 	/**
@@ -379,7 +379,7 @@ public class TEIImporter {
 		
 		
     if(unit.getOUCSCode() != null)
-      entityLookup.put(unit.getOUCSCode(), unit);
+      oucsCodeToEntityLookup.put(unit.getOUCSCode(), unit);
 	}
 	
 	
@@ -521,7 +521,7 @@ public class TEIImporter {
 		
 		entities.add(room);
     if(room.getOUCSCode() != null)
-      entityLookup.put(room.getOUCSCode(), room);
+      oucsCodeToEntityLookup.put(room.getOUCSCode(), room);
 		
     System.err.println("Found room " + room + " for building " + building);
 		return room;
@@ -567,7 +567,7 @@ public class TEIImporter {
 		entities.add(building);
 		
     if(building.getOUCSCode() != null)
-      entityLookup.put(building.getOUCSCode(), building);
+      oucsCodeToEntityLookup.put(building.getOUCSCode(), building);
 		return building;
 	}
 
