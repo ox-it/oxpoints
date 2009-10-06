@@ -8,8 +8,10 @@
 <xsl:key name="I" use="@oucsCode" match="*"/>
 <xsl:key name="I" use="@olisCode" match="*"/>
 
+<xsl:key name="Oxp_All" match="*[@oxpID]" use="1"/>
 <xsl:key name="O_All" match="*[@obnCode]" use="1"/>
 <xsl:key name="O" use="@obnCode" match="*[@obnCode]"/>
+<xsl:key name="Oxp" use="@oxpID" match="*[@oxpID]"/>
 <xsl:key name="Occupies"
 	 match="tei:relation[contains(@type,'primary')]"
 	 use="@active"/>
@@ -20,7 +22,12 @@
 <xsl:template match="/">
   <xsl:for-each select="key('O_All',1)">
     <xsl:if test="count(key('O',@obnCode))&gt;1">
-      <xsl:message><xsl:value-of select="@obnCode"/> occurs more than once</xsl:message>
+      <xsl:message>obnCode <xsl:value-of select="@obnCode"/> occurs more than once</xsl:message>
+    </xsl:if>
+  </xsl:for-each>
+  <xsl:for-each select="key('Oxp_All',1)">
+    <xsl:if test="count(key('Oxp',@oxpID))&gt;1">
+      <xsl:message>oxpID <xsl:value-of select="@oxpID"/> occurs more than once</xsl:message>
     </xsl:if>
   </xsl:for-each>
     <xsl:for-each select="//tei:place">
@@ -46,11 +53,11 @@
       </xsl:if>
     </xsl:for-each>
   <xsl:for-each select="//tei:relation">
-    <xsl:if test="not(key('I',substring-after(@passive,'#')))">
+    <xsl:if test="not(key('Oxp',substring-after(@passive,'#')))">
       <xsl:message>cannot find anything to point <xsl:value-of
       select="@passive"/> at</xsl:message>
     </xsl:if>
-    <xsl:if test="not(key('I',substring-after(@active,'#')))">
+    <xsl:if test="not(key('Oxp',substring-after(@active,'#')))">
       <xsl:message>cannot find anything to point <xsl:value-of
       select="@active"/> from</xsl:message>
     </xsl:if>

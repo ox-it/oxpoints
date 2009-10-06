@@ -16,9 +16,12 @@
 <xsl:key name="LIBCODE"  match="tei:place[@olisCode]" use="@olisCode"/>
 <xsl:key name="REL"  match="tei:relation[@name='occupies']" use="substring-after(@active,'#')"/>
 
+
 <xsl:template match="tei:place[@olisCode]"/>
 <xsl:template match="tei:relation[starts-with(@active,'#O_lib_') or starts-with(@passive,'#O_lib_')]"/>
 <xsl:variable name="ORIG" select="/"/>
+
+
 
 <xsl:template match="tei:listPlace">
 <xsl:for-each select="tei:place[@type='library']//tei:geo">
@@ -28,6 +31,8 @@
   <xsl:copy>
     <xsl:apply-templates 
 	select="@*|*|processing-instruction()|comment()|text()"/>
+  </xsl:copy>
+  <listPlace>
     <xsl:for-each select="document('olis_codes.xml')/root/olis_institutions/olis_institution">
       <!--
 	  <olis_institution main_name="All Souls College Library" derived_olis_key="All Souls"
@@ -93,7 +98,10 @@
 	  <xsl:variable name="N">
 	    <xsl:number level="any"/>
 	  </xsl:variable>
-	  <place oxpID="{32320000 + $N cast as xs:integer}"
+	  <xsl:variable name="ID">
+	    <xsl:value-of select="32330000 + $N cast as xs:integer"/>
+	  </xsl:variable>
+	  <place oxpID="{$ID}"
 		 type="sublibrary" olisCode="{@derived_olis_key}">
 	  <xsl:copy-of select="@asr_sublocation_type"/>
 	    <placeName><xsl:value-of select="@description"/></placeName>
@@ -119,8 +127,8 @@
 	    </xsl:with-param>
 	  </xsl:call-template>
       </xsl:for-each>
+  </listPlace>
 
-  </xsl:copy>
 </xsl:template>
 <!-- identity transform -->
 <xsl:template match="@*|text()|comment()|processing-instruction()">
