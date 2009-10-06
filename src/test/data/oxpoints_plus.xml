@@ -114,7 +114,7 @@
                </location>
             </place>
 -->
-        <place oucsCode="O_stalban" oxpID="23232333" type="college">
+            <place oucsCode="O_stalban" oxpID="23232333" type="college">
                <placeName>St Alban Hall</placeName>
                <event when="1881" type="ended">
                   <label>Merged with Merton College</label>
@@ -136,7 +136,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>High Street, Oxford</addrLine>
+                     <addrLine>High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4AL</postCode>
                   </address>
                </location>
@@ -166,7 +167,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>Broad Street, Oxford</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3BJ</postCode>
                   </address>
                </location>
@@ -240,7 +242,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>Blackfriars Priory, Oxford</addrLine>
+                     <addrLine>Blackfriars Priory</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LY</postCode>
                   </address>
                </location>
@@ -264,7 +267,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>Radcliffe Square, Oxford</addrLine>
+                     <addrLine>Radcliffe Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4AJ</postCode>
                   </address>
                </location>
@@ -650,7 +654,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>62 Banbury Road, Oxford</addrLine>
+                     <addrLine>62 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PN</postCode>
                   </address>
                </location>
@@ -1219,7 +1224,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>38 St Giles, Oxford</addrLine>
+                     <addrLine>38 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LN</postCode>
                   </address>
                </location>
@@ -1590,7 +1596,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>16 Marston Street, Oxford</addrLine>
+                     <addrLine>16 Marston Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX4 1JX</postCode>
                   </address>
                </location>
@@ -1620,7 +1627,9 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>Kennington Road, Kennington, Oxford</addrLine>
+                     <addrLine>Kennington Road</addrLine>
+                     <addrLine>Kennington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 5NY</postCode>
                   </address>
                </location>
@@ -1820,7 +1829,8 @@
                </event>
                <location type="address">
                   <address>
-                     <addrLine>52-54 Banbury Road, Oxford</addrLine>
+                     <addrLine>52-54 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PW</postCode>
                   </address>
                </location>
@@ -1846,7 +1856,8 @@
                <placeName>Centre for Cellular and Molecular Physiology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Roosevelt Drive, Oxford</addrLine>
+                     <addrLine>Roosevelt Drive</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -1867,7 +1878,8 @@
                <placeName>Centre for Clinical Vaccinology and Tropical Medicine</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Churchill Hospital, Oxford</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -1881,7 +1893,9 @@
                <placeName>Centre for Evidence-Based Medicine</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Old Road Campus, Headington, Oxford</addrLine>
+                     <addrLine>Old Road Campus</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -1895,7 +1909,8 @@
                <placeName>Cancer Epidemiology Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Roosevelt Drive, Oxford</addrLine>
+                     <addrLine>Roosevelt Drive</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -1909,7 +1924,8 @@
                <placeName>Instituto Camoes Centre for Portuguese Language</placeName>
                <location type="address">
                   <address>
-                     <addrLine>11 Bevington Road, Oxford</addrLine>
+                     <addrLine>11 Bevington Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6NB</postCode>
                   </address>
                </location>
@@ -1923,7 +1939,9 @@
                <placeName>Oxford Financial Research Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Blue Boar Court, 9 Alfred Street, Oxford</addrLine>
+                     <addrLine>Blue Boar Court</addrLine>
+                     <addrLine>9 Alfred Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4EH</postCode>
                   </address>
                </location>
@@ -1937,7 +1955,9 @@
                <placeName>Global Economic Governance Programme</placeName>
                <location type="address">
                   <address>
-                     <addrLine>University College, High Street, Oxford</addrLine>
+                     <addrLine>University College</addrLine>
+                     <addrLine>High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4BH</postCode>
                   </address>
                </location>
@@ -1951,7 +1971,9 @@
                <placeName>Health Economics Research Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Old Road Campus, Headington, Oxford</addrLine>
+                     <addrLine>Old Road Campus</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -1965,7 +1987,8 @@
                <placeName>Institute of Cognitive and Evolutionary Anthropology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>64 Banbury Road, Oxford</addrLine>
+                     <addrLine>64 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PN</postCode>
                   </address>
                </location>
@@ -1989,7 +2012,8 @@
                   East</placeName>
                <location type="address">
                   <address>
-                     <addrLine>3 St John Street, Oxford</addrLine>
+                     <addrLine>3 St John Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2LG</postCode>
                   </address>
                </location>
@@ -2011,7 +2035,8 @@
                <placeName>Laboratory Chemical Biology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>12 Mansfield Road, Oxford</addrLine>
+                     <addrLine>12 Mansfield Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3TA</postCode>
                   </address>
                </location>
@@ -2025,7 +2050,9 @@
                <placeName>Life Sciences Inferface Doctoral Training Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wolfson Building, Parks Road, Oxford</addrLine>
+                     <addrLine>Wolfson Building</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QD</postCode>
                   </address>
                </location>
@@ -2039,7 +2066,8 @@
                <placeName>Ian Ramsey Centre for Science and Religion</placeName>
                <location type="address">
                   <address>
-                     <addrLine>11 Bevington Road, Oxford</addrLine>
+                     <addrLine>11 Bevington Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6NB</postCode>
                   </address>
                </location>
@@ -2053,7 +2081,8 @@
                <placeName>Reuters Institute for the Study of Journalism</placeName>
                <location type="address">
                   <address>
-                     <addrLine>13 Norham Gardens, Oxford</addrLine>
+                     <addrLine>13 Norham Gardens</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PS</postCode>
                   </address>
                </location>
@@ -2067,7 +2096,9 @@
                <placeName>Software Engineering Programme</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wolfson Building, Parks Road, Oxford</addrLine>
+                     <addrLine>Wolfson Building</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QD</postCode>
                   </address>
                </location>
@@ -2081,7 +2112,9 @@
                <placeName>Oxford Uehiro Centre for Practical Ethics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Littlegate House, St Ebbes Street, Oxford</addrLine>
+                     <addrLine>Littlegate House</addrLine>
+                     <addrLine>St Ebbes Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1PT</postCode>
                   </address>
                </location>
@@ -2095,7 +2128,10 @@
                <placeName>Wildlife Conservation Research Unit (WildCRU)</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Tubney House, Abingdon Road, Tubney, Abingdon</addrLine>
+                     <addrLine>Tubney House</addrLine>
+                     <addrLine>Abingdon Road</addrLine>
+                     <addrLine>Tubney</addrLine>
+                     <addrLine>Abingdon</addrLine>
                      <postCode>OX13 5QL</postCode>
                   </address>
                </location>
@@ -2118,7 +2154,8 @@
                <placeName>Centre for African Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>St Antony's College, Oxford</addrLine>
+                     <addrLine>St Antony's College</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6JF</postCode>
                   </address>
                </location>
@@ -2132,7 +2169,9 @@
                <placeName>Oxford Institute of Ageing</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road Building, Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road Building</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -2151,8 +2190,10 @@
                <placeName>Nuffield Department of Anaesthetics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe 
-Hospital, Headley Way, Headington, Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -2166,7 +2207,8 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Department of Human Anatomy and Genetics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QX</postCode>
                   </address>
                </location>
@@ -2180,7 +2222,9 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Department of Social Policy and Social Work</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Barnett House, Wellington Square, Oxford</addrLine>
+                     <addrLine>Barnett House</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2ER</postCode>
                   </address>
                </location>
@@ -2199,7 +2243,8 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Committee for Archaeology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>34-36 Beaumont Street, Oxford</addrLine>
+                     <addrLine>34-36 Beaumont Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2PG</postCode>
                   </address>
                </location>
@@ -2213,7 +2258,8 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Institute of Archaeology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>34-36 Beaumont Street, Oxford</addrLine>
+                     <addrLine>34-36 Beaumont Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2PG</postCode>
                   </address>
                </location>
@@ -2227,8 +2273,9 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Research Laboratory for Archaeology and the History of Art</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Dyson Perrins Building, South Parks
-		     Road, Oxford</addrLine>
+                     <addrLine>Dyson Perrins Building</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QY</postCode>
                   </address>
                </location>
@@ -2242,7 +2289,8 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>School of Interdisciplinary Area Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>12 Bevington Road, Oxford</addrLine>
+                     <addrLine>12 Bevington Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6LH</postCode>
                   </address>
                </location>
@@ -2270,7 +2318,9 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Department of the History of Art</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Littlegate House, 16-17 St Ebbe's Street, Oxford</addrLine>
+                     <addrLine>Littlegate House</addrLine>
+                     <addrLine>16-17 St Ebbe's Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1PT</postCode>
                   </address>
                </location>
@@ -2289,7 +2339,9 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Astrophysics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Denys Wilkinson Building, Keble Road, Oxford</addrLine>
+                     <addrLine>Denys Wilkinson Building</addrLine>
+                     <addrLine>Keble Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RH</postCode>
                   </address>
                </location>
@@ -2303,7 +2355,9 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Atmospheric Oceanic and Planetary Physics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Clarendon Laboratory, Parks Road, Oxford</addrLine>
+                     <addrLine>Clarendon Laboratory</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PU</postCode>
                   </address>
                </location>
@@ -2317,7 +2371,9 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Atomic and Laser Physics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Clarendon Laboratory, Parks Road, Oxford</addrLine>
+                     <addrLine>Clarendon Laboratory</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PU</postCode>
                   </address>
                </location>
@@ -2347,7 +2403,10 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Oxford University Begbroke Science Park</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Sandy Lane, Yarnton, Kidlington, Oxon</addrLine>
+                     <addrLine>Sandy Lane</addrLine>
+                     <addrLine>Yarnton</addrLine>
+                     <addrLine>Kidlington</addrLine>
+                     <addrLine>Oxon</addrLine>
                      <postCode>OX5 1PF</postCode>
                   </address>
                </location>
@@ -2368,7 +2427,8 @@ Hospital, Headley Way, Headington, Oxford</addrLine>
                <placeName>Department of Biochemistry</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QU</postCode>
                   </address>
                </location>
@@ -2447,8 +2507,9 @@ data, and if so, how? -->
                <placeName>Department of Biomedical Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Experimental Psychology, 9 South Parks Road,
-		   Oxford</addrLine>
+                     <addrLine>Experimental Psychology</addrLine>
+                     <addrLine>9 South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UD</postCode>
                   </address>
                </location>
@@ -2462,7 +2523,8 @@ data, and if so, how? -->
                <placeName>Centre for Brazilian Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>92 Woodstock Road, Oxford</addrLine>
+                     <addrLine>92 Woodstock Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 7ND</postCode>
                   </address>
                </location>
@@ -2476,8 +2538,10 @@ data, and if so, how? -->
                <placeName>Department of Cardiovascular Medicine</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -2491,7 +2555,8 @@ data, and if so, how? -->
                <placeName>Childhood Cancer Research Group</placeName>
                <location type="address">
                   <address>
-                     <addrLine>57 Woodstock Road, Oxford</addrLine>
+                     <addrLine>57 Woodstock Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6HJ</postCode>
                   </address>
                </location>
@@ -2512,7 +2577,9 @@ data, and if so, how? -->
                <placeName>Department of Chemistry</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Chemistry Research Laboratory, 12 Mansfield Road, Oxford</addrLine>
+                     <addrLine>Chemistry Research Laboratory</addrLine>
+                     <addrLine>12 Mansfield Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3TA</postCode>
                   </address>
                </location>
@@ -2561,7 +2628,8 @@ data, and if so, how? -->
                <placeName>Institute for Chinese Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Walton Street, Oxford</addrLine>
+                     <addrLine>Walton Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HG</postCode>
                   </address>
                </location>
@@ -2583,8 +2651,9 @@ data, and if so, how? -->
                <placeName>Computational Linguistics Group</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Centre for Linguistics and Philology, Walton Street,
- Oxford</addrLine>
+                     <addrLine>Centre for Linguistics and Philology</addrLine>
+                     <addrLine>Walton Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HG</postCode>
                   </address>
                </location>
@@ -2598,8 +2667,10 @@ data, and if so, how? -->
                <placeName>Clinical Laboratory Sciences</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -2613,8 +2684,10 @@ data, and if so, how? -->
                <placeName>Nuffield Department of Clinical Medicine</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Level 5 - John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>Level 5 - John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -2628,8 +2701,11 @@ data, and if so, how? -->
                <placeName>Department of Clinical Neurology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>FMRIB Centre, John Radcliffe Hospital, Headley Way,
- Headington, Oxford</addrLine>
+                     <addrLine>FMRIB Centre</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -2651,7 +2727,9 @@ data, and if so, how? -->
                <placeName>Department of Clinical Pharmacology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Old Road Campus Research Building, off Roosevelt Drive, Oxford</addrLine>
+                     <addrLine>Old Road Campus Research Building</addrLine>
+                     <addrLine>off Roosevelt Drive</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7DQ</postCode>
                   </address>
                </location>
@@ -2665,7 +2743,9 @@ data, and if so, how? -->
                <placeName>Computing Laboratory</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wolfson Building, Parks Road, Oxford</addrLine>
+                     <addrLine>Wolfson Building</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QD</postCode>
                   </address>
                </location>
@@ -2703,7 +2783,8 @@ data, and if so, how? -->
                <placeName>Centre on Migration, Policy and Society</placeName>
                <location type="address">
                   <address>
-                     <addrLine>58 Banbury Road, Oxford</addrLine>
+                     <addrLine>58 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6QS</postCode>
                   </address>
                </location>
@@ -2717,7 +2798,9 @@ data, and if so, how? -->
                <placeName>Condensed Matter Physics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Clarendon Laboratory, Parks Road, Oxford</addrLine>
+                     <addrLine>Clarendon Laboratory</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PU</postCode>
                   </address>
                </location>
@@ -2731,7 +2814,9 @@ data, and if so, how? -->
                <placeName>Department for Continuing Education</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Rewley House, 1-7 Wellington Square, Oxford</addrLine>
+                     <addrLine>Rewley House</addrLine>
+                     <addrLine>1-7 Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JA</postCode>
                   </address>
                </location>
@@ -2745,7 +2830,9 @@ data, and if so, how? -->
                <placeName>Centre for Criminology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road Building, Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road Building</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -2764,7 +2851,10 @@ data, and if so, how? -->
                <placeName>Clinical Trial Service Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Richard Doll Building, Roosevelt Drive, Headington, Oxford</addrLine>
+                     <addrLine>Richard Doll Building</addrLine>
+                     <addrLine>Roosevelt Drive</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7DG</postCode>
                   </address>
                </location>
@@ -2788,7 +2878,11 @@ data, and if so, how? -->
                </event>
                <location type="address">
                   <address>
-                     <addrLine>OCDEM, Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>OCDEM</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -2797,7 +2891,9 @@ data, and if so, how? -->
                <placeName>Department of Physiology Anatomy and Genetics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Le Gros Clark Building, South Parks Road, Oxford</addrLine>
+                     <addrLine>Le Gros Clark Building</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QX</postCode>
                   </address>
                </location>
@@ -2811,7 +2907,11 @@ data, and if so, how? -->
                <placeName>Diabetes Trials Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>OCDEM, Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>OCDEM</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -2825,7 +2925,8 @@ data, and if so, how? -->
                <placeName>Department of Earth Sciences</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Parks Road, Oxford</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PR</postCode>
                   </address>
                </location>
@@ -2857,7 +2958,9 @@ data, and if so, how? -->
                <placeName>Department of Economics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road Building, Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road Building</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -2876,7 +2979,8 @@ data, and if so, how? -->
                <placeName>Department of Educational Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>15 Norham Gardens, Oxford</addrLine>
+                     <addrLine>15 Norham Gardens</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PY</postCode>
                   </address>
                </location>
@@ -2905,7 +3009,8 @@ data, and if so, how? -->
                <placeName>European Humanities Research Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>76 Woodstock Road, Oxford</addrLine>
+                     <addrLine>76 Woodstock Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6HP</postCode>
                   </address>
                </location>
@@ -2926,7 +3031,8 @@ data, and if so, how? -->
                <placeName>Department of Engineering Science</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Parks Road, Oxford</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PJ</postCode>
                   </address>
                </location>
@@ -2972,7 +3078,9 @@ data, and if so, how? -->
                <placeName>Institute of Biomedical Engineering  (IBME)</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Old Road Campus Research Building, off Roosevelt Drive, Oxford</addrLine>
+                     <addrLine>Old Road Campus Research Building</addrLine>
+                     <addrLine>off Roosevelt Drive</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7DQ</postCode>
                   </address>
                </location>
@@ -2981,7 +3089,9 @@ data, and if so, how? -->
                <placeName>Environmental Change Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Oxford University Centre for the Environment, South Parks Road, Oxford</addrLine>
+                     <addrLine>Oxford University Centre for the Environment</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QY</postCode>
                   </address>
                </location>
@@ -2995,8 +3105,10 @@ data, and if so, how? -->
                <placeName>Unit of Health-Care Epidemiology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Institute of Health Sciences, Old Road, Headington,
- Oxford</addrLine>
+                     <addrLine>Institute of Health Sciences</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -3010,9 +3122,12 @@ data, and if so, how? -->
                <placeName>Ethox Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Department of Public Health and Primary Health
-	      Care, University of Oxford, Badenoch Building, Old Road
-	      Campus, Headington, Oxford</addrLine>
+                     <addrLine>Department of Public Health and Primary Health Care</addrLine>
+                     <addrLine>University of Oxford</addrLine>
+                     <addrLine>Badenoch Building</addrLine>
+                     <addrLine>Old Road Campus</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -3035,7 +3150,9 @@ data, and if so, how? -->
                <placeName>Institute of European and Comparative Law</placeName>
                <location type="address">
                   <address>
-                     <addrLine>St Cross Building, St Cross Road, Oxford</addrLine>
+                     <addrLine>St Cross Building</addrLine>
+                     <addrLine>St Cross Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UL</postCode>
                   </address>
                </location>
@@ -3049,7 +3166,8 @@ data, and if so, how? -->
                <placeName>Europaeum</placeName>
                <location type="address">
                   <address>
-                     <addrLine>99 Banbury Road, Oxford</addrLine>
+                     <addrLine>99 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6JX</postCode>
                   </address>
                </location>
@@ -3063,7 +3181,8 @@ data, and if so, how? -->
                <placeName>Department of Experimental Psychology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>9 South Parks Road, Oxford</addrLine>
+                     <addrLine>9 South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UD</postCode>
                   </address>
                </location>
@@ -3082,8 +3201,9 @@ data, and if so, how? -->
                <placeName>School of Geography and the Environment</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Oxford University Centre for the Environment, South Parks
- Road, Oxford</addrLine>
+                     <addrLine>Oxford University Centre for the Environment</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QY</postCode>
                   </address>
                </location>
@@ -3097,8 +3217,10 @@ data, and if so, how? -->
                <placeName>Department of Clinical Geratology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way,
-	      Headington, Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -3112,7 +3234,8 @@ data, and if so, how? -->
                <placeName>Wellcome Unit for the History of Medicine</placeName>
                <location type="address">
                   <address>
-                     <addrLine>45 Banbury Road, Oxford</addrLine>
+                     <addrLine>45 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PE</postCode>
                   </address>
                </location>
@@ -3144,8 +3267,10 @@ data, and if so, how? -->
                <placeName>Health Services Research Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Institute of Health Sciences, Old Road, Headington,
-		     Oxford</addrLine>
+                     <addrLine>Institute of Health Sciences</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -3159,7 +3284,9 @@ data, and if so, how? -->
                <placeName>Wellcome Trust Centre for Human Genetics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Roosevelt Drive, Headington, Oxford</addrLine>
+                     <addrLine>Roosevelt Drive</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7BN</postCode>
                   </address>
                </location>
@@ -3173,7 +3300,9 @@ data, and if so, how? -->
                <placeName>Institute of Human Sciences</placeName>
                <location type="address">
                   <address>
-                     <addrLine>The Pauling Centre, 58a Banbury Road, Oxford</addrLine>
+                     <addrLine>The Pauling Centre</addrLine>
+                     <addrLine>58a Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6QS</postCode>
                   </address>
                </location>
@@ -3206,7 +3335,8 @@ data, and if so, how? -->
                <placeName>Inorganic Chemistry Laboratory</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QR</postCode>
                   </address>
                </location>
@@ -3242,7 +3372,8 @@ data, and if so, how? -->
                <placeName>Oxford Internet Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>1 St Giles, Oxford</addrLine>
+                     <addrLine>1 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3JS</postCode>
                   </address>
                </location>
@@ -3276,7 +3407,9 @@ data, and if so, how? -->
                <placeName>James Martin 21st Century School</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Old Indian Institute, Broad Street, Oxford</addrLine>
+                     <addrLine>Old Indian Institute</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3BD</postCode>
                   </address>
                </location>
@@ -3290,7 +3423,8 @@ data, and if so, how? -->
                <placeName>Latin American Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>1 Church Walk, Oxford</addrLine>
+                     <addrLine>1 Church Walk</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6LY</postCode>
                   </address>
                </location>
@@ -3311,7 +3445,9 @@ data, and if so, how? -->
                <placeName>Faculty of Law</placeName>
                <location type="address">
                   <address>
-                     <addrLine>St Cross Building, St Cross Road, Oxford</addrLine>
+                     <addrLine>St Cross Building</addrLine>
+                     <addrLine>St Cross Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UL</postCode>
                   </address>
                </location>
@@ -3335,8 +3471,9 @@ data, and if so, how? -->
                <placeName>The Oxford Learning Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Suite 3 - Littlegate House, 16-17 St Ebbe's Street,
- Oxford</addrLine>
+                     <addrLine>Suite 3 - Littlegate House</addrLine>
+                     <addrLine>16-17 St Ebbe's Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1PT</postCode>
                   </address>
                </location>
@@ -3355,7 +3492,8 @@ data, and if so, how? -->
                <placeName>Centre for Linguistics and Philology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Walton Street, Oxford</addrLine>
+                     <addrLine>Walton Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HG</postCode>
                   </address>
                </location>
@@ -3377,7 +3515,8 @@ data, and if so, how? -->
                <placeName>Said Business School</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Park End Street, Oxford</addrLine>
+                     <addrLine>Park End Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1HP</postCode>
                   </address>
                </location>
@@ -3410,7 +3549,8 @@ data, and if so, how? -->
                <placeName>Department of Materials</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Parks Road, Oxford</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PH</postCode>
                   </address>
                </location>
@@ -3437,7 +3577,8 @@ data, and if so, how? -->
                <placeName>Mathematical Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>24-29 St Giles, Oxford</addrLine>
+                     <addrLine>24-29 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LB</postCode>
                   </address>
                </location>
@@ -3472,8 +3613,10 @@ data, and if so, how? -->
                <placeName>Centre for Cognitive Neuroscience</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Department of Physiology, Anatomy &amp;
-	      Genetics, Parks Road, Oxford</addrLine>
+                     <addrLine>Department of Physiology</addrLine>
+                     <addrLine>Anatomy &amp; Genetics</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PT</postCode>
                   </address>
                </location>
@@ -3487,7 +3630,8 @@ data, and if so, how? -->
                <placeName>The Peter Medawar Building for Pathogen Research</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3SY</postCode>
                   </address>
                </location>
@@ -3509,7 +3653,11 @@ data, and if so, how? -->
                <placeName>Metabolic Research Laboratory</placeName>
                <location type="address">
                   <address>
-                     <addrLine>OCDEM, Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>OCDEM</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -3524,7 +3672,9 @@ data, and if so, how? -->
                <placeName>Laboratory of Molecular Biophysics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Rex Richards Building, South Parks Road, Oxford</addrLine>
+                     <addrLine>Rex Richards Building</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QU</postCode>
                   </address>
                </location>
@@ -3543,8 +3693,9 @@ data, and if so, how? -->
                <placeName>Oxford University Bioinformatics Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Sir William Dunn School of Pathology, South Parks Road,
- Oxford</addrLine>
+                     <addrLine>Sir William Dunn School of Pathology</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RE</postCode>
                   </address>
                </location>
@@ -3566,8 +3717,10 @@ data, and if so, how? -->
                <placeName>The Weatherall Institute of Molecular Medicine</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DS</postCode>
                   </address>
                </location>
@@ -3602,7 +3755,8 @@ data, and if so, how? -->
                <placeName>Mathematical, Physical &amp; Life Sciences Division</placeName>
                <location type="address">
                   <address>
-                     <addrLine>9 Parks Road, Oxford</addrLine>
+                     <addrLine>9 Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PD</postCode>
                   </address>
                </location>
@@ -3616,7 +3770,8 @@ data, and if so, how? -->
                <placeName>Nissan Institute of Japanese Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>27 Winchester Road, Oxford</addrLine>
+                     <addrLine>27 Winchester Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6NA</postCode>
                   </address>
                </location>
@@ -3638,7 +3793,10 @@ data, and if so, how? -->
                <placeName>National Perinatal Epidemiology Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Richard Doll Building, Old Road Campus, Headington, Oxford</addrLine>
+                     <addrLine>Richard Doll Building</addrLine>
+                     <addrLine>Old Road Campus</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -3652,8 +3810,10 @@ data, and if so, how? -->
                <placeName>Nuffield Department of Obstetrics and Gynaecology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -3667,7 +3827,10 @@ data, and if so, how? -->
                <placeName>Oxford Centre for Diabetes Endocrinology and Metabolism</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -3681,7 +3844,8 @@ data, and if so, how? -->
                <placeName>Oxford e-Research Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>7 Keble Road, Oxford</addrLine>
+                     <addrLine>7 Keble Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                   </address>
                </location>
                <trait type="url">
@@ -3711,7 +3875,8 @@ data, and if so, how? -->
                <placeName>Occupational Health Service</placeName>
                <location type="address">
                   <address>
-                     <addrLine>10 Parks Road, Oxford</addrLine>
+                     <addrLine>10 Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PD</postCode>
                   </address>
                </location>
@@ -3725,7 +3890,10 @@ data, and if so, how? -->
                <placeName>Department of Medical Oncology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -3739,7 +3907,9 @@ data, and if so, how? -->
                <placeName>Online and Distance Learning</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Ewert House, Ewert Place, Oxford</addrLine>
+                     <addrLine>Ewert House</addrLine>
+                     <addrLine>Ewert Place</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 7DD</postCode>
                   </address>
                </location>
@@ -3756,7 +3926,8 @@ data, and if so, how? -->
                      <addrLine>Levels 5, 6 West Wing</addrLine>
                      <addrLine>John Radcliffe Hospital</addrLine>
                      <addrLine>Headley Way</addrLine>
-                     <addrLine>Headington, Oxford</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -3767,12 +3938,13 @@ data, and if so, how? -->
                </trait>
             </place>
             <place oucsCode="ortho" oxpID="23232657" type="department">
-               <placeName>Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal
-                  Sciences</placeName>
+               <placeName>Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Nuffield Orthopaedic Centre, Old Road, Headington,
- Oxford</addrLine>
+                     <addrLine>Nuffield Orthopaedic Centre</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LD</postCode>
                   </address>
                </location>
@@ -3794,7 +3966,8 @@ data, and if so, how? -->
                <placeName>Oxford University Centre for the Environment</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QY</postCode>
                   </address>
                </location>
@@ -3818,7 +3991,8 @@ data, and if so, how? -->
                <placeName>Oxford University Student Union</placeName>
                <location type="address">
                   <address>
-                     <addrLine>28 Little Clarendon Street, Oxford</addrLine>
+                     <addrLine>28 Little Clarendon Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HU</postCode>
                   </address>
                </location>
@@ -3839,7 +4013,9 @@ data, and if so, how? -->
                <placeName>Oxford-Man Institute of Quantitative Finance</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Blue Boar Court, 9 Alfred Street, Oxford</addrLine>
+                     <addrLine>Blue Boar Court</addrLine>
+                     <addrLine>9 Alfred Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4EH</postCode>
                   </address>
                </location>
@@ -3853,8 +4029,10 @@ data, and if so, how? -->
                <placeName>Department of Paediatrics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -3868,7 +4046,9 @@ data, and if so, how? -->
                <placeName>Particle Physics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Denys Wilkinson Building, Keble Road, Oxford</addrLine>
+                     <addrLine>Denys Wilkinson Building</addrLine>
+                     <addrLine>Keble Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RH</postCode>
                   </address>
                </location>
@@ -3882,7 +4062,8 @@ data, and if so, how? -->
                <placeName>Sir William Dunn School of Pathology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RE</postCode>
                   </address>
                </location>
@@ -3910,7 +4091,8 @@ data, and if so, how? -->
                <placeName>Department of Pharmacology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Mansfield Road, Oxford</addrLine>
+                     <addrLine>Mansfield Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QT</postCode>
                   </address>
                </location>
@@ -3940,7 +4122,9 @@ data, and if so, how? -->
                <placeName>Department of Physics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Clarendon Laboratory, Parks Road, Oxford</addrLine>
+                     <addrLine>Clarendon Laboratory</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PU</postCode>
                   </address>
                </location>
@@ -3964,7 +4148,8 @@ data, and if so, how? -->
                <placeName>Department of Plant Sciences</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RB</postCode>
                   </address>
                </location>
@@ -3986,7 +4171,8 @@ data, and if so, how? -->
                <placeName>Plant Sciences Library</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RB</postCode>
                   </address>
                </location>
@@ -4012,7 +4198,9 @@ data, and if so, how? -->
                <placeName>Politics and International Relations</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road Building, Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road Building</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -4036,7 +4224,11 @@ data, and if so, how? -->
                <placeName>Pain Research Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Nuffield Department of Anaesthetics, Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>Nuffield Department of Anaesthetics</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -4050,8 +4242,10 @@ data, and if so, how? -->
                <placeName>Department of Psychiatry</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Warneford Hospital, Warneford Lane, Headington,
- Oxford</addrLine>
+                     <addrLine>Warneford Hospital</addrLine>
+                     <addrLine>Warneford Lane</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7JX</postCode>
                   </address>
                </location>
@@ -4078,7 +4272,8 @@ data, and if so, how? -->
                <placeName>Physical and Theoretical Chemistry Laboratory</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QZ</postCode>
                   </address>
                </location>
@@ -4092,7 +4287,11 @@ data, and if so, how? -->
                <placeName>Division of Public Health and Primary Health Care</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Rosemary Rue Building, Old Road Campus, Roosevelt Drive, Headington, Oxford</addrLine>
+                     <addrLine>Rosemary Rue Building</addrLine>
+                     <addrLine>Old Road Campus</addrLine>
+                     <addrLine>Roosevelt Drive</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LF</postCode>
                   </address>
                </location>
@@ -4123,7 +4322,8 @@ data, and if so, how? -->
                <placeName>Queen Elizabeth House</placeName>
                <location type="address">
                   <address>
-                     <addrLine>3 Mansfield Road, Oxford</addrLine>
+                     <addrLine>3 Mansfield Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3TB</postCode>
                   </address>
                </location>
@@ -4137,7 +4337,10 @@ data, and if so, how? -->
                <placeName>Research Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -4160,7 +4363,9 @@ data, and if so, how? -->
                <placeName>Radiation Oncology and Biology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Old Road Campus Research Building, off Roosevelt Drive, Oxford</addrLine>
+                     <addrLine>Old Road Campus Research Building</addrLine>
+                     <addrLine>off Roosevelt Drive</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7DQ</postCode>
                   </address>
                </location>
@@ -4169,7 +4374,8 @@ data, and if so, how? -->
                <placeName>Rothermere American Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>1A South Parks Road, Oxford</addrLine>
+                     <addrLine>1A South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3TG</postCode>
                   </address>
                </location>
@@ -4193,12 +4399,13 @@ data, and if so, how? -->
                <placeName>Ruskin School of Drawing and Fine Art</placeName>
                <location type="address">
                   <address>
-                     <addrLine>74 High Street, Oxford</addrLine>
+                     <addrLine>74 High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4BG</postCode>
                   </address>
                </location>
                <trait type="url">
-                  <desc>
+                  <de sc>
                      <ptr target="http://www.ruskin-sch.ox.ac.uk/"/>
                   </desc>
                </trait>
@@ -4215,7 +4422,9 @@ data, and if so, how? -->
                <placeName>Oxford Said Business School Ltd</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Kennington Road, Kennington, Oxford</addrLine>
+                     <addrLine>Kennington Road</addrLine>
+                     <addrLine>Kennington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 5NY</postCode>
                   </address>
                </location>
@@ -4229,8 +4438,11 @@ data, and if so, how? -->
                <placeName>Structural Genomics Consortium</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Botnar Research Centre, Nuffield Orthopaedic Centre, Old
- Road, Headington, Oxford</addrLine>
+                     <addrLine>Botnar Research Centre</addrLine>
+                     <addrLine>Nuffield Orthopaedic Centre</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LD</postCode>
                   </address>
                </location>
@@ -4253,7 +4465,11 @@ data, and if so, how? -->
                <placeName>Oxford Lipid Metabolism Group</placeName>
                <location type="address">
                   <address>
-                     <addrLine>OCDEM, Churchill Hospital, Old Road, Headington, Oxford</addrLine>
+                     <addrLine>OCDEM</addrLine>
+                     <addrLine>Churchill Hospital</addrLine>
+                     <addrLine>Old Road</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 7LJ</postCode>
                   </address>
                </location>
@@ -4268,8 +4484,9 @@ data, and if so, how? -->
                <placeName>Russian and East European Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>School of Interdisciplinary Area Studies, 12 Bevington
- Road, Oxford</addrLine>
+                     <addrLine>School of Interdisciplinary Area Studies</addrLine>
+                     <addrLine>12 Bevington Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6LH</postCode>
                   </address>
                </location>
@@ -4283,7 +4500,8 @@ data, and if so, how? -->
                <placeName>Institute of Social and Cultural Anthropology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>51 Banbury Road, Oxford</addrLine>
+                     <addrLine>51 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PF</postCode>
                   </address>
                </location>
@@ -4306,7 +4524,9 @@ data, and if so, how? -->
                <placeName>Department of Sociology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road Building, Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road Building</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -4325,7 +4545,9 @@ data, and if so, how? -->
                <placeName>Centre for Socio-Legal Studies</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road Building, Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road Building</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -4339,7 +4561,9 @@ data, and if so, how? -->
                <placeName>Social Sciences Division</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Hayes House, 75 George Street, Oxford</addrLine>
+                     <addrLine>Hayes House</addrLine>
+                     <addrLine>75 George Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2BQ</postCode>
                   </address>
                </location>
@@ -4363,7 +4587,9 @@ data, and if so, how? -->
                <placeName>Sports Department</placeName>
                <location type="address">
                   <address>
-                     <addrLine>University Sports Complex, Iffley Road, Oxford</addrLine>
+                     <addrLine>University Sports Complex</addrLine>
+                     <addrLine>Iffley Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX4 1EQ</postCode>
                   </address>
                </location>
@@ -4400,7 +4626,8 @@ data, and if so, how? -->
                <placeName>Department of Statistics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>1 South Parks Road, Oxford</addrLine>
+                     <addrLine>1 South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3TG</postCode>
                   </address>
                </location>
@@ -4428,7 +4655,10 @@ data, and if so, how? -->
                <placeName>Nuffield Department of Surgery</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington, Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -4442,7 +4672,8 @@ data, and if so, how? -->
                <placeName>Faculty of Theology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>41 St Giles, Oxford</addrLine>
+                     <addrLine>41 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LW</postCode>
                   </address>
                </location>
@@ -4461,7 +4692,8 @@ data, and if so, how? -->
                <placeName>Theoretical Physics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>1 Keble Road, Oxford</addrLine>
+                     <addrLine>1 Keble Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3NP</postCode>
                   </address>
                </location>
@@ -4484,8 +4716,9 @@ data, and if so, how? -->
                <placeName>Transport Studies Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Oxford University Centre for the Environment, South Parks
- Road, Oxford</addrLine>
+                     <addrLine>Oxford University Centre for the Environment</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3QY</postCode>
                   </address>
                </location>
@@ -4504,7 +4737,8 @@ data, and if so, how? -->
                <placeName>Voltaire Foundation</placeName>
                <location type="address">
                   <address>
-                     <addrLine>99 Banbury Road, Oxford</addrLine>
+                     <addrLine>99 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6JX</postCode>
                   </address>
                </location>
@@ -4518,7 +4752,8 @@ data, and if so, how? -->
                <placeName>Department of Zoology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PS</postCode>
                   </address>
                </location>
@@ -4533,7 +4768,9 @@ data, and if so, how? -->
  	      Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Department of Zoology, South Parks Road, Oxford</addrLine>
+                     <addrLine>Department of Zoology</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PS</postCode>
                   </address>
                </location>
@@ -4542,7 +4779,9 @@ data, and if so, how? -->
                <placeName>QIP IRC</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Department of Materials, Parks Road, Oxford</addrLine>
+                     <addrLine>Department of Materials</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PH</postCode>
                   </address>
                </location>
@@ -4551,7 +4790,8 @@ data, and if so, how? -->
                <placeName>Centre for Mathematical Biology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>24-29 St Giles, Oxford</addrLine>
+                     <addrLine>24-29 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LB</postCode>
                   </address>
                </location>
@@ -4565,7 +4805,8 @@ data, and if so, how? -->
                <placeName>Algebra Research Group</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Mathematical Institute, Oxford</addrLine>
+                     <addrLine>Mathematical Institute</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LB</postCode>
                   </address>
                </location>
@@ -4579,7 +4820,8 @@ data, and if so, how? -->
                <placeName>Oxford Centre for Industrial and Applied Mathematics</placeName>
                <location type="address">
                   <address>
-                     <addrLine>24-29 St Giles, Oxford</addrLine>
+                     <addrLine>24-29 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LB</postCode>
                   </address>
                </location>
@@ -5352,7 +5594,9 @@ data, and if so, how? -->
                <placeName>Bate Collection of Musical Instruments</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Faculty of Music, St Aldate's, Oxford</addrLine>
+                     <addrLine>Faculty of Music</addrLine>
+                     <addrLine>St Aldate's</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1DB</postCode>
                   </address>
                </location>
@@ -5366,7 +5610,9 @@ data, and if so, how? -->
                <placeName>Christ Church Picture Gallery</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Christ Church, St Aldate's, Oxford</addrLine>
+                     <addrLine>Christ Church</addrLine>
+                     <addrLine>St Aldate's</addrLine>
+                     <addrLine>Oxford</addrLine>
                   </address>
                </location>
                <trait type="url">
@@ -5384,7 +5630,8 @@ data, and if so, how? -->
                <placeName>Ashmolean Museum of Art and Archaeology</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Beaumont Street, Oxford</addrLine>
+                     <addrLine>Beaumont Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2PH</postCode>
                   </address>
                </location>
@@ -5406,7 +5653,8 @@ data, and if so, how? -->
                <placeName>Botanic Garden</placeName>
                <location type="address">
                   <address>
-                     <addrLine>High Street, Oxford</addrLine>
+                     <addrLine>High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4AZ</postCode>
                   </address>
                </location>
@@ -5429,7 +5677,8 @@ data, and if so, how? -->
                <placeName>Museum of the History of Science</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Broad Street, Oxford</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3AZ</postCode>
                   </address>
                </location>
@@ -5451,7 +5700,8 @@ data, and if so, how? -->
                <placeName>Pitt Rivers Museum</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PP</postCode>
                   </address>
                </location>
@@ -5472,7 +5722,8 @@ data, and if so, how? -->
                <placeName>University Museum of Natural History</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Parks Road, Oxford</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PW</postCode>
                   </address>
                </location>
@@ -5496,7 +5747,8 @@ data, and if so, how? -->
                <placeName>Christ Church Cathedral</placeName>
                <location type="address">
                   <address>
-                     <addrLine>St Aldate's, Oxford</addrLine>
+                     <addrLine>St Aldate's</addrLine>
+                     <addrLine>Oxford</addrLine>
                   </address>
                </location>
                <trait type="url">
@@ -5523,7 +5775,8 @@ data, and if so, how? -->
                <placeName>The University Church of St Mary the Virgin</placeName>
                <location type="address">
                   <address>
-                     <addrLine>High Street, Oxford</addrLine>
+                     <addrLine>High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4AH</postCode>
                   </address>
                </location>
@@ -5543,7 +5796,8 @@ data, and if so, how? -->
                <placeName>Oxford University Press</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Great Clarendon Street, Oxford</addrLine>
+                     <addrLine>Great Clarendon Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6DP</postCode>
                   </address>
                </location>
@@ -5604,7 +5858,8 @@ data, and if so, how? -->
                <placeName>Sheldonian Theatre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Broad Street, Oxford</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3AZ</postCode>
                   </address>
                </location>
@@ -5626,7 +5881,8 @@ data, and if so, how? -->
                <placeName>Oxford University Club</placeName>
                <location type="address">
                   <address>
-                     <addrLine>11 Mansfield Road, Oxford</addrLine>
+                     <addrLine>11 Mansfield Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3SZ</postCode>
                   </address>
                </location>
@@ -5648,7 +5904,9 @@ data, and if so, how? -->
                <placeName>Academic Administration Division Communications</placeName>
                <location type="address">
                   <address>
-                     <addrLine>New Barnett House, 28 Little Clarendon Street, Oxford</addrLine>
+                     <addrLine>New Barnett House</addrLine>
+                     <addrLine>28 Little Clarendon Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HY</postCode>
                   </address>
                </location>
@@ -5662,7 +5920,8 @@ data, and if so, how? -->
                <placeName>Alumni Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5676,7 +5935,8 @@ data, and if so, how? -->
                <placeName>Academic Services and University Collections Secretariat</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5698,7 +5958,9 @@ data, and if so, how? -->
                <placeName>Card Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Examination Schools, 75-81 High Street, Oxford</addrLine>
+                     <addrLine>Examination Schools</addrLine>
+                     <addrLine>75-81 High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4BG</postCode>
                   </address>
                </location>
@@ -5712,7 +5974,8 @@ data, and if so, how? -->
                <placeName>Central Administrative Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5726,7 +5989,8 @@ data, and if so, how? -->
                <placeName>Council Secretariat</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5740,7 +6004,9 @@ data, and if so, how? -->
                <placeName>Data Management and Analysis (Process Management)</placeName>
                <location type="address">
                   <address>
-                     <addrLine>New Barnett House, 28 Little Clarendon Street, Oxford</addrLine>
+                     <addrLine>New Barnett House</addrLine>
+                     <addrLine>28 Little Clarendon Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HY</postCode>
                   </address>
                </location>
@@ -5749,7 +6015,8 @@ data, and if so, how? -->
                <placeName>Education Policy Support</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5763,7 +6030,9 @@ data, and if so, how? -->
                <placeName>Examinations and Assessments</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Examination Schools, 75-81 High Street, Oxford</addrLine>
+                     <addrLine>Examination Schools</addrLine>
+                     <addrLine>75-81 High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4BG</postCode>
                   </address>
                </location>
@@ -5777,7 +6046,8 @@ data, and if so, how? -->
                <placeName>Finance Division</placeName>
                <location type="address">
                   <address>
-                     <addrLine>23-38 Hythe Bridge Street, Oxford</addrLine>
+                     <addrLine>23-38 Hythe Bridge Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2EP</postCode>
                   </address>
                </location>
@@ -5791,7 +6061,8 @@ data, and if so, how? -->
                <placeName>Graduate Administration</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5805,7 +6076,8 @@ data, and if so, how? -->
                <placeName>Graduate Admissions</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5822,7 +6094,8 @@ data, and if so, how? -->
                <placeName>International Strategy</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5836,8 +6109,11 @@ data, and if so, how? -->
                <placeName>Land Agent's and Accommodation Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Ewert House, Ewert Place, Banbury Road,
-	      Summertown, Oxford</addrLine>
+                     <addrLine>Ewert House</addrLine>
+                     <addrLine>Ewert Place</addrLine>
+                     <addrLine>Banbury Road</addrLine>
+                     <addrLine>Summertown</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 7DD</postCode>
                   </address>
                </location>
@@ -5851,7 +6127,8 @@ data, and if so, how? -->
                <placeName>Legal Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5865,7 +6142,8 @@ data, and if so, how? -->
                <placeName>Media Production Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>5-6 Worcester Street, Oxford</addrLine>
+                     <addrLine>5-6 Worcester Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2BX</postCode>
                   </address>
                </location>
@@ -5879,7 +6157,8 @@ data, and if so, how? -->
                <placeName>Oxford Nightline</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Basement flat, 16 Wellington Square</addrLine>
+                     <addrLine>Basement flat</addrLine>
+                     <addrLine>16 Wellington Square</addrLine>
                      <postCode>OX1 2HY</postCode>
                   </address>
                </location>
@@ -5893,7 +6172,8 @@ data, and if so, how? -->
                <placeName>Public Affairs Directorate</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5907,7 +6187,8 @@ data, and if so, how? -->
                <placeName>Personnel Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>5-6 Worcester Street, Oxford</addrLine>
+                     <addrLine>5-6 Worcester Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2BX</postCode>
                   </address>
                </location>
@@ -5921,7 +6202,8 @@ data, and if so, how? -->
                <placeName>Planning and Resources</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5935,7 +6217,8 @@ data, and if so, how? -->
                <placeName>Pro-Vice-Chancellors Offices</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5949,7 +6232,8 @@ data, and if so, how? -->
                <placeName>Registrar's Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5958,7 +6242,8 @@ data, and if so, how? -->
                <placeName>Research Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>5-6 Worcester Street, Oxford</addrLine>
+                     <addrLine>5-6 Worcester Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2BX</postCode>
                   </address>
                </location>
@@ -5972,7 +6257,8 @@ data, and if so, how? -->
                <placeName>Student Funding Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -5986,7 +6272,9 @@ data, and if so, how? -->
                <placeName>Student Information and International Student Advisory Service</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Examination Schools, 75-81 High Street, Oxford</addrLine>
+                     <addrLine>Examination Schools</addrLine>
+                     <addrLine>75-81 High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4BG</postCode>
                   </address>
                </location>
@@ -6000,7 +6288,9 @@ data, and if so, how? -->
                <placeName>Student Administration</placeName>
                <location type="address">
                   <address>
-                     <addrLine>New Barnett House, 28 Little Clarendon Street, Oxford</addrLine>
+                     <addrLine>New Barnett House</addrLine>
+                     <addrLine>28 Little Clarendon Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2HY</postCode>
                   </address>
                </location>
@@ -6009,7 +6299,9 @@ data, and if so, how? -->
                <placeName>Telecommunications</placeName>
                <location type="address">
                   <address>
-                     <addrLine>The Malthouse, Tidmarsh Lane, Oxford</addrLine>
+                     <addrLine>The Malthouse</addrLine>
+                     <addrLine>Tidmarsh Lane</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1NQ</postCode>
                   </address>
                </location>
@@ -6023,7 +6315,8 @@ data, and if so, how? -->
                <placeName>Undergraduate Admissions</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -6037,7 +6330,8 @@ data, and if so, how? -->
                <placeName>Vice Chancellor's Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Wellington Square, Oxford</addrLine>
+                     <addrLine>Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JD</postCode>
                   </address>
                </location>
@@ -6051,7 +6345,9 @@ data, and if so, how? -->
                <placeName>Oxford University Archives</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Bodleian Library, Broad Street, Oxford</addrLine>
+                     <addrLine>Bodleian Library</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3BG</postCode>
                   </address>
                </location>
@@ -6068,7 +6364,9 @@ data, and if so, how? -->
                </event>
                <location type="address">
                   <address>
-                     <addrLine>Ewert House, Ewert Place, Oxford</addrLine>
+                     <addrLine>Ewert House</addrLine>
+                     <addrLine>Ewert Place</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 7DD</postCode>
                   </address>
                </location>
@@ -6077,7 +6375,8 @@ data, and if so, how? -->
                <placeName>Careers Service</placeName>
                <location type="address">
                   <address>
-                     <addrLine>56 Banbury Road, Oxford</addrLine>
+                     <addrLine>56 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6PA</postCode>
                   </address>
                </location>
@@ -6099,7 +6398,9 @@ data, and if so, how? -->
                <placeName>Oxford University Consulting</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Ewert House, Ewert Place, Oxford</addrLine>
+                     <addrLine>Ewert House</addrLine>
+                     <addrLine>Ewert Place</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 7DD</postCode>
                   </address>
                </location>
@@ -6113,7 +6414,8 @@ data, and if so, how? -->
                <placeName>University Counselling Service</placeName>
                <location type="address">
                   <address>
-                     <addrLine>11 Wellington Square, Oxford</addrLine>
+                     <addrLine>11 Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2ES</postCode>
                   </address>
                </location>
@@ -6127,7 +6429,9 @@ data, and if so, how? -->
                <placeName>Oxford University Development Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Oxenford House, Magdalen Street, Oxford</addrLine>
+                     <addrLine>Oxenford House</addrLine>
+                     <addrLine>Magdalen Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3AB</postCode>
                   </address>
                </location>
@@ -6141,7 +6445,8 @@ data, and if so, how? -->
                <placeName>Examination Schools</placeName>
                <location type="address">
                   <address>
-                     <addrLine>75-81 High Street, Oxford</addrLine>
+                     <addrLine>75-81 High Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4BG</postCode>
                   </address>
                </location>
@@ -6155,7 +6460,8 @@ data, and if so, how? -->
                <placeName>Humanities Division</placeName>
                <location type="address">
                   <address>
-                     <addrLine>34 St Giles, Oxford</addrLine>
+                     <addrLine>34 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3LH</postCode>
                   </address>
                </location>
@@ -6177,7 +6483,8 @@ data, and if so, how? -->
                <placeName>Information Communication Technology Team</placeName>
                <location type="address">
                   <address>
-                     <addrLine>13 Banbury Road, Oxford</addrLine>
+                     <addrLine>13 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6NN</postCode>
                   </address>
                </location>
@@ -6191,8 +6498,10 @@ data, and if so, how? -->
                <placeName>Information Management Services Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Room 3A25B John Radcliffe Hospital, Headley Way,
- Headington, Oxford</addrLine>
+                     <addrLine>Room 3A25B John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -6206,7 +6515,9 @@ data, and if so, how? -->
                <placeName>Isis Innovation</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Ewert House, Ewert Place, Oxford</addrLine>
+                     <addrLine>Ewert House</addrLine>
+                     <addrLine>Ewert Place</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 7SG</postCode>
                   </address>
                </location>
@@ -6220,7 +6531,8 @@ data, and if so, how? -->
                <placeName>Language Centre</placeName>
                <location type="address">
                   <address>
-                     <addrLine>12 Woodstock Road, Oxford</addrLine>
+                     <addrLine>12 Woodstock Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6HT</postCode>
                   </address>
                </location>
@@ -6243,8 +6555,10 @@ data, and if so, how? -->
                <placeName>Medical School Offices</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way, Headington,
- Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+                     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -6258,8 +6572,10 @@ data, and if so, how? -->
                <placeName>Medical Sciences Division</placeName>
                <location type="address">
                   <address>
-                     <addrLine>John Radcliffe Hospital, Headley Way,
-		     Headington, Oxford</addrLine>
+                     <addrLine>John Radcliffe Hospital</addrLine>
+                     <addrLine>Headley Way</addrLine>
+		     <addrLine>Headington</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX3 9DU</postCode>
                   </address>
                </location>
@@ -6273,7 +6589,8 @@ data, and if so, how? -->
                   <placeName>Medical Sciences Teaching Centre</placeName>
                   <location type="address">
                      <address>
-                        <addrLine>South Parks Road, Oxford</addrLine>
+                        <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                         <postCode>OX1 3PL</postCode>
                      </address>
                   </location>
@@ -6307,7 +6624,8 @@ data, and if so, how? -->
                <placeName>Computing Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>13 Banbury Road, Oxford</addrLine>
+                     <addrLine>13 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6NN</postCode>
                   </address>
                </location>
@@ -6334,7 +6652,8 @@ data, and if so, how? -->
                <placeName>Retired Staff</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Registration - OUCS - 13 Banbury Road, Oxford</addrLine>
+                     <addrLine>Registration - OUCS - 13 Banbury Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 6NN</postCode>
                   </address>
                </location>
@@ -6348,7 +6667,8 @@ data, and if so, how? -->
                <placeName>Safety Office</placeName>
                <location type="address">
                   <address>
-                     <addrLine>10 Parks Road, Oxford</addrLine>
+                     <addrLine>10 Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PD</postCode>
                   </address>
                </location>
@@ -6362,7 +6682,9 @@ data, and if so, how? -->
                <placeName>University Estates Directorate</placeName>
                <location type="address">
                   <address>
-                     <addrLine>The Malthouse, Tidmarsh Lane, Oxford</addrLine>
+                     <addrLine>The Malthouse</addrLine>
+                     <addrLine>Tidmarsh Lane</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1NQ</postCode>
                   </address>
                </location>
@@ -6383,7 +6705,8 @@ data, and if so, how? -->
                <placeName>Veterinary Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Parks Road, Oxford</addrLine>
+                     <addrLine>Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3PT</postCode>
                   </address>
                </location>
@@ -6397,7 +6720,8 @@ data, and if so, how? -->
                <placeName>Equality and Diversity Unit</placeName>
                <location type="address">
                   <address>
-                     <addrLine>5-6 Worcester Street, Oxford</addrLine>
+                     <addrLine>5-6 Worcester Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2BX</postCode>
                   </address>
                </location>
@@ -6437,7 +6761,8 @@ data, and if so, how? -->
                <placeName>Faculty of English Language and Literature</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Manor Road, Oxford</addrLine>
+                     <addrLine>Manor Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3UQ</postCode>
                   </address>
                </location>
@@ -6456,7 +6781,9 @@ data, and if so, how? -->
                <placeName>Faculty of History</placeName>
                <location type="address">
                   <address>
-                     <addrLine>The Old Boys' High School, George Street, Oxford</addrLine>
+                     <addrLine>The Old Boys' High School</addrLine>
+                     <addrLine>George Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2RL</postCode>
                   </address>
                </location>
@@ -6485,7 +6812,8 @@ data, and if so, how? -->
                <placeName>Old Indian Institute Building</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Broad Street, Oxford</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3BD</postCode>
                   </address>
                </location>
@@ -6500,8 +6828,10 @@ data, and if so, how? -->
                <placeName>Systems and Electronic Resources Service</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Oxford University Library Services, Osney One Building,
- Osney Mead, Oxford</addrLine>
+                     <addrLine>Oxford University Library Services</addrLine>
+                     <addrLine>Osney One Building</addrLine>
+                     <addrLine>Osney Mead</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX2 0EW</postCode>
                   </address>
                </location>
@@ -6515,7 +6845,8 @@ data, and if so, how? -->
                <placeName>Faculty of Medieval and Modern Languages</placeName>
                <location type="address">
                   <address>
-                     <addrLine>41 &amp; 47 Wellington Square, Oxford</addrLine>
+                     <addrLine>41 &amp; 47 Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JF</postCode>
                   </address>
                </location>
@@ -6539,7 +6870,8 @@ data, and if so, how? -->
                <placeName>Faculty of Music</placeName>
                <location type="address">
                   <address>
-                     <addrLine>St Aldate's, Oxford</addrLine>
+                     <addrLine>St Aldate's</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 1DB</postCode>
                   </address>
                </location>
@@ -6558,7 +6890,8 @@ data, and if so, how? -->
                <placeName>Oriental Institute</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Pusey Lane, Oxford</addrLine>
+                     <addrLine>Pusey Lane</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2LE</postCode>
                   </address>
                </location>
@@ -6590,7 +6923,8 @@ data, and if so, how? -->
                <placeName>Faculty of Philosophy</placeName>
                <location type="address">
                   <address>
-                     <addrLine>10 Merton Street, Oxford</addrLine>
+                     <addrLine>10 Merton Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 4JJ</postCode>
                   </address>
                </location>
@@ -6609,7 +6943,8 @@ data, and if so, how? -->
                <placeName>Phonetics Laboratory</placeName>
                <location type="address">
                   <address>
-                     <addrLine>41 Wellington Square, Oxford</addrLine>
+                     <addrLine>41 Wellington Square</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 2JF</postCode>
                   </address>
                </location>
@@ -6628,7 +6963,8 @@ data, and if so, how? -->
                <placeName>Rhodes House</placeName>
                <location type="address">
                   <address>
-                     <addrLine>South Parks Road, Oxford</addrLine>
+                     <addrLine>South Parks Road</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3RG</postCode>
                   </address>
                </location>
@@ -6652,7 +6988,9 @@ data, and if so, how? -->
                <placeName>University Library Services</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Bodleian Library, Broad Street, Oxford</addrLine>
+                     <addrLine>Bodleian Library</addrLine>
+                     <addrLine>Broad Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                      <postCode>OX1 3BG</postCode>
                   </address>
                </location>
@@ -6774,7 +7112,8 @@ data, and if so, how? -->
                <placeName>41 St Giles</placeName>
                <location type="address">
                   <address>
-                     <addrLine>41 St Giles, Oxford</addrLine>
+                     <addrLine>41 St Giles</addrLine>
+                     <addrLine>Oxford</addrLine>
                   </address>
                </location>
                <location>
@@ -6787,7 +7126,8 @@ data, and if so, how? -->
                <placeName>5 Worcester Street</placeName>
                <location type="address">
                   <address>
-                     <addrLine>5-6 Worcester Street, Oxford</addrLine>
+                     <addrLine>5-6 Worcester Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                   </address>
                </location>
                <location>
@@ -6825,7 +7165,9 @@ data, and if so, how? -->
                <placeName>Oxford-Man Institute Of Quantitative Finance</placeName>
                <location type="address">
                   <address>
-                     <addrLine>Blue Boar Court, 9 Alfred Street, Oxford</addrLine>
+                     <addrLine>Blue Boar Court</addrLine>
+                     <addrLine>9 Alfred Street</addrLine>
+                     <addrLine>Oxford</addrLine>
                   </address>
                </location>
                <location>
