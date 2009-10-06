@@ -6,6 +6,7 @@
 >
 
 <xsl:key name="I" use="@oucsCode" match="*"/>
+<xsl:key name="I" use="@olisCode" match="*"/>
 
 <xsl:key name="O_All" match="*[@obnCode]" use="1"/>
 <xsl:key name="O" use="@obnCode" match="*[@obnCode]"/>
@@ -26,15 +27,15 @@
       <xsl:if
 	  test="count(key('Occupies',concat('#',@oucsCode)))&gt;1">
 	<xsl:message>Place <xsl:value-of
-	select="@oxpID"/>/<xsl:value-of select="@oucsCode"/> has more	than one primary place</xsl:message>
+	select="@oxpID"/>/<xsl:value-of select="@oucsCode"/> has more than one primary place</xsl:message>
       </xsl:if>
       <xsl:if test="not(@oxpID)">
 	<xsl:message>Place <xsl:value-of
-	select="@oxpID"/>/<xsl:value-of select="@oucsCode"/> has no	oxpid attribute</xsl:message>
+	select="@oxpID"/>/<xsl:value-of select="@oucsCode"/> has no oxpid attribute</xsl:message>
       </xsl:if>
       <xsl:if test="not(@type)">
 	<xsl:message>Place <xsl:value-of
-	select="@oxpCode"/>/<xsl:value-of select="@oucsCode"/> has no	type attribute</xsl:message>
+	select="@oxpCode"/>/<xsl:value-of select="@oucsCode"/> has no type attribute</xsl:message>
       </xsl:if>
       <xsl:if test="(@type='building' and not(.//tei:geo))">
 	<xsl:message>Place <xsl:value-of
