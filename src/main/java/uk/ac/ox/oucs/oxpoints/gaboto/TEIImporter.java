@@ -63,6 +63,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Museum;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Room;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.SubLibrary;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
 
@@ -148,7 +149,9 @@ public class TEIImporter {
       } else if(type.equals("unit")){
         processUnit(el, new Unit());
       } else if(type.equals("library")){
-        processLibrary(el);
+        processLibrary(el, type);
+      } else if(type.equals("sublibrary")){
+        processLibrary(el, type);
       } else if(type.equals("museum")){
         processUnit(el, new Museum());
       } else if(type.equals("department")){
@@ -316,9 +319,15 @@ public class TEIImporter {
 	}
 	
 
-	private void processLibrary(Element libraryEl) {
-		Library lib = new Library();
+	private void processLibrary(Element libraryEl, String type) {
+		Library lib;
 		
+		if(type.equals("library"))
+      lib = new Library();
+		else if(type.equals("sublibrary"))
+      lib = new SubLibrary();
+		else 
+		  throw new RuntimeException("Unrecognised type " + type);
 		processUnit(libraryEl, lib);
 		
 		// olis code
