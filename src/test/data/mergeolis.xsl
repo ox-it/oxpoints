@@ -64,6 +64,7 @@
 	    </xsl:choose>
 	    </xsl:for-each>
 	  </xsl:attribute>
+
 	  <placeName><xsl:value-of select="@main_name"/></placeName>
 	  <xsl:if test="key('U',@three_letter_code)">
 	    <xsl:for-each select="key('U',@three_letter_code)">
@@ -94,6 +95,7 @@
 	  </xsl:variable>
 	  <place oxpID="{32320000 + $N cast as xs:integer}"
 		 type="sublibrary" olisCode="{@derived_olis_key}">
+	  <xsl:copy-of select="@asr_sublocation_type"/>
 	    <placeName><xsl:value-of select="@description"/></placeName>
 	  </place>
 	  <relation name="controls"

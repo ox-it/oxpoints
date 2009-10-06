@@ -8982,11 +8982,13 @@ data, and if so, how? -->
                <placeName>Vere Harmsworth Library Open Access</placeName>
             </place>
             <relation name="controls" active="#American Inst" passive="#VHL OpenShelf"/>
-            <place oxpID="32320020" type="sublibrary" olisCode="VHL Res">
+            <place oxpID="32320020" type="sublibrary" olisCode="VHL Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Vere Harmsworth Library Reserve</placeName>
             </place>
             <relation name="controls" active="#American Inst" passive="#VHL Res"/>
-            <place oxpID="32320021" type="sublibrary" olisCode="VHL Stack">
+            <place oxpID="32320021" type="sublibrary" olisCode="VHL Stack"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Vere Harmsworth Library Stack</placeName>
             </place>
             <relation name="controls" active="#American Inst" passive="#VHL Stack"/>
@@ -9118,7 +9120,8 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oxpID="32320038" type="sublibrary" olisCode="BJL Desk">
+            <place oxpID="32320038" type="sublibrary" olisCode="BJL Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>BJL Desk</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BJL Desk"/>
@@ -9126,7 +9129,8 @@ data, and if so, how? -->
                <placeName>Room 132 reserve counter</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD 132 Res"/>
-            <place oxpID="32320040" type="sublibrary" olisCode="BOD Blind Rdr">
+            <place oxpID="32320040" type="sublibrary" olisCode="BOD Blind Rdr"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Blind Readers Room</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Blind Rdr"/>
@@ -9134,7 +9138,8 @@ data, and if so, how? -->
                <placeName>Bodleian Library Bookstack</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Bookstack"/>
-            <place oxpID="32320042" type="sublibrary" olisCode="BOD Bookstack">
+            <place oxpID="32320042" type="sublibrary" olisCode="BOD Bookstack"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Bodleian Library Bookstack</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Bookstack"/>
@@ -9147,19 +9152,23 @@ data, and if so, how? -->
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Camera"/>
             <relation name="occupies" active="#BOD Camera" passive="#e_77"/>
-            <place oxpID="32320045" type="sublibrary" olisCode="BOD Cat.Engl.">
+            <place oxpID="32320045" type="sublibrary" olisCode="BOD Cat.Engl."
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>English cataloguing deliveries</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Cat.Engl."/>
-            <place oxpID="32320046" type="sublibrary" olisCode="BOD Cat.For'n">
+            <place oxpID="32320046" type="sublibrary" olisCode="BOD Cat.For'n"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Foreign cataloguing deliveries</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Cat.For'n"/>
-            <place oxpID="32320047" type="sublibrary" olisCode="BOD Cat.Pers.">
+            <place oxpID="32320047" type="sublibrary" olisCode="BOD Cat.Pers."
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Periodicals cataloguing deliveries</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Cat.Pers."/>
-            <place oxpID="32320048" type="sublibrary" olisCode="BOD Conservat">
+            <place oxpID="32320048" type="sublibrary" olisCode="BOD Conservat"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Conservation Sect.</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Conservat"/>
@@ -9167,19 +9176,23 @@ data, and if so, how? -->
                <placeName>Duke Humfrey's Library</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD D.Humfrey"/>
-            <place oxpID="32320050" type="sublibrary" olisCode="BOD DH Res">
+            <place oxpID="32320050" type="sublibrary" olisCode="BOD DH Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Duke Humfrey reserve counter</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD DH Res"/>
-            <place oxpID="32320051" type="sublibrary" olisCode="BOD DH Staff">
+            <place oxpID="32320051" type="sublibrary" olisCode="BOD DH Staff"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>BOD DH Staff</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD DH Staff"/>
-            <place oxpID="32320052" type="sublibrary" olisCode="BOD Engl.Acc.">
+            <place oxpID="32320052" type="sublibrary" olisCode="BOD Engl.Acc."
+                   asr_sublocation_type="ASR Stack">
                <placeName>BOD Engl.Acc.</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Engl.Acc."/>
-            <place oxpID="32320053" type="sublibrary" olisCode="BOD For.Acc.">
+            <place oxpID="32320053" type="sublibrary" olisCode="BOD For.Acc."
+                   asr_sublocation_type="ASR Stack">
                <placeName>Foreign Accessions</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD For.Acc."/>
@@ -9187,7 +9200,8 @@ data, and if so, how? -->
                <placeName>Hispanic Accessions</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Hispanic"/>
-            <place oxpID="32320055" type="sublibrary" olisCode="BOD ILL">
+            <place oxpID="32320055" type="sublibrary" olisCode="BOD ILL"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Inter Library Loans (Room 320)</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD ILL"/>
@@ -9195,11 +9209,13 @@ data, and if so, how? -->
                <placeName>Lower Camera</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD L. Camera"/>
-            <place oxpID="32320057" type="sublibrary" olisCode="BOD LCam Res">
+            <place oxpID="32320057" type="sublibrary" olisCode="BOD LCam Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Lower Camera reserve counter</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD LCam Res"/>
-            <place oxpID="32320058" type="sublibrary" olisCode="BOD Lower Res">
+            <place oxpID="32320058" type="sublibrary" olisCode="BOD Lower Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Lower Reading Room reserve counter</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Lower Res"/>
@@ -9207,7 +9223,8 @@ data, and if so, how? -->
                <placeName>Lower Reading Room</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Lower RR"/>
-            <place oxpID="32320060" type="sublibrary" olisCode="BOD Modern Pa">
+            <place oxpID="32320060" type="sublibrary" olisCode="BOD Modern Pa"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>BOD Modern Papers</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Modern Pa"/>
@@ -9215,7 +9232,8 @@ data, and if so, how? -->
                <placeName>Mountaineering</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Mountain."/>
-            <place oxpID="32320062" type="sublibrary" olisCode="BOD Music Res">
+            <place oxpID="32320062" type="sublibrary" olisCode="BOD Music Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>BOD Music Res</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Music Res"/>
@@ -9223,11 +9241,13 @@ data, and if so, how? -->
                <placeName>New Bodleian Reading Room </placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD NewBod RR"/>
-            <place oxpID="32320064" type="sublibrary" olisCode="BOD NewBodRes">
+            <place oxpID="32320064" type="sublibrary" olisCode="BOD NewBodRes"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>New Bodleian Reading Room Reserve (ASR)</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD NewBodRes"/>
-            <place oxpID="32320065" type="sublibrary" olisCode="BOD Nuneham">
+            <place oxpID="32320065" type="sublibrary" olisCode="BOD Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Nuneham"/>
@@ -9240,11 +9260,13 @@ data, and if so, how? -->
                <placeName>Bodleian Library Offsite Storage </placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Offsite"/>
-            <place oxpID="32320068" type="sublibrary" olisCode="BOD Offsite">
+            <place oxpID="32320068" type="sublibrary" olisCode="BOD Offsite"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Bodleian Library Offsite Storage </placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Offsite"/>
-            <place oxpID="32320069" type="sublibrary" olisCode="BOD Or. Desk">
+            <place oxpID="32320069" type="sublibrary" olisCode="BOD Or. Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Oriental reserve counter</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Or. Desk"/>
@@ -9268,15 +9290,18 @@ data, and if so, how? -->
                <placeName>Slavonic Reading Room - DO NOT USE - jep</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Slav. RR"/>
-            <place oxpID="32320075" type="sublibrary" olisCode="BOD Slav.Acc.">
+            <place oxpID="32320075" type="sublibrary" olisCode="BOD Slav.Acc."
+                   asr_sublocation_type="ASR Stack">
                <placeName>Slavonic Accessions</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Slav.Acc."/>
-            <place oxpID="32320076" type="sublibrary" olisCode="BOD SpColl RR">
+            <place oxpID="32320076" type="sublibrary" olisCode="BOD SpColl RR"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Special collections openshelf RR</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD SpColl RR"/>
-            <place oxpID="32320077" type="sublibrary" olisCode="BOD SpCollRes">
+            <place oxpID="32320077" type="sublibrary" olisCode="BOD SpCollRes"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Special Collections Reading Room Reserve for ASR</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD SpCollRes"/>
@@ -9284,11 +9309,13 @@ data, and if so, how? -->
                <placeName>Upper Camera</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD U. Camera"/>
-            <place oxpID="32320079" type="sublibrary" olisCode="BOD UCam Res">
+            <place oxpID="32320079" type="sublibrary" olisCode="BOD UCam Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>BOD UCam Res</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD UCam Res"/>
-            <place oxpID="32320080" type="sublibrary" olisCode="BOD Upper Res">
+            <place oxpID="32320080" type="sublibrary" olisCode="BOD Upper Res"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Upper Reading Room reserve counter</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#BOD Upper Res"/>
@@ -9300,7 +9327,8 @@ data, and if so, how? -->
                <placeName>PPE to SSL transfer</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#PPE to SSL"/>
-            <place oxpID="32320083" type="sublibrary" olisCode="Staff Office">
+            <place oxpID="32320083" type="sublibrary" olisCode="Staff Office"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Bodleian Library Staff Office</placeName>
             </place>
             <relation name="controls" active="#Bodleian" passive="#Staff Office"/>
@@ -9371,7 +9399,8 @@ data, and if so, how? -->
                <placeName>Chinese Studies</placeName>
             </place>
             <relation name="controls" active="#Chinese Stud." passive="#CSL Chin.Stud"/>
-            <place oxpID="32320090" type="sublibrary" olisCode="CSL Desk">
+            <place oxpID="32320090" type="sublibrary" olisCode="CSL Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Chinese Studies</placeName>
             </place>
             <relation name="controls" active="#Chinese Stud." passive="#CSL Desk"/>
@@ -9578,7 +9607,8 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oxpID="32320115" type="sublibrary" olisCode="EDU Desk">
+            <place oxpID="32320115" type="sublibrary" olisCode="EDU Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Education</placeName>
             </place>
             <relation name="controls" active="#Educational S" passive="#EDU Desk"/>
@@ -9961,7 +9991,8 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oxpID="32320172" type="sublibrary" olisCode="IND Desk">
+            <place oxpID="32320172" type="sublibrary" olisCode="IND Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>IND Desk</placeName>
             </place>
             <relation name="controls" active="#Indian Inst." passive="#IND Desk"/>
@@ -9973,7 +10004,8 @@ data, and if so, how? -->
                <placeName>Main Library</placeName>
             </place>
             <relation name="controls" active="#Indian Inst." passive="#IND Main Libr"/>
-            <place oxpID="32320175" type="sublibrary" olisCode="IND Nuneham">
+            <place oxpID="32320175" type="sublibrary" olisCode="IND Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Indian Inst." passive="#IND Nuneham"/>
@@ -10198,7 +10230,8 @@ data, and if so, how? -->
                <placeName>Closed access stack</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW Closed"/>
-            <place oxpID="32320202" type="sublibrary" olisCode="LAW Main Desk">
+            <place oxpID="32320202" type="sublibrary" olisCode="LAW Main Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>LAW Main Desk</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW Main Desk"/>
@@ -10206,7 +10239,8 @@ data, and if so, how? -->
                <placeName>Main Library</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW Main Libr"/>
-            <place oxpID="32320204" type="sublibrary" olisCode="LAW Nuneham">
+            <place oxpID="32320204" type="sublibrary" olisCode="LAW Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW Nuneham"/>
@@ -10215,11 +10249,13 @@ data, and if so, how? -->
                <placeName>Oxford Intellectual Property Research Centre</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW OIPRC"/>
-            <place oxpID="32320206" type="sublibrary" olisCode="LAW Reserve">
+            <place oxpID="32320206" type="sublibrary" olisCode="LAW Reserve"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Reserve collection</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW Reserve"/>
-            <place oxpID="32320207" type="sublibrary" olisCode="LAW Reserve">
+            <place oxpID="32320207" type="sublibrary" olisCode="LAW Reserve"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Reserve Collection</placeName>
             </place>
             <relation name="controls" active="#Law Library" passive="#LAW Reserve"/>
@@ -10671,7 +10707,8 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oxpID="32320267" type="sublibrary" olisCode="OIL Desk">
+            <place oxpID="32320267" type="sublibrary" olisCode="OIL Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>OIL Desk</placeName>
             </place>
             <relation name="controls" active="#Oriental Inst" passive="#OIL Desk"/>
@@ -11173,15 +11210,18 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oxpID="32320364" type="sublibrary" olisCode="RSL Borrower">
+            <place oxpID="32320364" type="sublibrary" olisCode="RSL Borrower"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Borrower reserve</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Borrower"/>
-            <place oxpID="32320365" type="sublibrary" olisCode="RSL Cabinet">
+            <place oxpID="32320365" type="sublibrary" olisCode="RSL Cabinet"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Locked cabinet</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Cabinet"/>
-            <place oxpID="32320366" type="sublibrary" olisCode="RSL Cairns PC">
+            <place oxpID="32320366" type="sublibrary" olisCode="RSL Cairns PC"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Cairns photocopying deliveries</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Cairns PC"/>
@@ -11189,11 +11229,13 @@ data, and if so, how? -->
                <placeName>Offsite Storage (Inactive)</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL DarkStore"/>
-            <place oxpID="32320368" type="sublibrary" olisCode="RSL Desk">
+            <place oxpID="32320368" type="sublibrary" olisCode="RSL Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>RSL Desk</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Desk"/>
-            <place oxpID="32320369" type="sublibrary" olisCode="RSL Doc Supp">
+            <place oxpID="32320369" type="sublibrary" olisCode="RSL Doc Supp"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Document Supply deliveries</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Doc Supp"/>
@@ -11237,7 +11279,8 @@ data, and if so, how? -->
                <placeName>Main Library</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Main Libr"/>
-            <place oxpID="32320380" type="sublibrary" olisCode="RSL Nuneham">
+            <place oxpID="32320380" type="sublibrary" olisCode="RSL Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Nuneham"/>
@@ -11246,7 +11289,8 @@ data, and if so, how? -->
                <placeName>Radcliffe Science Library Offsite Storage </placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Offsite"/>
-            <place oxpID="32320382" type="sublibrary" olisCode="RSL Offsite">
+            <place oxpID="32320382" type="sublibrary" olisCode="RSL Offsite"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Radcliffe Science Library Offsite Storage </placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Offsite"/>
@@ -11262,15 +11306,18 @@ data, and if so, how? -->
                <placeName>RSL Same Day</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Same Day"/>
-            <place oxpID="32320386" type="sublibrary" olisCode="RSL Stack">
+            <place oxpID="32320386" type="sublibrary" olisCode="RSL Stack"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Bookstack</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Stack"/>
-            <place oxpID="32320387" type="sublibrary" olisCode="RSL Stack SC">
+            <place oxpID="32320387" type="sublibrary" olisCode="RSL Stack SC"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Stack Special Collection</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Stack SC"/>
-            <place oxpID="32320388" type="sublibrary" olisCode="RSL Staff">
+            <place oxpID="32320388" type="sublibrary" olisCode="RSL Staff"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>RSL Staff</placeName>
             </place>
             <relation name="controls" active="#Radcl.Science" passive="#RSL Staff"/>
@@ -11319,12 +11366,14 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oxpID="32320393" type="sublibrary" olisCode="RHO Nuneham">
+            <place oxpID="32320393" type="sublibrary" olisCode="RHO Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Rhodes House" passive="#RHO Nuneham"/>
             <relation name="occupies" active="#RHO Nuneham" passive="#b_0038"/>
-            <place oxpID="32320394" type="sublibrary" olisCode="RHO Offsite">
+            <place oxpID="32320394" type="sublibrary" olisCode="RHO Offsite"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Rhodes House Library Offsite Storage </placeName>
             </place>
             <relation name="controls" active="#Rhodes House" passive="#RHO Offsite"/>
@@ -11332,11 +11381,13 @@ data, and if so, how? -->
                <placeName>Reading Room</placeName>
             </place>
             <relation name="controls" active="#Rhodes House" passive="#RHO ReadingRm"/>
-            <place oxpID="32320396" type="sublibrary" olisCode="RHO Reserve">
+            <place oxpID="32320396" type="sublibrary" olisCode="RHO Reserve"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Reserve counter</placeName>
             </place>
             <relation name="controls" active="#Rhodes House" passive="#RHO Reserve"/>
-            <place oxpID="32320397" type="sublibrary" olisCode="RHO Stack">
+            <place oxpID="32320397" type="sublibrary" olisCode="RHO Stack"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Bookstack</placeName>
             </place>
             <relation name="controls" active="#Rhodes House" passive="#RHO Stack"/>
@@ -11424,11 +11475,13 @@ data, and if so, how? -->
                <placeName>Haskell Room</placeName>
             </place>
             <relation name="controls" active="#Sackler" passive="#SAC Haskell"/>
-            <place oxpID="32320412" type="sublibrary" olisCode="SAC Main Desk">
+            <place oxpID="32320412" type="sublibrary" olisCode="SAC Main Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>SAC Main Desk</placeName>
             </place>
             <relation name="controls" active="#Sackler" passive="#SAC Main Desk"/>
-            <place oxpID="32320413" type="sublibrary" olisCode="SAC Nuneham">
+            <place oxpID="32320413" type="sublibrary" olisCode="SAC Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Sackler" passive="#SAC Nuneham"/>
@@ -11460,7 +11513,8 @@ data, and if so, how? -->
                <placeName>Careers Section</placeName>
             </place>
             <relation name="controls" active="#Said Business" passive="#SBS Careers"/>
-            <place oxpID="32320417" type="sublibrary" olisCode="SBS Desk">
+            <place oxpID="32320417" type="sublibrary" olisCode="SBS Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Said Business School Desk</placeName>
             </place>
             <relation name="controls" active="#Said Business" passive="#SBS Desk"/>
@@ -11532,7 +11586,8 @@ data, and if so, how? -->
                <placeName>Rolling Stack (N)</placeName>
             </place>
             <relation name="controls" active="#Social Sci." passive="#SSL RSC Boxes"/>
-            <place oxpID="32320428" type="sublibrary" olisCode="SSL Staff">
+            <place oxpID="32320428" type="sublibrary" olisCode="SSL Staff"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>SSL Staff</placeName>
             </place>
             <relation name="controls" active="#Social Sci." passive="#SSL Staff"/>
@@ -11868,7 +11923,8 @@ data, and if so, how? -->
                <placeName>Basement Oversize LC Sequence</placeName>
             </place>
             <relation name="controls" active="#Taylor Slav." passive="#TAS Base Over"/>
-            <place oxpID="32320475" type="sublibrary" olisCode="TAS Desk">
+            <place oxpID="32320475" type="sublibrary" olisCode="TAS Desk"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>Slavonic Library</placeName>
             </place>
             <relation name="controls" active="#Taylor Slav." passive="#TAS Desk"/>
@@ -11884,7 +11940,8 @@ data, and if so, how? -->
                <placeName>Slavonic Library</placeName>
             </place>
             <relation name="controls" active="#Taylor Slav." passive="#TAS Libr."/>
-            <place oxpID="32320479" type="sublibrary" olisCode="TAS Nuneham">
+            <place oxpID="32320479" type="sublibrary" olisCode="TAS Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Taylor Slav." passive="#TAS Nuneham"/>
@@ -11951,7 +12008,8 @@ data, and if so, how? -->
                <placeName>Taylorian Linguistics Collecion</placeName>
             </place>
             <relation name="controls" active="#Taylorian" passive="#TAY Ling."/>
-            <place oxpID="32320492" type="sublibrary" olisCode="TAY Main">
+            <place oxpID="32320492" type="sublibrary" olisCode="TAY Main"
+                   asr_sublocation_type="ASR Reading Room">
                <placeName>ASR delivery location only</placeName>
             </place>
             <relation name="controls" active="#Taylorian" passive="#TAY Main"/>
@@ -11991,7 +12049,8 @@ data, and if so, how? -->
                <placeName>Staff Desk</placeName>
             </place>
             <relation name="controls" active="#Taylorian" passive="#TAY MLF Staff"/>
-            <place oxpID="32320502" type="sublibrary" olisCode="TAY Nuneham">
+            <place oxpID="32320502" type="sublibrary" olisCode="TAY Nuneham"
+                   asr_sublocation_type="ASR Stack">
                <placeName>Nuneham Repository</placeName>
             </place>
             <relation name="controls" active="#Taylorian" passive="#TAY Nuneham"/>
