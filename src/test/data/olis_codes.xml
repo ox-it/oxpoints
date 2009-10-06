@@ -1,0 +1,2226 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<root>
+    <libraries>
+        <library main_name="Wycliffe Hall Library" derived_library_id="172"/>
+        <library main_name="Human Anatomy and Genetics Library" derived_library_id="73">
+            <url_of_library_webpage>http://www.anat.ox.ac.uk/</url_of_library_webpage>
+        </library>
+        <library main_name="Information Services in Bio- and Environmental Sciences"
+            derived_library_id="187">
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/isbes/</url_of_library_webpage>
+        </library>
+        <library main_name="Plunkett Foundation Co-operative Information Centre Library"
+            derived_library_id="64">
+            <url_of_library_webpage>http://www.plunkett.co.uk/</url_of_library_webpage>
+        </library>
+        <library main_name="St Stephen&apos;s House" derived_library_id="188">
+            <url_of_library_webpage>http://www.ssho.ox.ac.uk/facilities/library.php</url_of_library_webpage>
+        </library>
+        <library main_name="Research Laboratory for Archaeology and the History of Art Library"
+            derived_library_id="110">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/110.html</url_of_library_guide>
+            <url_of_library_webpage>www.rlaha.ox.ac.uk</url_of_library_webpage>
+        </library>
+        <library main_name="Pusey House Library" derived_library_id="65">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/65.html</url_of_library_guide>
+        </library>
+        <library main_name="Careers Service Library" derived_library_id="94">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/94.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.careers.ox.ac.uk/</url_of_library_webpage>
+        </library>
+        <library main_name="Russian and Eurasian Studies Centre" derived_library_id="76">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/76.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.sant.ox.ac.uk/russian/</url_of_library_webpage>
+            <matches_olis_sublocation derived_olis_key="ANT RussianEE"/>
+        </library>
+        <library main_name="Official Papers Collection" derived_library_id="186">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/186.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/official_papers</url_of_library_webpage>
+            <matches_olis_sublocation derived_olis_key="BOD OffPapers"/>
+        </library>
+        <library main_name="Chantry Library" derived_library_id="183">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/183.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.icon.org.uk</url_of_library_webpage>
+            <matches_olis_sublocation derived_olis_key="MAG Chantry"/>
+        </library>
+        <library main_name="All Souls College Library" derived_library_id="ASC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ASC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.all-souls.ox.ac.uk/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="All Souls"/>
+        </library>
+        <library main_name="Vere Harmsworth Library (Rothermere American Institute)"
+            derived_library_id="VHL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/VHL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/vhl</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="American Inst"/>
+        </library>
+        <library main_name="Institute of Archaeology" derived_library_id="ARC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ARC.html</url_of_library_guide>
+            <url_of_library_webpage>http://athens.arch.ox.ac.uk/schoolarch/institute/readingroom.html</url_of_library_webpage>
+        </library>
+        <library main_name="Ashmolean Museum Library" derived_library_id="4">
+            <url_of_library_webpage>http://www.lib.ox.ac.uk/guides/ash.htm</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Ashmolean Lb."/>
+        </library>
+        <library main_name="Balfour Library (Pitt Rivers Museum)" derived_library_id="BAL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/BAL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.prm.ox.ac.uk/balfour.html</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Balfour Libr."/>
+        </library>
+        <library main_name="Balliol College Library" derived_library_id="BLL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/BLL.html</url_of_library_guide>
+            <url_of_library_webpage>http://web.balliol.ox.ac.uk/library/index.asp</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Balliol"/>
+        </library>
+        <library main_name="Blackfriars Library" derived_library_id="176">
+            <matches_olis_institution derived_olis_key="Blackfriars"/>
+        </library>
+        <library main_name="Bodleian Japanese Library" derived_library_id="BJL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/BJL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/bjl/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Bod.Japanese"/>
+        </library>
+        <library main_name="Bodleian Library" derived_library_id="BOD">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/BOD.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/bodley</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Bodleian"/>
+        </library>
+        <library main_name="Brasenose College Library" derived_library_id="BNC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/BNC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.bnc.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Brasenose"/>
+        </library>
+        <library main_name="Campion Hall Library" derived_library_id="CAM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CAM.html</url_of_library_guide>
+        </library>
+        <library main_name="Cancer Epidemiology Unit" derived_library_id="CEU">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CEU.html</url_of_library_guide>
+            <url_of_library_webpage>http://chizra.ox.icnet.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Cancer Ep.Un."/>
+        </library>
+        <library main_name="Chinese Studies Library" derived_library_id="CSL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CSL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/csl</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Chinese Stud."/>
+        </library>
+        <library main_name="Christ Church Library" derived_library_id="CHC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CHC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.chch.ox.ac.uk</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Christ Church"/>
+        </library>
+        <library main_name="Computing Laboratory Library" derived_library_id="COM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/COM.html</url_of_library_guide>
+            <url_of_library_webpage>http://web.comlab.ox.ac.uk/internal/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Computing Lab"/>
+        </library>
+        <library main_name="Continuing Education Library" derived_library_id="CED">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CED.html</url_of_library_guide>
+            <url_of_library_webpage>www.conted.ox.ac.uk/library</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Continuing Ed"/>
+        </library>
+        <library main_name="Corpus Christi College Library" derived_library_id="CCC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CCC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ccc.ox.ac.uk/about/library/libraryhome.php</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Corpus Chr."/>
+        </library>
+        <library main_name="Sir William Dunn School of Pathology Library" derived_library_id="DUN">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/DUN.html</url_of_library_guide>
+            <url_of_library_webpage>http://users.path.ox.ac.uk/~library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Dunn School"/>
+        </library>
+        <library main_name="Dyson Perrins Laboratory" derived_library_id="DYS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/DYS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.chem.ox.ac.uk/researchguide/jbrown.html</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Dyson Perrins"/>
+        </library>
+        <library main_name="Earth Sciences Library" derived_library_id="EAR">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/EAR.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Earth Science"/>
+        </library>
+        <library main_name="Education Library" derived_library_id="EDU">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/EDU.html</url_of_library_guide>
+            <url_of_library_webpage>www.education.ox.ac.uk/library</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Educational S"/>
+        </library>
+        <library main_name="Engineering Science Library" derived_library_id="ENG">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ENG.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.eng.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Engineering"/>
+        </library>
+        <library main_name="English Faculty Library" derived_library_id="EFL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/EFL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/english</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="English Fac."/>
+        </library>
+        <library main_name="Exeter College Library" derived_library_id="EXE">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/EXE.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Exeter"/>
+        </library>
+        <library main_name="Green Templeton College Library" derived_library_id="GRE">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/GRE.html</url_of_library_guide>
+        </library>
+        <library main_name="Greyfriars Oxford Centre for Franciscan Studies Library"
+            derived_library_id="GRF">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/GRF.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.greyfriarsoxford.org.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Greyfriars"/>
+        </library>
+        <library main_name="Harris Manchester College Library" derived_library_id="HMC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HMC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.hmc.ox.ac.uk/collegelibrary.html</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Harris Coll."/>
+        </library>
+        <library main_name="Health Care Libraries" derived_library_id="HCL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HCL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/hcl</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Health Care"/>
+        </library>
+        <library main_name="Oxford Centre for Hebrew and Jewish Studies Library"
+            derived_library_id="HEB">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HEB.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ochjs.ac.uk/library/index.html</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Hebrew Stud."/>
+        </library>
+        <library main_name="Hertford College Library" derived_library_id="HER">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HER.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.hertford.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Hertford"/>
+        </library>
+        <library main_name="Oxford Centre for Vaishnava and Hindu Studies Library"
+            derived_library_id="179">
+            <matches_olis_institution derived_olis_key="Hindu Studies"/>
+        </library>
+        <library main_name="History Faculty Library" derived_library_id="HFL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HFL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/history</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="History Fac."/>
+        </library>
+        <library main_name="Pauling Centre for Human Sciences Library" derived_library_id="HSC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HSC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.human-sciences.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Human Sci."/>
+        </library>
+        <library main_name="Indian Institute Library" derived_library_id="IND">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/IND.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/bodley/library/rooms/iirr</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Indian Inst."/>
+        </library>
+        <library main_name="Instituto Camões Library" derived_library_id="181">
+            <url_of_library_webpage>http://www.instituto-camoes.pt/actividades/centros/clpoxford.htm</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Inst. Camoes"/>
+        </library>
+        <library main_name="Oxford Internet Institute Library" derived_library_id="OII">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/OII.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.oii.ox.ac.uk/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Internet Inst"/>
+        </library>
+        <library main_name="Oxford Centre for Islamic Studies Library" derived_library_id="ISL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ISL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.oxcis.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Islamic Stud."/>
+        </library>
+        <library main_name="Jesus College Library" derived_library_id="JES">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/JES.html</url_of_library_guide>
+            <url_of_library_webpage>http://home.jesus.ox.ac.uk/offices/library</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Jesus College"/>
+        </library>
+        <library main_name="Keble College Library" derived_library_id="KEB">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/KEB.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.keble.ox.ac.uk/about/library</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Keble College"/>
+        </library>
+        <library main_name="Lady Margaret Hall Library" derived_library_id="LMH">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/LMH.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.lmh.ox.ac.uk</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Lady Marg. H."/>
+        </library>
+        <library main_name="Language Centre Library" derived_library_id="LAN">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/LAN.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.lang.ox.ac.uk/library/index.html</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Language Ctr."/>
+        </library>
+        <library main_name="Latin American Centre Library" derived_library_id="LAC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/LAC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/lac</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Lat.Amer.Cntr"/>
+        </library>
+        <library main_name="Bodleian Law Library" derived_library_id="LAW">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/LAW.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/law/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Law Library"/>
+        </library>
+        <library main_name="Oxford Learning Institute" derived_library_id="OLI">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/OLI.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.learning.ox.ac.uk/iaul/default.asp</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Learning Inst"/>
+        </library>
+        <library main_name="Linacre College Library" derived_library_id="LCR">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/LCR.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.linacre.ox.ac.uk/Linacre/it-library/linacre-college-library</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Linacre Coll."/>
+        </library>
+        <library main_name="Lincoln College Library" derived_library_id="LIN">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/LIN.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Lincoln Coll."/>
+        </library>
+        <library main_name="Magdalen College Library" derived_library_id="MAG">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MAG.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Magdalen Coll"/>
+        </library>
+        <library main_name="Maison Française Library" derived_library_id="MFO">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MFO.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.mfo.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Maison Franc."/>
+        </library>
+        <library main_name="Mansfield College Library" derived_library_id="MND">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MND.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.mansfield.ox.ac.uk/study/resources.htm</url_of_library_webpage>
+        </library>
+        <library main_name="Materials Library" derived_library_id="DOM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/DOM.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.materials.ox.ac.uk/teaching/index.htm</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Materials Dpt"/>
+        </library>
+        <library main_name="Mathematical Institute Library" derived_library_id="MAT">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MAT.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.maths.ox.ac.uk/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Maths Inst."/>
+        </library>
+        <library main_name="Merton College Library" derived_library_id="MER">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MER.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Merton Coll."/>
+        </library>
+        <library main_name="Middle East Centre Library" derived_library_id="MEC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MEC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.sant.ox.ac.uk/mec/middle-east-library.shtml</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Middle East C"/>
+        </library>
+        <library main_name="Oxford Centre for Mission Studies Library" derived_library_id="CMS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CMS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ocms.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Mission Stud."/>
+        </library>
+        <library main_name="Museum of the History of Science Library" derived_library_id="MHS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MHS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.mhs.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Mus.Hist.Sc."/>
+        </library>
+        <library main_name="Music Faculty Library" derived_library_id="MUS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/MUS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/music/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Music Fac."/>
+        </library>
+        <library main_name="Networked Resources" derived_library_id="168">
+            <matches_olis_institution derived_olis_key="Netwrk Res."/>
+        </library>
+        <library main_name="New College Library" derived_library_id="NEW">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/NEW.html</url_of_library_guide>
+            <url_of_library_webpage>www.new.ox.ac.uk/The_Library/index.php</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="New College"/>
+        </library>
+        <library main_name="Nuffield College Library" derived_library_id="NUF">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/NUF.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.nuffield.ox.ac.uk/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Nuffield Coll"/>
+        </library>
+        <library main_name="Oriel College Library" derived_library_id="ORL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ORL.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Oriel College"/>
+        </library>
+        <library main_name="Oriental Institute Library" derived_library_id="OIL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/OIL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/oil</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Oriental Inst"/>
+        </library>
+        <library main_name="Oxford Union Society Library" derived_library_id="OUS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/OUS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.oxford-union.org/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Oxford Union"/>
+        </library>
+        <library main_name="Centre for Oxfordshire Studies Library" derived_library_id="COS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/COS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.oxfordshire.gov.uk/oxfordshirestudies</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Oxon. Studies"/>
+        </library>
+        <library main_name="Pembroke College Library" derived_library_id="PEM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/PEM.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.pmb.ox.ac.uk/Students/Library_Archives/index.php</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Pembroke Coll"/>
+        </library>
+        <library main_name="Pharmacology Library" derived_library_id="PHA">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/PHA.html</url_of_library_guide>
+        </library>
+        <library main_name="Philosophy Faculty Library" derived_library_id="PHI">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/PHI.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/philosophy</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Philosophy"/>
+        </library>
+        <library main_name="Physical Chemistry Laboratory" derived_library_id="PCH">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/PCH.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.physchem.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Phys.Chemist."/>
+        </library>
+        <library main_name="Physiology Library" derived_library_id="PHY">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/PHY.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.physiol.ox.ac.uk/Library/</url_of_library_webpage>
+        </library>
+        <library main_name="Plant Sciences Library" derived_library_id="PLS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/PLS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/isbes</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Plant Science"/>
+        </library>
+        <library main_name="Queen&apos;s College Library" derived_library_id="QUE">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/QUE.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.queens.ox.ac.uk/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Queen&apos;s Coll."/>
+        </library>
+        <library main_name="Radcliffe Science Library" derived_library_id="RSL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/RSL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/rsl</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Radcl.Science"/>
+        </library>
+        <library main_name="Regent&apos;s Park College Library" derived_library_id="REG">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/REG.html</url_of_library_guide>
+            <url_of_library_webpage>www.rpc.ox.ac.uk</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Regent&apos;s Park"/>
+        </library>
+        <library main_name="Rhodes House Library" derived_library_id="RHO">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/RHO.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/rhodes/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Rhodes House"/>
+        </library>
+        <library main_name="Ruskin School of Drawing and Fine Art Library" derived_library_id="RUS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/RUS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ruskin-sch.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Ruskin School"/>
+        </library>
+        <library main_name="Sackler Library" derived_library_id="SAC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/SAC.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.saclib.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Sackler"/>
+        </library>
+        <library main_name="Saïd Business School Library" derived_library_id="SBS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/SBS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.sbs.ox.ac.uk/faculty/Library+and+Information+Services.htm</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Said Business"/>
+        </library>
+        <library main_name="Social and Cultural Anthropology Library" derived_library_id="SCA">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/SCA.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.isca.ox.ac.uk/about-us/tylor-library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Soc/Cult Anth"/>
+        </library>
+        <library main_name="Social Science Library" derived_library_id="SSL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/SSL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ssl.ox.ac.uk</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Social Sci."/>
+        </library>
+        <library main_name="Somerville College Library" derived_library_id="SOM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/SOM.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Somerville"/>
+        </library>
+        <library main_name="St Anne&apos;s College Library" derived_library_id="ANN">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ANN.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.st-annes.ox.ac.uk/study/undergraduate/library.html</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="St Anne&apos;s"/>
+        </library>
+        <library main_name="St Antony&apos;s College Library" derived_library_id="ANT">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ANT.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="St Antony&apos;s"/>
+        </library>
+        <library main_name="St Benet&apos;s Hall Library" derived_library_id="STB">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/STB.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="St Benet&apos;s"/>
+        </library>
+        <library main_name="St Catherine&apos;s College Library" derived_library_id="CAT">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/CAT.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="St Catherines"/>
+        </library>
+        <library main_name="St Cross College Library" derived_library_id="STX">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/STX.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.stx.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="St Cross Coll"/>
+        </library>
+        <library main_name="St Edmund Hall Library" derived_library_id="EDM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/EDM.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="St Edmund H."/>
+        </library>
+        <library main_name="St Hilda&apos;s College Library" derived_library_id="HIL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HIL.html</url_of_library_guide>
+            <url_of_library_webpage/>
+        </library>
+        <library main_name="St Hugh&apos;s College Library" derived_library_id="HUG">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/HUG.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.st-hughs.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="St Hugh&apos;s"/>
+        </library>
+        <library main_name="St John&apos;s College Library" derived_library_id="STJ">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/STJ.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="St John&apos;s"/>
+        </library>
+        <library main_name="St Peter&apos;s College Library" derived_library_id="SPC">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/SPC.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="St Peter&apos;s"/>
+        </library>
+        <library main_name="OULS Staff Library" derived_library_id="STF">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/STF.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/libraries/subjects/staff/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Staff Libr."/>
+        </library>
+        <library main_name="Statistics Library" derived_library_id="STA">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/STA.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.stats.ox.ac.uk/about_us/library</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Statistics"/>
+        </library>
+        <library main_name="Taylor Institution Slavonic &amp; Modern Greek Library"
+            derived_library_id="TAS">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/TAS.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.taslib.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Taylor Slav."/>
+        </library>
+        <library main_name="Taylor Institution Library" derived_library_id="TAY">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/TAY.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.taylib.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Taylorian"/>
+        </library>
+        <library main_name="Theology Faculty Library" derived_library_id="THE">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/THE.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/theology</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Theology Fac."/>
+        </library>
+        <library main_name="Trinity College Library" derived_library_id="TRI">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/TRI.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.trinity.ox.ac.uk/college/library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Trinity Coll."/>
+        </library>
+        <library main_name="Oxford University Museum of Natural History Library"
+            derived_library_id="OUM">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/OUM.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.oum.ox.ac.uk/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Univ.Museum"/>
+        </library>
+        <library main_name="University College Library" derived_library_id="UNI">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/UNI.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="University C."/>
+        </library>
+        <library main_name="Wadham College Library" derived_library_id="WAD">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/WAD.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Wadham Coll."/>
+        </library>
+        <library main_name="Wellcome Unit for the History of Medicine Library"
+            derived_library_id="WEL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/WEL.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.wuhmo.ox.ac.uk/library/index.htm</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Wellcome Unit"/>
+        </library>
+        <library main_name="Wolfson College Library" derived_library_id="WOL">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/WOL.html</url_of_library_guide>
+            <matches_olis_institution derived_olis_key="Wolfson Coll."/>
+        </library>
+        <library main_name="Worcester College Library" derived_library_id="WOR">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/WOR.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.worc.ox.ac.uk/Library/</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Worcester C."/>
+        </library>
+        <library main_name="Zoology Library" derived_library_id="ZOO">
+            <url_of_library_guide>http://www.lib.ox.ac.uk/libraries/guides/ZOO.html</url_of_library_guide>
+            <url_of_library_webpage>http://www.ouls.ox.ac.uk/isbes</url_of_library_webpage>
+            <matches_olis_institution derived_olis_key="Zoology"/>
+        </library>
+    </libraries>
+    <olis_institutions>
+        <olis_institution main_name="All Souls College Library" derived_olis_key="All Souls"
+            short_name="All Souls" three_letter_code="ASC">
+            <matches_library derived_library_id="ASC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ASC Anson 1st" derived_olis_key="ASC Anson 1st"
+                    description="Anson Room, 1st floor"/>
+                <olis_sublocation main_name="ASC Anson Rm." derived_olis_key="ASC Anson Rm."
+                    description="Anson Room"/>
+                <olis_sublocation main_name="ASC Ante Libr" derived_olis_key="ASC Ante Libr"
+                    description="Ante Library"/>
+                <olis_sublocation main_name="ASC Cellar" derived_olis_key="ASC Cellar"
+                    description="Cellar"/>
+                <olis_sublocation main_name="ASC Gallery" derived_olis_key="ASC Gallery"
+                    description="Great Lib. Gallery"/>
+                <olis_sublocation main_name="ASC Great Lib" derived_olis_key="ASC Great Lib"
+                    description="Great Library"/>
+                <olis_sublocation main_name="ASC Librarian" derived_olis_key="ASC Librarian"
+                    description="Librarian&apos;s Room"/>
+                <olis_sublocation main_name="ASC Stack 1st" derived_olis_key="ASC Stack 1st"
+                    description="Stack 1st floor"/>
+                <olis_sublocation main_name="ASC Stack 2nd" derived_olis_key="ASC Stack 2nd"
+                    description="Stack 2nd floor"/>
+                <olis_sublocation main_name="ASC Stack 3rd" derived_olis_key="ASC Stack 3rd"
+                    description="Stack 3rd floor"/>
+                <olis_sublocation main_name="ASC Stack Gnd" derived_olis_key="ASC Stack Gnd"
+                    description="Stack ground floor"/>
+                <olis_sublocation main_name="ASC Subl. 1st" derived_olis_key="ASC Subl. 1st"
+                    description="Sublibrarian 1st floor"/>
+                <olis_sublocation main_name="ASC Subl. 2nd" derived_olis_key="ASC Subl. 2nd"
+                    description="Sublibrarian 2nd floor"/>
+                <olis_sublocation main_name="ASC Subl. 3rd" derived_olis_key="ASC Subl. 3rd"
+                    description="Sublibrarian 3rd floor"/>
+                <olis_sublocation main_name="ASC Subl. Gnd" derived_olis_key="ASC Subl. Gnd"
+                    description="Sublibrarian ground floor"/>
+                <olis_sublocation main_name="ASC Warden&apos;s"
+                    derived_olis_key="ASC Warden&apos;s"
+                    description="Warden&apos;s basement"/>
+                <olis_sublocation main_name="ASC Wharton" derived_olis_key="ASC Wharton"
+                    description="Wharton Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Vere Harmsworth Library (Rothermere American Institute)"
+            derived_olis_key="American Inst" short_name="American Inst" three_letter_code="VHL">
+            <matches_library derived_library_id="VHL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="VHL Nuneham" derived_olis_key="VHL Nuneham"
+                    description="Vere Harmsworth Library Nuneham"/>
+                <olis_sublocation main_name="VHL OpenShelf" derived_olis_key="VHL OpenShelf"
+                    description="Vere Harmsworth Library Open Access"/>
+                <olis_sublocation main_name="VHL Res" derived_olis_key="VHL Res"
+                    description="Vere Harmsworth Library Reserve"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="VHL Stack" derived_olis_key="VHL Stack"
+                    description="Vere Harmsworth Library Stack" asr_sublocation_type="ASR Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Ashmolean Museum Library" derived_olis_key="Ashmolean Lb."
+            short_name="Ashmolean Lb." three_letter_code="ASH">
+            <matches_library derived_library_id="4"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ASH AntiqDept" derived_olis_key="ASH AntiqDept"
+                    description="Antiquities Department"/>
+                <olis_sublocation main_name="ASH Hope Coll" derived_olis_key="ASH Hope Coll"
+                    description="Hope Collection"/>
+                <olis_sublocation main_name="ASH WA HopeRm" derived_olis_key="ASH WA HopeRm"
+                    description="Western Art Print Room"/>
+                <olis_sublocation main_name="ASH WA Prt Rm" derived_olis_key="ASH WA Prt Rm"
+                    description="Western Art Print Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Balfour Library (Pitt Rivers Museum)"
+            derived_olis_key="Balfour Libr." short_name="Balfour Libr." three_letter_code="BAL">
+            <matches_library derived_library_id="BAL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="BAL 60BR" derived_olis_key="BAL 60BR"
+                    description="Balfour 60BR"/>
+                <olis_sublocation main_name="BAL 64BR" derived_olis_key="BAL 64BR"
+                    description="Balfour 64BR"/>
+                <olis_sublocation main_name="BAL Main Libr" derived_olis_key="BAL Main Libr"
+                    description="Balfour Main Library"/>
+                <olis_sublocation main_name="BAL Stack Rm7" derived_olis_key="BAL Stack Rm7"
+                    description="Balfour Stack Room 7"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Balliol College Library" derived_olis_key="Balliol"
+            short_name="Balliol" three_letter_code="BLL">
+            <matches_library derived_library_id="BLL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="BLL Law Coll." derived_olis_key="BLL Law Coll."
+                    description="Law Collection"/>
+                <olis_sublocation main_name="BLL Main Libr" derived_olis_key="BLL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="BLL Ref.Coll." derived_olis_key="BLL Ref.Coll."
+                    description="Reference Collection"/>
+                <olis_sublocation main_name="BLL Reserve" derived_olis_key="BLL Reserve"
+                    description="Reserve Collection"/>
+                <olis_sublocation main_name="BLL Spec.Coll" derived_olis_key="BLL Spec.Coll"
+                    description="Special Collection"/>
+                <olis_sublocation main_name="BLL Stack" derived_olis_key="BLL Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Blackfriars Library" derived_olis_key="Blackfriars"
+            short_name="Blackfriars" three_letter_code="BLF">
+            <matches_library derived_library_id="176"/>
+            <olis_sublocations/>
+        </olis_institution>
+        <olis_institution main_name="Bodleian Japanese Library" derived_olis_key="Bod.Japanese"
+            short_name="Bod.Japanese" three_letter_code="BJL">
+            <matches_library derived_library_id="BJL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="BJL Loan" derived_olis_key="BJL Loan"
+                    description="Loan Collection"/>
+                <olis_sublocation main_name="BJL Reference" derived_olis_key="BJL Reference"
+                    description="Reference Collect."/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Bodleian Library" derived_olis_key="Bodleian"
+            short_name="Bodleian" three_letter_code="BOD">
+            <matches_library derived_library_id="BOD"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="BJL Desk" derived_olis_key="BJL Desk"
+                    description="BJL Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD 132 Res" derived_olis_key="BOD 132 Res"
+                    description="Room 132 reserve counter"/>
+                <olis_sublocation main_name="BOD Blind Rdr" derived_olis_key="BOD Blind Rdr"
+                    description="Blind Readers Room" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Bookstack" derived_olis_key="BOD Bookstack"
+                    description="Bodleian Library Bookstack"/>
+                <olis_sublocation main_name="BOD Bookstack" derived_olis_key="BOD Bookstack"
+                    description="Bodleian Library Bookstack" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD bookstack" derived_olis_key="BOD bookstack"
+                    description="Use for items being relocated"/>
+                <olis_sublocation main_name="BOD Camera" derived_olis_key="BOD Camera"
+                    description="Radcliffe Camera"/>
+                <olis_sublocation main_name="BOD Cat.Engl." derived_olis_key="BOD Cat.Engl."
+                    description="English cataloguing deliveries"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Cat.For&apos;n"
+                    derived_olis_key="BOD Cat.For&apos;n"
+                    description="Foreign cataloguing deliveries"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Cat.Pers." derived_olis_key="BOD Cat.Pers."
+                    description="Periodicals cataloguing deliveries"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Conservat" derived_olis_key="BOD Conservat"
+                    description="Conservation Sect." asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD D.Humfrey" derived_olis_key="BOD D.Humfrey"
+                    description="Duke Humfrey&apos;s Library"/>
+                <olis_sublocation main_name="BOD DH Res" derived_olis_key="BOD DH Res"
+                    description="Duke Humfrey reserve counter"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD DH Staff" derived_olis_key="BOD DH Staff"
+                    description="BOD DH Staff" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Engl.Acc." derived_olis_key="BOD Engl.Acc."
+                    description="BOD Engl.Acc." asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD For.Acc." derived_olis_key="BOD For.Acc."
+                    description="Foreign Accessions" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD Hispanic" derived_olis_key="BOD Hispanic"
+                    description="Hispanic Accessions"/>
+                <olis_sublocation main_name="BOD ILL" derived_olis_key="BOD ILL"
+                    description="Inter Library Loans (Room 320)"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD L. Camera" derived_olis_key="BOD L. Camera"
+                    description="Lower Camera"/>
+                <olis_sublocation main_name="BOD LCam Res" derived_olis_key="BOD LCam Res"
+                    description="Lower Camera reserve counter"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Lower Res" derived_olis_key="BOD Lower Res"
+                    description="Lower Reading Room reserve counter"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Lower RR" derived_olis_key="BOD Lower RR"
+                    description="Lower Reading Room"/>
+                <olis_sublocation main_name="BOD Modern Pa" derived_olis_key="BOD Modern Pa"
+                    description="BOD Modern Papers" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Mountain." derived_olis_key="BOD Mountain."
+                    description="Mountaineering"/>
+                <olis_sublocation main_name="BOD Music Res" derived_olis_key="BOD Music Res"
+                    description="BOD Music Res" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD NewBod RR" derived_olis_key="BOD NewBod RR"
+                    description="New Bodleian Reading Room "/>
+                <olis_sublocation main_name="BOD NewBodRes" derived_olis_key="BOD NewBodRes"
+                    description="New Bodleian Reading Room Reserve (ASR)"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Nuneham" derived_olis_key="BOD Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD OffPapers" derived_olis_key="BOD OffPapers"
+                    description="Official Papers">
+                    <matches_library derived_library_id="186"/>
+                </olis_sublocation>
+                <olis_sublocation main_name="BOD Offsite" derived_olis_key="BOD Offsite"
+                    description="Bodleian Library Offsite Storage "/>
+                <olis_sublocation main_name="BOD Offsite" derived_olis_key="BOD Offsite"
+                    description="Bodleian Library Offsite Storage " asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD Or. Desk" derived_olis_key="BOD Or. Desk"
+                    description="Oriental reserve counter" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Or.Acc." derived_olis_key="BOD Or.Acc."
+                    description="Oriental Accessions"/>
+                <olis_sublocation main_name="BOD Phil/Slav" derived_olis_key="BOD Phil/Slav"
+                    description="Philosophy and Slavonic Reserve"/>
+                <olis_sublocation main_name="BOD Room 132" derived_olis_key="BOD Room 132"
+                    description="Room 132 (Modern Papers, John Johnson, Phi) DO NOT USE - jep"/>
+                <olis_sublocation main_name="BOD Room 319" derived_olis_key="BOD Room 319"
+                    description="Room 319 (Obsolete, = BOD Slav.Acc.)"/>
+                <olis_sublocation main_name="BOD Slav. RR" derived_olis_key="BOD Slav. RR"
+                    description="Slavonic Reading Room - DO NOT USE - jep"/>
+                <olis_sublocation main_name="BOD Slav.Acc." derived_olis_key="BOD Slav.Acc."
+                    description="Slavonic Accessions" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="BOD SpColl RR" derived_olis_key="BOD SpColl RR"
+                    description="Special collections openshelf RR"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD SpCollRes" derived_olis_key="BOD SpCollRes"
+                    description="Special Collections Reading Room Reserve for ASR"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD U. Camera" derived_olis_key="BOD U. Camera"
+                    description="Upper Camera"/>
+                <olis_sublocation main_name="BOD UCam Res" derived_olis_key="BOD UCam Res"
+                    description="BOD UCam Res" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Upper Res" derived_olis_key="BOD Upper Res"
+                    description="Upper Reading Room reserve counter"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="BOD Upper RR" derived_olis_key="BOD Upper RR"
+                    description="Upper Reading Room"/>
+                <olis_sublocation main_name="PPE to SSL" derived_olis_key="PPE to SSL"
+                    description="PPE to SSL transfer"/>
+                <olis_sublocation main_name="Staff Office" derived_olis_key="Staff Office"
+                    description="Bodleian Library Staff Office"
+                    asr_sublocation_type="ASR Reading Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Brasenose College Library" derived_olis_key="Brasenose"
+            short_name="Brasenose" three_letter_code="BNC">
+            <matches_library derived_library_id="BNC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="BNC Latham" derived_olis_key="BNC Latham"
+                    description="Latham Room"/>
+                <olis_sublocation main_name="BNC Law Libr" derived_olis_key="BNC Law Libr"
+                    description="Law Library"/>
+                <olis_sublocation main_name="BNC Main Libr" derived_olis_key="BNC Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="BNC Stamford" derived_olis_key="BNC Stamford"
+                    description="Stamford House"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Cancer Epidemiology Unit" derived_olis_key="Cancer Ep.Un."
+            short_name="Cancer Ep.Un." three_letter_code="CEU">
+            <matches_library derived_library_id="CEU"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CEU Holdings" derived_olis_key="CEU Holdings"
+                    description="Holdings on OLIS"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Chinese Studies Library" derived_olis_key="Chinese Stud."
+            short_name="Chinese Stud." three_letter_code="CSL">
+            <matches_library derived_library_id="CSL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CSL Chin.Stud" derived_olis_key="CSL Chin.Stud"
+                    description="Chinese Studies"/>
+                <olis_sublocation main_name="CSL Desk" derived_olis_key="CSL Desk"
+                    description="Chinese Studies" asr_sublocation_type="ASR Reading Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Christ Church Library" derived_olis_key="Christ Church"
+            short_name="Christ Church" three_letter_code="CHC">
+            <matches_library derived_library_id="CHC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CHC Spec.Coll" derived_olis_key="CHC Spec.Coll"
+                    description="Special Collecions"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Computing Laboratory Library" derived_olis_key="Computing Lab"
+            short_name="Computing Lab" three_letter_code="COM">
+            <matches_library derived_library_id="COM"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="COM Books" derived_olis_key="COM Books"
+                    description="Books"/>
+                <olis_sublocation main_name="COM Journals" derived_olis_key="COM Journals"
+                    description="Journals"/>
+                <olis_sublocation main_name="COM N.A.G." derived_olis_key="COM N.A.G."
+                    description="Numerical Analysis Group"/>
+                <olis_sublocation main_name="COM ProgResGp" derived_olis_key="COM ProgResGp"
+                    description="Programming Research Group"/>
+                <olis_sublocation main_name="COM ShortLoan" derived_olis_key="COM ShortLoan"
+                    description="Short Loan books"/>
+                <olis_sublocation main_name="COM Tech.Reps" derived_olis_key="COM Tech.Reps"
+                    description="Technical Reports"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Continuing Education Library" derived_olis_key="Continuing Ed"
+            short_name="Continuing Ed" three_letter_code="CED">
+            <matches_library derived_library_id="CED"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CED Main Libr" derived_olis_key="CED Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="CED Reserve" derived_olis_key="CED Reserve"
+                    description="Overflow at Ewert House"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Corpus Christi College Library" derived_olis_key="Corpus Chr."
+            short_name="Corpus Chr." three_letter_code="CCC">
+            <matches_library derived_library_id="CCC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CCC Archives" derived_olis_key="CCC Archives"
+                    description="CCC Archives"/>
+                <olis_sublocation main_name="CCC Bridges" derived_olis_key="CCC Bridges"
+                    description="Bridges Collection"/>
+                <olis_sublocation main_name="CCC Hodgson" derived_olis_key="CCC Hodgson"
+                    description="Hodgson Collection"/>
+                <olis_sublocation main_name="CCC Main Libr" derived_olis_key="CCC Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="CCC Office" derived_olis_key="CCC Office"
+                    description="Library Office"/>
+                <olis_sublocation main_name="CCC Periodic." derived_olis_key="CCC Periodic."
+                    description="Periodicals"/>
+                <olis_sublocation main_name="CCC Rare bks" derived_olis_key="CCC Rare bks"
+                    description="Rare Books Collection"/>
+                <olis_sublocation main_name="CCC Reference" derived_olis_key="CCC Reference"
+                    description="Reference"/>
+                <olis_sublocation main_name="CCC Stack" derived_olis_key="CCC Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Sir William Dunn School of Pathology Library"
+            derived_olis_key="Dunn School" short_name="Dunn School" three_letter_code="DUN">
+            <matches_library derived_library_id="DUN"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="DUN Holdings" derived_olis_key="DUN Holdings"
+                    description="Dunn School holdings on OLIS"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Dyson Perrins Laboratory" derived_olis_key="Dyson Perrins"
+            short_name="Dyson Perrins" three_letter_code="DYS">
+            <matches_library derived_library_id="DYS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="DYS Holdings" derived_olis_key="DYS Holdings"
+                    description="Dyson Perrins holdings on OLIS"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Earth Sciences Library" derived_olis_key="Earth Science"
+            short_name="Earth Science" three_letter_code="EAR">
+            <matches_library derived_library_id="EAR"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="EAR Annexe" derived_olis_key="EAR Annexe"
+                    description="Annexe"/>
+                <olis_sublocation main_name="EAR Bowman" derived_olis_key="EAR Bowman"
+                    description="Bowman Room"/>
+                <olis_sublocation main_name="EAR Gen. Libr" derived_olis_key="EAR Gen. Libr"
+                    description="General Library"/>
+                <olis_sublocation main_name="EAR Reprint" derived_olis_key="EAR Reprint"
+                    description="Reprint Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Education Library" derived_olis_key="Educational S"
+            short_name="Educational S" three_letter_code="EDU">
+            <matches_library derived_library_id="EDU"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="EDU Desk" derived_olis_key="EDU Desk"
+                    description="Education" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="EDU DLATHE" derived_olis_key="EDU DLATHE"
+                    description="Diploma in LATHE collection"/>
+                <olis_sublocation main_name="EDU OpenShelf" derived_olis_key="EDU OpenShelf"
+                    description="Open Access"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Engineering Science Library" derived_olis_key="Engineering"
+            short_name="Engineering" three_letter_code="ENG">
+            <matches_library derived_library_id="ENG"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ENG Gen. Ref." derived_olis_key="ENG Gen. Ref."
+                    description="General Reference"/>
+                <olis_sublocation main_name="ENG Main Libr" derived_olis_key="ENG Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="ENG Manag.Stu" derived_olis_key="ENG Manag.Stu"
+                    description="Management Studies"/>
+                <olis_sublocation main_name="ENG U/G Lendg" derived_olis_key="ENG U/G Lendg"
+                    description="Undergraduate Lending Collection"/>
+                <olis_sublocation main_name="ENG U/G Ref." derived_olis_key="ENG U/G Ref."
+                    description="Undergraduate Reference Collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="English Faculty Library" derived_olis_key="English Fac."
+            short_name="English Fac." three_letter_code="EFL">
+            <matches_library derived_library_id="EFL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="EFL Cat.Stand" derived_olis_key="EFL Cat.Stand"
+                    description="Catalogue Stand"/>
+                <olis_sublocation main_name="EFL Desk" derived_olis_key="EFL Desk"
+                    description="Staff Desk"/>
+                <olis_sublocation main_name="EFL Griffiths" derived_olis_key="EFL Griffiths"
+                    description="Jeremy Griffiths Collection"/>
+                <olis_sublocation main_name="EFL HB Room" derived_olis_key="EFL HB Room"
+                    description="History of the Book Room"/>
+                <olis_sublocation main_name="EFL Icelandic" derived_olis_key="EFL Icelandic"
+                    description="Icelandic Room"/>
+                <olis_sublocation main_name="EFL Ker Coll." derived_olis_key="EFL Ker Coll."
+                    description="Ker Collection"/>
+                <olis_sublocation main_name="EFL Main LCC" derived_olis_key="EFL Main LCC"
+                    description="EFL Main Library LCC books"/>
+                <olis_sublocation main_name="EFL Main Libr" derived_olis_key="EFL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="EFL Meyerstei" derived_olis_key="EFL Meyerstei"
+                    description="Meyerstein Collection"/>
+                <olis_sublocation main_name="EFL Napier" derived_olis_key="EFL Napier"
+                    description="Napier Collection"/>
+                <olis_sublocation main_name="EFL NRK Coll." derived_olis_key="EFL NRK Coll."
+                    description="Neil Ripley Ker Collection"/>
+                <olis_sublocation main_name="EFL Owen Coll" derived_olis_key="EFL Owen Coll"
+                    description="Owen Collection"/>
+                <olis_sublocation main_name="EFL Rare Bks." derived_olis_key="EFL Rare Bks."
+                    description="Rare Book Room"/>
+                <olis_sublocation main_name="EFL Stack" derived_olis_key="EFL Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="EFL Stack 1" derived_olis_key="EFL Stack 1"
+                    description="Stack 1"/>
+                <olis_sublocation main_name="EFL Stack 2" derived_olis_key="EFL Stack 2"
+                    description="Stack 2"/>
+                <olis_sublocation main_name="EFL Tapes" derived_olis_key="EFL Tapes"
+                    description="Audio-tapes"/>
+                <olis_sublocation main_name="EFL Tolkien" derived_olis_key="EFL Tolkien"
+                    description="Tolkien Collection"/>
+                <olis_sublocation main_name="EFL Turv.-Pet" derived_olis_key="EFL Turv.-Pet"
+                    description="Turville-Petre Collection"/>
+                <olis_sublocation main_name="EFL Videos" derived_olis_key="EFL Videos"
+                    description="Video/DVD"/>
+                <olis_sublocation main_name="EFL Weedon" derived_olis_key="EFL Weedon"
+                    description="Margaret Weedon Collection"/>
+                <olis_sublocation main_name="EFL York-Pow." derived_olis_key="EFL York-Pow."
+                    description="York Powell Collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Exeter College Library" derived_olis_key="Exeter"
+            short_name="Exeter" three_letter_code="EXE">
+            <matches_library derived_library_id="EXE"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="EXE Lower Bursary" derived_olis_key="EXE Lower Bursary"
+                    description="Lower Bursary"/>
+                <olis_sublocation main_name="EXE Main Library" derived_olis_key="EXE Main Library"
+                    description="Main Library"/>
+                <olis_sublocation main_name="EXE Stack" derived_olis_key="EXE Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="EXE Strong Rm" derived_olis_key="EXE Strong Rm"
+                    description="Strong Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Greyfriars Oxford Centre for Franciscan Studies Library"
+            derived_olis_key="Greyfriars" short_name="Greyfriars" three_letter_code="GRF">
+            <matches_library derived_library_id="GRF"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="GRF Egyptol." derived_olis_key="GRF Egyptol."
+                    description="Greyfriars Egyptological collection"/>
+                <olis_sublocation main_name="GRF Francisc." derived_olis_key="GRF Francisc."
+                    description="Greyfriars Franciscan collection"/>
+                <olis_sublocation main_name="GRF Main Libr" derived_olis_key="GRF Main Libr"
+                    description="Greyfriars main library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Harris Manchester College Library"
+            derived_olis_key="Harris Coll." short_name="Harris Coll." three_letter_code="HMC">
+            <matches_library derived_library_id="HMC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HMC Carpenter" derived_olis_key="HMC Carpenter"
+                    description="Carpenter Library"/>
+                <olis_sublocation main_name="HMC Office" derived_olis_key="HMC Office"
+                    description="Library office"/>
+                <olis_sublocation main_name="HMC Stack" derived_olis_key="HMC Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="HMC Tate" derived_olis_key="HMC Tate"
+                    description="Tate Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Health Care Libraries" derived_olis_key="Health Care"
+            short_name="Health Care" three_letter_code="HCL">
+            <matches_library derived_library_id="HCL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HCL John Radc" derived_olis_key="HCL John Radc"
+                    description="John Radcliffe Hospital"/>
+                <olis_sublocation main_name="HCL Knowl Cen" derived_olis_key="HCL Knowl Cen"
+                    description="Old Road Campus"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Centre for Hebrew and Jewish Studies Library"
+            derived_olis_key="Hebrew Stud." short_name="Hebrew Stud." three_letter_code="HEB">
+            <matches_library derived_library_id="HEB"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HEB Muller" derived_olis_key="HEB Muller"
+                    description="Leopold Muller Memorial Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Hertford College Library" derived_olis_key="Hertford"
+            short_name="Hertford" three_letter_code="HER">
+            <matches_library derived_library_id="HER"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HER Holdings" derived_olis_key="HER Holdings"
+                    description="Hertford holdings on OLIS"/>
+                <olis_sublocation main_name="HER Main Libr" derived_olis_key="HER Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Centre for Vaishnava and Hindu Studies Library"
+            derived_olis_key="Hindu Studies" short_name="Hindu Studies" three_letter_code="HIN">
+            <matches_library derived_library_id="179"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HIN Main Libr" derived_olis_key="HIN Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="History Faculty Library" derived_olis_key="History Fac."
+            short_name="History Fac." three_letter_code="HFL">
+            <matches_library derived_library_id="HFL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HFL Counter" derived_olis_key="HFL Counter"
+                    description="Counter"/>
+                <olis_sublocation main_name="HFL LCC MainL" derived_olis_key="HFL LCC MainL"
+                    description="Main Library"/>
+                <olis_sublocation main_name="HFL Main Libr" derived_olis_key="HFL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="HFL Maitland" derived_olis_key="HFL Maitland"
+                    description="Maitland Room"/>
+                <olis_sublocation main_name="HFL Oresko" derived_olis_key="HFL Oresko"
+                    description="Oresko Collection"/>
+                <olis_sublocation main_name="HFL Oversize" derived_olis_key="HFL Oversize"
+                    description="Oversize"/>
+                <olis_sublocation main_name="HFL Quick Ref" derived_olis_key="HFL Quick Ref"
+                    description="Main Library"/>
+                <olis_sublocation main_name="HFL Stack 1" derived_olis_key="HFL Stack 1"
+                    description="Basement Stack"/>
+                <olis_sublocation main_name="HFL West G." derived_olis_key="HFL West G."
+                    description="West Gallery Reference"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Pauling Centre for Human Sciences Library"
+            derived_olis_key="Human Sci." short_name="Human Sci." three_letter_code="HSC">
+            <matches_library derived_library_id="HSC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HSC Main Libr" derived_olis_key="HSC Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Indian Institute Library" derived_olis_key="Indian Inst."
+            short_name="Indian Inst." three_letter_code="IND">
+            <matches_library derived_library_id="IND"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="IND Desk" derived_olis_key="IND Desk"
+                    description="IND Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="IND Grille" derived_olis_key="IND Grille"
+                    description="Stack Grille"/>
+                <olis_sublocation main_name="IND Main Libr" derived_olis_key="IND Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="IND Nuneham" derived_olis_key="IND Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="IND Offsite" derived_olis_key="IND Offsite"
+                    description="Indian Institute Library Offsite Storage "/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Instituto Camoes Library" derived_olis_key="Inst. Camoes"
+            short_name="Inst. Camoes" three_letter_code="ICL">
+            <matches_library derived_library_id="181"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ICL Main Libr" derived_olis_key="ICL Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Internet Institute Library"
+            derived_olis_key="Internet Inst" short_name="Internet Inst" three_letter_code="OII">
+            <matches_library derived_library_id="OII"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="OII Library" derived_olis_key="OII Library"
+                    description="Main Library"/>
+                <olis_sublocation main_name="OII Reference" derived_olis_key="OII Reference"
+                    description="Reference"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Centre for Islamic Studies Library"
+            derived_olis_key="Islamic Stud." short_name="Islamic Stud." three_letter_code="ISL">
+            <matches_library derived_library_id="ISL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ISL Main Libr" derived_olis_key="ISL Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Jesus College Library" derived_olis_key="Jesus College"
+            short_name="Jesus College" three_letter_code="JES">
+            <matches_library derived_library_id="JES"/>
+            <olis_sublocations/>
+        </olis_institution>
+        <olis_institution main_name="Keble College Library" derived_olis_key="Keble College"
+            short_name="Keble College" three_letter_code="KEB">
+            <matches_library derived_library_id="KEB"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="KEB Libr. Off" derived_olis_key="KEB Libr. Off"
+                    description="Keble Library Office"/>
+                <olis_sublocation main_name="KEB Main Libr" derived_olis_key="KEB Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="KEB Spec. Col" derived_olis_key="KEB Spec. Col"
+                    description="Keble Special Collections"/>
+                <olis_sublocation main_name="KEB Stack" derived_olis_key="KEB Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Lady Margaret Hall Library" derived_olis_key="Lady Marg. H."
+            short_name="Lady Marg. H." three_letter_code="LMH">
+            <matches_library derived_library_id="LMH"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="LMH Briggs Rm" derived_olis_key="LMH Briggs Rm"
+                    description="Briggs Room"/>
+                <olis_sublocation main_name="LMH Law Libr." derived_olis_key="LMH Law Libr."
+                    description="Law Library"/>
+                <olis_sublocation main_name="LMH LC East" derived_olis_key="LMH LC East"
+                    description="Locked cupboard"/>
+                <olis_sublocation main_name="LMH LC Main" derived_olis_key="LMH LC Main"
+                    description="Locked cupboard"/>
+                <olis_sublocation main_name="LMH LC West" derived_olis_key="LMH LC West"
+                    description="Locked cupboard"/>
+                <olis_sublocation main_name="LMH Locked S." derived_olis_key="LMH Locked S."
+                    description="Locked Stack"/>
+                <olis_sublocation main_name="LMH Main Libr" derived_olis_key="LMH Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="LMH Office" derived_olis_key="LMH Office"
+                    description="Librarian&apos;s Office"/>
+                <olis_sublocation main_name="LMH PMR" derived_olis_key="LMH PMR"
+                    description="Principal&apos;s Meeting Room"/>
+                <olis_sublocation main_name="LMH Stack" derived_olis_key="LMH Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Language Centre Library" derived_olis_key="Language Ctr."
+            short_name="Language Ctr." three_letter_code="LAN">
+            <matches_library derived_library_id="LAN"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="LAN Archive" derived_olis_key="LAN Archive"
+                    description="Archive"/>
+                <olis_sublocation main_name="LAN Archive" derived_olis_key="LAN Archive"
+                    description="Storage and recording room"/>
+                <olis_sublocation main_name="LAN Libr Off" derived_olis_key="LAN Libr Off"
+                    description="Librarian&apos;s Office"/>
+                <olis_sublocation main_name="LAN Main Libr" derived_olis_key="LAN Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="LAN Tchrs Res" derived_olis_key="LAN Tchrs Res"
+                    description="Teachers&apos; resource room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Latin American Centre Library" derived_olis_key="Lat.Amer.Cntr"
+            short_name="Lat.Amer.Cntr" three_letter_code="LAC">
+            <matches_library derived_library_id="LAC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="LAC Main Libr" derived_olis_key="LAC Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Bodleian Law Library" derived_olis_key="Law Library"
+            short_name="Law Library" three_letter_code="LAW">
+            <matches_library derived_library_id="LAW"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="LAW Closed" derived_olis_key="LAW Closed"
+                    description="Closed access stack"/>
+                <olis_sublocation main_name="LAW Main Desk" derived_olis_key="LAW Main Desk"
+                    description="LAW Main Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="LAW Main Libr" derived_olis_key="LAW Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="LAW Nuneham" derived_olis_key="LAW Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="LAW OIPRC" derived_olis_key="LAW OIPRC"
+                    description="Oxford Intellectual Property Research Centre"/>
+                <olis_sublocation main_name="LAW Reserve" derived_olis_key="LAW Reserve"
+                    description="Reserve collection" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="LAW Reserve" derived_olis_key="LAW Reserve"
+                    description="Reserve Collection" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="LAW Serv.Desk" derived_olis_key="LAW Serv.Desk"
+                    description="Service Desk"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Learning Institute" derived_olis_key="Learning Inst"
+            short_name="Learning Inst" three_letter_code="OLI">
+            <matches_library derived_library_id="OLI"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="OLI Main Libr" derived_olis_key="OLI Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Linacre College Library" derived_olis_key="Linacre Coll."
+            short_name="Linacre Coll." three_letter_code="LCR">
+            <matches_library derived_library_id="LCR"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="LCR Main Libr" derived_olis_key="LCR Main Libr"
+                    description="Linacre Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Lincoln College Library" derived_olis_key="Lincoln Coll."
+            short_name="Lincoln Coll." three_letter_code="LIN">
+            <matches_library derived_library_id="LIN"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="LIN Archive" derived_olis_key="LIN Archive"
+                    description="Archive"/>
+                <olis_sublocation main_name="LIN Corridor" derived_olis_key="LIN Corridor"
+                    description="Corridor"/>
+                <olis_sublocation main_name="LIN Main Libr" derived_olis_key="LIN Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="LIN Strong Rm" derived_olis_key="LIN Strong Rm"
+                    description="Strong Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Magdalen College Library" derived_olis_key="Magdalen Coll"
+            short_name="Magdalen Coll" three_letter_code="MAG">
+            <matches_library derived_library_id="MAG"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MAG Chantry" derived_olis_key="MAG Chantry"
+                    description="Chantry Library">
+                    <matches_library derived_library_id="183"/>
+                </olis_sublocation>
+                <olis_sublocation main_name="MAG Daubeny" derived_olis_key="MAG Daubeny"
+                    description="Daubeny Library"/>
+                <olis_sublocation main_name="MAG Law Libr." derived_olis_key="MAG Law Libr."
+                    description="Law Library"/>
+                <olis_sublocation main_name="MAG LtdAccess" derived_olis_key="MAG LtdAccess"
+                    description="Limited Access"/>
+                <olis_sublocation main_name="MAG McFarlane" derived_olis_key="MAG McFarlane"
+                    description="McFarlane Library"/>
+                <olis_sublocation main_name="MAG New Libr." derived_olis_key="MAG New Libr."
+                    description="New Library"/>
+                <olis_sublocation main_name="MAG Old Libr." derived_olis_key="MAG Old Libr."
+                    description="Old Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Maison Francaise Library" derived_olis_key="Maison Franc."
+            short_name="Maison Franc." three_letter_code="MFO">
+            <matches_library derived_library_id="MFO"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MFO Basement" derived_olis_key="MFO Basement"
+                    description="Basement"/>
+                <olis_sublocation main_name="MFO Main Libr" derived_olis_key="MFO Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Materials Library" derived_olis_key="Materials Dpt"
+            short_name="Materials Dpt" three_letter_code="DOM">
+            <matches_library derived_library_id="DOM"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="DOM Closed Ac" derived_olis_key="DOM Closed Ac"
+                    description="Closed Access"/>
+                <olis_sublocation main_name="DOM Faculty" derived_olis_key="DOM Faculty"
+                    description="On Faculty loan"/>
+                <olis_sublocation main_name="DOM Main Libr" derived_olis_key="DOM Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="DOM Office" derived_olis_key="DOM Office"
+                    description="Librarian&apos;s Office"/>
+                <olis_sublocation main_name="DOM Room F11" derived_olis_key="DOM Room F11"
+                    description="Room F11"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Mathematical Institute Library" derived_olis_key="Maths Inst."
+            short_name="Maths Inst." three_letter_code="MAT">
+            <matches_library derived_library_id="MAT"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MAT Dart" derived_olis_key="MAT Dart"
+                    description="Dartington Annexe"/>
+                <olis_sublocation main_name="MAT Main Libr" derived_olis_key="MAT Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Merton College Library" derived_olis_key="Merton Coll."
+            short_name="Merton Coll." three_letter_code="MER">
+            <matches_library derived_library_id="MER"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MER Holdings" derived_olis_key="MER Holdings"
+                    description="Merton holdings on OLIS"/>
+                <olis_sublocation main_name="MER Library" derived_olis_key="MER Library"
+                    description="Restricted Access"/>
+                <olis_sublocation main_name="MER MOB" derived_olis_key="MER MOB"
+                    description="Reading Room"/>
+                <olis_sublocation main_name="MER OWL" derived_olis_key="MER OWL"
+                    description="Old Warden&apos;s Lodgings"/>
+                <olis_sublocation main_name="MER Stack" derived_olis_key="MER Stack"
+                    description="Bookstack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Middle East Centre Library" derived_olis_key="Middle East C"
+            short_name="Middle East C" three_letter_code="MEC">
+            <matches_library derived_library_id="MEC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MEC Main Libr" derived_olis_key="MEC Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Centre for Mission Studies Library"
+            derived_olis_key="Mission Stud." short_name="Mission Stud." three_letter_code="CMS">
+            <matches_library derived_library_id="CMS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CMS Main Libr" derived_olis_key="CMS Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Museum of the History of Science Library"
+            derived_olis_key="Mus.Hist.Sc." short_name="Mus.Hist.Sc." three_letter_code="MHS">
+            <matches_library derived_library_id="MHS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MHS Evans Col" derived_olis_key="MHS Evans Col"
+                    description="Evans Collection"/>
+                <olis_sublocation main_name="MHS Holdings" derived_olis_key="MHS Holdings"
+                    description="Museum of the history of science"/>
+                <olis_sublocation main_name="MHS OpenShelf" derived_olis_key="MHS OpenShelf"
+                    description="Open Shelf"/>
+                <olis_sublocation main_name="MHS Osney" derived_olis_key="MHS Osney"
+                    description="MHS Osney"/>
+                <olis_sublocation main_name="MHS Outstore" derived_olis_key="MHS Outstore"
+                    description="Outstore"/>
+                <olis_sublocation main_name="MHS Stack" derived_olis_key="MHS Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Music Faculty Library" derived_olis_key="Music Fac."
+            short_name="Music Fac." three_letter_code="MUS">
+            <matches_library derived_library_id="MUS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="MUS 1st Floor" derived_olis_key="MUS 1st Floor"
+                    description="First Floor"/>
+                <olis_sublocation main_name="MUS 2nd Floor" derived_olis_key="MUS 2nd Floor"
+                    description="Second Floor"/>
+                <olis_sublocation main_name="MUS Listening" derived_olis_key="MUS Listening"
+                    description="Listening Room"/>
+                <olis_sublocation main_name="MUS Main Libr" derived_olis_key="MUS Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="MUS New Books" derived_olis_key="MUS New Books"
+                    description="New Books Display"/>
+                <olis_sublocation main_name="MUS New Pers" derived_olis_key="MUS New Pers"
+                    description="New Periodicals Display"/>
+                <olis_sublocation main_name="MUS Stack" derived_olis_key="MUS Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="MUS Staff Res" derived_olis_key="MUS Staff Res"
+                    description="Staff Reserve"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Networked Resources" derived_olis_key="Netwrk Res."
+            short_name="Netwrk Res." three_letter_code="NET">
+            <matches_library derived_library_id="168"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="NET Resources" derived_olis_key="NET Resources"
+                    description="Networked Resources"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="New College Library" derived_olis_key="New College"
+            short_name="New College" three_letter_code="NEW">
+            <matches_library derived_library_id="NEW"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="NEW Classics" derived_olis_key="NEW Classics"
+                    description="Classics Room"/>
+                <olis_sublocation main_name="NEW Law Libr." derived_olis_key="NEW Law Libr."
+                    description="Law Library"/>
+                <olis_sublocation main_name="NEW Main Libr" derived_olis_key="NEW Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="NEW Restrictd" derived_olis_key="NEW Restrictd"
+                    description="Restricted access"/>
+                <olis_sublocation main_name="NEW Stack" derived_olis_key="NEW Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Nuffield College Library" derived_olis_key="Nuffield Coll"
+            short_name="Nuffield Coll" three_letter_code="NUF">
+            <matches_library derived_library_id="NUF"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="NUF Closed ac" derived_olis_key="NUF Closed ac"
+                    description="Tower closed access"/>
+                <olis_sublocation main_name="NUF Extension" derived_olis_key="NUF Extension"
+                    description="Extension"/>
+                <olis_sublocation main_name="NUF Internal" derived_olis_key="NUF Internal"
+                    description="Internal"/>
+                <olis_sublocation main_name="NUF OpenShelf" derived_olis_key="NUF OpenShelf"
+                    description="Tower open access"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Nuffield Laboratory of Ophthalmology"
+            derived_olis_key="Ophthalmol." short_name="Ophthalmol." three_letter_code="OPT">
+            <olis_sublocations>
+                <olis_sublocation main_name="OPT Holdings" derived_olis_key="OPT Holdings"
+                    description="Ophthalmology holdings on OLIS"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oriel College Library" derived_olis_key="Oriel College"
+            short_name="Oriel College" three_letter_code="ORL">
+            <matches_library derived_library_id="ORL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ORL Lower Stk" derived_olis_key="ORL Lower Stk"
+                    description="Lower Stack"/>
+                <olis_sublocation main_name="ORL Main Libr" derived_olis_key="ORL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="ORL Senior L." derived_olis_key="ORL Senior L."
+                    description="Senior Library"/>
+                <olis_sublocation main_name="ORL Upper Stk" derived_olis_key="ORL Upper Stk"
+                    description="Upper Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oriental Institute Library" derived_olis_key="Oriental Inst"
+            short_name="Oriental Inst" three_letter_code="OIL">
+            <matches_library derived_library_id="OIL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="OIL Desk" derived_olis_key="OIL Desk"
+                    description="OIL Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="OIL Main Libr" derived_olis_key="OIL Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford Union Society Library" derived_olis_key="Oxford Union"
+            short_name="Oxford Union" three_letter_code="OUS">
+            <matches_library derived_library_id="OUS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="OUS Gladst Rm" derived_olis_key="OUS Gladst Rm"
+                    description="Gladstone Room"/>
+                <olis_sublocation main_name="OUS Goodman" derived_olis_key="OUS Goodman"
+                    description="Goodman Library"/>
+                <olis_sublocation main_name="OUS Morris Rm" derived_olis_key="OUS Morris Rm"
+                    description="Morris Room"/>
+                <olis_sublocation main_name="OUS Old Libr." derived_olis_key="OUS Old Libr."
+                    description="Old Library"/>
+                <olis_sublocation main_name="OUS Poetry Rm" derived_olis_key="OUS Poetry Rm"
+                    description="Poetry Room"/>
+                <olis_sublocation main_name="OUS Presd Off" derived_olis_key="OUS Presd Off"
+                    description="President&apos;s Office"/>
+                <olis_sublocation main_name="OUS Receptn." derived_olis_key="OUS Receptn."
+                    description="Library Reception"/>
+                <olis_sublocation main_name="OUS Stack" derived_olis_key="OUS Stack"
+                    description="Closed Stack"/>
+                <olis_sublocation main_name="OUS Uppr Land" derived_olis_key="OUS Uppr Land"
+                    description="Upper Landing"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Centre for Oxfordshire Studies Library"
+            derived_olis_key="Oxon. Studies" short_name="Oxon. Studies" three_letter_code="COS">
+            <matches_library derived_library_id="COS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="COS ALS" derived_olis_key="COS ALS"
+                    description="approaches to local studies"/>
+                <olis_sublocation main_name="COS AP" derived_olis_key="COS AP"
+                    description="aerial photos (non-SMR)"/>
+                <olis_sublocation main_name="COS CC" derived_olis_key="COS CC"
+                    description="classified (news)cuttings"/>
+                <olis_sublocation main_name="COS CEN" derived_olis_key="COS CEN"
+                    description="census transcripts &amp; indexes"/>
+                <olis_sublocation main_name="COS DK" derived_olis_key="COS DK"
+                    description="COS Desk"/>
+                <olis_sublocation main_name="COS GCT" derived_olis_key="COS GCT"
+                    description="genealogy - glass cabinets"/>
+                <olis_sublocation main_name="COS GMC" derived_olis_key="COS GMC"
+                    description="genealogy - microfiche carousels"/>
+                <olis_sublocation main_name="COS GP" derived_olis_key="COS GP"
+                    description="genealogy - pamphlet"/>
+                <olis_sublocation main_name="COS GPZ" derived_olis_key="COS GPZ"
+                    description="genealogy - pamphlet (oversize)"/>
+                <olis_sublocation main_name="COS GV" derived_olis_key="COS GV"
+                    description="genealogy (octavo)"/>
+                <olis_sublocation main_name="COS GZ" derived_olis_key="COS GZ"
+                    description="genealogy (oversize)"/>
+                <olis_sublocation main_name="COS HOL" derived_olis_key="COS HOL"
+                    description="Holton - Library Service HQ"/>
+                <olis_sublocation main_name="COS IL" derived_olis_key="COS IL"
+                    description="illustrations (small)"/>
+                <olis_sublocation main_name="COS ILZ" derived_olis_key="COS ILZ"
+                    description="illustrations (oversize)"/>
+                <olis_sublocation main_name="COS KHP" derived_olis_key="COS KHP"
+                    description="Kennington History Project"/>
+                <olis_sublocation main_name="COS LHW" derived_olis_key="COS LHW"
+                    description="COS Workroom"/>
+                <olis_sublocation main_name="COS MC" derived_olis_key="COS MC"
+                    description="OS map cabinets"/>
+                <olis_sublocation main_name="COS MC20" derived_olis_key="COS MC20"
+                    description="topical OS-based maps"/>
+                <olis_sublocation main_name="COS MC3" derived_olis_key="COS MC3"
+                    description="copy maps (classified and topographical)"/>
+                <olis_sublocation main_name="COS MC4" derived_olis_key="COS MC4"
+                    description="historic maps"/>
+                <olis_sublocation main_name="COS MC5" derived_olis_key="COS MC5"
+                    description="classified posters"/>
+                <olis_sublocation main_name="COS MF" derived_olis_key="COS MF"
+                    description="local studies microforms"/>
+                <olis_sublocation main_name="COS MI" derived_olis_key="COS MI"
+                    description="monumental inscription transcripts"/>
+                <olis_sublocation main_name="COS MIC" derived_olis_key="COS MIC"
+                    description="microfilms (newspapers &amp; FH fiches/films)"/>
+                <olis_sublocation main_name="COS NBF" derived_olis_key="COS NBF"
+                    description="North Berkshire cuttings files"/>
+                <olis_sublocation main_name="COS NC" derived_olis_key="COS NC"
+                    description="newscuttings (loose)"/>
+                <olis_sublocation main_name="COS OH" derived_olis_key="COS OH"
+                    description="oral history copy tapes"/>
+                <olis_sublocation main_name="COS OPA" derived_olis_key="COS OPA"
+                    description="Oxfordshire Photo. Archive"/>
+                <olis_sublocation main_name="COS ORCC" derived_olis_key="COS ORCC"
+                    description="ORCC cuttings files"/>
+                <olis_sublocation main_name="COS OV" derived_olis_key="COS OV"
+                    description="open shelves (octavo)"/>
+                <olis_sublocation main_name="COS OZ" derived_olis_key="COS OZ"
+                    description="open shelves (oversize)"/>
+                <olis_sublocation main_name="COS P" derived_olis_key="COS P" description="pamphlet"/>
+                <olis_sublocation main_name="COS PC" derived_olis_key="COS PC"
+                    description="poster chests"/>
+                <olis_sublocation main_name="COS PR" derived_olis_key="COS PR"
+                    description="parish register transcripts"/>
+                <olis_sublocation main_name="COS PZ" derived_olis_key="COS PZ"
+                    description="pamphlet (oversize)"/>
+                <olis_sublocation main_name="COS SC" derived_olis_key="COS SC"
+                    description="sale catalogues"/>
+                <olis_sublocation main_name="COS SF" derived_olis_key="COS SF"
+                    description="stack (folio)"/>
+                <olis_sublocation main_name="COS SGV" derived_olis_key="COS SGV"
+                    description="stack genealogy (octavo)"/>
+                <olis_sublocation main_name="COS SGZ" derived_olis_key="COS SGZ"
+                    description="stack genealogy (oversize)"/>
+                <olis_sublocation main_name="COS SM" derived_olis_key="COS SM"
+                    description="small maps (estate &amp; inclosure maps)"/>
+                <olis_sublocation main_name="COS SMIN" derived_olis_key="COS SMIN"
+                    description="stack council minutes"/>
+                <olis_sublocation main_name="COS SMR" derived_olis_key="COS SMR"
+                    description="Sites &amp; Monuments Record"/>
+                <olis_sublocation main_name="COS STR" derived_olis_key="COS STR"
+                    description="strongroom"/>
+                <olis_sublocation main_name="COS SV" derived_olis_key="COS SV"
+                    description="stack (octavo)"/>
+                <olis_sublocation main_name="COS SZ" derived_olis_key="COS SZ"
+                    description="stack (oversize)"/>
+                <olis_sublocation main_name="COS TEL" derived_olis_key="COS TEL"
+                    description="TE Lawrence Society library"/>
+                <olis_sublocation main_name="COS TH" derived_olis_key="COS TH"
+                    description="Town Hall"/>
+                <olis_sublocation main_name="COS VID" derived_olis_key="COS VID"
+                    description="videotape collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Pembroke College Library" derived_olis_key="Pembroke Coll"
+            short_name="Pembroke Coll" three_letter_code="PEM">
+            <matches_library derived_library_id="PEM"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="PEM Main Libr" derived_olis_key="PEM Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="PEM Office" derived_olis_key="PEM Office"
+                    description="Library Office"/>
+                <olis_sublocation main_name="PEM RBR" derived_olis_key="PEM RBR"
+                    description="Rare book room"/>
+                <olis_sublocation main_name="PEM Seminar" derived_olis_key="PEM Seminar"
+                    description="Seminar Room"/>
+                <olis_sublocation main_name="PEM Stack" derived_olis_key="PEM Stack"
+                    description="Closed access stack"/>
+                <olis_sublocation main_name="PEM URR" derived_olis_key="PEM URR"
+                    description="Upper reading room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Philosophy Faculty Library" derived_olis_key="Philosophy"
+            short_name="Philosophy" three_letter_code="PHI">
+            <matches_library derived_library_id="PHI"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="PHI Basement" derived_olis_key="PHI Basement"
+                    description="Basement stack"/>
+                <olis_sublocation main_name="PHI Common Rm" derived_olis_key="PHI Common Rm"
+                    description="Common Room"/>
+                <olis_sublocation main_name="PHI Computing" derived_olis_key="PHI Computing"
+                    description="Computing Resources Room"/>
+                <olis_sublocation main_name="PHI Cupboard" derived_olis_key="PHI Cupboard"
+                    description="Cupboard"/>
+                <olis_sublocation main_name="PHI Domus Rm" derived_olis_key="PHI Domus Rm"
+                    description="Domus Room"/>
+                <olis_sublocation main_name="PHI Fowler Rm" derived_olis_key="PHI Fowler Rm"
+                    description="Fowler Room"/>
+                <olis_sublocation main_name="PHI Harre" derived_olis_key="PHI Harre"
+                    description="Harre Room"/>
+                <olis_sublocation main_name="PHI Help Desk" derived_olis_key="PHI Help Desk"
+                    description="Help desk and office"/>
+                <olis_sublocation main_name="PHI Hodgson" derived_olis_key="PHI Hodgson"
+                    description="Hodgson Collection"/>
+                <olis_sublocation main_name="PHI Main Libr" derived_olis_key="PHI Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="PHI New Books" derived_olis_key="PHI New Books"
+                    description="Display Shelf"/>
+                <olis_sublocation main_name="PHI Periodic." derived_olis_key="PHI Periodic."
+                    description="Periodicals"/>
+                <olis_sublocation main_name="PHI Stack" derived_olis_key="PHI Stack"
+                    description="Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Physical Chemistry Laboratory" derived_olis_key="Phys.Chemist."
+            short_name="Phys.Chemist." three_letter_code="PCH">
+            <matches_library derived_library_id="PCH"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="PCH Holdings" derived_olis_key="PCH Holdings"
+                    description="Physical Chemistry holdings on OLIS"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Plant Sciences Library" derived_olis_key="Plant Science"
+            short_name="Plant Science" three_letter_code="PLS">
+            <matches_library derived_library_id="PLS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="PLS Closed ac" derived_olis_key="PLS Closed ac"
+                    description="Closed access"/>
+                <olis_sublocation main_name="PLS Main Libr" derived_olis_key="PLS Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="PLS Periodic." derived_olis_key="PLS Periodic."
+                    description="Periodicals"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Queen&apos;s College Library"
+            derived_olis_key="Queen&apos;s Coll." short_name="Queen&apos;s Coll."
+            three_letter_code="QUE">
+            <matches_library derived_library_id="QUE"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="QUE Basement" derived_olis_key="QUE Basement"
+                    description="Basement"/>
+                <olis_sublocation main_name="QUE Galician" derived_olis_key="QUE Galician"
+                    description="Centre for Galician Studies Library"/>
+                <olis_sublocation main_name="QUE Harmswrth" derived_olis_key="QUE Harmswrth"
+                    description="Harmsworth Room"/>
+                <olis_sublocation main_name="QUE Law Libr" derived_olis_key="QUE Law Libr"
+                    description="Law Library"/>
+                <olis_sublocation main_name="QUE Librarian" derived_olis_key="QUE Librarian"
+                    description="Librarian&apos;s Office"/>
+                <olis_sublocation main_name="QUE Main Libr" derived_olis_key="QUE Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="QUE Manuscrpt" derived_olis_key="QUE Manuscrpt"
+                    description="Manuscripts Cupboard"/>
+                <olis_sublocation main_name="QUE McLeod" derived_olis_key="QUE McLeod"
+                    description="McLeod&apos;s Office"/>
+                <olis_sublocation main_name="QUE Peet Libr" derived_olis_key="QUE Peet Libr"
+                    description="Peet Library"/>
+                <olis_sublocation main_name="QUE Reference" derived_olis_key="QUE Reference"
+                    description="Reference Collection"/>
+                <olis_sublocation main_name="QUE Select" derived_olis_key="QUE Select"
+                    description="Select cases"/>
+                <olis_sublocation main_name="QUE Staff" derived_olis_key="QUE Staff"
+                    description="Staff Collection"/>
+                <olis_sublocation main_name="QUE Taylor" derived_olis_key="QUE Taylor"
+                    description="Taylor&apos;s Office"/>
+                <olis_sublocation main_name="QUE Tunnel" derived_olis_key="QUE Tunnel"
+                    description="Tunnel"/>
+                <olis_sublocation main_name="QUE Upper Lib" derived_olis_key="QUE Upper Lib"
+                    description="Upper Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Radcliffe Science Library" derived_olis_key="Radcl.Science"
+            short_name="Radcl.Science" three_letter_code="RSL">
+            <matches_library derived_library_id="RSL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="RSL Borrower" derived_olis_key="RSL Borrower"
+                    description="Borrower reserve" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="RSL Cabinet" derived_olis_key="RSL Cabinet"
+                    description="Locked cabinet" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="RSL Cairns PC" derived_olis_key="RSL Cairns PC"
+                    description="Cairns photocopying deliveries"
+                    asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="RSL DarkStore" derived_olis_key="RSL DarkStore"
+                    description="Offsite Storage (Inactive)"/>
+                <olis_sublocation main_name="RSL Desk" derived_olis_key="RSL Desk"
+                    description="RSL Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="RSL Doc Supp" derived_olis_key="RSL Doc Supp"
+                    description="Document Supply deliveries" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="RSL Entr Hall" derived_olis_key="RSL Entr Hall"
+                    description="RSL Entr Hall"/>
+                <olis_sublocation main_name="RSL Level 2" derived_olis_key="RSL Level 2"
+                    description="RSL Level 2"/>
+                <olis_sublocation main_name="RSL Level 3" derived_olis_key="RSL Level 3"
+                    description="RSL Level 3"/>
+                <olis_sublocation main_name="RSL Level 4" derived_olis_key="RSL Level 4"
+                    description="RSL Level 4"/>
+                <olis_sublocation main_name="RSL Level 5" derived_olis_key="RSL Level 5"
+                    description="RSL Level 5"/>
+                <olis_sublocation main_name="RSL Level 6" derived_olis_key="RSL Level 6"
+                    description="RSL Level 6"/>
+                <olis_sublocation main_name="RSL Level 7" derived_olis_key="RSL Level 7"
+                    description="RSL Level 7"/>
+                <olis_sublocation main_name="RSL Level 8" derived_olis_key="RSL Level 8"
+                    description="RSL Level 8"/>
+                <olis_sublocation main_name="RSL Life Sci" derived_olis_key="RSL Life Sci"
+                    description="RSL Life Sci"/>
+                <olis_sublocation main_name="RSL Main Libr" derived_olis_key="RSL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="RSL Nuneham" derived_olis_key="RSL Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="RSL Offsite" derived_olis_key="RSL Offsite"
+                    description="Radcliffe Science Library Offsite Storage "/>
+                <olis_sublocation main_name="RSL Offsite" derived_olis_key="RSL Offsite"
+                    description="Radcliffe Science Library Offsite Storage "
+                    asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="RSL OpenShelf" derived_olis_key="RSL OpenShelf"
+                    description="Open Shelf"/>
+                <olis_sublocation main_name="RSL Phys Sci" derived_olis_key="RSL Phys Sci"
+                    description="RSL Phys Sci"/>
+                <olis_sublocation main_name="RSL Same Day" derived_olis_key="RSL Same Day"
+                    description="RSL Same Day"/>
+                <olis_sublocation main_name="RSL Stack" derived_olis_key="RSL Stack"
+                    description="Bookstack" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="RSL Stack SC" derived_olis_key="RSL Stack SC"
+                    description="Stack Special Collection" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="RSL Staff" derived_olis_key="RSL Staff"
+                    description="RSL Staff" asr_sublocation_type="ASR Reading Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Regent&apos;s Park College Library"
+            derived_olis_key="Regent&apos;s Park" short_name="Regent&apos;s Park"
+            three_letter_code="REG">
+            <matches_library derived_library_id="REG"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="REG Angus" derived_olis_key="REG Angus"
+                    description="Angus Library"/>
+                <olis_sublocation main_name="REG BMS" derived_olis_key="REG BMS"
+                    description="Baptist Missionary Society collection"/>
+                <olis_sublocation main_name="REG Main Libr" derived_olis_key="REG Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="REG Nicholls" derived_olis_key="REG Nicholls"
+                    description="David Nicholls Collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Rhodes House Library" derived_olis_key="Rhodes House"
+            short_name="Rhodes House" three_letter_code="RHO">
+            <matches_library derived_library_id="RHO"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="RHO Nuneham" derived_olis_key="RHO Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="RHO Offsite" derived_olis_key="RHO Offsite"
+                    description="Rhodes House Library Offsite Storage "
+                    asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="RHO ReadingRm" derived_olis_key="RHO ReadingRm"
+                    description="Reading Room"/>
+                <olis_sublocation main_name="RHO Reserve" derived_olis_key="RHO Reserve"
+                    description="Reserve counter" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="RHO Stack" derived_olis_key="RHO Stack"
+                    description="Bookstack" asr_sublocation_type="ASR Stack"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Ruskin School of Drawing and Fine Art Library"
+            derived_olis_key="Ruskin School" short_name="Ruskin School" three_letter_code="RUS">
+            <matches_library derived_library_id="RUS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="RUS Main Libr" derived_olis_key="RUS Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="RUS Ref Libr" derived_olis_key="RUS Ref Libr"
+                    description="Reference library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Sackler Library" derived_olis_key="Sackler"
+            short_name="Sackler" three_letter_code="SAC">
+            <matches_library derived_library_id="SAC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="SAC 1 Papyrol" derived_olis_key="SAC 1 Papyrol"
+                    description="First Floor papyri"/>
+                <olis_sublocation main_name="SAC 3 Stack" derived_olis_key="SAC 3 Stack"
+                    description="Third Floor Stack"/>
+                <olis_sublocation main_name="SAC Archives" derived_olis_key="SAC Archives"
+                    description="Archives"/>
+                <olis_sublocation main_name="SAC Ash CoinR" derived_olis_key="SAC Ash CoinR"
+                    description="Coin Room in Ashm.Museum"/>
+                <olis_sublocation main_name="SAC Floor 1" derived_olis_key="SAC Floor 1"
+                    description="First Floor"/>
+                <olis_sublocation main_name="SAC Floor 2" derived_olis_key="SAC Floor 2"
+                    description="Second Floor"/>
+                <olis_sublocation main_name="SAC Floor 3" derived_olis_key="SAC Floor 3"
+                    description="Third Floor"/>
+                <olis_sublocation main_name="SAC Floor G" derived_olis_key="SAC Floor G"
+                    description="Ground Floor"/>
+                <olis_sublocation main_name="SAC Floor LG" derived_olis_key="SAC Floor LG"
+                    description="Lower Ground Floor"/>
+                <olis_sublocation main_name="SAC G CLL" derived_olis_key="SAC G CLL"
+                    description="Classics Lending Collection"/>
+                <olis_sublocation main_name="SAC G Havrfld" derived_olis_key="SAC G Havrfld"
+                    description="Haverfield"/>
+                <olis_sublocation main_name="SAC Haskell" derived_olis_key="SAC Haskell"
+                    description="Haskell Room"/>
+                <olis_sublocation main_name="SAC Main Desk" derived_olis_key="SAC Main Desk"
+                    description="SAC Main Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="SAC Nuneham" derived_olis_key="SAC Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="SAC Rare Book" derived_olis_key="SAC Rare Book"
+                    description="Rare Book Room"/>
+                <olis_sublocation main_name="SAC Wind Room" derived_olis_key="SAC Wind Room"
+                    description="Wind Collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Said Business School Library" derived_olis_key="Said Business"
+            short_name="Said Business" three_letter_code="SBS">
+            <matches_library derived_library_id="SBS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="SBS Careers" derived_olis_key="SBS Careers"
+                    description="Careers Section"/>
+                <olis_sublocation main_name="SBS Desk" derived_olis_key="SBS Desk"
+                    description="Said Business School Desk" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="SBS Short" derived_olis_key="SBS Short"
+                    description="Short Loan Collection"/>
+                <olis_sublocation main_name="SBS Stack" derived_olis_key="SBS Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="SBS Upper" derived_olis_key="SBS Upper"
+                    description="Upper Reading Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Social and Cultural Anthropology Library"
+            derived_olis_key="Soc/Cult Anth" short_name="Soc/Cult Anth" three_letter_code="SCA">
+            <matches_library derived_library_id="SCA"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="SCA Tylor" derived_olis_key="SCA Tylor"
+                    description="Tylor Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Social Science Library" derived_olis_key="Social Sci."
+            short_name="Social Sci." three_letter_code="SSL">
+            <matches_library derived_library_id="SSL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="SSL IssueDesk" derived_olis_key="SSL IssueDesk"
+                    description="SSL Issue Desk for ASR"/>
+                <olis_sublocation main_name="SSL LibOffice" derived_olis_key="SSL LibOffice"
+                    description="Library Office"/>
+                <olis_sublocation main_name="SSL Main Lib" derived_olis_key="SSL Main Lib"
+                    description="Main Library"/>
+                <olis_sublocation main_name="SSL Reference" derived_olis_key="SSL Reference"
+                    description="Reference"/>
+                <olis_sublocation main_name="SSL RollStack" derived_olis_key="SSL RollStack"
+                    description="Rolling Stack"/>
+                <olis_sublocation main_name="SSL RSC Boxes" derived_olis_key="SSL RSC Boxes"
+                    description="Rolling Stack (N)"/>
+                <olis_sublocation main_name="SSL Staff" derived_olis_key="SSL Staff"
+                    description="SSL Staff" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="SSL StaffDesk" derived_olis_key="SSL StaffDesk"
+                    description="Staff Desk"/>
+                <olis_sublocation main_name="SSL Theses" derived_olis_key="SSL Theses"
+                    description="Theses"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Somerville College Library" derived_olis_key="Somerville"
+            short_name="Somerville" three_letter_code="SOM">
+            <matches_library derived_library_id="SOM"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="SOM Loft" derived_olis_key="SOM Loft"
+                    description="Loft"/>
+                <olis_sublocation main_name="SOM Main Libr" derived_olis_key="SOM Main Libr"
+                    description="Main library"/>
+                <olis_sublocation main_name="SOM Stack" derived_olis_key="SOM Stack"
+                    description="Closed stack"/>
+                <olis_sublocation main_name="SOM Staff" derived_olis_key="SOM Staff"
+                    description="Ask staff"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Anne&apos;s College Library"
+            derived_olis_key="St Anne&apos;s" short_name="St Anne&apos;s"
+            three_letter_code="ANN">
+            <matches_library derived_library_id="ANN"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ANN Main Libr" derived_olis_key="ANN Main Libr"
+                    description="St Anne&apos;s Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Antony&apos;s College Library"
+            derived_olis_key="St Antony&apos;s" short_name="St Antony&apos;s"
+            three_letter_code="ANT">
+            <matches_library derived_library_id="ANT"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ANT Main Libr" derived_olis_key="ANT Main Libr"
+                    description="St Antony&apos;s Main Library"/>
+                <olis_sublocation main_name="ANT RussianEE" derived_olis_key="ANT RussianEE"
+                    description="Russian and E. Eur. Library">
+                    <matches_library derived_library_id="76"/>
+                </olis_sublocation>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Benet&apos;s Hall Library"
+            derived_olis_key="St Benet&apos;s" short_name="St Benet&apos;s"
+            three_letter_code="STB">
+            <matches_library derived_library_id="STB"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="STB CCO" derived_olis_key="STB CCO"
+                    description="Catholic Chaplaincy"/>
+                <olis_sublocation main_name="STB DAC" derived_olis_key="STB DAC"
+                    description="Douai Abbey Collection "/>
+                <olis_sublocation main_name="STB GKC" derived_olis_key="STB GKC"
+                    description="G.K. Chesterton Archive"/>
+                <olis_sublocation main_name="STB HTM" derived_olis_key="STB HTM"
+                    description="Holy Trinity Monastery"/>
+                <olis_sublocation main_name="STB Lower Gr." derived_olis_key="STB Lower Gr."
+                    description="Lower Ground"/>
+                <olis_sublocation main_name="STB Main Libr" derived_olis_key="STB Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Catherine&apos;s College Library"
+            derived_olis_key="St Catherines" short_name="St Catherines" three_letter_code="CAT">
+            <matches_library derived_library_id="CAT"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="CAT Bookcase" derived_olis_key="CAT Bookcase"
+                    description="Bookcase"/>
+                <olis_sublocation main_name="CAT Main Libr" derived_olis_key="CAT Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="CAT NSem Room" derived_olis_key="CAT NSem Room"
+                    description="North Seminar Room"/>
+                <olis_sublocation main_name="CAT Store" derived_olis_key="CAT Store"
+                    description="Book store"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Cross College Library" derived_olis_key="St Cross Coll"
+            short_name="St Cross Coll" three_letter_code="STX">
+            <matches_library derived_library_id="STX"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="STX Main Libr" derived_olis_key="STX Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Edmund Hall Library" derived_olis_key="St Edmund H."
+            short_name="St Edmund H." three_letter_code="EDM">
+            <matches_library derived_library_id="EDM"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="EDM Emden Col" derived_olis_key="EDM Emden Col"
+                    description="Emden Naval History Collection"/>
+                <olis_sublocation main_name="EDM Main Libr" derived_olis_key="EDM Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="EDM Tower" derived_olis_key="EDM Tower"
+                    description="Tower"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Hugh&apos;s College Library"
+            derived_olis_key="St Hugh&apos;s" short_name="St Hugh&apos;s"
+            three_letter_code="HUG">
+            <matches_library derived_library_id="HUG"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="HUG Main Libr" derived_olis_key="HUG Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="HUG RBS" derived_olis_key="HUG RBS"
+                    description="Rare book section"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St John&apos;s College Library"
+            derived_olis_key="St John&apos;s" short_name="St John&apos;s"
+            three_letter_code="STJ">
+            <matches_library derived_library_id="STJ"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="STJ Bul-Tho" derived_olis_key="STJ Bul-Tho"
+                    description="Bulmer-Thomas collection"/>
+                <olis_sublocation main_name="STJ Graves" derived_olis_key="STJ Graves"
+                    description="Robert Graves library"/>
+                <olis_sublocation main_name="STJ Housman" derived_olis_key="STJ Housman"
+                    description="A.E. Housman collection"/>
+                <olis_sublocation main_name="STJ Main Libr" derived_olis_key="STJ Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="St Peter&apos;s College Library"
+            derived_olis_key="St Peter&apos;s" short_name="St Peter&apos;s"
+            three_letter_code="SPC">
+            <matches_library derived_library_id="SPC"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="SPC Law Libr." derived_olis_key="SPC Law Libr."
+                    description="Law Library"/>
+                <olis_sublocation main_name="SPC Lower Lib" derived_olis_key="SPC Lower Lib"
+                    description="Lower Library"/>
+                <olis_sublocation main_name="SPC Main Libr" derived_olis_key="SPC Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="SPC Office" derived_olis_key="SPC Office"
+                    description="Library Office"/>
+                <olis_sublocation main_name="SPC OIPRC" derived_olis_key="SPC OIPRC"
+                    description="Oxford Intellectual Property Research Centre"/>
+                <olis_sublocation main_name="SPC Pamphlets" derived_olis_key="SPC Pamphlets"
+                    description="Pamphlet Collection"/>
+                <olis_sublocation main_name="SPC Periodic." derived_olis_key="SPC Periodic."
+                    description="Periodicals"/>
+                <olis_sublocation main_name="SPC Stack" derived_olis_key="SPC Stack"
+                    description="Bookstack"/>
+                <olis_sublocation main_name="SPC Upper Lib" derived_olis_key="SPC Upper Lib"
+                    description="Upper"/>
+                <olis_sublocation main_name="SPC Wulstan" derived_olis_key="SPC Wulstan"
+                    description="Wulstan Music Collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="OULS Staff Library" derived_olis_key="Staff Libr."
+            short_name="Staff Libr." three_letter_code="STF">
+            <matches_library derived_library_id="STF"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="STF Main Coll" derived_olis_key="STF Main Coll"
+                    description="Main Collection"/>
+                <olis_sublocation main_name="STF Periodic." derived_olis_key="STF Periodic."
+                    description="Periodicals"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Statistics Library" derived_olis_key="Statistics"
+            short_name="Statistics" three_letter_code="STA">
+            <matches_library derived_library_id="STA"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="STA Main Libr" derived_olis_key="STA Main Libr"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Taylor Institution Slavonic &amp; Modern Greek Library"
+            derived_olis_key="Taylor Slav." short_name="Taylor Slav." three_letter_code="TAS">
+            <matches_library derived_library_id="TAS"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="TAS 2 Flr New" derived_olis_key="TAS 2 Flr New"
+                    description="Czech LC Classification Sequence"/>
+                <olis_sublocation main_name="TAS 2 FlrOver" derived_olis_key="TAS 2 FlrOver"
+                    description="Czech Oversize LC Sequence"/>
+                <olis_sublocation main_name="TAS Base New" derived_olis_key="TAS Base New"
+                    description="Basement LC Classification Sequence"/>
+                <olis_sublocation main_name="TAS Base Over" derived_olis_key="TAS Base Over"
+                    description="Basement Oversize LC Sequence"/>
+                <olis_sublocation main_name="TAS Desk" derived_olis_key="TAS Desk"
+                    description="Slavonic Library" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="TAS Gk LC" derived_olis_key="TAS Gk LC"
+                    description="Greek LC Class Sequence"/>
+                <olis_sublocation main_name="TAS Gk LC Out" derived_olis_key="TAS Gk LC Out"
+                    description="Greek LC Class Outsize"/>
+                <olis_sublocation main_name="TAS Libr." derived_olis_key="TAS Libr."
+                    description="Slavonic Library"/>
+                <olis_sublocation main_name="TAS Nuneham" derived_olis_key="TAS Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="TAS Pers" derived_olis_key="TAS Pers"
+                    description="Periodicals"/>
+                <olis_sublocation main_name="TAS Rare" derived_olis_key="TAS Rare"
+                    description="Rare books"/>
+                <olis_sublocation main_name="TAS Reference" derived_olis_key="TAS Reference"
+                    description="Reference LC Sequence"/>
+                <olis_sublocation main_name="TAS U/gr." derived_olis_key="TAS U/gr."
+                    description="Undergraduate collections"/>
+                <olis_sublocation main_name="TAS UG LC" derived_olis_key="TAS UG LC"
+                    description="U/grad LC Classification Sequence"/>
+                <olis_sublocation main_name="TAS UG LC Out" derived_olis_key="TAS UG LC Out"
+                    description="U/grad LC Class Outsize"/>
+                <olis_sublocation main_name="TAS XPS" derived_olis_key="TAS XPS"
+                    description="Formerly BOD Slav. RR"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Taylor Institution Library" derived_olis_key="Taylorian"
+            short_name="Taylorian" three_letter_code="TAY">
+            <matches_library derived_library_id="TAY"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="TAY Base Celt" derived_olis_key="TAY Base Celt"
+                    description="Basement Celtic LC Classification Sequence"/>
+                <olis_sublocation main_name="TAY Base Over" derived_olis_key="TAY Base Over"
+                    description="Basement Oversize Celtic LC Sequence"/>
+                <olis_sublocation main_name="TAY Base Ydsh" derived_olis_key="TAY Base Ydsh"
+                    description="Basement Yiddish LC Classification Sequence"/>
+                <olis_sublocation main_name="TAY Ling Over" derived_olis_key="TAY Ling Over"
+                    description="Linguistics Oversize LC Sequence"/>
+                <olis_sublocation main_name="TAY Ling." derived_olis_key="TAY Ling."
+                    description="Taylorian Linguistics Collecion"/>
+                <olis_sublocation main_name="TAY Main" derived_olis_key="TAY Main"
+                    description="ASR delivery location only" asr_sublocation_type="ASR Reading Room"/>
+                <olis_sublocation main_name="TAY Main Libr" derived_olis_key="TAY Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="TAY Main Over" derived_olis_key="TAY Main Over"
+                    description="Main Stack Oversize LC Sequence"/>
+                <olis_sublocation main_name="TAY MainStack" derived_olis_key="TAY MainStack"
+                    description="Main Stack LC Classification Sequence"/>
+                <olis_sublocation main_name="TAY MLF AV" derived_olis_key="TAY MLF AV"
+                    description="Audio-Visual"/>
+                <olis_sublocation main_name="TAY MLF Bks" derived_olis_key="TAY MLF Bks"
+                    description="Books"/>
+                <olis_sublocation main_name="TAY MLF News" derived_olis_key="TAY MLF News"
+                    description="Books"/>
+                <olis_sublocation main_name="TAY MLF O.S." derived_olis_key="TAY MLF O.S."
+                    description="Oversize"/>
+                <olis_sublocation main_name="TAY MLF Ref" derived_olis_key="TAY MLF Ref"
+                    description="Reference"/>
+                <olis_sublocation main_name="TAY MLF Staff" derived_olis_key="TAY MLF Staff"
+                    description="Staff Desk"/>
+                <olis_sublocation main_name="TAY Nuneham" derived_olis_key="TAY Nuneham"
+                    description="Nuneham Repository" asr_sublocation_type="ASR Stack"/>
+                <olis_sublocation main_name="TAY Reference" derived_olis_key="TAY Reference"
+                    description="Reference LC Sequence"/>
+                <olis_sublocation main_name="TAY ShortLoan" derived_olis_key="TAY ShortLoan"
+                    description="Short loan collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Theology Faculty Library" derived_olis_key="Theology Fac."
+            short_name="Theology Fac." three_letter_code="THE">
+            <matches_library derived_library_id="THE"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="THE Basement" derived_olis_key="THE Basement"
+                    description="Basement"/>
+                <olis_sublocation main_name="THE Chadwick" derived_olis_key="THE Chadwick"
+                    description="Chadwick Room"/>
+                <olis_sublocation main_name="THE Farrer" derived_olis_key="THE Farrer"
+                    description="Farrer Room"/>
+                <olis_sublocation main_name="THE Help Desk" derived_olis_key="THE Help Desk"
+                    description="Staff Reserve"/>
+                <olis_sublocation main_name="THE LC" derived_olis_key="THE LC"
+                    description="Library of Congress Sequence"/>
+                <olis_sublocation main_name="THE Main Libr" derived_olis_key="THE Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="THE New Books" derived_olis_key="THE New Books"
+                    description="New Books Display"/>
+                <olis_sublocation main_name="THE Stack" derived_olis_key="THE Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="THE Tyndale" derived_olis_key="THE Tyndale"
+                    description="Tyndale Room"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Trinity College Library" derived_olis_key="Trinity Coll."
+            short_name="Trinity Coll." three_letter_code="TRI">
+            <matches_library derived_library_id="TRI"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="TRI Archive" derived_olis_key="TRI Archive"
+                    description="Archive"/>
+                <olis_sublocation main_name="TRI Main Libr" derived_olis_key="TRI Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="TRI Old Libr" derived_olis_key="TRI Old Libr"
+                    description="Old Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Oxford University Museum of Natural History Library"
+            derived_olis_key="Univ.Museum" short_name="Univ.Museum" three_letter_code="OUM">
+            <matches_library derived_library_id="OUM"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="OUM Entomol." derived_olis_key="OUM Entomol."
+                    description="Hope Library (Entomology)"/>
+                <olis_sublocation main_name="OUM Geolog." derived_olis_key="OUM Geolog."
+                    description="Arkell Geological Collections"/>
+                <olis_sublocation main_name="OUM Mineral." derived_olis_key="OUM Mineral."
+                    description="Mineralogical Collections"/>
+                <olis_sublocation main_name="OUM Zoolog." derived_olis_key="OUM Zoolog."
+                    description="Zoological Collections"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="University College Library" derived_olis_key="University C."
+            short_name="University C." three_letter_code="UNI">
+            <matches_library derived_library_id="UNI"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="UNI BL" derived_olis_key="UNI BL"
+                    description="University College Library BL"/>
+                <olis_sublocation main_name="UNI Law" derived_olis_key="UNI Law"
+                    description="University College Law Library"/>
+                <olis_sublocation main_name="UNI Main" derived_olis_key="UNI Main"
+                    description="University College Main Library"/>
+                <olis_sublocation main_name="UNI Store" derived_olis_key="UNI Store"
+                    description="University College Library Store"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Wadham College Library" derived_olis_key="Wadham Coll."
+            short_name="Wadham Coll." three_letter_code="WAD">
+            <matches_library derived_library_id="WAD"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="WAD Main Libr" derived_olis_key="WAD Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="WAD SLC" derived_olis_key="WAD SLC"
+                    description="Sarah Lawrence College collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Wellcome Unit for the History of Medicine Library"
+            derived_olis_key="Wellcome Unit" short_name="Wellcome Unit" three_letter_code="WEL">
+            <matches_library derived_library_id="WEL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="WEL LCC MainL" derived_olis_key="WEL LCC MainL"
+                    description="Main Library"/>
+                <olis_sublocation main_name="WEL Main Libr" derived_olis_key="WEL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="WEL Quick Ref" derived_olis_key="WEL Quick Ref"
+                    description="Main Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Wolfson College Library" derived_olis_key="Wolfson Coll."
+            short_name="Wolfson Coll." three_letter_code="WOL">
+            <matches_library derived_library_id="WOL"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="WOL Floersh." derived_olis_key="WOL Floersh."
+                    description="Floersheimer"/>
+                <olis_sublocation main_name="WOL Hornik" derived_olis_key="WOL Hornik"
+                    description="Hornik Memorial"/>
+                <olis_sublocation main_name="WOL Main Libr" derived_olis_key="WOL Main Libr"
+                    description="Main Library"/>
+                <olis_sublocation main_name="WOL Reference" derived_olis_key="WOL Reference"
+                    description="Reference Section"/>
+                <olis_sublocation main_name="WOL Syme" derived_olis_key="WOL Syme"
+                    description="Syme Collection"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Worcester College Library" derived_olis_key="Worcester C."
+            short_name="Worcester C." three_letter_code="WOR">
+            <matches_library derived_library_id="WOR"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="WOR Eland" derived_olis_key="WOR Eland"
+                    description="Eland Collection"/>
+                <olis_sublocation main_name="WOR Law Lib" derived_olis_key="WOR Law Lib"
+                    description="Law Library"/>
+                <olis_sublocation main_name="WOR Office" derived_olis_key="WOR Office"
+                    description="Library Office"/>
+                <olis_sublocation main_name="WOR Old Lib" derived_olis_key="WOR Old Lib"
+                    description="Old Library"/>
+                <olis_sublocation main_name="WOR Stack" derived_olis_key="WOR Stack"
+                    description="Stack"/>
+                <olis_sublocation main_name="WOR Store" derived_olis_key="WOR Store"
+                    description="Bookstore"/>
+                <olis_sublocation main_name="WOR Upper Lib" derived_olis_key="WOR Upper Lib"
+                    description="Upper Library"/>
+            </olis_sublocations>
+        </olis_institution>
+        <olis_institution main_name="Zoology Library" derived_olis_key="Zoology"
+            short_name="Zoology" three_letter_code="ZOO">
+            <matches_library derived_library_id="ZOO"/>
+            <olis_sublocations>
+                <olis_sublocation main_name="ZOO Alexander" derived_olis_key="ZOO Alexander"
+                    description="Alexander (Reference)"/>
+                <olis_sublocation main_name="ZOO Elton" derived_olis_key="ZOO Elton"
+                    description="Elton"/>
+                <olis_sublocation main_name="ZOO Main" derived_olis_key="ZOO Main"
+                    description="Main "/>
+                <olis_sublocation main_name="ZOO Main Ref." derived_olis_key="ZOO Main Ref."
+                    description="Main Ref."/>
+            </olis_sublocations>
+        </olis_institution>
+    </olis_institutions>
+</root>
