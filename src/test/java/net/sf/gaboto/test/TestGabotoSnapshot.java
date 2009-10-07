@@ -166,23 +166,26 @@ public class TestGabotoSnapshot {
     assertTrue("it is " + pool.getSize(), pool.getSize() == 1);
   }
 
+  /**
+   * This test fails every time oxpoints data is changed.
+   */
   @Test
   public void testTimeSnapshots(){
     Gaboto oxp = OxpointsFactory.getOxpointsFromXML();
     
     GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
-    GabotoSnapshot whenGreenWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1999), new Integer(11), new Integer(2)));
+    GabotoSnapshot whenGreenWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1980), new Integer(11), new Integer(2)));
     GabotoSnapshot beforeGreenExisted = oxp.getSnapshot(new TimeInstant(new Integer(1978), new Integer(11), new Integer(2)));
 
-    assertTrue("it is " + nowSnap.size(), nowSnap.size() == 15918);
+    assertTrue("Input data has changed? Snapshot now contains " + nowSnap.size(), nowSnap.size() == 14906);
     assertFalse(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
     assertTrue(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
     
-    assertTrue("it is " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 15964);
+    assertTrue("Input data has changed? Snapshot(1980) now contains " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 14905);
     assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
     assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
 
-    assertTrue("it is " + beforeGreenExisted.size(), beforeGreenExisted.size() == 15895);
+    assertTrue("Input data has changed? Snapshot(1978) now contains " + beforeGreenExisted.size(), beforeGreenExisted.size() == 14883);
     assertFalse(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
     assertTrue(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
   }
