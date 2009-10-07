@@ -42,6 +42,7 @@
 <xsl:template match="tei:relation">
   <xsl:copy>
     <xsl:copy-of select="@name"/>
+    <xsl:copy-of select="@type"/>
     <xsl:variable name="active">
       <xsl:value-of select="substring-after(@active,'#')"/>
     </xsl:variable>

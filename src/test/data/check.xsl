@@ -63,7 +63,7 @@
     </xsl:if>
   </xsl:for-each>
   <xsl:for-each select="//tei:figure">
-    <xsl:if test="not(key('I',substring-after(@corresp,'#')))">
+    <xsl:if test="not(key('Oxp',substring-after(@corresp,'#')))">
       <xsl:message>cannot find anything to point <xsl:value-of
       select="@corresp"/> at</xsl:message>
     </xsl:if>

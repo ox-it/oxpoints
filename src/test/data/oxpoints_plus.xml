@@ -8313,269 +8313,269 @@ data, and if so, how? -->
         
         
         
-            <relation name="controls" active="#23232352" passive="#23233495"/>
-            <relation name="controls" active="#23232352" passive="#23233481"/>
-            <relation name="controls" active="#23233586" passive="#23233480"/>
-            <relation name="controls" active="#23233564" passive="#23233511"/>
-            <relation name="controls" active="#23233564" passive="#23233512"/>
-            <relation name="controls" active="#23233564" passive="#23233513"/>
-            <relation name="controls" active="#23233564" passive="#23233514"/>
-            <relation name="controls" active="#23233564" passive="#23233515"/>
-            <relation name="controls" active="#23233564" passive="#23233516"/>
-            <relation name="controls" active="#23233564" passive="#23233517"/>
-            <relation name="controls" active="#23233564" passive="#23233518"/>
-            <relation name="controls" active="#23233564" passive="#23233519"/>
-            <relation name="controls" active="#23233564" passive="#23233520"/>
-            <relation name="controls" active="#23233564" passive="#23233521"/>
-            <relation name="controls" active="#23233564" passive="#23233523"/>
-            <relation name="controls" active="#23233564" passive="#23233524"/>
-            <relation name="controls" active="#23233564" passive="#23233526"/>
-            <relation name="controls" active="#23233564" passive="#23233528"/>
-            <relation name="controls" active="#23233564" passive="#23233529"/>
-            <relation name="controls" active="#23233564" passive="#23233531"/>
-            <relation name="controls" active="#23233564" passive="#23233532"/>
-            <relation name="controls" active="#23233564" passive="#23233533"/>
-            <relation name="controls" active="#23233564" passive="#23233534"/>
-            <relation name="controls" active="#23233564" passive="#23233535"/>
-            <relation name="controls" active="#23233564" passive="#23233536"/>
-            <relation name="controls" active="#23233564" passive="#23233537"/>
-            <relation name="controls" active="#23233564" passive="#23233538"/>
-            <relation name="controls" active="#23233564" passive="#23233541"/>
-            <relation name="controls" active="#23233564" passive="#23233542"/>
-            <relation name="controls" active="#23233564" passive="#23233549"/>
-            <relation name="controls" active="#23233564" passive="#23233550"/>
-            <relation name="controls" active="#23233564" passive="#23232652"/>
-            <relation name="controls" active="#23233564" passive="#23233571"/>
-            <relation name="controls" active="#23233567" passive="#23233540"/>
-            <relation name="controls" active="#23232677" passive="#23233679"/>
+            <relation name="controls" type="political" active="#23232352" passive="#23233495"/>
+            <relation name="controls" type="political" active="#23232352" passive="#23233481"/>
+            <relation name="controls" type="political" active="#23233586" passive="#23233480"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233511"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233512"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233513"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233514"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233515"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233516"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233517"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233518"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233519"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233520"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233521"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233523"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233524"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233526"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233528"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233529"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233531"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233532"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233533"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233534"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233535"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233536"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233537"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233538"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233541"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233542"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233549"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233550"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23232652"/>
+            <relation name="controls" type="political" active="#23233564" passive="#23233571"/>
+            <relation name="controls" type="political" active="#23233567" passive="#23233540"/>
+            <relation name="controls" type="political" active="#23232677" passive="#23233679"/>
             <relation name="controls" active="#23232627" passive="#23233906"/>
             <relation name="controls" active="#23232627" passive="#23233905"/>
             <relation name="controls" active="#23232627" passive="#23233904"/>
             <relation name="controls" active="#23232625" passive="#23233903"/>
             <relation name="controls" active="#23232729" passive="#23233902"/>
         
-            <relation name="occupies" active="#23233511" passive="#23233631"/>
-            <relation name="occupies" active="#23233905" passive="#23233683"/>
-            <relation name="occupies" active="#23233512" passive="#23233637"/>
-            <relation name="occupies" active="#23233513" passive="#23233637"/>
-            <relation name="occupies" active="#23233515" passive="#23233624"/>
-            <relation name="occupies" active="#23232489" passive="#23233633"/>
-            <relation name="occupies" active="#23232490" passive="#23232654"/>
-            <relation name="occupies" active="#23232492" passive="#23233625"/>
-            <relation name="occupies" active="#23233516" passive="#23233637"/>
-            <relation name="occupies" active="#23232494" passive="#23233601"/>
-            <relation name="occupies" active="#23232571" passive="#23232572"/>
-            <relation name="occupies" active="#23232493" passive="#23232572"/>
-            <relation name="occupies" active="#23233904" passive="#23233683"/>
-            <relation name="occupies" active="#23233517" passive="#23233637"/>
-            <relation name="occupies" active="#23233518" passive="#23233631"/>
-            <relation name="occupies" active="#23233519" passive="#23233637"/>
-            <relation name="occupies" active="#23233576" passive="#23233614"/>
-            <relation name="occupies" active="#23233520" passive="#23233624"/>
-            <relation name="occupies" active="#23233521" passive="#23233672"/>
-            <relation name="occupies" active="#23232495" passive="#23233619"/>
-            <relation name="occupies" active="#23232496" passive="#23232477"/>
-            <relation name="occupies" active="#23233523" passive="#23233637"/>
-            <relation name="occupies" active="#23233524" passive="#23233637"/>
-            <relation name="occupies" active="#23232498" passive="#23233625"/>
-            <relation name="occupies" active="#23233902" passive="#23233837"/>
-            <relation name="occupies" active="#23233526" passive="#23233637"/>
-            <relation name="occupies" active="#23233527" passive="#23233623"/>
-            <relation name="occupies" active="#23232503" passive="#23232548"/>
+            <relation name="occupies" type="geo primary" active="#23233511" passive="#23233631"/>
+            <relation name="occupies" type="geo" active="#23233905" passive="#23233683"/>
+            <relation name="occupies" type="geo primary" active="#23233512" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233513" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233515" passive="#23233624"/>
+            <relation name="occupies" type="geo primary" active="#23232489" passive="#23233633"/>
+            <relation name="occupies" type="geo" active="#23232490" passive="#23232654"/>
+            <relation name="occupies" type="geo primary" active="#23232492" passive="#23233625"/>
+            <relation name="occupies" type="geo primary" active="#23233516" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23232494" passive="#23233601"/>
+            <relation name="occupies" type="geo" active="#23232571" passive="#23232572"/>
+            <relation name="occupies" type="geo" active="#23232493" passive="#23232572"/>
+            <relation name="occupies" type="geo" active="#23233904" passive="#23233683"/>
+            <relation name="occupies" type="geo primary" active="#23233517" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233518" passive="#23233631"/>
+            <relation name="occupies" type="geo primary" active="#23233519" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233576" passive="#23233614"/>
+            <relation name="occupies" type="geo primary" active="#23233520" passive="#23233624"/>
+            <relation name="occupies" type="geo primary" active="#23233521" passive="#23233672"/>
+            <relation name="occupies" type="geo primary" active="#23232495" passive="#23233619"/>
+            <relation name="occupies" type="geo primary" active="#23232496" passive="#23232477"/>
+            <relation name="occupies" type="geo primary" active="#23233523" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233524" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23232498" passive="#23233625"/>
+            <relation name="occupies" type="geo primary" active="#23233902" passive="#23233837"/>
+            <relation name="occupies" type="geo primary" active="#23233526" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233527" passive="#23233623"/>
+            <relation name="occupies" type="geo primary" active="#23232503" passive="#23232548"/>
         
         
         
         
         
         
-            <relation name="occupies" active="#23232505" passive="#23232562"/>
-            <relation name="occupies" active="#23233528" passive="#23233637"/>
-            <relation name="occupies" active="#23233529" passive="#23233614"/>
-            <relation name="occupies" active="#23233530" passive="#23233665"/>
-            <relation name="occupies" active="#23233906" passive="#23233683"/>
-            <relation name="occupies" active="#23233497" passive="#23233651"/>
-            <relation name="occupies" active="#23233531" passive="#23233637"/>
-            <relation name="occupies" active="#23233532" passive="#23233614"/>
-            <relation name="occupies" active="#23233533" passive="#23233637"/>
-            <relation name="occupies" active="#23233534" passive="#23233637"/>
-            <relation name="occupies" active="#23233903" passive="#23233752"/>
-            <relation name="occupies" active="#23232506" passive="#23233601"/>
-            <relation name="occupies" active="#23233535" passive="#23233637"/>
-            <relation name="occupies" active="#23232507" passive="#23232581"/>
-            <relation name="occupies" active="#23233536" passive="#23233614"/>
-            <relation name="occupies" active="#23233537" passive="#23233637"/>
-            <relation name="occupies" active="#23233538" passive="#23233624"/>
-            <relation name="occupies" active="#23232509" passive="#23232562"/>
-            <relation name="occupies" active="#23233539" passive="#23233631"/>
-            <relation name="occupies" active="#23233540" passive="#23233636"/>
-            <relation name="occupies" active="#23232510" passive="#23233641"/>
-            <relation name="occupies" active="#23233541" passive="#23233637"/>
-            <relation name="occupies" active="#23233542" passive="#23233637"/>
-            <relation name="occupies" active="#23232513" passive="#23232514"/>
-            <relation name="occupies" active="#23232515" passive="#23233628"/>
-            <relation name="occupies" active="#23232516" passive="#23233626"/>
-            <relation name="occupies" active="#23232517" passive="#23233653"/>
-            <relation name="occupies" active="#23232517" passive="#23233663"/>
-            <relation name="occupies" active="#23232519" passive="#23233585"/>
-            <relation name="occupies" active="#23232521" passive="#23233602"/>
-            <relation name="occupies" active="#23232522" passive="#23233602"/>
-            <relation name="occupies" active="#23233543" passive="#23233620"/>
-            <relation name="occupies" active="#23232524" passive="#23233673"/>
-            <relation name="occupies" active="#23232527" passive="#23233641"/>
-            <relation name="occupies" active="#32320070" passive="#23233648"/>
+            <relation name="occupies" type="geo primary" active="#23232505" passive="#23232562"/>
+            <relation name="occupies" type="geo primary" active="#23233528" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233529" passive="#23233614"/>
+            <relation name="occupies" type="geo primary" active="#23233530" passive="#23233665"/>
+            <relation name="occupies" type="geo" active="#23233906" passive="#23233683"/>
+            <relation name="occupies" type="geo primary" active="#23233497" passive="#23233651"/>
+            <relation name="occupies" type="geo primary" active="#23233531" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233532" passive="#23233614"/>
+            <relation name="occupies" type="geo primary" active="#23233533" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233534" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233903" passive="#23233752"/>
+            <relation name="occupies" type="geo primary" active="#23232506" passive="#23233601"/>
+            <relation name="occupies" type="geo primary" active="#23233535" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23232507" passive="#23232581"/>
+            <relation name="occupies" type="geo primary" active="#23233536" passive="#23233614"/>
+            <relation name="occupies" type="geo primary" active="#23233537" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233538" passive="#23233624"/>
+            <relation name="occupies" type="geo primary" active="#23232509" passive="#23232562"/>
+            <relation name="occupies" type="geo primary" active="#23233539" passive="#23233631"/>
+            <relation name="occupies" type="geo primary" active="#23233540" passive="#23233636"/>
+            <relation name="occupies" type="geo primary" active="#23232510" passive="#23233641"/>
+            <relation name="occupies" type="geo primary" active="#23233541" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23233542" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23232513" passive="#23232514"/>
+            <relation name="occupies" type="geo primary" active="#23232515" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#23232516" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232517" passive="#23233653"/>
+            <relation name="occupies" type="geo" active="#23232517" passive="#23233663"/>
+            <relation name="occupies" type="geo primary" active="#23232519" passive="#23233585"/>
+            <relation name="occupies" type="geo primary" active="#23232521" passive="#23233602"/>
+            <relation name="occupies" type="geo primary" active="#23232522" passive="#23233602"/>
+            <relation name="occupies" type="geo primary" active="#23233543" passive="#23233620"/>
+            <relation name="occupies" type="geo primary" active="#23232524" passive="#23233673"/>
+            <relation name="occupies" type="geo primary" active="#23232527" passive="#23233641"/>
+            <relation name="occupies" type="geo primary" active="#32320070" passive="#23233648"/>
         
-            <relation name="occupies" active="#23232528" passive="#23233622"/>
-            <relation name="occupies" active="#23232529" passive="#23233621"/>
-            <relation name="occupies" active="#23232529" passive="#23233791"/>
-            <relation name="occupies" active="#23232530" passive="#23233621"/>
-            <relation name="occupies" active="#23232531" passive="#23233615"/>
-            <relation name="occupies" active="#23232534" passive="#23233655"/>
-            <relation name="occupies" active="#23232534" passive="#23233662"/>
-            <relation name="occupies" active="#23232539" passive="#23232731"/>
-            <relation name="occupies" active="#23233544" passive="#23233623"/>
-            <relation name="occupies" active="#32320008" passive="#23233620"/>
+            <relation name="occupies" type="geo primary" active="#23232528" passive="#23233622"/>
+            <relation name="occupies" type="geo primary" active="#23232529" passive="#23233621"/>
+            <relation name="occupies" type="geo" active="#23232529" passive="#23233791"/>
+            <relation name="occupies" type="geo primary" active="#23232530" passive="#23233621"/>
+            <relation name="occupies" type="geo primary" active="#23232531" passive="#23233615"/>
+            <relation name="occupies" type="geo primary" active="#23232534" passive="#23233655"/>
+            <relation name="occupies" type="geo" active="#23232534" passive="#23233662"/>
+            <relation name="occupies" type="geo primary" active="#23232539" passive="#23232731"/>
+            <relation name="occupies" type="geo primary" active="#23233544" passive="#23233623"/>
+            <relation name="occupies" type="geo primary" active="#32320008" passive="#23233620"/>
         
-            <relation name="occupies" active="#23232541" passive="#23232514"/>
-            <relation name="occupies" active="#23232543" passive="#23233626"/>
-            <relation name="occupies" active="#23232546" passive="#23232548"/>
-            <relation name="occupies" active="#23233577" passive="#23233615"/>
-            <relation name="occupies" active="#23232553" passive="#23233558"/>
-            <relation name="occupies" active="#23232555" passive="#23233626"/>
-            <relation name="occupies" active="#23232556" passive="#23233626"/>
-            <relation name="occupies" active="#23232560" passive="#23233625"/>
-            <relation name="occupies" active="#23232561" passive="#23232562"/>
-            <relation name="occupies" active="#23232565" passive="#23232566"/>
-            <relation name="occupies" active="#23232567" passive="#23233621"/>
-            <relation name="occupies" active="#23233547" passive="#23233623"/>
-            <relation name="occupies" active="#23232568" passive="#23233623"/>
-            <relation name="occupies" active="#23232568" passive="#23233641"/>
-            <relation name="occupies" active="#23232568" passive="#23233643"/>
-            <relation name="occupies" active="#23232568" passive="#23232569"/>
-            <relation name="occupies" active="#23233548" passive="#23233647"/>
-            <relation name="occupies" active="#23232570" passive="#23233628"/>
-            <relation name="occupies" active="#23233549" passive="#23233637"/>
-            <relation name="occupies" active="#23232574" passive="#23233654"/>
-            <relation name="occupies" active="#23232575" passive="#23233653"/>
-            <relation name="occupies" active="#23232575" passive="#23233663"/>
-            <relation name="occupies" active="#23232576" passive="#23233654"/>
-            <relation name="occupies" active="#23232579" passive="#23233628"/>
-            <relation name="occupies" active="#32320073" passive="#23233628"/>
-            <relation name="occupies" active="#23232580" passive="#23232581"/>
-            <relation name="occupies" active="#23232580" passive="#23233840"/>
-            <relation name="occupies" active="#23232580" passive="#23233744"/>
-            <relation name="occupies" active="#23232580" passive="#23233745"/>
-            <relation name="occupies" active="#23233578" passive="#23233635"/>
-            <relation name="occupies" active="#32320021" passive="#23233635"/>
-            <relation name="occupies" active="#23232584" passive="#23233753"/>
-            <relation name="occupies" active="#23232584" passive="#23233795"/>
-            <relation name="occupies" active="#23232584" passive="#23233842"/>
-            <relation name="occupies" active="#23232584" passive="#23233754"/>
-            <relation name="occupies" active="#23232584" passive="#23233843"/>
-            <relation name="occupies" active="#23232588" passive="#23233673"/>
-            <relation name="occupies" active="#23232589" passive="#23233625"/>
-            <relation name="occupies" active="#23232592" passive="#23233635"/>
-            <relation name="occupies" active="#23232593" passive="#23233618"/>
-            <relation name="occupies" active="#23233550" passive="#23233624"/>
-            <relation name="occupies" active="#23232594" passive="#23232731"/>
-            <relation name="occupies" active="#23232596" passive="#23233673"/>
-            <relation name="occupies" active="#23232597" passive="#23233626"/>
-            <relation name="occupies" active="#32320025" passive="#23233626"/>
-            <relation name="occupies" active="#23233579" passive="#23233581"/>
-            <relation name="occupies" active="#23232600" passive="#23233625"/>
-            <relation name="occupies" active="#23232601" passive="#23233633"/>
-            <relation name="occupies" active="#23232602" passive="#23232566"/>
-            <relation name="occupies" active="#23232602" passive="#23233730"/>
-            <relation name="occupies" active="#23233553" passive="#23233603"/>
-            <relation name="occupies" active="#23233554" passive="#23233650"/>
-            <relation name="occupies" active="#23233556" passive="#23233623"/>
-            <relation name="occupies" active="#23232612" passive="#23233581"/>
-            <relation name="occupies" active="#23232379" passive="#23233643"/>
-            <relation name="occupies" active="#23233557" passive="#23233558"/>
-            <relation name="occupies" active="#23232617" passive="#23233635"/>
+            <relation name="occupies" type="geo primary" active="#23232541" passive="#23232514"/>
+            <relation name="occupies" type="geo primary" active="#23232543" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232546" passive="#23232548"/>
+            <relation name="occupies" type="geo primary" active="#23233577" passive="#23233615"/>
+            <relation name="occupies" type="geo primary" active="#23232553" passive="#23233558"/>
+            <relation name="occupies" type="geo primary" active="#23232555" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232556" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232560" passive="#23233625"/>
+            <relation name="occupies" type="geo primary" active="#23232561" passive="#23232562"/>
+            <relation name="occupies" type="geo primary" active="#23232565" passive="#23232566"/>
+            <relation name="occupies" type="geo primary" active="#23232567" passive="#23233621"/>
+            <relation name="occupies" type="geo primary" active="#23233547" passive="#23233623"/>
+            <relation name="occupies" type="geo" active="#23232568" passive="#23233623"/>
+            <relation name="occupies" type="geo" active="#23232568" passive="#23233641"/>
+            <relation name="occupies" type="geo primary" active="#23232568" passive="#23233643"/>
+            <relation name="occupies" type="geo" active="#23232568" passive="#23232569"/>
+            <relation name="occupies" type="geo primary" active="#23233548" passive="#23233647"/>
+            <relation name="occupies" type="geo primary" active="#23232570" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#23233549" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23232574" passive="#23233654"/>
+            <relation name="occupies" type="geo primary" active="#23232575" passive="#23233653"/>
+            <relation name="occupies" type="geo" active="#23232575" passive="#23233663"/>
+            <relation name="occupies" type="geo primary" active="#23232576" passive="#23233654"/>
+            <relation name="occupies" type="geo primary" active="#23232579" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#32320073" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#23232580" passive="#23232581"/>
+            <relation name="occupies" type="geo" active="#23232580" passive="#23233840"/>
+            <relation name="occupies" type="geo" active="#23232580" passive="#23233744"/>
+            <relation name="occupies" type="geo" active="#23232580" passive="#23233745"/>
+            <relation name="occupies" type="geo primary" active="#23233578" passive="#23233635"/>
+            <relation name="occupies" type="geo primary" active="#32320021" passive="#23233635"/>
+            <relation name="occupies" type="geo" active="#23232584" passive="#23233753"/>
+            <relation name="occupies" type="geo" active="#23232584" passive="#23233795"/>
+            <relation name="occupies" type="geo" active="#23232584" passive="#23233842"/>
+            <relation name="occupies" type="geo" active="#23232584" passive="#23233754"/>
+            <relation name="occupies" type="geo" active="#23232584" passive="#23233843"/>
+            <relation name="occupies" type="geo primary" active="#23232588" passive="#23233673"/>
+            <relation name="occupies" type="geo primary" active="#23232589" passive="#23233625"/>
+            <relation name="occupies" type="geo primary" active="#23232592" passive="#23233635"/>
+            <relation name="occupies" type="geo primary" active="#23232593" passive="#23233618"/>
+            <relation name="occupies" type="geo primary" active="#23233550" passive="#23233624"/>
+            <relation name="occupies" type="geo primary" active="#23232594" passive="#23232731"/>
+            <relation name="occupies" type="geo primary" active="#23232596" passive="#23233673"/>
+            <relation name="occupies" type="geo primary" active="#23232597" passive="#23233626"/>
+            <relation name="occupies" type="geo" active="#32320025" passive="#23233626"/>
+            <relation name="occupies" type="geo" active="#23233579" passive="#23233581"/>
+            <relation name="occupies" type="geo primary" active="#23232600" passive="#23233625"/>
+            <relation name="occupies" type="geo primary" active="#23232601" passive="#23233633"/>
+            <relation name="occupies" type="geo" active="#23232602" passive="#23232566"/>
+            <relation name="occupies" type="geo primary" active="#23232602" passive="#23233730"/>
+            <relation name="occupies" type="geo primary" active="#23233553" passive="#23233603"/>
+            <relation name="occupies" type="geo primary" active="#23233554" passive="#23233650"/>
+            <relation name="occupies" type="geo primary" active="#23233556" passive="#23233623"/>
+            <relation name="occupies" type="geo primary" active="#23232612" passive="#23233581"/>
+            <relation name="occupies" type="geo" active="#23232379" passive="#23233643"/>
+            <relation name="occupies" type="geo primary" active="#23233557" passive="#23233558"/>
+            <relation name="occupies" type="geo primary" active="#23232617" passive="#23233635"/>
         
-            <relation name="occupies" active="#23232618" passive="#23233641"/>
-            <relation name="occupies" active="#23232621" passive="#23233627"/>
-            <relation name="occupies" active="#23232625" passive="#23233752"/>
-            <relation name="occupies" active="#23232629" passive="#23233653"/>
-            <relation name="occupies" active="#23233559" passive="#23233626"/>
-            <relation name="occupies" active="#23233560" passive="#23233626"/>
-            <relation name="occupies" active="#23233560" passive="#23233626"/>
-            <relation name="occupies" active="#23232632" passive="#23233654"/>
-            <relation name="occupies" active="#23233584" passive="#23233585"/>
-            <relation name="occupies" active="#23232634" passive="#23233662"/>
-            <relation name="occupies" active="#23232636" passive="#23233626"/>
-            <relation name="occupies" active="#23232639" passive="#23233640"/>
-            <relation name="occupies" active="#23232644" passive="#23232572"/>
-            <relation name="occupies" active="#23232644" passive="#23233883"/>
-            <relation name="occupies" active="#23232645" passive="#23233626"/>
-            <relation name="occupies" active="#23232646" passive="#23233654"/>
-            <relation name="occupies" active="#23232647" passive="#23233734"/>
-            <relation name="occupies" active="#23233564" passive="#23233614"/>
-            <relation name="occupies" active="#23232652" passive="#23233599"/>
-            <relation name="occupies" active="#23232653" passive="#23232654"/>
-            <relation name="occupies" active="#23232655" passive="#23233623"/>
-            <relation name="occupies" active="#23232656" passive="#23233626"/>
-            <relation name="occupies" active="#23232659" passive="#23233673"/>
-            <relation name="occupies" active="#23233567" passive="#23233671"/>
-            <relation name="occupies" active="#23233567" passive="#23233669"/>
-            <relation name="occupies" active="#23233567" passive="#23233670"/>
-            <relation name="occupies" active="#23233567" passive="#23233603"/>
-            <relation name="occupies" active="#23233568" passive="#23233637"/>
-            <relation name="occupies" active="#23232662" passive="#23233619"/>
-            <relation name="occupies" active="#23232663" passive="#23233626"/>
-            <relation name="occupies" active="#23232664" passive="#23233622"/>
-            <relation name="occupies" active="#23233589" passive="#23233590"/>
-            <relation name="occupies" active="#23233589" passive="#23233641"/>
-            <relation name="occupies" active="#32320062" passive="#23233590"/>
-            <relation name="occupies" active="#23233593" passive="#23233585"/>
-            <relation name="occupies" active="#23232673" passive="#23233622"/>
-            <relation name="occupies" active="#23232677" passive="#23233681"/>
-            <relation name="occupies" active="#23233679" passive="#23232678"/>
-            <relation name="occupies" active="#23232682" passive="#23233628"/>
-            <relation name="occupies" active="#23232683" passive="#23232654"/>
-            <relation name="occupies" active="#23232687" passive="#23232688"/>
-            <relation name="occupies" active="#23233678" passive="#23232695"/>
-            <relation name="occupies" active="#32320066" passive="#23233644"/>
+            <relation name="occupies" type="geo primary" active="#23232618" passive="#23233641"/>
+            <relation name="occupies" type="geo" active="#23232621" passive="#23233627"/>
+            <relation name="occupies" type="geo" active="#23232625" passive="#23233752"/>
+            <relation name="occupies" type="geo primary" active="#23232629" passive="#23233653"/>
+            <relation name="occupies" type="geo" active="#23233559" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23233560" passive="#23233626"/>
+            <relation name="occupies" type="geo" active="#23233560" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232632" passive="#23233654"/>
+            <relation name="occupies" type="geo primary" active="#23233584" passive="#23233585"/>
+            <relation name="occupies" type="geo primary" active="#23232634" passive="#23233662"/>
+            <relation name="occupies" type="geo" active="#23232636" passive="#23233626"/>
+            <relation name="occupies" type="geo" active="#23232639" passive="#23233640"/>
+            <relation name="occupies" type="geo primary" active="#23232644" passive="#23232572"/>
+            <relation name="occupies" type="geo" active="#23232644" passive="#23233883"/>
+            <relation name="occupies" type="geo primary" active="#23232645" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232646" passive="#23233654"/>
+            <relation name="occupies" type="geo primary" active="#23232647" passive="#23233734"/>
+            <relation name="occupies" type="geo primary" active="#23233564" passive="#23233614"/>
+            <relation name="occupies" type="geo primary" active="#23232652" passive="#23233599"/>
+            <relation name="occupies" type="geo" active="#23232653" passive="#23232654"/>
+            <relation name="occupies" type="geo primary" active="#23232655" passive="#23233623"/>
+            <relation name="occupies" type="geo primary" active="#23232656" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232659" passive="#23233673"/>
+            <relation name="occupies" type="geo primary" active="#23233567" passive="#23233671"/>
+            <relation name="occupies" type="geo" active="#23233567" passive="#23233669"/>
+            <relation name="occupies" type="geo" active="#23233567" passive="#23233670"/>
+            <relation name="occupies" type="geo" active="#23233567" passive="#23233603"/>
+            <relation name="occupies" type="geo primary" active="#23233568" passive="#23233637"/>
+            <relation name="occupies" type="geo primary" active="#23232662" passive="#23233619"/>
+            <relation name="occupies" type="geo primary" active="#23232663" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23232664" passive="#23233622"/>
+            <relation name="occupies" type="geo primary" active="#23233589" passive="#23233590"/>
+            <relation name="occupies" type="geo" active="#23233589" passive="#23233641"/>
+            <relation name="occupies" type="geo primary" active="#32320062" passive="#23233590"/>
+            <relation name="occupies" type="geo primary" active="#23233593" passive="#23233585"/>
+            <relation name="occupies" type="geo primary" active="#23232673" passive="#23233622"/>
+            <relation name="occupies" type="geo primary" active="#23232677" passive="#23233681"/>
+            <relation name="occupies" type="geo primary" active="#23233679" passive="#23232678"/>
+            <relation name="occupies" type="geo primary" active="#23232682" passive="#23233628"/>
+            <relation name="occupies" type="geo" active="#23232683" passive="#23232654"/>
+            <relation name="occupies" type="geo primary" active="#23232687" passive="#23232688"/>
+            <relation name="occupies" type="geo" active="#23233678" passive="#23232695"/>
+            <relation name="occupies" type="geo primary" active="#32320066" passive="#23233644"/>
         
-            <relation name="occupies" active="#23232696" passive="#23232654"/>
-            <relation name="occupies" active="#23233569" passive="#23233603"/>
-            <relation name="occupies" active="#23232698" passive="#23233625"/>
+            <relation name="occupies" type="geo primary" active="#23232696" passive="#23232654"/>
+            <relation name="occupies" type="geo primary" active="#23233569" passive="#23233603"/>
+            <relation name="occupies" type="geo primary" active="#23232698" passive="#23233625"/>
         
-            <relation name="occupies" active="#23232691" passive="#23232695"/>
-            <relation name="occupies" active="#23233570" passive="#23233599"/>
-            <relation name="occupies" active="#23232704" passive="#23233627"/>
-            <relation name="occupies" active="#23232707" passive="#23233654"/>
-            <relation name="occupies" active="#23232710" passive="#23233697"/>
-            <relation name="occupies" active="#23232712" passive="#23233628"/>
-            <relation name="occupies" active="#23232713" passive="#23233628"/>
-            <relation name="occupies" active="#23232722" passive="#23233626"/>
-            <relation name="occupies" active="#23233571" passive="#23233636"/>
-            <relation name="occupies" active="#32320087" passive="#23233649"/>
+            <relation name="occupies" type="geo" active="#23232691" passive="#23232695"/>
+            <relation name="occupies" type="geo primary" active="#23233570" passive="#23233599"/>
+            <relation name="occupies" type="geo primary" active="#23232704" passive="#23233627"/>
+            <relation name="occupies" type="geo primary" active="#23232707" passive="#23233654"/>
+            <relation name="occupies" type="geo" active="#23232710" passive="#23233697"/>
+            <relation name="occupies" type="geo primary" active="#23232712" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#23232713" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#23232722" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#23233571" passive="#23233636"/>
+            <relation name="occupies" type="geo primary" active="#32320087" passive="#23233649"/>
         
-            <relation name="occupies" active="#23232723" passive="#23233613"/>
-            <relation name="occupies" active="#32320088" passive="#23233613"/>
-            <relation name="occupies" active="#23232727" passive="#23233673"/>
-            <relation name="occupies" active="#23233598" passive="#23233620"/>
-            <relation name="occupies" active="#23232476" passive="#23232477"/>
-            <relation name="occupies" active="#23233509" passive="#23233702"/>
-            <relation name="occupies" active="#23233575" passive="#23233663"/>
-            <relation name="occupies" active="#23232728" passive="#23233618"/>
-            <relation name="occupies" active="#23232729" passive="#23232731"/>
-            <relation name="occupies" active="#23232716" passive="#23233770"/>
-            <relation name="occupies" active="#23232716" passive="#23233771"/>
-            <relation name="occupies" active="#23232716" passive="#23233770"/>
-            <relation name="occupies" active="#23232716" passive="#23233772"/>
-            <relation name="occupies" active="#23232716" passive="#23233773"/>
-            <relation name="occupies" active="#23232716" passive="#23233799"/>
-            <relation name="occupies" active="#23232716" passive="#23233801"/>
-            <relation name="occupies" active="#23232716" passive="#23233802"/>
-            <relation name="occupies" active="#23232532" passive="#23233839"/>
-            <relation name="occupies" active="#23232532" passive="#23233821"/>
-            <relation name="occupies" active="#23232532" passive="#23233820"/>
-            <relation name="occupies" active="#23232532" passive="#23233818"/>
-            <relation name="occupies" active="#23232532" passive="#23233838"/>
-            <relation name="occupies" active="#23232532" passive="#23233822"/>
-            <relation name="occupies" active="#23232532" passive="#23233819"/>
+            <relation name="occupies" type="geo primary" active="#23232723" passive="#23233613"/>
+            <relation name="occupies" type="geo primary" active="#32320088" passive="#23233613"/>
+            <relation name="occupies" type="geo primary" active="#23232727" passive="#23233673"/>
+            <relation name="occupies" type="geo primary" active="#23233598" passive="#23233620"/>
+            <relation name="occupies" type="geo primary" active="#23232476" passive="#23232477"/>
+            <relation name="occupies" type="geo primary" active="#23233509" passive="#23233702"/>
+            <relation name="occupies" type="geo primary" active="#23233575" passive="#23233663"/>
+            <relation name="occupies" type="geo primary" active="#23232728" passive="#23233618"/>
+            <relation name="occupies" type="geo primary" active="#23232729" passive="#23232731"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233770"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233771"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233770"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233772"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233773"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233799"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233801"/>
+            <relation name="occupies" type="geo" active="#23232716" passive="#23233802"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233839"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233821"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233820"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233818"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233838"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233822"/>
+            <relation name="occupies" type="geo" active="#23232532" passive="#23233819"/>
             <!-- not supported
 	     <relation name="occupies" active="#begbroke" passive="#O_carpark11" type="geo"/>
              <relation name="uses" type="room" active="#O_bsp" passive="#r_0001"/>
@@ -8584,6 +8584,7 @@ data, and if so, how? -->
              <relation name="uses" type="room" active="#ouce" passive="#b_0023r1"/>
              <relation name="uses" type="room" active="#politics" passive="#b_0020r1"/>
 	    -->
+
         <place type="building" obnCode="101" oxpID="23233683" oucsCode="e_1">
                <placeName>Dartington House</placeName>
                <event when="1970" type="construction"/>
