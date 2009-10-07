@@ -128,7 +128,8 @@ public class TEIImporter {
 			try {
 				gaboto.add(e);
 			} catch (net.sf.gaboto.EntityAlreadyExistsException e1) {
-				//throw new RuntimeException(e.getUri() + " has already been added to the system."); 
+			  if (!(e instanceof Website || e instanceof Image))
+          throw new RuntimeException(e.getUri() + " has already been added to the system."); 
 			} 
 		}
     //System.err.println("Gaboto contains " + gaboto.getJenaModelViewOnNamedGraphSet().size() + " entities");
@@ -186,7 +187,6 @@ public class TEIImporter {
 	
 
 	private void processFigure(Element figureEl) {
-	  /*
 		// try to find corresponding entity
 		if(! figureEl.hasAttribute("corresp")){
 			throw new RuntimeException("Ambiguous figure element");
@@ -234,7 +234,6 @@ public class TEIImporter {
 		} catch(NullPointerException e){
 			throw new RuntimeException("Could not load entity from id: " + id );
 		}
-		*/
 	}
 	
   private void processControls(Element relation){
