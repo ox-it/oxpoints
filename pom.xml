@@ -89,13 +89,14 @@
 <!-- comment out plugin, install and then uncomment and do it again -->
 <!-- This is borkn, run it from eclipse, it works there, suspect xml parser problem :(
 -->
+<!-- Only works once class files are generated-->    
       <plugin>
        <groupId>org.codehaus.mojo</groupId>
        <artifactId>exec-maven-plugin</artifactId>
        <executions>
          <execution>
           <id>GenerateGabotEntities</id>
-          <phase>generate-sources</phase>
+          <phase>process-test-resources</phase>
            <goals>
              <goal>java</goal>
            </goals>
@@ -112,8 +113,6 @@
 	 </arguments>
        </configuration>       
       </plugin>
- <!-- 
-      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -128,28 +127,6 @@
            <include>**/Test*.java</include>
           </includes>
           <excludes>
-	  <!-- Odd HACK-->
-            <exclude>**/**1*</exclude>
-            <exclude>**/**2*</exclude>
-            <exclude>**/**3*</exclude>
-            <exclude>**/**4*</exclude>
-            <exclude>**/**5*</exclude>
-            <exclude>**/**6*</exclude>
-	  <!-- Too slow -->
-          <!-- 
-            <exclude>**/TestPoolCreationPerformance.java</exclude>
-            <exclude>**/TestEntityPool*</exclude>
-            <exclude>**/TestGabotoSnapshot*</exclude>
-	    <exclude>**/TestSimpleConstructSPARQLQuery*</exclude>
-	    <exclude>**/BuildingsOccupiedByCollegeTest*</exclude>
-	    <exclude>**/TestGabotoEntity*</exclude>
-	    <exclude>**/TestGabotoTimeBasedEntity*</exclude>
-	    <exclude>**/TestPassiveProperties*</exclude>
-	    <exclude>**/GabotoTest*</exclude>
-	    <exclude>**/TestQueryListOfTypedEntities*</exclude>
-	    
-          -->
-	    
 	   </excludes>
         </configuration>
       </plugin>
