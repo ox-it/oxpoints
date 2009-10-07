@@ -91,7 +91,7 @@ public class TestTEIImporter {
     oxp.writeCDG(contextOutputStream);
     contextOutputStream.close();
     
-    Utils.assertFileContentsStringEqual("graphs.rdf");    
+    Utils.assertFileContentsStringEqual("oxpoints/graphs.rdf","graphs.rdf");    
     
   }
   @Test
