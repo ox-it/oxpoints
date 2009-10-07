@@ -20563,7 +20563,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:inImage
                   [ a       rdf:Bag
                   ] ;
-          dc:title "Entrance to Felstead House"^^<http://www.w3.org/2001/XMLSchema#string> .
+          dc:title "Felstead House Entrance"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://weblearn.ox.ac.uk/site/colleges/keble/>
           a       ns0:Website ;
@@ -20618,7 +20618,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:inImage
                   [ a       rdf:Bag
                   ] ;
-          dc:title "Rear entrance to Acland site"^^<http://www.w3.org/2001/XMLSchema#string> .
+          dc:title "Acland site rear entrance"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232376>
           a       ns0:Building ;
@@ -20631,7 +20631,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:inImage
                   [ a       rdf:Bag
                   ] ;
-          dc:title "Main entrance to Acland site"^^<http://www.w3.org/2001/XMLSchema#string> .
+          dc:title "Acland site Main entrance"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232375>
           a       ns0:Building ;
@@ -20644,7 +20644,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:inImage
                   [ a       rdf:Bag
                   ] ;
-          dc:title "Service yard and entrance to O'Reilly Theatre"^^<http://www.w3.org/2001/XMLSchema#string> .
+          dc:title "Service yard and O'Reilly Theatre entrance"^^<http://www.w3.org/2001/XMLSchema#string> .
 }
 
 <http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1876~dooms-day> {<http://www.ssho.ox.ac.uk/>
