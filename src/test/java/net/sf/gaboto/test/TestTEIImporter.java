@@ -73,6 +73,12 @@ public class TestTEIImporter {
     GabotoQuery query = new ListOfTypedEntities(oxp, OxPointsVocab.Unit_URI, TimeInstant.now() );
     Utils.assertXmlEqual((String)query.execute(GabotoQuery.FORMAT_RDF_XML), "UnitsRDF.xml");    
   }
+  /**
+   * Fails whenever a change is made to oxpoints_plus.xml
+   * If you are happy that the output reflects the edit copy target/graphs.rdf
+   * and target/cdg.xml to src/test/reference and commit. 
+   * 
+   */
   @Test
   public void testAllToRdf() throws Exception { 
     File graphsFile = new File(Utils.actualOutputDir, Gaboto.GRAPH_FILE_NAME);
@@ -85,6 +91,7 @@ public class TestTEIImporter {
     oxp.writeCDG(contextOutputStream);
     contextOutputStream.close();
     
+    Utils.assertFileContentsStringEqual("graphs.rdf");    
     
   }
   @Test
