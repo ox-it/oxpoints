@@ -102,14 +102,18 @@ public class TestEntityPool {
     assertEquals(nrOfColleges, pool.getEntities(new College()).size());
   }
 
+  /**
+   * For a long while m2 was one bigger than m1.
+   * Now they are the same, as on would hope.
+   * I suspect that under some circumstances a default graph is added but not used.
+   */
   @Test
   public void testModelSizeEquality()  {
 
     // as long as there is no data for the future in the system, this should
     // hold
     Model m1 = oxp.getSnapshot(TimeInstant.now()).getModel();
-    EntityPool pool = EntityPool
-        .createFrom(new EntityPoolConfiguration(oxp, m1));
+    EntityPool pool = EntityPool.createFrom(new EntityPoolConfiguration(oxp, m1));
     Model m2 = pool.createJenaModel();
 
     StmtIterator it = m1.listStatements();
@@ -121,10 +125,7 @@ public class TestEntityPool {
       //  System.out.println("Statement in m2: " + stmt);
     }
 
-    // Still one out
-    // FIXME TPP What is going on here? was 10 in mysql
-     assertTrue(m1.size() + " not one bigger than " + m2.size(),
-     Math.abs(m1.size()-m2.size()) == 1);
+     assertTrue(m1.size() + " not equals to " + m2.size(), Math.abs(m1.size()-m2.size()) == 0);
   }
 
   @Test
