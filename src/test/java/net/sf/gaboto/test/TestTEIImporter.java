@@ -54,7 +54,7 @@ public class TestTEIImporter {
   
   @Before
   public void setUp() throws Exception {
-    oxp = OxpointsFactory.getOxpointsFromXML();    
+    oxp = OxpointsFactory.getOxpointsFromXML();
   }
 
   @After

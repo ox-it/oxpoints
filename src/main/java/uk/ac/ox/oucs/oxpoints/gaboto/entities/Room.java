@@ -1,11 +1,21 @@
 package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
+
 import java.lang.reflect.Method;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import net.sf.gaboto.GabotoSnapshot;
+
+import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+
+import net.sf.gaboto.node.pool.EntityPool;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
@@ -15,6 +25,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Room extends Place {
+  private String usedFor;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -27,12 +38,40 @@ public class Room extends Place {
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Room";
   }
 
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#usedFor",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getUsedFor(){
+    return this.usedFor;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#usedFor",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setUsedFor(String usedFor){
+    this.usedFor = usedFor;
+  }
 
 
 
 
 
 
+
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
+    super.loadFromSnapshot(res, snapshot, pool);
+    Statement stmt;
+
+    // Load SIMPLE_LITERAL_PROPERTY usedFor
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#usedFor"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setUsedFor(((Literal)stmt.getObject()).getString());
+
+  }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){
     List<Method> list = super.getIndirectMethodsForProperty(propertyURI);
     if(list == null)

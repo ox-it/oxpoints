@@ -164,7 +164,12 @@
 
                         <GabotoEntity name="Entrance" type="&oxp;Entrance"/>
 
-                        <GabotoEntity name="Room" type="&oxp;Room"/>
+                        <GabotoEntity name="Room" type="&oxp;Room">
+                        	<properties>
+                        		<property name="usedFor" type="String"
+                        			uri="&oxp;usedFor" relationshipType="N:M"/>
+                        	</properties>
+                        </GabotoEntity>
 
                         <GabotoEntity name="Site" type="&oxp;Site"/>
 
@@ -245,6 +250,10 @@
                             </properties>
                             <GabotoEntities>
                              <GabotoEntity name="SubLibrary" type="&oxp;SubLibrary">
+                             	<properties>
+                             	<property name="sublocationType" type="String"
+                             		uri="&oxp;sublocationType"/>
+                             	</properties>
                              </GabotoEntity>
                             </GabotoEntities>
                         </GabotoEntity>

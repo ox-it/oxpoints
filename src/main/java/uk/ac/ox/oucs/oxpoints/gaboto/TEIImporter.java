@@ -335,6 +335,14 @@ public class TEIImporter {
 		lib.setOLISCode(code);
 
 		lib.setLibraryHomepage(findLibWebsite(libraryEl, lib.getTimeSpan()));
+		
+		if (type.equals("sublibrary") && libraryEl.hasAttribute("asr_sublocation_type")) { 
+			String sublocationType = libraryEl.getAttribute("asr_sublocation_type");
+			if (!sublocationType.equals("ASR Reading Room") && !sublocationType.equals("ASR Stack"))
+				throw new RuntimeException("Unrecognised sublocationType " + sublocationType);
+			
+			((SubLibrary) lib).setSublocationType(sublocationType);
+		}
 	}
 	
 	/**
