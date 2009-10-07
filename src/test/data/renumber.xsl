@@ -39,7 +39,7 @@
     <xsl:copy-of select="*"/>
   </xsl:copy>
 </xsl:template>
-<xsl:template match="tei:felation">
+<xsl:template match="tei:relation">
   <xsl:copy>
     <xsl:copy-of select="@name"/>
     <xsl:variable name="active">
