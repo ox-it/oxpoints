@@ -9822,7 +9822,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="www.conted.ox.ac.uk/library"/>
+                     <ptr target="http://www.conted.ox.ac.uk/library"/>
                   </desc>
                </trait>
             </place>
@@ -9955,7 +9955,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="www.education.ox.ac.uk/library"/>
+                     <ptr target="http://www.education.ox.ac.uk/library"/>
                   </desc>
                </trait>
             </place>
@@ -10958,7 +10958,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="www.new.ox.ac.uk/The_Library/index.php"/>
+                     <ptr target="http://www.new.ox.ac.uk/The_Library/index.php"/>
                   </desc>
                </trait>
             </place>
@@ -11684,7 +11684,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="www.rpc.ox.ac.uk"/>
+                     <ptr target="http://www.rpc.ox.ac.uk"/>
                   </desc>
                </trait>
             </place>
