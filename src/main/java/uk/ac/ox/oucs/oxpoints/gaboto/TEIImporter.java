@@ -455,8 +455,9 @@ public class TEIImporter {
 			unit.addOccupiedBuilding(building);
 			
 			// is it the primary building
-			if(place.hasAttribute("subtype") && place.getAttribute("subtype").equals("primary"))
+			if(place.hasAttribute("subtype") && place.getAttribute("subtype").equals("primary")) {
 				unit.setPrimaryPlace(building);
+			}
 			
 			buildings.add(building);
 		}
