@@ -13,7 +13,33 @@
 <xsl:key name="byOLIS" match="tei:place" use="@olisCode"/>
 <xsl:key name="byOUCS" match="tei:place" use="@oucsCode"/>
 
-<xsl:template match="tei:relation">
+<xsl:template match="tei:figure">
+  <xsl:copy>
+    <xsl:variable name="corresp">
+      <xsl:value-of select="substring-after(@corresp,'#')"/>
+    </xsl:variable>
+    <xsl:attribute name="corresp">
+      <xsl:text>#</xsl:text>
+      <xsl:choose>
+	<xsl:when test="key('byOUCS',$corresp)">
+	  <xsl:for-each select="key('byOUCS',$corresp)">
+	    <xsl:value-of select="@oxpID"/>
+	  </xsl:for-each>
+	</xsl:when>
+	<xsl:when test="key('byOLIS',$corresp)">
+	  <xsl:for-each select="key('byOLIS',$corresp)">
+	    <xsl:value-of select="@oxpID"/>
+	  </xsl:for-each>
+	</xsl:when>
+	<xsl:otherwise>
+	  <xsl:message terminate="yes">DISASTER with <xsl:value-of select="$corresp"/></xsl:message>
+	</xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+    <xsl:copy-of select="*"/>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="tei:felation">
   <xsl:copy>
     <xsl:copy-of select="@name"/>
     <xsl:variable name="active">
