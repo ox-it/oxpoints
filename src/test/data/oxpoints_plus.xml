@@ -616,28 +616,28 @@
                   </location>
                </place>
                <place oxpID="23232375" type="building">
-                  <placeName>Service yard and entrance to O'Reilly Theatre</placeName>
+                  <placeName>Service yard and O'Reilly Theatre entrance</placeName>
                   <location when="2007-01-29T13:18:02.09Z">
                      <geo rend="105">-1.25841736793518 51.75846389209052</geo>
                      <note> recorded by Steve Kersley</note>
                   </location>
                </place>
                <place oxpID="23232376" type="building">
-                  <placeName>Main entrance to Acland site</placeName>
+                  <placeName>Acland site Main entrance</placeName>
                   <location when="2007-01-29T13:18:39.048Z">
                      <geo rend="105">-1.26030564308166 51.76110689801891</geo>
                      <note> recorded by Steve Kersley</note>
                   </location>
                </place>
                <place oxpID="23232377" type="building">
-                  <placeName>Entrance to Felstead House</placeName>
+                  <placeName>Felstead House Entrance</placeName>
                   <location when="2007-01-29T13:19:03.726Z">
                      <geo rend="105">-1.26019835472106 51.76005104234846</geo>
                      <note> recorded by Steve Kersley</note>
                   </location>
                </place>
                <place oxpID="23232378" type="building">
-                  <placeName>Rear entrance to Acland site</placeName>
+                  <placeName>Acland site rear entrance</placeName>
                   <location when="2007-01-29T13:19:28.849Z">
                      <geo rend="105">-1.2618291378021 51.76082135458156</geo>
                      <note> recorded by Steve Kersley</note>
