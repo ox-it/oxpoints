@@ -126,6 +126,7 @@ public class TEIImporter {
     System.err.println("Have read in " + entities.size() + " entities");
 		for(GabotoEntity e : entities){
 			try {
+		    System.err.println("Adding " + e + " to gaboto" );
 				gaboto.add(e);
 			} catch (net.sf.gaboto.EntityAlreadyExistsException e1) {
 			  if (!(e instanceof Website || e instanceof Image))
@@ -352,30 +353,12 @@ public class TEIImporter {
 	}
 	
 	/**
-	 * Processes a unit and adds it to the dataset.
-	 * 
-	 * @param unitEl
-	 */
-	private void processUnit(Element unitEl, Unit unit) {
-		_processUnit(unit, unitEl);
-		
-		// add unit
-		entities.add(unit);
-    String id = unitEl.getAttribute("oxpID");
-    if (id == null)
-      throw new NullPointerException();
-    oxpointsIdToEntityLookup.put(id, unit);
-  }
-	
-	
-	
-	/**
-	 * do the actual processing work
+   * do the actual processing work
 	 * 
 	 * @param unit
 	 * @param unitEl
 	 */
-	private void _processUnit(Unit unit, Element unitEl){
+	private void processUnit(Element unitEl, Unit unit){
     // get ID
     String id = unitEl.getAttribute("oxpID");
     if (id == null)
@@ -445,6 +428,11 @@ public class TEIImporter {
 
 		getBuildings(unit, unitEl, ts);
 		
+    // add unit
+    entities.add(unit);
+    if (id == null)
+      throw new NullPointerException();
+    oxpointsIdToEntityLookup.put(id, unit);
 	}
 
 	
@@ -509,7 +497,6 @@ public class TEIImporter {
 		entities.add(room);
     oxpointsIdToEntityLookup.put(id, room);
 		
-    System.err.println("Found room " + room + " for building " + building);
 		return room;
 	}
 
@@ -557,23 +544,23 @@ public class TEIImporter {
 	}
 
 	private Website findHomepage(Element el, TimeSpan ts){
-		return findWebsite(el, ts, "url");
+		return findWebsite(el, "url");
 	}
 	
 	private Website findITWebsite(Element el, TimeSpan ts){
-		return findWebsite(el, ts, "iturl");
+		return findWebsite(el, "iturl");
 	}
 	
 	private Website findLibWebsite(Element el, TimeSpan ts){
-		return findWebsite(el, ts, "liburl");
+		return findWebsite(el, "liburl");
 	}
 	
 	private Website findWeblearn(Element el, TimeSpan ts){
-		return findWebsite(el, ts, "weblearn");
+		return findWebsite(el, "weblearn");
 	}
 	
 
-	private Website findWebsite(Element el, TimeSpan ts, String type){
+	private Website findWebsite(Element el, String type){
 		NodeList traits = el.getChildNodes();
 		for(int i = 0; i < traits.getLength(); i++){
 			if(traits.item(i).getNodeName().equals("trait")){
@@ -587,18 +574,18 @@ public class TEIImporter {
 				// find ptr
 				NodeList ptrs = trait.getElementsByTagName("ptr");
 				if(ptrs.getLength() > 0){
-					Website hp = new Website();
+					Website website = new Website();
 					String uri = ((Element)ptrs.item(0)).getAttribute("target");
           if (uri == null)
             throw new ElementRuntimeException(el, "URI Null");
           if (uri.trim().equals(""))
             throw new ElementRuntimeException(el, "URI empty");
-					hp.setUri(uri);
-					hp.setTimeSpan(ts);
+					website.setUri(uri);
+					//website.setTimeSpan(ts);
 					
-					entities.add(hp);
+					entities.add(website);
 					
-					return hp;
+					return website;
 				} else{
 					throw new RuntimeException("Missed pointer for " + type + ".");
 				}
