@@ -235,15 +235,21 @@ public class TEIImporter {
 			throw new RuntimeException("Could not load entity from id: " + id );
 		}
 	}
+  private String removeHash(String in) { 
+    if(in.startsWith("#"))
+      return in.substring(1);
+    else 
+      return in;
+  }
 	
   private void processControls(Element relation){
-    String activeID = relation.getAttribute("active");
-    String passiveID = relation.getAttribute("passive");
+    String activeID = removeHash(relation.getAttribute("active"));
+    String passiveID = removeHash(relation.getAttribute("passive"));
     
-    Unit active = (Unit) oxpointsIdToEntityLookup.get(activeID.substring(1));
+    Unit active = (Unit) oxpointsIdToEntityLookup.get(activeID);
     if(active == null)
       throw new RuntimeException("Could not load active entity from id: " + activeID );
-    Unit passive = (Unit) oxpointsIdToEntityLookup.get(passiveID.substring(1));
+    Unit passive = (Unit) oxpointsIdToEntityLookup.get(passiveID);
     if(passive == null )
       throw new RuntimeException("Could not load passive entity from id: " + passiveID );
     passive.setSubsetOf(active);
