@@ -122,7 +122,7 @@
                <event when="1420" type="founded">
                   <label>Register of fellows</label>
                </event>
-               <place oxpID="23232334" type="building">
+               <place oxpID="23232334" type="building" subtype="primary">
                   <placeName>St Alban Hall Entrance</placeName>
                   <location>
                      <geo>-1.251376 51.751379</geo>
@@ -2306,6 +2306,8 @@ Hospital</addrLine>
                      <ptr target="http://weblearn.ox.ac.uk/site/socsci/area/"/>
                   </desc>
                </trait>
+	           </place>
+	           <relation name="occupies" type="geo primary" active="#23232525" passive="#23232526"/>
                <place oxpID="23232526" type="building" subtype="primary" obnCode="125">
                   <event when="1868" type="construction"/>
                   <event when="1966" type="acquisition"/>
@@ -2315,7 +2317,7 @@ Hospital</addrLine>
                      <note> recorded by Natasha Heaton</note>
                   </location>
                </place>
-            </place>
+
             <place oucsCode="arthist" oxpID="23232527" type="department">
                <placeName>Department of the History of Art</placeName>
                <location type="address">
@@ -3021,7 +3023,7 @@ data, and if so, how? -->
                      <ptr target="http://www.ehrc.ox.ac.uk/"/>
                   </desc>
                </trait>
-               <place oxpID="23232583" type="building">
+               <place oxpID="23232583" type="building" subtype="primary">
                   <placeName>76 Woodstock Road</placeName>
                   <location>
                      <geo>-1.264679 51.765894</geo>
@@ -4077,7 +4079,9 @@ data, and if so, how? -->
                      <ptr target="http://www.path.ox.ac.uk/"/>
                   </desc>
                </trait>
-               <place oxpID="23232669" type="building" obnCode="311">
+	           </place>
+	    
+	           <place oxpID="23232669" type="building" obnCode="311">
                   <event when="2000" type="construction"/>
                   <placeName>Pathology EPA Building</placeName>
                   <location when="2007-06-18T10:00:57.000">
@@ -4091,7 +4095,7 @@ data, and if so, how? -->
                      <placeName>EPA Seminar Room</placeName>
                   </place>
                </place>
-            </place>
+            <relation type="geo primary" name="occupies" active="#23232665" passive="#23232669"/>
             <place oucsCode="pharm" oxpID="23232670" type="department">
                <placeName>Department of Pharmacology</placeName>
                <location type="address">
@@ -4491,8 +4495,7 @@ data, and if so, how? -->
                <location type="address">
                   <address>
                      <addrLine>School of Interdisciplinary Area Studies</addrLine>
-                     <addrLine>12 Bevington
- Road</addrLine>
+                     <addrLine>12 Bevington Road</addrLine>
                      <addrLine>Oxford</addrLine>
                      <postCode>OX2 6LH</postCode>
                   </address>
@@ -4503,6 +4506,8 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
+	           <relation name="occupies" type="geo primary" active="#23232708" passive="#23232526"/>
+
             <place oucsCode="socanth" oxpID="23232710" type="department">
                <placeName>Institute of Social and Cultural Anthropology</placeName>
                <location type="address">
@@ -6893,6 +6898,13 @@ data, and if so, how? -->
                      <ptr target="http://www.music.ox.ac.uk/"/>
                   </desc>
                </trait>
+	              <place subtype="primary" type="building" oxpID="23233915">
+		                <location when="2007-05-22T16:29:21.892+01:00">
+		                   <geo>-1.255102 51.750069</geo>
+		                   <note> recorded by Janet McKnight</note>
+		                </location>
+               </place>
+
             </place>
             <place oucsCode="orient" oxpID="23233587" type="unit">
                <placeName>Oriental Institute</placeName>
@@ -9227,6 +9239,94 @@ data, and if so, how? -->
                <placeName>Old Road Campus Estates Annexe</placeName>
                <event when="2007" type="construction"/>
             </place>
+
+            <relation name="controls" active="#23232493" passive="#32320010"/>
+            <relation name="controls" active="#23232494" passive="#32320032"/>
+            <relation name="controls" active="#23232501" passive="#32320049"/>
+            <relation name="controls" active="#23232335" passive="#32320001"/>
+            <relation name="controls" active="#23233483" passive="#32320003"/>
+            <relation name="controls" active="#23232339" passive="#32320005"/>
+            <relation name="controls" active="#23232346" passive="#32320006"/>
+            <relation name="controls" active="#23232348" passive="#32320009"/>
+            <relation name="controls" active="#23232546" passive="#32320017"/>
+            <relation name="controls" active="#23232550" passive="#32320011"/>
+            <relation name="controls" active="#23232352" passive="#32320012"/>
+            <relation name="controls" active="#23232561" passive="#32320013"/>
+            <relation name="controls" active="#23232568" passive="#32320014"/>
+            <relation name="controls" active="#23232355" passive="#32320015"/>
+            <relation name="controls" active="#23232577" passive="#32320018"/>
+            <relation name="controls" active="#23232580" passive="#32320019"/>
+            <relation name="controls" active="#23232584" passive="#32320020"/>
+            <relation name="controls" active="#23232357" passive="#32320022"/>
+            <relation name="controls" active="#23232364" passive="#32320023"/>
+            <relation name="controls" active="#23232368" passive="#32320027"/>
+            <relation name="controls" active="#23233579" passive="#32320029"/>
+            <relation name="controls" active="#23232598" passive="#32320093"/>
+            <relation name="controls" active="#23233487" passive="#32320051"/>
+            <relation name="controls" active="#23232602" passive="#32320030"/>
+            <relation name="controls" active="#23232608" passive="#32320033"/>
+            <relation name="controls" active="#23232371" passive="#32320035"/>
+            <relation name="controls" active="#23232373" passive="#32320036"/>
+            <relation name="controls" active="#23232383" passive="#32320037"/>
+            <relation name="controls" active="#23233557" passive="#32320038"/>
+            <relation name="controls" active="#23232615" passive="#32320039"/>
+            <relation name="controls" active="#23232617" passive="#32320040"/>
+            <relation name="controls" active="#23232385" passive="#32320042"/>
+            <relation name="controls" active="#23232387" passive="#32320043"/>
+            <relation name="controls" active="#23232392" passive="#32320044"/>
+            <relation name="controls" active="#23232395" passive="#32320024"/>
+            <relation name="controls" active="#23232621" passive="#32320071"/>
+            <relation name="controls" active="#23232625" passive="#32320046"/>
+            <relation name="controls" active="#23232627" passive="#32320047"/>
+            <relation name="controls" active="#23232400" passive="#32320048"/>
+            <relation name="controls" active="#23233586" passive="#32320052"/>
+            <relation name="controls" active="#23232405" passive="#32320054"/>
+            <relation name="controls" active="#23232642" passive="#32320007"/>
+            <relation name="controls" active="#23232410" passive="#32320055"/>
+            <relation name="controls" active="#23232656" passive="#32320056"/>
+            <relation name="controls" active="#23232412" passive="#32320057"/>
+            <relation name="controls" active="#23233587" passive="#32320058"/>
+            <relation name="controls" active="#23232665" passive="#32320016"/>
+            <relation name="controls" active="#23232414" passive="#32320061"/>
+            <relation name="controls" active="#23233489" passive="#32320004"/>
+            <relation name="controls" active="#23232677" passive="#32320064"/>
+            <relation name="controls" active="#23232687" passive="#32320063"/>
+            <relation name="controls" active="#23232416" passive="#32320065"/>
+            <relation name="controls" active="#23232423" passive="#32320067"/>
+            <relation name="controls" active="#23233595" passive="#32320068"/>
+            <relation name="controls" active="#23232699" passive="#32320002"/>
+            <relation name="controls" active="#23232702" passive="#32320069"/>
+            <relation name="controls" active="#23232425" passive="#32320075"/>
+            <relation name="controls" active="#23232427" passive="#32320076"/>
+            <relation name="controls" active="#23232435" passive="#32320077"/>
+            <relation name="controls" active="#23232437" passive="#32320078"/>
+            <relation name="controls" active="#23232441" passive="#32320079"/>
+            <relation name="controls" active="#23232449" passive="#32320080"/>
+            <relation name="controls" active="#23232456" passive="#32320081"/>
+            <relation name="controls" active="#23232464" passive="#32320082"/>
+            <relation name="controls" active="#23232708" passive="#32320086"/>
+            <relation name="controls" active="#23232710" passive="#32320072"/>
+            <relation name="controls" active="#23232466" passive="#32320074"/>
+            <relation name="controls" active="#23232468" passive="#32320083"/>
+            <relation name="controls" active="#23232720" passive="#32320085"/>
+            <relation name="controls" active="#23232474" passive="#32320089"/>
+            <relation name="controls" active="#23232476" passive="#32320091"/>
+            <relation name="controls" active="#23233492" passive="#32320090"/>
+            <relation name="controls" active="#23232479" passive="#32320092"/>
+            <relation name="controls" active="#23232483" passive="#32320094"/>
+            <relation name="controls" active="#23232485" passive="#32320095"/>
+            <relation name="controls" active="#23232729" passive="#32320096"/>
+            <relation name="occupies" type="geo_primary" active="#32320059" passive="#23233651"/>
+            <relation name="occupies" type="geo primary" active="#32320070" passive="#23233648"/>
+            <relation name="occupies" type="geo primary" active="#32320008" passive="#23233620"/>
+            <relation name="occupies" type="geo primary" active="#32320073" passive="#23233628"/>
+            <relation name="occupies" type="geo primary" active="#32320021" passive="#23233635"/>
+            <relation name="occupies" type="geo primary" active="#32320025" passive="#23233626"/>
+            <relation name="occupies" type="geo primary" active="#32320062" passive="#23233590"/>
+            <relation name="occupies" type="geo primary" active="#32320066" passive="#23233644"/>
+            <relation name="occupies" type="geo primary" active="#32320087" passive="#23233649"/>
+            <relation name="occupies" type="geo primary" active="#32320088" passive="#23233613"/>
+
          </listPlace>
          <listPlace>
             <place oxpID="32320001" type="library" olisCode="All Souls" olisID="ASC"
@@ -9716,11 +9816,6 @@ data, and if so, how? -->
                <trait type="liburl">
                   <desc>
                      <ptr target="http://www.lib.ox.ac.uk/libraries/guides/CEU.html"/>
-                  </desc>
-               </trait>
-               <trait type="url">
-                  <desc>
-                     <ptr target="http://chizra.ox.icnet.uk/"/>
                   </desc>
                </trait>
             </place>
@@ -12687,6 +12782,8 @@ data, and if so, how? -->
                <placeName>Main Ref.</placeName>
             </place>
             <relation name="controls" active="#32320096" passive="#32330545"/>
+
+
          </listPlace>
          <div>
         <!--
