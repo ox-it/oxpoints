@@ -515,6 +515,7 @@
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320087> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -1570,6 +1571,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Upper Reading Room reserve counter"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -1890,6 +1892,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320019> ;
           dc:title "Education"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -2147,6 +2150,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Bodleian Library Staff Office"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -3001,6 +3005,12 @@
                   [ a       rdf:Bag
                   ] .
 
+    <http://www.new.ox.ac.uk/The_Library/index.php>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
+
     <http://m.ox.ac.uk/oxpoints/id/32320016>
           a       ns0:Library ;
           ns0:hasHomepage <http://users.path.ox.ac.uk/~library/> ;
@@ -3252,7 +3262,7 @@
 
     <http://m.ox.ac.uk/oxpoints/id/32320019>
           a       ns0:Library ;
-          ns0:hasHomepage <www.education.ox.ac.uk/library> ;
+          ns0:hasHomepage <http://www.education.ox.ac.uk/library> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/EDU.html> ;
           ns0:hasOLISCode "Educational S"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -3839,6 +3849,12 @@
                     ns1:street_address "1 South Parks Road, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           dc:title "Department of Statistics"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://www.education.ox.ac.uk/library>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
 
     <http://m.ox.ac.uk/oxpoints/id/32330326>
           a       ns0:SubLibrary ;
@@ -4890,6 +4906,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Slavonic Accessions"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -4951,6 +4968,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Special collections openshelf RR"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -5057,6 +5075,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Special Collections Reading Room Reserve for ASR"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -5247,6 +5266,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "BOD UCam Res"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -5303,7 +5323,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
 
     <http://m.ox.ac.uk/oxpoints/id/32320014>
           a       ns0:Library ;
-          ns0:hasHomepage <www.conted.ox.ac.uk/library> ;
+          ns0:hasHomepage <http://www.conted.ox.ac.uk/library> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/CED.html> ;
           ns0:hasOLISCode "Continuing Ed"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -5460,6 +5480,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320040> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -5487,7 +5508,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
 
     <http://m.ox.ac.uk/oxpoints/id/32320009>
           a       ns0:Library ;
-          ns0:hasHomepage <http://www.bnc.ox.ac.uk/> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/BNC.html> ;
           ns0:hasOLISCode "Brasenose"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -5608,6 +5628,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320086> ;
           dc:title "Slavonic Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -5728,6 +5749,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320040> ;
           dc:title "Reserve collection"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -5911,6 +5933,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           dc:title "Reserve Collection"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330525>
@@ -6332,6 +6355,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320040> ;
           dc:title "LAW Main Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -6727,6 +6751,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320086> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -6913,6 +6938,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "BOD Modern Papers"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -7407,6 +7433,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           dc:title "Bodleian Library Offsite Storage "^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32320002>
@@ -7520,6 +7547,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Oriental reserve counter"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -7793,6 +7821,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "New Bodleian Reading Room Reserve (ASR)"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -7888,6 +7917,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -8003,6 +8033,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "BOD Music Res"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -8512,12 +8543,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           dc:title "National Perinatal Epidemiology Unit"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <www.rpc.ox.ac.uk>
-          a       ns0:Website ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] .
-
     <http://m.ox.ac.uk/oxpoints/id/23232704>
           a       ns0:Department ;
           ns0:hasHomepage <http://www.sbs.ox.ac.uk/> ;
@@ -8729,6 +8754,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Lower Reading Room reserve counter"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -8983,6 +9009,12 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           dc:title "11 Bevington Road"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.human-sciences.ox.ac.uk/>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
+
+    <http://www.oxford-union.org/library>
           a       ns0:Website ;
           ns0:inImage
                   [ a       rdf:Bag
@@ -9521,12 +9553,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   <http://m.ox.ac.uk/oxpoints/id/23233603> ;
           dc:title "Isis Room"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <www.new.ox.ac.uk/The_Library/index.php>
-          a       ns0:Website ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] .
-
     <http://m.ox.ac.uk/oxpoints/id/23233487>
           a       ns0:Museum ;
           ns0:hasHomepage <http://www.mhs.ox.ac.uk/> ;
@@ -9918,6 +9944,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Inter Library Loans (Room 320)"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -9990,6 +10017,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Lower Camera reserve counter"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10075,6 +10103,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Duke Humfrey reserve counter"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10181,6 +10210,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "BOD DH Staff"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10292,6 +10322,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "BOD Engl.Acc."^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10399,6 +10430,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Foreign Accessions"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10514,6 +10546,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320058> ;
           dc:title "OIL Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10734,6 +10767,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Conservation Sect."^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -10925,6 +10959,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Foreign cataloguing deliveries"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -11019,6 +11054,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Periodicals cataloguing deliveries"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -11458,6 +11494,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "Blind Readers Room"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -11507,7 +11544,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
 
     <http://m.ox.ac.uk/oxpoints/id/32320067>
           a       ns0:Library ;
-          ns0:hasHomepage <www.rpc.ox.ac.uk> ;
+          ns0:hasHomepage <http://www.rpc.ox.ac.uk> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/REG.html> ;
           ns0:hasOLISCode "Regent's Park"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -11620,6 +11657,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "English cataloguing deliveries"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -11832,6 +11870,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320087> ;
           dc:title "ASR delivery location only"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -11847,6 +11886,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320070> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -11947,6 +11987,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           dc:title "Bodleian Library Bookstack"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.hoa.ox.ac.uk/>
@@ -11965,6 +12006,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320070> ;
           dc:title "SAC Main Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -12537,12 +12579,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           dc:title "Plant Sciences Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <www.education.ox.ac.uk/library>
-          a       ns0:Website ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] .
-
     <http://m.ox.ac.uk/oxpoints/id/32330263>
           a       ns0:SubLibrary ;
           ns0:hasOLISCode "ORL Lower Stk"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -12941,6 +12977,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Document Supply deliveries"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -12980,6 +13017,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "RSL Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -13106,6 +13144,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320071> ;
           dc:title "Said Business School Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -13181,6 +13220,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Cairns photocopying deliveries"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -13258,6 +13298,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Locked cabinet"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -13303,6 +13344,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320008> ;
           dc:title "BJL Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -13366,6 +13408,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Borrower reserve"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -13905,7 +13948,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
 
     <http://m.ox.ac.uk/oxpoints/id/32320059>
           a       ns0:Library ;
-          ns0:hasHomepage <http://www.oxford-union.org/> ;
+          ns0:hasHomepage <http://www.oxford-union.org/library> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/OUS.html> ;
           ns0:hasOLISCode "Oxford Union"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -14689,6 +14732,12 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           ns0:width "2560px"^^<http://www.w3.org/2001/XMLSchema#string> .
 
+    <http://www.conted.ox.ac.uk/library>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
+
     <http://m.ox.ac.uk/oxpoints/id/32320053>
           a       ns0:Library ;
           ns0:hasOLISCode "Netwrk Res."^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -14722,7 +14771,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
 
     <http://m.ox.ac.uk/oxpoints/id/32320054>
           a       ns0:Library ;
-          ns0:hasHomepage <www.new.ox.ac.uk/The_Library/index.php> ;
+          ns0:hasHomepage <http://www.new.ox.ac.uk/The_Library/index.php> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/NEW.html> ;
           ns0:hasOLISCode "New College"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -15155,12 +15204,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           dc:title "Business Liaison Unit"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <www.conted.ox.ac.uk/library>
-          a       ns0:Website ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] .
-
     <http://www.orinst.ox.ac.uk/>
           a       ns0:Website ;
           ns0:inImage
@@ -15301,6 +15344,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320068> ;
           dc:title "Bookstack"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -15461,6 +15505,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320011> ;
           dc:title "Chinese Studies"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -15711,6 +15756,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320073> ;
           dc:title "SSL Staff"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -15925,6 +15971,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320002> ;
           dc:title "Vere Harmsworth Library Stack"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -16027,6 +16074,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320002> ;
           dc:title "Vere Harmsworth Library Reserve"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -16296,6 +16344,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320068> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -16407,6 +16456,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320068> ;
           dc:title "Rhodes House Library Offsite Storage "^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -16525,6 +16575,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320068> ;
           dc:title "Reserve counter"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -16653,6 +16704,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320031> ;
           dc:title "IND Desk"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -16839,6 +16891,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320031> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -17006,6 +17059,12 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           dc:title "Sackler Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.worc.ox.ac.uk/Library/>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
+
+    <http://www.rpc.ox.ac.uk>
           a       ns0:Website ;
           ns0:inImage
                   [ a       rdf:Bag
@@ -17296,6 +17355,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Reading Room"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "RSL Staff"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -17383,6 +17443,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Stack Special Collection"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -17440,6 +17501,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Bookstack"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -17953,6 +18015,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233652>
                   ] ;
           ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233652> ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "Nuneham Repository"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -18453,6 +18516,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:sublocationType "ASR Stack"^^<http://www.w3.org/2001/XMLSchema#string> ;
           dc:title "Radcliffe Science Library Offsite Storage "^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330441>
