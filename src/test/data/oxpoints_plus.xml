@@ -9693,11 +9693,6 @@ data, and if so, how? -->
                      <ptr target="http://www.lib.ox.ac.uk/libraries/guides/BNC.html"/>
                   </desc>
                </trait>
-               <trait type="url">
-                  <desc>
-                     <ptr target="http://www.bnc.ox.ac.uk/"/>
-                  </desc>
-               </trait>
             </place>
             <place oxpID="32330084" type="sublibrary" olisCode="BNC Latham">
                <placeName>Latham Room</placeName>
@@ -11078,7 +11073,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.oxford-union.org/"/>
+                     <ptr target="http://www.oxford-union.org/library"/>
                   </desc>
                </trait>
             </place>
