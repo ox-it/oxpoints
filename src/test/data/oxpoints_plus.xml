@@ -1022,7 +1022,7 @@
                </trait>
                <trait type="weblearn">
                   <desc>
-                     <ptr target="http://www.weblearn.ox.ac.uk/site/colleges/oriel/"/>
+                     <ptr target="http://weblearn.ox.ac.uk/site/colleges/oriel/"/>
                   </desc>
                </trait>
                <place oxpID="23232413" type="building" subtype="primary">
@@ -9504,7 +9504,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://web.balliol.ox.ac.uk/library/index.asp"/>
+                     <ptr target="http://www.balliol.ox.ac.uk/about-balliol/library"/>
                   </desc>
                </trait>
             </place>
@@ -10411,7 +10411,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.human-sciences.ox.ac.uk/"/>
+                     <ptr target="http://www.ihs.ox.ac.uk/"/>
                   </desc>
                </trait>
             </place>
@@ -10936,11 +10936,14 @@ data, and if so, how? -->
                      <ptr target="http://www.lib.ox.ac.uk/libraries/guides/CMS.html"/>
                   </desc>
                </trait>
+	       <!--
+	       Server Dead 2009/10/08
                <trait type="url">
                   <desc>
                      <ptr target="http://www.ocms.ac.uk/"/>
                   </desc>
                </trait>
+	       -->
             </place>
             <place oxpID="32330237" type="sublibrary" olisCode="CMS Main Libr">
                <placeName>Main Library</placeName>
@@ -11217,11 +11220,14 @@ data, and if so, how? -->
                      <ptr target="http://www.lib.ox.ac.uk/libraries/guides/COS.html"/>
                   </desc>
                </trait>
+	       <!--
+	       Does not respond
                <trait type="url">
                   <desc>
                      <ptr target="http://www.oxfordshire.gov.uk/oxfordshirestudies"/>
                   </desc>
                </trait>
+	       -->
             </place>
             <place oxpID="32330278" type="sublibrary" olisCode="COS ALS">
                <placeName>approaches to local studies</placeName>
@@ -11530,7 +11536,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.physchem.ox.ac.uk/"/>
+                     <ptr target="http://physchem.ox.ac.uk/"/>
                   </desc>
                </trait>
             </place>
@@ -11947,7 +11953,7 @@ data, and if so, how? -->
                </trait>
                <trait type="url">
                   <desc>
-                     <ptr target="http://www.sbs.ox.ac.uk/faculty/Library+and+Information+Services.htm"/>
+                     <ptr target="http://www.sbs.ox.ac.uk/research/library/Pages/default.aspx"/>
                   </desc>
                </trait>
             </place>
@@ -13126,12 +13132,15 @@ data, and if so, how? -->
                <figDesc>Entrance to the Institute of Advanced Technology</figDesc>
                <note>Taken by Alex Dutton using Nokia E71 2009-07-17</note>
             </figure>
+	    <!--
+	    404 
             <figure corresp="#23233805">
                <graphic width="2048px" height="1536px"
                         url="http://m.ox.ac.uk/images/obn297_MuseumTelephoneExchange_20090721.jpg"/>
                <figDesc>Museum Telephone Exchange</figDesc>
                <note>Taken by Alex Dutton using Nokia E71 2009-07-17</note>
             </figure>
+	    --> 
             <figure corresp="#23233811">
                <graphic width="2048px" height="1536px"
                         url="http://m.ox.ac.uk/images/obn306_9WellingtonSquare_20090907.jpg"/>
