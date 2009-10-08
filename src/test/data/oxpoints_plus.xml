@@ -2877,6 +2877,9 @@ data, and if so, how? -->
             </place>
             <place oucsCode="diabres" oxpID="23232574" type="department">
                <placeName>Diabetes Research Laboratories</placeName>
+               <event when="1950" type="founded">
+                  <label>started about here</label>
+               </event>
                <event when="2007" type="ended">
                   <label>Absorbed into OCDEM</label>
                </event>
@@ -6372,6 +6375,9 @@ data, and if so, how? -->
             </place>
             <place oucsCode="blu" oxpID="23233544" type="uas">
                <placeName>Business Liaison Unit</placeName>
+               <event when="1990" type="founded">
+                  <label>started about here</label>
+               </event>
                <event when="2003" type="ended">
                   <label>Disbanded</label>
                </event>
