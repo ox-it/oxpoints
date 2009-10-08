@@ -404,12 +404,14 @@ public class TEIImporter {
 			}
 		}
 		
-		// have we found something
     if(start != null) { 
       if (end != null)
         ts = TimeSpan.createFromInstants(start, end);
       else 
         ts = new TimeSpan(start.getStartYear(), start.getStartMonth(), start.getStartDay());
+    } else { 
+      if (end != null)
+        ts = TimeSpan.createFromInstants(TimeSpan.BIG_BANG, end);      
     }
 			
     // 1420 is the date of foundation of StAlban's Hall
