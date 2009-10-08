@@ -194,6 +194,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232368> ;
           dc:title "Hertford College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330226>
@@ -502,6 +503,18 @@
                   ] ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320080> ;
           dc:title "Tower"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23233915>
+          a       ns0:Building ;
+          ns0:hasLocation
+                  [ a       ns2:Point ;
+                    ns2:pos "-1.255102 51.750069"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
 
     <http://m.ox.ac.uk/oxpoints/id/32330502>
           a       ns0:SubLibrary ;
@@ -2204,6 +2217,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232357> ;
           dc:title "Exeter College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233550>
@@ -2448,6 +2462,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232584> ;
           dc:title "Engineering Science Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330191>
@@ -2823,6 +2838,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232395> ;
           dc:title "Harris Manchester College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.economics.ox.ac.uk/>
@@ -2875,6 +2891,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232364> ;
           dc:title "Greyfriars Oxford Centre for Franciscan Studies Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233557>
@@ -2933,6 +2950,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232355> ;
           dc:title "Corpus Christi College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233851>
@@ -3024,6 +3042,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232665> ;
           dc:title "Sir William Dunn School of Pathology Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.linacre.ox.ac.uk/Linacre/it-library/linacre-college-library>
@@ -3121,6 +3140,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232546> ;
           dc:title "Dyson Perrins Laboratory"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32320096>
@@ -3136,6 +3156,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232729> ;
           dc:title "Zoology Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232729>
@@ -3212,6 +3233,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232577> ;
           dc:title "Earth Sciences Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32320095>
@@ -3227,6 +3249,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232485> ;
           dc:title "Worcester College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232728>
@@ -3273,6 +3296,7 @@
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232580> ;
           dc:title "Education Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232621>
@@ -4945,7 +4969,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
 
     <http://m.ox.ac.uk/oxpoints/id/32320010>
           a       ns0:Library ;
-          ns0:hasHomepage <http://chizra.ox.icnet.uk/> ;
           ns0:hasLibraryHomepage
                   <http://www.lib.ox.ac.uk/libraries/guides/CEU.html> ;
           ns0:hasOLISCode "Cancer Ep.Un."^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -4956,6 +4979,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232493> ;
           dc:title "Cancer Epidemiology Unit"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330076>
@@ -5193,6 +5217,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232352> ;
           dc:title "Christ Church Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.eye.ox.ac.uk/>
@@ -5334,6 +5359,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232568> ;
           dc:title "Continuing Education Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232628>
@@ -5384,6 +5410,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232561> ;
           dc:title "Computing Laboratory Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.ndm.ox.ac.uk/ndmjr/researchunits/geratology>
@@ -5518,6 +5545,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232348> ;
           dc:title "Brasenose College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232655>
@@ -5813,6 +5841,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232474> ;
           dc:title "Trinity College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233820>
@@ -6056,6 +6085,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232339> ;
           dc:title "Balliol College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232651>
@@ -6164,6 +6194,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232468> ;
           dc:title "St Peter's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.ochjs.ac.uk/library/index.html>
@@ -6182,6 +6213,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232346> ;
           dc:title "Blackfriars Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232652>
@@ -6300,6 +6332,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232708> ;
           dc:title "Taylor Institution Slavonic & Modern Greek Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232653>
@@ -6330,6 +6363,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233483> ;
           dc:title "Ashmolean Museum Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330355>
@@ -6437,6 +6471,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232720> ;
           dc:title "Statistics Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330529>
@@ -6478,6 +6513,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233489> ;
           dc:title "Balfour Library (Pitt Rivers Museum)"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.ouls.ox.ac.uk/history>
@@ -7095,6 +7131,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag ;
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232583>
                   ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232583> ;
           ns1:adr [ a       ns1:Address ;
                     ns1:postal_code "OX2 6HP"^^<http://www.w3.org/2001/XMLSchema#string> ;
                     ns1:street_address "76 Woodstock Road, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
@@ -7482,6 +7519,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232476> ;
           dc:title "University College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lib.ox.ac.uk/libraries/guides/LAN.html>
@@ -7564,6 +7602,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232335> ;
           dc:title "All Souls College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233506>
@@ -7597,6 +7636,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232479> ;
           dc:title "Wadham College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233579>
@@ -7690,6 +7730,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232598> ;
           dc:title "Wellcome Unit for the History of Medicine Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.oerc.ox.ac.uk/>
@@ -7735,6 +7776,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232483> ;
           dc:title "Wolfson College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233508>
@@ -8140,6 +8182,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233492> ;
           dc:title "Oxford University Museum of Natural History Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330273>
@@ -8184,6 +8227,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232437> ;
           dc:title "St Catherine's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lib.ox.ac.uk/libraries/guides/DOM.html>
@@ -8325,6 +8369,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232435> ;
           dc:title "St Benet's Hall Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232646>
@@ -8409,6 +8454,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232427> ;
           dc:title "St Antony's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232643>
@@ -8513,6 +8559,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232425> ;
           dc:title "St Anne's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233830>
@@ -8599,6 +8646,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232466> ;
           dc:title "Somerville College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.sgc.ox.ac.uk/>
@@ -8802,6 +8850,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232710> ;
           dc:title "Social and Cultural Anthropology Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.npeu.ox.ac.uk/>
@@ -8912,6 +8961,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232621> ;
           dc:title "Said Business School Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330270>
@@ -8961,12 +9011,13 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag
                   ] ;
           ns0:occupies
-                  [ a       rdf:Bag
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232526>
                   ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232526> ;
           ns1:adr [ a       ns1:Address ;
                     ns1:postal_code "OX2 6LH"^^<http://www.w3.org/2001/XMLSchema#string> ;
-                    ns1:street_address """School of Interdisciplinary Area Studies, 12 Bevington
- Road, Oxford"""^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns1:street_address "School of Interdisciplinary Area Studies, 12 Bevington Road, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           dc:title "Russian and East European Studies"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -9270,6 +9321,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232441> ;
           dc:title "St Cross College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233697>
@@ -9832,6 +9884,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232456> ;
           dc:title "St Hugh's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330054>
@@ -9919,6 +9972,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232464> ;
           dc:title "St John's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330121>
@@ -10039,6 +10093,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232449> ;
           dc:title "St Edmund Hall Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233837>
@@ -10335,8 +10390,10 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag
                   ] ;
           ns0:occupies
-                  [ a       rdf:Bag
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233915>
                   ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233915> ;
           ns1:adr [ a       ns1:Address ;
                     ns1:postal_code "OX1 1DB"^^<http://www.w3.org/2001/XMLSchema#string> ;
                     ns1:street_address "St Aldate's, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
@@ -11393,12 +11450,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320066> ;
           dc:title "RSL Level 6"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <http://chizra.ox.icnet.uk/>
-          a       ns0:Website ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] .
-
     <http://m.ox.ac.uk/oxpoints/id/23233599>
           a       ns0:Building ;
           ns0:hasLocation
@@ -11457,6 +11508,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232702> ;
           dc:title "Ruskin School of Drawing and Fine Art Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://weblearn.ox.ac.uk/site/human/theology/>
@@ -11555,6 +11607,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232423> ;
           dc:title "Regent's Park College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233733>
@@ -11608,6 +11661,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233595> ;
           dc:title "Rhodes House Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.ouls.ox.ac.uk/philosophy>
@@ -12147,6 +12201,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232414> ;
           dc:title "Pembroke College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232677>
@@ -12395,6 +12450,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232416> ;
           dc:title "Queen's College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232561>
@@ -12538,6 +12594,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232687> ;
           dc:title "Physical Chemistry Laboratory"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330262>
@@ -12577,6 +12634,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232677> ;
           dc:title "Plant Sciences Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330263>
@@ -13632,6 +13690,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232410> ;
           dc:title "Nuffield College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233811>
@@ -13710,6 +13769,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232656> ;
           dc:title "Nuffield Laboratory of Ophthalmology"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.ox.ac.uk/about_the_university/introducing_oxford/the_structure_of_the_university/index.html>
@@ -13793,6 +13853,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232412> ;
           dc:title "Oriel College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23233747>
@@ -14507,6 +14568,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag ;
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232669>
                   ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232669> ;
           ns1:adr [ a       ns1:Address ;
                     ns1:postal_code "OX1 3RE"^^<http://www.w3.org/2001/XMLSchema#string> ;
                     ns1:street_address "South Parks Road, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
@@ -14639,6 +14701,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233487> ;
           dc:title "Museum of the History of Science Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.university-church.ox.ac.uk/>
@@ -14703,6 +14766,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233586> ;
           dc:title "Music Faculty Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.oxconsulting.co.uk/>
@@ -14782,6 +14846,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232405> ;
           dc:title "New College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lib.ox.ac.uk/libraries/guides/HMC.html>
@@ -15940,6 +16005,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232501> ;
           dc:title "Middle East Centre Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lang.ox.ac.uk/library/index.html>
@@ -16142,6 +16208,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232627> ;
           dc:title "Mathematical Institute Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232696>
@@ -16244,6 +16311,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232400> ;
           dc:title "Merton College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232695>
@@ -16484,6 +16552,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232625> ;
           dc:title "Materials Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330433>
@@ -16530,6 +16599,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232387> ;
           dc:title "Lincoln College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232546>
@@ -16597,6 +16667,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232392> ;
           dc:title "Magdalen College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232691>
@@ -16679,6 +16750,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232385> ;
           dc:title "Linacre College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330173>
@@ -17689,6 +17761,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232615> ;
           dc:title "Latin American Centre Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://users.path.ox.ac.uk/~library/>
@@ -17908,6 +17981,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232371> ;
           dc:title "Jesus College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32320036>
@@ -17923,6 +17997,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232373> ;
           dc:title "Keble College Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232530>
@@ -18058,6 +18133,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232383> ;
           dc:title "Lady Margaret Hall Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lib.ox.ac.uk/libraries/guides/SPC.html>
@@ -18132,6 +18208,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233557> ;
           dc:title "Language Centre Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232532>
@@ -18332,6 +18409,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232494> ;
           dc:title "Instituto Camoes Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330384>
@@ -18410,6 +18488,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232608> ;
           dc:title "Oxford Internet Institute Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lib.ox.ac.uk/libraries/guides/LAW.html>
@@ -18649,6 +18728,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:occupies
                   [ a       rdf:Bag
                   ] ;
+          ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23232602> ;
           dc:title "Pauling Centre for Human Sciences Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.lib.ox.ac.uk/libraries/guides/PCH.html>
@@ -19753,6 +19833,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag ;
                     rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232334>
                   ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232334> ;
           dc:title "St Alban Hall"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232334>

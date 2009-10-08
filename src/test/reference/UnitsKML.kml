@@ -53,6 +53,9 @@
 <Placemark OUCSCode="music" id="http://m.ox.ac.uk/oxpoints/id/23233586">
 <name>Faculty of Music</name>
 <description><![CDATA[Website: <a href="http://www.music.ox.ac.uk/">http://www.music.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.255102,51.750069</coordinates>
+</Point>
 </Placemark>
 <Placemark OUCSCode="orient" id="http://m.ox.ac.uk/oxpoints/id/23233587">
 <name>Oriental Institute</name>
