@@ -62,19 +62,27 @@ public class TestTEIImporter {
     oxp = null;
   }
 
+  /**
+   * Fails when a change is made to a Unit.
+   * @throws Exception
+   */
   @Test
   public void testTypedEntitiesOutputToKML() throws Exception { 
     GabotoQuery query = new ListOfTypedEntities(oxp, OxPointsVocab.Unit_URI, TimeInstant.now() );
     
     Utils.assertXmlEqual((String)query.execute(GabotoQuery.FORMAT_KML), "UnitsKML.kml");    
   }
+  /**
+   * Fails when a change is made to a Unit.
+   * @throws Exception
+   */
   @Test
   public void testTypedEntitiesOutputToRDF() throws Exception { 
     GabotoQuery query = new ListOfTypedEntities(oxp, OxPointsVocab.Unit_URI, TimeInstant.now() );
     Utils.assertXmlEqual((String)query.execute(GabotoQuery.FORMAT_RDF_XML), "UnitsRDF.xml");    
   }
   /**
-   * Fails whenever a change is made to oxpoints_plus.xml
+   * Fails whenever ANY change is made to oxpoints_plus.xml
    * If you are happy that the output reflects the edit copy target/graphs.rdf
    * and target/cdg.xml to src/test/reference and commit. 
    * 
