@@ -9747,23 +9747,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           dc:title "Museum of the History of Science"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <http://m.ox.ac.uk/oxpoints/id/23232574>
-          a       ns0:Department ;
-          ns0:hasOUCSCode "diabres"^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          ns0:occupies
-                  [ a       rdf:Bag ;
-                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233654>
-                  ] ;
-          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233654> ;
-          ns1:adr [ a       ns1:Address ;
-                    ns1:postal_code "OX3 7LJ"^^<http://www.w3.org/2001/XMLSchema#string> ;
-                    ns1:street_address "OCDEM, Churchill Hospital, Old Road, Headington, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          dc:title "Diabetes Research Laboratories"^^<http://www.w3.org/2001/XMLSchema#string> .
-
     <http://m.ox.ac.uk/oxpoints/id/23233605>
           a       ns0:Room ;
           ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -15570,23 +15553,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320051> ;
           dc:title "Outstore"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-    <http://m.ox.ac.uk/oxpoints/id/23233544>
-          a       ns0:Department ;
-          ns0:hasOUCSCode "blu"^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          ns0:occupies
-                  [ a       rdf:Bag ;
-                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233623>
-                  ] ;
-          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233623> ;
-          ns1:adr [ a       ns1:Address ;
-                    ns1:postal_code "OX2 7DD"^^<http://www.w3.org/2001/XMLSchema#string> ;
-                    ns1:street_address "Ewert House, Ewert Place, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          dc:title "Business Liaison Unit"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://www.orinst.ox.ac.uk/>
           a       ns0:Website ;
@@ -21565,6 +21531,24 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           dc:title "Nuffield College Lodge"^^<http://www.w3.org/2001/XMLSchema#string> .
 }
 
+<http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1950~57-0-0> {<http://m.ox.ac.uk/oxpoints/id/23232574>
+          a       ns0:Department ;
+          ns0:hasOUCSCode "diabres"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:occupies
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233654>
+                  ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233654> ;
+          ns1:adr [ a       ns1:Address ;
+                    ns1:postal_code "OX3 7LJ"^^<http://www.w3.org/2001/XMLSchema#string> ;
+                    ns1:street_address "OCDEM, Churchill Hospital, Old Road, Headington, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          dc:title "Diabetes Research Laboratories"^^<http://www.w3.org/2001/XMLSchema#string> .
+}
+
 <http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1950~dooms-day> {<http://m.ox.ac.uk/oxpoints/id/23232433>
           a       ns0:Room ;
           ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -22007,6 +21991,24 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag
                   ] ;
           dc:title "Green College Lodge"^^<http://www.w3.org/2001/XMLSchema#string> .
+}
+
+<http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1990~13-0-0> {<http://m.ox.ac.uk/oxpoints/id/23233544>
+          a       ns0:Department ;
+          ns0:hasOUCSCode "blu"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:occupies
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233623>
+                  ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233623> ;
+          ns1:adr [ a       ns1:Address ;
+                    ns1:postal_code "OX2 7DD"^^<http://www.w3.org/2001/XMLSchema#string> ;
+                    ns1:street_address "Ewert House, Ewert Place, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          dc:title "Business Liaison Unit"^^<http://www.w3.org/2001/XMLSchema#string> .
 }
 
 <http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1990~dooms-day> {<http://m.ox.ac.uk/images/collegepictures/kell.jpg>
