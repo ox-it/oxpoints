@@ -3448,7 +3448,7 @@ data, and if so, how? -->
                   </location>
                </place>
             </place>
-            <place oucsCode="law" oxpID="23232617" type="department">
+            <place oucsCode="law" oxpID="23232617" type="unit">
                <placeName>Faculty of Law</placeName>
                <location type="address">
                   <address>
@@ -4683,7 +4683,7 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oucsCode="theofac" oxpID="23232723" type="department">
+            <place oucsCode="theofac" oxpID="23232723" type="unit">
                <placeName>Faculty of Theology</placeName>
                <location type="address">
                   <address>
