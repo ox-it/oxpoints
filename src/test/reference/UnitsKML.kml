@@ -8,11 +8,25 @@
 <coordinates>-1.25498,51.75004</coordinates>
 </Point>
 </Placemark>
+<Placemark OUCSCode="theofac" id="http://m.ox.ac.uk/oxpoints/id/23232723">
+<name>Faculty of Theology</name>
+<description><![CDATA[Website: <a href="http://www.theology.ox.ac.uk/">http://www.theology.ox.ac.uk/</a><br/>]]></description>
+<Point>
+<coordinates>-1.259866,51.759128</coordinates>
+</Point>
+</Placemark>
 <Placemark OUCSCode="rho" id="http://m.ox.ac.uk/oxpoints/id/23233595">
 <name>Rhodes House</name>
 <description><![CDATA[Website: <a href="http://www.rhodeshouse.ox.ac.uk">http://www.rhodeshouse.ox.ac.uk</a><br/>]]></description>
 <Point>
 <coordinates>-1.255162,51.757855</coordinates>
+</Point>
+</Placemark>
+<Placemark OUCSCode="law" id="http://m.ox.ac.uk/oxpoints/id/23232617">
+<name>Faculty of Law</name>
+<description><![CDATA[Website: <a href="http://www.law.ox.ac.uk">http://www.law.ox.ac.uk</a><br/>]]></description>
+<Point>
+<coordinates>-1.248376,51.756936</coordinates>
 </Point>
 </Placemark>
 <Placemark OUCSCode="classics" id="http://m.ox.ac.uk/oxpoints/id/23233577">
@@ -64,16 +78,16 @@
 <coordinates>-1.26092,51.75592</coordinates>
 </Point>
 </Placemark>
-<Placemark OUCSCode="" id="http://m.ox.ac.uk/oxpoints/id/23232537">
-<name>Oxford Glycobiology Institute</name>
-<description/>
-</Placemark>
 <Placemark OUCSCode="modlang" id="http://m.ox.ac.uk/oxpoints/id/23233584">
 <name>Faculty of Medieval and Modern Languages</name>
 <description><![CDATA[Website: <a href="http://www.mod-langs.ox.ac.uk/">http://www.mod-langs.ox.ac.uk/</a><br/>]]></description>
 <Point>
 <coordinates>-1.262727,51.757231</coordinates>
 </Point>
+</Placemark>
+<Placemark OUCSCode="" id="http://m.ox.ac.uk/oxpoints/id/23232537">
+<name>Oxford Glycobiology Institute</name>
+<description/>
 </Placemark>
 <Placemark OUCSCode="" id="http://m.ox.ac.uk/oxpoints/id/23232536">
 <name>Scripps-Oxford Laboratory</name>
