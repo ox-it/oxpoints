@@ -3618,7 +3618,7 @@
                   ] .
 
     <http://m.ox.ac.uk/oxpoints/id/23232723>
-          a       ns0:Department ;
+          a       ns0:Unit ;
           ns0:hasHomepage <http://www.theology.ox.ac.uk/> ;
           ns0:hasOUCSCode "theofac"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasWeblearn <http://weblearn.ox.ac.uk/site/human/theology/> ;
@@ -16461,7 +16461,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           dc:title "Russian and E. Eur. Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/23232617>
-          a       ns0:Department ;
+          a       ns0:Unit ;
           ns0:hasHomepage <http://www.law.ox.ac.uk> ;
           ns0:hasITHomepage <http://denning.law.ox.ac.uk/library/computing.shtml> ;
           ns0:hasOUCSCode "law"^^<http://www.w3.org/2001/XMLSchema#string> ;
