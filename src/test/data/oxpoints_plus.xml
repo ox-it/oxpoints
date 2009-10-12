@@ -1369,7 +1369,7 @@
             </place>
             <place oucsCode="sedm" oxpID="23232449" type="college">
                <placeName>St Edmund Hall</placeName>
-               <event when="1226" type="founded">
+               <event when="1278" type="founded">
                   <label>Foundation</label>
                </event>
                <event when="1957" type="status">
