@@ -6169,7 +6169,7 @@ data, and if so, how? -->
                   </desc>
                </trait>
             </place>
-            <place oucsCode="O_nightline" oxpID="23233530" type="uas">
+            <place oucsCode="O_nightline" oxpID="23233530" type="poi">
                <placeName>Oxford Nightline</placeName>
                <location type="address">
                   <address>
@@ -6904,7 +6904,9 @@ data, and if so, how? -->
                      <ptr target="http://www.music.ox.ac.uk/"/>
                   </desc>
                </trait>
-	              <place subtype="primary" type="building" oxpID="23233915">
+	              <place subtype="primary" type="building"
+			     oxpID="23233915">
+			<placeName>Faculty of Music</placeName>
 		                <location when="2007-05-22T16:29:21.892+01:00">
 		                   <geo>-1.255102 51.750069</geo>
 		                   <note> recorded by Janet McKnight</note>

@@ -520,7 +520,8 @@
           ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:inImage
                   [ a       rdf:Bag
-                  ] .
+                  ] ;
+          dc:title "Faculty of Music"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330502>
           a       ns0:SubLibrary ;
@@ -17690,7 +17691,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] .
 
     <http://m.ox.ac.uk/oxpoints/id/23233530>
-          a       ns0:Department ;
+          a       ns0:Unit ;
           ns0:hasHomepage <http://oxfordnightline.org/> ;
           ns0:hasOUCSCode "O_nightline"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:inImage
