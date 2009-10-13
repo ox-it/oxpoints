@@ -254,8 +254,8 @@
                </trait>
                <place oxpID="23232347" type="building" subtype="primary">
                   <placeName>Blackfriars Lodge</placeName>
-                  <location when="2007-05-22T11:50:22.34+01:00">
-                     <geo rend="90">-1.2603700160980225 51.756916532903084</geo>
+                  <location when="2009-10-13">
+                     <geo rend="90">-1.259843 51.756272</geo>
                      <note> recorded by Janet McKnight</note>
                   </location>
                </place>
@@ -1127,8 +1127,8 @@
                </trait>
                <place oxpID="23232424" type="building" subtype="primary">
                   <placeName>Regent's Park College Lodge</placeName>
-                  <location when="2007-05-22T12:22:54.997+01:00">
-                     <geo>-1.2606704235076904 51.75731499956544</geo>
+                  <location when="2009-10-13">
+                     <geo>-1.261287 51.756601</geo>
                      <note> recorded by Janet McKnight</note>
                   </location>
                </place>
@@ -6820,8 +6820,8 @@ data, and if so, how? -->
                   <event when="1880" type="construction"/>
                   <event when="1977" type="acquisition"/>
                   <placeName>Old Boys High School</placeName>
-                  <location when="2007-06-14T10:38:15.348+01:00">
-                     <geo>-1.26317 51.753656</geo>
+                  <location when="2009-10-13">
+                     <geo>-1.260949 51.753350</geo>
                      <note> recorded by Janet McKnight</note>
                   </location>
                </place>
@@ -6840,7 +6840,7 @@ data, and if so, how? -->
                   <placeName>Seminar Room 1</placeName>
                </place>
                <location>
-                  <geo>-1.254214 51.754903</geo>
+                  <geo>-1.254483 51.754470</geo>
                </location>
             </place>
             <place oucsCode="libsys" oxpID="23233583" type="unit" subtype="mlp">
@@ -7045,8 +7045,8 @@ data, and if so, how? -->
             <place oxpID="23233590" type="building" obnCode="178" oucsCode="b_0002">
                <event when="1956" type="construction"/>
                <placeName>10 Merton Street</placeName>
-               <location when="2007-05-22T16:32:45.881+01:00">
-                  <geo>-1.255445 51.757428</geo>
+               <location when="2009-10-13">
+                  <geo>-1.250723 51.751590</geo>
                   <note> recorded by Janet McKnight</note>
                </location>
                <place oxpID="23233591" type="room">
@@ -7145,7 +7145,7 @@ data, and if so, how? -->
                   </address>
                </location>
                <location>
-                  <geo>-1.259866 51.759128</geo>
+                  <geo>-1.260388 51.757664</geo>
                </location>
             </place>
             <place oucsCode="b_0007" oxpID="23233614" type="building" obnCode="368">
@@ -7389,9 +7389,9 @@ data, and if so, how? -->
             <place oucsCode="b_0032" oxpID="23233644" type="building" obnCode="225">
                <event when="1901" type="construction"/>
                <placeName>Radcliffe Science Library</placeName>
-               <location when="2007-05-22T17:06:16.818+01:00">
-                  <geo>-1.2553811073303222 51.75866311903413</geo>
-                  <note> recorded by Owen Massey</note>
+               <location when="2009-10-13">
+                  <geo>-1.256305 51.758115</geo>
+                  <note> recorded by Janet McKnight</note>
                </location>
                <place oxpID="23233645" type="room">
                   <placeName>Training Room</placeName>
@@ -7425,8 +7425,8 @@ data, and if so, how? -->
             <place oucsCode="b_0035" oxpID="23233649" type="building" obnCode="250">
                <event when="1845" type="construction"/>
                <placeName>Taylor Institution</placeName>
-               <location when="2007-05-22T16:44:14.527+01:00">
-                  <geo>-1.260467 51.7578</geo>
+               <location when="2009-10-13">
+                  <geo>-1.259457 51.755444</geo>
                   <note> recorded by Janet McKnight</note>
                </location>
             </place>
@@ -7537,9 +7537,9 @@ data, and if so, how? -->
             <place oucsCode="b_0047" oxpID="23233667" type="building" obnCode="181">
                <event when="1936" type="construction"/>
                <placeName>Music Faculty</placeName>
-               <location when="2008-01-09T16:00:00">
-                  <geo>-1.25579 51.74859</geo>
-                  <note>Submitted by Stephen Sangar</note>
+               <location when="2009-10-13">
+                  <geo>-1.256441 51.748612</geo>
+                  <note> recorded by Janet McKnight</note>
                </location>
             </place>
             <place oucsCode="b_0048" oxpID="23233668" type="building" obnCode="342">
