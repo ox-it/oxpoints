@@ -12,7 +12,7 @@
 <name>Faculty of Theology</name>
 <description><![CDATA[Website: <a href="http://www.theology.ox.ac.uk/">http://www.theology.ox.ac.uk/</a><br/>]]></description>
 <Point>
-<coordinates>-1.259866,51.759128</coordinates>
+<coordinates>-1.260388,51.757664</coordinates>
 </Point>
 </Placemark>
 <Placemark OUCSCode="rho" id="http://m.ox.ac.uk/oxpoints/id/23233595">
@@ -47,14 +47,14 @@
 <name>Faculty of History</name>
 <description><![CDATA[Website: <a href="http://www.history.ox.ac.uk/">http://www.history.ox.ac.uk/</a><br/>]]></description>
 <Point>
-<coordinates>-1.26317,51.753656</coordinates>
+<coordinates>-1.260949,51.753350</coordinates>
 </Point>
 </Placemark>
 <Placemark OUCSCode="philfac" id="http://m.ox.ac.uk/oxpoints/id/23233589">
 <name>Faculty of Philosophy</name>
 <description><![CDATA[Website: <a href="http://www.philosophy.ox.ac.uk/">http://www.philosophy.ox.ac.uk/</a><br/>]]></description>
 <Point>
-<coordinates>-1.255445,51.757428</coordinates>
+<coordinates>-1.250723,51.751590</coordinates>
 </Point>
 </Placemark>
 <Placemark OUCSCode="ulib" id="http://m.ox.ac.uk/oxpoints/id/23233598">
@@ -103,6 +103,13 @@
 <Placemark OUCSCode="libsys" id="http://m.ox.ac.uk/oxpoints/id/23233583">
 <name>Systems and Electronic Resources Service</name>
 <description><![CDATA[Website: <a href="http://www.lib.ox.ac.uk/">http://www.lib.ox.ac.uk/</a><br/>]]></description>
+</Placemark>
+<Placemark OUCSCode="O_nightline" id="http://m.ox.ac.uk/oxpoints/id/23233530">
+<name>Oxford Nightline</name>
+<description><![CDATA[Website: <a href="http://oxfordnightline.org/">http://oxfordnightline.org/</a><br/>]]></description>
+<Point>
+<coordinates>-1.262028,51.757803</coordinates>
+</Point>
 </Placemark>
 <Placemark OUCSCode="sheld" id="http://m.ox.ac.uk/oxpoints/id/23233507">
 <name>Sheldonian Theatre</name>

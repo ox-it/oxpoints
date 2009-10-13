@@ -220,8 +220,9 @@ public class TEIImporter {
 			img.setTimeSpan(entity.getTimeSpan());
 
 			String uri = graphic.getAttribute("url");
-			if (!uri.startsWith("http"))
+			if (!uri.startsWith("http")) {
 			  uri = "http://www.oucs.ox.ac.uk/oxpoints/" + uri;
+			}
 			img.setUri(uri);
 			
 			img.setWidth(graphic.getAttribute("width"));

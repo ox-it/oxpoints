@@ -6468,7 +6468,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.254214 51.754903"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.254483 51.754470"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "164"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode "b_0063"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -6629,7 +6629,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.26317 51.753656"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.260949 51.753350"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "237"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -6745,7 +6745,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.259866 51.759128"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.260388 51.757664"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "232"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode "b_0006"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -9107,7 +9107,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.255445 51.757428"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.250723 51.751590"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "178"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode "b_0002"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -13054,7 +13054,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.25579 51.74859"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.256441 51.748612"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "181"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode "b_0047"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -17410,7 +17410,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.260467 51.7578"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.259457 51.755444"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "250"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode "b_0035"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -17657,7 +17657,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.2553811073303222 51.75866311903413"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.256305 51.758115"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode "225"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode "b_0032"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -19374,7 +19374,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.2603700160980225 51.756916532903084"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.259843 51.756272"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -19409,91 +19409,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   [ a       rdf:Bag
                   ] ;
           ns0:width "167px"^^<http://www.w3.org/2001/XMLSchema#string> .
-}
-
-<http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1226~dooms-day> {<http://m.ox.ac.uk/oxpoints/id/23232452>
-          a       ns0:Building ;
-          ns0:hasLocation
-                  [ a       ns2:Point ;
-                    ns2:pos "-1.24245285987854 51.74975681610462"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          dc:title "William R Miller Building"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-    <http://m.ox.ac.uk/oxpoints/id/23232453>
-          a       ns0:Building ;
-          ns0:hasLocation
-                  [ a       ns2:Point ;
-                    ns2:pos "-1.24220609664917 51.74814273430692"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          dc:title "Isis Guest House"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-    <http://m.ox.ac.uk/oxpoints/id/23232451>
-          a       ns0:Building ;
-          ns0:hasLocation
-                  [ a       ns2:Point ;
-                    ns2:pos "-1.255735158920288 51.76373646896775"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          dc:title "Norham Gardens Annexe"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-    <http://m.ox.ac.uk/oxpoints/id/23232449>
-          a       ns0:College ;
-          ns0:hasHomepage <http://www.seh.ox.ac.uk/> ;
-          ns0:hasITHomepage <http://www.seh.ox.ac.uk/it/> ;
-          ns0:hasOUCSCode "sedm"^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:hasWeblearn <http://weblearn.ox.ac.uk/site/colleges/seh/> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          ns0:occupies
-                  [ a       rdf:Bag ;
-                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232450> ;
-                    rdf:_2  <http://m.ox.ac.uk/oxpoints/id/23232453> ;
-                    rdf:_3  <http://m.ox.ac.uk/oxpoints/id/23232452> ;
-                    rdf:_4  <http://m.ox.ac.uk/oxpoints/id/23232451>
-                  ] ;
-          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232450> ;
-          ns1:adr [ a       ns1:Address ;
-                    ns1:postal_code "OX1 4AR"^^<http://www.w3.org/2001/XMLSchema#string> ;
-                    ns1:street_address "Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          dc:title "St Edmund Hall"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-    <http://m.ox.ac.uk/images/collegepictures/sedm.jpg>
-          a       ns0:Image ;
-          ns0:height "125px"^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] ;
-          ns0:width "167px"^^<http://www.w3.org/2001/XMLSchema#string> .
-
-    <http://m.ox.ac.uk/oxpoints/id/23232450>
-          a       ns0:Building ;
-          ns0:hasLocation
-                  [ a       ns2:Point ;
-                    ns2:pos "-1.25022053718566 51.75297816495278"^^<http://www.w3.org/2001/XMLSchema#string>
-                  ] ;
-          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
-          ns0:inImage
-                  [ a       rdf:Bag ;
-                    rdf:_1  <http://m.ox.ac.uk/images/collegepictures/sedm.jpg>
-                  ] ;
-          dc:title "St Edmund Hall Lodge"^^<http://www.w3.org/2001/XMLSchema#string> .
 }
 
 <http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1249~dooms-day> {<http://m.ox.ac.uk/images/collegepictures/univ.jpg>
@@ -19728,6 +19643,91 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     ns1:street_address "Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           dc:title "Merton College"^^<http://www.w3.org/2001/XMLSchema#string> .
+}
+
+<http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1278~dooms-day> {<http://m.ox.ac.uk/oxpoints/id/23232452>
+          a       ns0:Building ;
+          ns0:hasLocation
+                  [ a       ns2:Point ;
+                    ns2:pos "-1.24245285987854 51.74975681610462"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          dc:title "William R Miller Building"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23232453>
+          a       ns0:Building ;
+          ns0:hasLocation
+                  [ a       ns2:Point ;
+                    ns2:pos "-1.24220609664917 51.74814273430692"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          dc:title "Isis Guest House"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23232451>
+          a       ns0:Building ;
+          ns0:hasLocation
+                  [ a       ns2:Point ;
+                    ns2:pos "-1.255735158920288 51.76373646896775"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          dc:title "Norham Gardens Annexe"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23232449>
+          a       ns0:College ;
+          ns0:hasHomepage <http://www.seh.ox.ac.uk/> ;
+          ns0:hasITHomepage <http://www.seh.ox.ac.uk/it/> ;
+          ns0:hasOUCSCode "sedm"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasWeblearn <http://weblearn.ox.ac.uk/site/colleges/seh/> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:occupies
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232451> ;
+                    rdf:_2  <http://m.ox.ac.uk/oxpoints/id/23232450> ;
+                    rdf:_3  <http://m.ox.ac.uk/oxpoints/id/23232453> ;
+                    rdf:_4  <http://m.ox.ac.uk/oxpoints/id/23232452>
+                  ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232450> ;
+          ns1:adr [ a       ns1:Address ;
+                    ns1:postal_code "OX1 4AR"^^<http://www.w3.org/2001/XMLSchema#string> ;
+                    ns1:street_address "Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          dc:title "St Edmund Hall"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/images/collegepictures/sedm.jpg>
+          a       ns0:Image ;
+          ns0:height "125px"^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          ns0:width "167px"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23232450>
+          a       ns0:Building ;
+          ns0:hasLocation
+                  [ a       ns2:Point ;
+                    ns2:pos "-1.25022053718566 51.75297816495278"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/images/collegepictures/sedm.jpg>
+                  ] ;
+          dc:title "St Edmund Hall Lodge"^^<http://www.w3.org/2001/XMLSchema#string> .
 }
 
 <http://ns.ox.ac.uk/namespaces/oxpoints/graphs#tg-1282~dooms-day> {<http://m.ox.ac.uk/oxpoints/id/23232368>
@@ -21438,7 +21438,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           a       ns0:Building ;
           ns0:hasLocation
                   [ a       ns2:Point ;
-                    ns2:pos "-1.2606704235076904 51.75731499956544"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns2:pos "-1.261287 51.756601"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
