@@ -598,11 +598,11 @@
               <ptr target="http://www.keble.ox.ac.uk/"/>
             </desc>
           </trait>
-          <trait type="iturl">
-            <desc>
-              <ptr target="http://www.keble.ox.ac.uk/students/undergraduate/academic/it"/>
-            </desc>
-          </trait>
+	  <trait type="iturl">
+	    <desc>
+	      <ptr target="http://www.keble.ox.ac.uk/students/student-support/study-skills-and-assistance/it/"/>
+	    </desc>
+	  </trait>
           <trait type="weblearn">
             <desc>
               <ptr target="http://weblearn.ox.ac.uk/site/colleges/keble/"/>
@@ -5733,7 +5733,7 @@ data, and if so, how? -->
           <placeName>Humanities Division</placeName>
           <location type="address">
             <address>
-              <addrLine>34 St Giles</addrLine>
+              <addrLine>37A St Giles</addrLine>
               <addrLine>Oxford</addrLine>
               <postCode>OX1 3LH</postCode>
             </address>
@@ -5743,15 +5743,14 @@ data, and if so, how? -->
               <ptr target="http://www.humanities.ox.ac.uk/"/>
             </desc>
           </trait>
-          <place oxpID="23233552" type="building" subtype="primary" obnCode="328">
-            <event when="1828" type="construction"/>
-            <placeName>34 St Giles</placeName>
-            <location when="2007-05-22T16:06:19.321+01:00">
-              <geo>-1.2610888481140137 51.75854358297344</geo>
-              <note> recorded by Janet McKnight</note>
-            </location>
-          </place>
-        </place>
+	  <place oxpID="23232404" type="building" subtype="primary">
+	    <placeName>37A St Giles</placeName>
+	    <location when="2009-10-20">
+	      <geo>-1.260691 51.758200</geo>
+	      <note> recorded by Janet McKnight</note>
+	    </location>
+	  </place>
+	</place>
         <place oucsCode="ict" oxpID="23233553" type="uas">
           <placeName>Information Communication Technology Team</placeName>
           <location type="address">
@@ -6868,6 +6867,14 @@ data, and if so, how? -->
             <note> recorded by Janet McKnight (from GEarth / postcode)</note>
           </location>
         </place>
+	<place oxpID="23233552" type="building" subtype="primary" obnCode="328">
+	  <event when="1828" type="construction"/>
+	  <placeName>34 St Giles</placeName>
+	  <location when="2007-05-22T16:06:19.321+01:00">
+	    <geo>-1.2610888481140137 51.75854358297344</geo>
+	    <note> recorded by Janet McKnight</note>
+	  </location>
+	</place>
         <relation name="controls" active="#23232550" passive="#32320011"/>
         <relation name="controls" active="#23232584" passive="#23233909"/>
         <relation name="controls" active="#23233579" passive="#32320029"/>
