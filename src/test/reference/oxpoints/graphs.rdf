@@ -15,8 +15,10 @@
                   [ a       rdf:Bag
                   ] ;
           ns0:occupies
-                  [ a       rdf:Bag
+                  [ a       rdf:Bag ;
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233581>
                   ] ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233581> ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/23233579> ;
           dc:title "History Faculty Library"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -2424,12 +2426,12 @@
                   ] ;
           ns0:occupies
                   [ a       rdf:Bag ;
-                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23233552>
+                    rdf:_1  <http://m.ox.ac.uk/oxpoints/id/23232404>
                   ] ;
-          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23233552> ;
+          ns0:primaryPlace <http://m.ox.ac.uk/oxpoints/id/23232404> ;
           ns1:adr [ a       ns1:Address ;
                     ns1:postal_code "OX1 3LH"^^<http://www.w3.org/2001/XMLSchema#string> ;
-                    ns1:street_address "34 St Giles, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
+                    ns1:street_address "37A St Giles, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           dc:title "Humanities Division"^^<http://www.w3.org/2001/XMLSchema#string> .
 
@@ -4137,6 +4139,19 @@
                     ns1:street_address "1 Keble Road, Oxford"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           dc:title "Theoretical Physics"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://m.ox.ac.uk/oxpoints/id/23232404>
+          a       ns0:Building ;
+          ns0:hasLocation
+                  [ a       ns2:Point ;
+                    ns2:pos "-1.260691 51.758200"^^<http://www.w3.org/2001/XMLSchema#string>
+                  ] ;
+          ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] ;
+          dc:title "37A St Giles"^^<http://www.w3.org/2001/XMLSchema#string> .
 
     <http://m.ox.ac.uk/oxpoints/id/32330321>
           a       ns0:SubLibrary ;
@@ -9042,12 +9057,6 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320086> ;
           dc:title "Undergraduate collections"^^<http://www.w3.org/2001/XMLSchema#string> .
 
-    <http://www.keble.ox.ac.uk/students/undergraduate/academic/it>
-          a       ns0:Website ;
-          ns0:inImage
-                  [ a       rdf:Bag
-                  ] .
-
     <http://m.ox.ac.uk/oxpoints/id/32330342>
           a       ns0:SubLibrary ;
           ns0:hasOLISCode "PHI New Books"^^<http://www.w3.org/2001/XMLSchema#string> ;
@@ -10337,6 +10346,12 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                   ] ;
           ns0:subsetOf <http://m.ox.ac.uk/oxpoints/id/32320091> ;
           dc:title "University College Law Library"^^<http://www.w3.org/2001/XMLSchema#string> .
+
+    <http://www.keble.ox.ac.uk/students/student-support/study-skills-and-assistance/it/>
+          a       ns0:Website ;
+          ns0:inImage
+                  [ a       rdf:Bag
+                  ] .
 
     <http://m.ox.ac.uk/oxpoints/id/32330277>
           a       ns0:SubLibrary ;
@@ -20840,7 +20855,7 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
     <http://m.ox.ac.uk/oxpoints/id/23232373>
           a       ns0:College ;
           ns0:hasHomepage <http://www.keble.ox.ac.uk/> ;
-          ns0:hasITHomepage <http://www.keble.ox.ac.uk/students/undergraduate/academic/it> ;
+          ns0:hasITHomepage <http://www.keble.ox.ac.uk/students/student-support/study-skills-and-assistance/it/> ;
           ns0:hasOUCSCode "kebl"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasWeblearn <http://weblearn.ox.ac.uk/site/colleges/keble/> ;
           ns0:inImage
