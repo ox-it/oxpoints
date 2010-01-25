@@ -49,6 +49,7 @@ public class Place extends OxpEntity {
   private Address address;
   private Website homepage;
   private Collection<Place> containedPlaces;
+  private String osmId;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -199,6 +200,24 @@ public class Place extends OxpEntity {
     this.containedPlaces.add(containedPlaceP);
   }
 
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getOsmId(){
+    return this.osmId;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setOsmId(String osmId){
+    this.osmId = osmId;
+  }
+
 
 
 
@@ -288,6 +307,11 @@ public class Place extends OxpEntity {
       };
       this.addMissingReference(missingReference, callback);
     }
+
+    // Load SIMPLE_LITERAL_PROPERTY osmId
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setOsmId(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

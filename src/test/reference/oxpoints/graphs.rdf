@@ -20552,6 +20552,8 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     ns2:pos "-1.25892162322998 51.75615943655779"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOSMIdentifier
+                  "relation/142736/6"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:inImage
                   [ a       rdf:Bag ;
@@ -20845,6 +20847,8 @@ Hospital, Headley Way, Headington, Oxford"""^^<http://www.w3.org/2001/XMLSchema#
                     ns2:pos "-1.2569367885589 51.75876937304466"^^<http://www.w3.org/2001/XMLSchema#string>
                   ] ;
           ns0:hasOBNCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
+          ns0:hasOSMIdentifier
+                  "way/23679616/6"^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:hasOUCSCode ""^^<http://www.w3.org/2001/XMLSchema#string> ;
           ns0:inImage
                   [ a       rdf:Bag ;

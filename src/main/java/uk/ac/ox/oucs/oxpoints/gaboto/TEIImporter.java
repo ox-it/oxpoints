@@ -530,6 +530,18 @@ public class TEIImporter {
 		// location
 		building.setLocation(findLocation(buildingEl));
 		
+		// osmId
+		NodeList refs = buildingEl.getElementsByTagName("ref");
+		for (int j = 0; j < refs.getLength(); j++) {
+			Element ref = (Element) refs.item(j);
+			if ("osm".equals(ref.getAttribute("type"))) {
+				building.setOsmId(ref.getTextContent());
+				System.out.println(ref.getTextContent());
+				//throw new RuntimeException();
+				break;
+			}
+		}
+		
 		// rooms
 		entities.add(building);
 		NodeList rooms = buildingEl.getElementsByTagName("place");

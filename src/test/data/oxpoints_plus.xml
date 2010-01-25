@@ -613,7 +613,8 @@
             <location when="2007-01-29T13:17:29.915Z">
               <geo rend="105">-1.2569367885589 51.75876937304466</geo>
               <note> recorded by Steve Kersley</note>
-            </location>
+            <ref type="osm">way/23679616/6</ref>
+          </location>
           </place>
           <place oxpID="23232375" type="building">
             <placeName>Service yard and O'Reilly Theatre entrance</placeName>
@@ -1527,6 +1528,8 @@
               <geo rend="270">-1.25892162322998 51.75615943655779</geo>
               <note> recorded by Matt Jennings</note>
             </location>
+            <ref type="osm">relation/142736/6</ref>
+          
           </place>
         </place>
         <place oucsCode="some" oxpID="23232466" type="college">
