@@ -33,11 +33,6 @@
 	  <xsl:apply-templates select="@*"/>
 	  <xsl:for-each select="tei:event">
 	    <xsl:choose>
-	    <!--
-	    <xsl:when test="@type='acquisition'">
-	      <relation type="occupies" />
-	    </xsl:when>
-	    -->
 	    <xsl:when test="@type='construction'">
 	      <xsl:attribute name="from" select="@when"/>
 	    </xsl:when>
@@ -67,6 +62,29 @@
 	    <idno type="olis"><xsl:value-of
 	    select="@olisID"/></idno>
 	  </xsl:if>	
+	  <trait name="type">
+	    <xsl:choose>
+	    <xsl:when test="tei:event[@type='status']">
+	      <xsl:attribute name="to">
+		<xsl:value-of
+		    select="tei:event[@type='status']/@when"/>
+	      </xsl:attribute>
+	      <xsl:text>Hall</xsl:text>
+	    </xsl:when>
+	    <xsl:otherwise>
+	      <xsl:choose>
+		<xsl:when test="@type='college'">College</xsl:when>
+		<xsl:otherwise>
+		  <xsl:value-of select="@type"/>
+		</xsl:otherwise>
+	      </xsl:choose>
+	    </xsl:otherwise>
+	    </xsl:choose>
+	  </trait>
+	  <xsl:for-each select="tei:event[@type='status']">
+	      <trait name="type" from="{@when}">College</trait>
+	  </xsl:for-each>
+
 	  <xsl:apply-templates 
 	      select="*|processing-instruction()|comment()|text()"/>
 	  <xsl:for-each select="tei:place[not(@type='room')]">
@@ -109,6 +127,7 @@
     </xsl:copy>
   </xsl:template>
   
+  <xsl:template match="@type"/>
   <xsl:template match="@olisID"/>
   <xsl:template match="@olisCode"/>
   <xsl:template match="@oucsCode"/>
