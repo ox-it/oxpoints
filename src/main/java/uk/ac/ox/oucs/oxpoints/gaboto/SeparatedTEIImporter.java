@@ -48,6 +48,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.WAP;
 public class SeparatedTEIImporter {
 
 	private Gaboto gaboto;
+	private WarningHandler warningHandler;
 
 	public final static String XML_NS = "http://www.w3.org/XML/1998/namespace";
 	private Logger logger = Logger.getLogger("uk.ac.ox.oucs.oxpoints.importer");
@@ -57,6 +58,7 @@ public class SeparatedTEIImporter {
 	
 	public SeparatedTEIImporter(Gaboto gaboto) {
 		this.gaboto = gaboto;
+		this.warningHandler = new WarningHandler();
 	}
 	
 	public void loadDirectory(File directory) {
@@ -86,12 +88,11 @@ public class SeparatedTEIImporter {
 	public void loadFile(File file) throws IOException, SAXException, ParserConfigurationException {
 		Vector<Element> elements = new Vector<Element>();
 		Document document = XMLUtils.readInputFileIntoJAXPDoc(file);
-		String oxpID, type;
+		String oxpID;
 		
 		Element element = document.getDocumentElement();
 
 		oxpID = element.getAttribute("oxpID");
-		type = element.getAttribute("type");
 
 		if (element.getTagName().equals("placeList")) {
 			NodeList nodes = element.getChildNodes();
@@ -109,24 +110,29 @@ public class SeparatedTEIImporter {
 			parseDates(elem, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		}
 
-		loadEntity(type, oxpID, elements);
+		loadEntity(oxpID, elements);
 	}
 	
-	public void loadEntity(String type, String oxpID, Vector<Element> elements) {
-		loadEntity(type, oxpID, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+	public void loadEntity(String oxpID, Vector<Element> elements) {
+		loadEntity(oxpID, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 	}
 	
-	public void loadEntity(String type, String oxpID, Element element, TimeInstant lower, TimeInstant upper) {
+	public void loadEntity(String oxpID, Element element, TimeInstant lower, TimeInstant upper) {
 		Vector<Element> elements = new Vector<Element>();
 		elements.add(element);
-		loadEntity(type, oxpID, elements, lower, upper);
+		loadEntity(oxpID, elements, lower, upper);
 	}
 	
-	public void loadEntity(String type, String oxpID, Vector<Element> elements, TimeInstant lower, TimeInstant upper) {
+	public void loadEntity(String oxpID, Vector<Element> elements, TimeInstant lower, TimeInstant upper) {
 		if (elements.size() > 1)
 			throw new AssertionError("We can't yet handle discontinuous entities.");
 		
-		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, type, oxpID, elements.get(0));
+		if (oxpID.equals("")) {
+			warningHandler.addWarning("Entity has no oxpID");
+			return;
+		}
+		
+		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, oxpID, elements.get(0));
 		oxpointsIdToEntityLookup.put(oxpID, entity);
 
 		for (Element element : elements) {
@@ -138,17 +144,18 @@ public class SeparatedTEIImporter {
 				String tagName = elem.getTagName();
 				String elemType = elem.getAttribute("type");
 
+				if (tagName.equals("trait") && elem.getAttribute("name").equals("type"))
+					entity.addType(elem);
 
 				if (tagName.equals("placeName")) {
-					if (entity.instanceOf(Unit.class) || entity.instanceOf(Place.class))
-						entity.addProperty("setName", elem);
+					entity.addProperty("setName", elem);
 
 				} else if (tagName.equals("idno")) {
-					if (elemType.equals("oucs") && entity.instanceOf(Unit.class))
+					if (elemType.equals("oucs"))
 						entity.addProperty("setOUCSCode", elem);
-					else if (elemType.equals("obn") && entity.instanceOf(Place.class))
+					else if (elemType.equals("obn"))
 						entity.addProperty("setOBNCode", elem);
-					else if (elemType.equals("olis") && entity.instanceOf(Library.class))
+					else if (elemType.equals("olis"))
 						entity.addProperty("setOLISCode", elem);
 
 				} else if (tagName.equals("location")) {
@@ -158,33 +165,44 @@ public class SeparatedTEIImporter {
 						if (!(children.item(k) instanceof Element))
 							continue;
 						Element child = (Element) children.item(k);
-						if (elemType.equals("point") && child.getTagName().equals("geo") && entity.instanceOf(Place.class)) {
+						if (elemType.equals("point") && child.getTagName().equals("geo")) {
 							Location loc = new Location();
 							loc.setPos(child.getTextContent());
 							entity.addProperty("setLocation", loc, elem);
 						} else if (elemType.equals("address") && child.getTagName().equals("address")) {
-							if (entity.instanceOf(Place.class) || entity.instanceOf(Unit.class))
-								entity.addProperty("setAddress", extractAddress(child), elem);
+							entity.addProperty("setAddress", extractAddress(child), elem);
 						}
 					}
 
 				}
+				
+				Object breakpoint;
+				if (oxpID.equals("32320022"))
+					breakpoint = 1;
 
 				if (tagName.equals("relation")) {
-					String relationMethod, relationType = elem.getAttribute("type");
+					String relationMethod, relationName = elem.getAttribute("name");
 					Class<? extends OxpEntity> relationClass;
-					if (relationType.equals("occupies")) {
+					if (relationName.equals("occupies")) {
 						relationMethod = "addOccupiedBuilding";
 						relationClass = Building.class;
-					} else
-						return;
-					entity.addRelation(
-							relationMethod,
-							elem.getAttribute("passive"),
-							elem, relationClass
-					);
+					
+						entity.addRelation(
+								relationMethod,
+								elem.getAttribute("passive").substring(1),
+								elem, relationClass
+						);
+						
+						if (elem.getAttribute("type").equals("geo primary")) {
+							entity.addRelation(
+									"setPrimaryPlace",
+									elem.getAttribute("passive").substring(1),
+									elem, Place.class
+							);
+						}
+					}
 				} else if (tagName.equals("place")) {
-					loadChildEntity(elem, type);
+					loadChildEntity(elem);
 					entity.addRelation(
 							"setParent",
 							elem.getAttribute("oxpID"),
@@ -196,14 +214,8 @@ public class SeparatedTEIImporter {
 		}		
 	}
 	
-	private void loadChildEntity(Element elem, String parentType) {
-		String type = elem.getAttribute("type");
-
-		if (!((parentType.equals("building") && type.equals("room")) || (parentType.equals("library") && type.equals("sublibrary"))))
-			return;
-			
+	private void loadChildEntity(Element elem) {
 		loadEntity(
-				type,
 				elem.getAttribute("oxpID"),
 				elem,
 				new ImmutableTimeInstant(elem.getAttribute("inferredFrom")),
@@ -286,9 +298,17 @@ public class SeparatedTEIImporter {
 		Gaboto gaboto = GabotoFactory.getEmptyInMemoryGaboto();
 		SeparatedTEIImporter importer = new SeparatedTEIImporter(gaboto);
 		importer.loadDirectory(directory);
-		gaboto.persistToDisk("/home/alex/gaboto_data");
+		gaboto.persistToDisk(args[1]);
 		System.out.println("done");
 	}
 	
+	public class WarningHandler {
+		private Vector<String> warnings = new Vector<String> ();
+		
+		public void addWarning(String warning) {
+			System.out.println("W "+warning);
+			warnings.add(warning);
+		}
+	}
 
 }

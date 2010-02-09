@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 
 import net.sf.gaboto.EntityAlreadyExistsException;
@@ -35,28 +36,28 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.WAP;
 
 public class SegmentedOxpEntity {
 	private String oxpID;
-	private String type;
 	private String uri;
 	private Gaboto gaboto;
-	private Class<? extends OxpEntity> entityClass;
-	private OxpEntity proxy;
 	
 	private TimeInstant from;
 	private TimeInstant to;
 	
+	private SeparatedTEIImporter.WarningHandler warningHandler;
+	
 	private static final Map<String,Class<? extends OxpEntity>> typeMap = getTypeMap();
 	private static final Set<Relation> relations = new HashSet<Relation>();
+	private static final Map<String,Set<Relation>> relationsByID = new HashMap<String,Set<Relation>>();
 	private final Set<Property> properties = new HashSet<Property>();
+	private final Set<TypeSpan> types = new HashSet<TypeSpan>();
 	
-	public SegmentedOxpEntity(Gaboto gaboto, String type, String oxpID, Element element) {
+	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, Element element) {
 		this(
-				gaboto, type, oxpID,
+				gaboto, warningHandler, oxpID,
 				new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
 				new ImmutableTimeInstant(element.getAttribute("inferredTo")));
 	}
 
-	public SegmentedOxpEntity(Gaboto gaboto, String type, String oxpID, TimeInstant from, TimeInstant to) {
-		this.type = type;
+	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, TimeInstant from, TimeInstant to) {
 		this.oxpID = oxpID;
 		this.uri = gaboto.getConfig().getNSData()+oxpID;
 		this.gaboto = gaboto;
@@ -64,28 +65,21 @@ public class SegmentedOxpEntity {
 		this.from = from;
 		this.to = to;
 		
-		entityClass = typeMap.get(type);
-		System.out.println("NEW "+oxpID);
+		this.warningHandler = warningHandler;
 		
+		System.out.println("NEW "+oxpID);
+
+	}
+	
+	public void addType(Element element) {
 		try {
-			proxy = entityClass.newInstance();
-			proxy.setUri(uri);
-		} catch (InstantiationException e) {
-			throw new GabotoRuntimeException();
-		} catch (IllegalAccessException e) {
-			throw new GabotoRuntimeException();
+			types.add(new TypeSpan(
+					element.getTextContent(),
+					new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
+					new ImmutableTimeInstant(element.getAttribute("inferredTo"))));
+		} catch (ClassNotFoundException e) {
+			warningHandler.addWarning("Invalid type for entity "+oxpID+": "+element.getTextContent());
 		}
-	}
-	
-	public String getType() {
-		return type;
-	}
-	public Class<? extends OxpEntity> getEntityClass() {
-		return entityClass;
-	}
-	
-	public boolean instanceOf(Class<?> c) {
-		return c.isAssignableFrom(getEntityClass());
 	}
 	
 	public void addProperty(String property, Element element) {
@@ -133,17 +127,19 @@ public class SegmentedOxpEntity {
 	}
 	
 	public void addRelation(String property, String passiveOxpID, TimeInstant start, TimeInstant end, Class<? extends OxpEntity>argumentClass, boolean inverted) {
-		System.out.println("REL "+property+", "+passiveOxpID+", "+start.toString()+", "+end.toString());
+		Relation relation;
 		
 		if (inverted)
-			relations.add(new Relation(passiveOxpID, oxpID, property, start, end, argumentClass));
+			relation = new Relation(passiveOxpID, oxpID, property, start, end, argumentClass);
 		else
-			relations.add(new Relation(oxpID, passiveOxpID, property, start, end, argumentClass));
+			relation = new Relation(oxpID, passiveOxpID, property, start, end, argumentClass);
 		
-	}
-	
-	public OxpEntity getProxy() {
-		return proxy;
+		relations.add(relation);
+		String activeID = inverted ? passiveOxpID : oxpID;
+		if (!relationsByID.containsKey(activeID))
+			relationsByID.put(activeID, new HashSet<Relation>());
+		relationsByID.get(activeID).add(relation);
+		
 	}
 	
 	public static void constrainRelations(Map<String,SegmentedOxpEntity> entityMapping) {
@@ -168,6 +164,10 @@ public class SegmentedOxpEntity {
 	}
 	
 	public void addToGaboto(Map<String,SegmentedOxpEntity> entityMapping) {
+		Object breakpoint ;
+		if (oxpID.equals("23232373"))
+			breakpoint = 1;
+		
 		Set<TimeInstant> instants = new TreeSet<TimeInstant> ();
 		Map<TimeInstant,Integer> instantOffsets = new HashMap<TimeInstant,Integer>();
 		
@@ -176,38 +176,54 @@ public class SegmentedOxpEntity {
 			instants.add(property.to);
 		}
 		
-		for (Relation relation : relations) {
-			if (relation.active != oxpID)
-				continue;
-				
-			instants.add(relation.from);
-			instants.add(relation.to);
+		for (TypeSpan typeSpan : types) {
+			instants.add(typeSpan.from);
+			instants.add(typeSpan.to);
 		}
+		
+		if (relationsByID.containsKey(oxpID))
+			for (Relation relation : relationsByID.get(oxpID)) {
+				instants.add(relation.from);
+				instants.add(relation.to);
+			}
+		
 		
 		OxpEntity[] entities = new OxpEntity[instants.size()];
 		TimeInstant[] instantArray = instants.toArray(new TimeInstant[instants.size()]); 
+		TypeSpan[] typeArray = new TypeSpan[instants.size()]; 
 		
 		for (int i=0; i<instantArray.length; i++) {
 			TimeInstant instant = instantArray[i];
 			instantOffsets.put(instant, i);
-			if (i==instantArray.length-1)
-				break;
+		}
+		
+		for (TypeSpan typeSpan : types) {
+			for (int i=instantOffsets.get(typeSpan.from); i<instantOffsets.get(typeSpan.to); i++)
+				typeArray[i] = typeSpan;
+		}
+		
+		for (int i=0; i<instantArray.length-1; i++) {
 			try {
-				entities[i] = entityClass.newInstance();
+				entities[i] = typeArray[i].entityClass.newInstance();
+
+			} catch (NullPointerException e) {
+				warningHandler.addWarning("Entity "+oxpID+" has periods of its existence without a type.");
+				return;
 			} catch (InstantiationException e) {
 				throw new GabotoRuntimeException();
 			} catch (IllegalAccessException e) {
 				throw new GabotoRuntimeException();
 			}
-			entities[i].setTimeSpan(TimeSpan.createFromInstants(instant.clone(), instantArray[i+1].clone()));
+			entities[i].setTimeSpan(TimeSpan.createFromInstants(instantArray[i].clone(), instantArray[i+1].clone()));
 			entities[i].setUri(uri);
 		}
 		
 		for (Property property : properties) {
 			try {
-				Method m = entityClass.getMethod(property.name, property.value.getClass());
-				for (int i=instantOffsets.get(property.from); i<instantOffsets.get(property.to); i++)
+				for (int i=instantOffsets.get(property.from); i<instantOffsets.get(property.to); i++) {
+					Method m = typeArray[i].entityClass.getMethod(property.name, property.value.getClass());
 					m.invoke(entities[i], property.value);
+				}
 			} catch (SecurityException e) {
 				throw new GabotoRuntimeException();
 			} catch (NoSuchMethodException e) {
@@ -221,29 +237,31 @@ public class SegmentedOxpEntity {
 			}
 		}
 		
-		for (Relation relation : relations) {
-			if (relation.active != oxpID)
-				continue;
-			
-			try {
-				OxpEntity proxy = entityMapping.get(relation.passive).getProxy();
-				Method[] methods = entityClass.getMethods();
-				Method m = entityClass.getMethod(relation.name, (relation.name.equals("addOccupiedBuilding")) ? Building.class : Place.class); //proxy.getClass());
-				for (int i=instantOffsets.get(relation.from); i<instantOffsets.get(relation.to); i++)
-					m.invoke(entities[i], proxy);
-			} catch (SecurityException e) {
-				throw new GabotoRuntimeException();
-			} catch (NoSuchMethodException e) {
-				throw new GabotoRuntimeException();
-			} catch (IllegalArgumentException e) {
-				throw new GabotoRuntimeException();
-			} catch (IllegalAccessException e) {
-				throw new GabotoRuntimeException();
-			} catch (InvocationTargetException e) {
-				throw new GabotoRuntimeException();
+		if (relationsByID.containsKey(oxpID))
+			for (Relation relation : relationsByID.get(oxpID)) {
+				OxpEntity proxy_;
+				try {
+					proxy_ = relation.argumentClass.newInstance();
+					proxy_.setUri(gaboto.getConfig().getNSData()+relation.passive);
+					for (int i=instantOffsets.get(relation.from); i<instantOffsets.get(relation.to); i++) {
+						Method m = typeArray[i].entityClass.getMethod(relation.name, relation.argumentClass); //proxy.getClass());
+						m.invoke(entities[i], proxy_);
+					}
+				} catch (InstantiationException e) {
+					throw new GabotoRuntimeException();
+				} catch (SecurityException e) {
+					throw new GabotoRuntimeException();
+				} catch (NoSuchMethodException e) {
+					throw new GabotoRuntimeException();
+				} catch (IllegalArgumentException e) {
+					throw new GabotoRuntimeException();
+				} catch (IllegalAccessException e) {
+					throw new GabotoRuntimeException();
+				} catch (InvocationTargetException e) {
+					throw new GabotoRuntimeException();
+				}
 			}
-		}
-		
+
 		for (int i=0; i<entities.length-1; i++) {
 			OxpEntity entity = entities[i];
 			try {
@@ -283,6 +301,9 @@ public class SegmentedOxpEntity {
 		Class<? extends OxpEntity> argumentClass;
 		
 		public Relation(String active, String passive, String name, TimeInstant from, TimeInstant to, Class<? extends OxpEntity> argumentClass) {
+			System.out.println("REL "+name+", "+active+", "+passive+", "+from.toString()+", "+to.toString());
+			if (active.equals(""))
+				throw new AssertionError();
 			this.active = active;
 			this.passive = passive;
 			this.name = name;
@@ -304,6 +325,34 @@ public class SegmentedOxpEntity {
 			this.from = from;
 			this.to = to;
 		}
+	}
+	
+	private class TypeSpan {
+		String name;
+		Class <? extends OxpEntity> entityClass;
+		TimeInstant from;
+		TimeInstant to;
+		OxpEntity proxy;
+		
+		@SuppressWarnings("unchecked")
+		public TypeSpan(String name, TimeInstant from, TimeInstant to) throws ClassNotFoundException{
+			this.name = name;
+			this.entityClass = (Class<? extends OxpEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities."+name);
+			try {
+				this.proxy = this.entityClass.newInstance();
+				this.proxy.setUri(gaboto.getConfig().getNSData()+oxpID);
+			} catch (InstantiationException e) {
+				throw new GabotoRuntimeException();
+			} catch (IllegalAccessException e) {
+				throw new GabotoRuntimeException();
+			}
+			
+			this.from = from;
+			this.to = to;
+			
+			
+		}
+		
 	}
 	
 }
