@@ -28,6 +28,7 @@
   <text>
     <body html:onload="load(13)" html:onunload="GUnload()">
       <listPlace>
+        <place oxpID="99999999" type="outside"/>
         <place oucsCode="O_carpark1" oxpID="23232323" type="carpark">
           <placeName>56 and 58 Banbury Road</placeName>
           <label>approx 10 spaces</label>
@@ -6339,12 +6340,16 @@ data, and if so, how? -->
           <location>
             <geo>-1.260350 51.760010</geo>
           </location>
-          <place oxpID="23233604" type="room">
+          <place oxpID="23233604" type="portal" subtype="foot" rend="door">
             <placeName>Main entrance</placeName>
             <location when="2007-01-21T00:07:46.915Z">
               <geo>-1.260350 51.760010</geo>
               <note> recorded by Barry Cornelius</note>
             </location>
+            <ptr type="accessFrom" target="#99999999"/>
+            <note type="accessIn">foot university: Mo-Fr 08:30-20:30; foot token: 24/7</note>
+            <note type="accessOut">foot *: 24/7</note>
+            
           </place>
           <place oxpID="23233605" type="room">
             <placeName>Evenlode Room</placeName>

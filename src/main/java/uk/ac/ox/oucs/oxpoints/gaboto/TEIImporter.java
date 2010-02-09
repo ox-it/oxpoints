@@ -53,6 +53,7 @@ import org.w3c.dom.NodeList;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Access;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
@@ -61,7 +62,9 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Library;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Museum;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Outside;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Portal;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Room;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SubLibrary;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
@@ -82,6 +85,7 @@ public class TEIImporter {
 	
 	private Set<OxpEntity> entities = new HashSet<OxpEntity>();
 	private Map<String, OxpEntity> oxpointsIdToEntityLookup = new HashMap<String, OxpEntity>();
+	private Outside outside = null;
 	
 	
 	public TEIImporter(Gaboto gaboto, File file) {
@@ -166,6 +170,8 @@ public class TEIImporter {
         processBuilding(el);
       } else if(type.equals("carpark")){
         processCarpark(el);
+      } else if(type.equals("outside")){
+    	  processOutside(el);
       } else {
         throw new RuntimeException("Unknown place type: " + type);
       }
@@ -431,11 +437,25 @@ public class TEIImporter {
 
 		getBuildings(unit, unitEl, ts);
 		
+		
     // add unit
     entities.add(unit);
     if (id == null)
       throw new NullPointerException();
     oxpointsIdToEntityLookup.put(id, unit);
+	}
+	
+	private void processOutside(Element el) {
+		String id = el.getAttribute("oxpID");
+		if (id == null)
+			throw new NullPointerException();
+	    if (outside != null)
+	    	throw new IllegalStateException();
+	    
+	    outside = new Outside();
+	    outside.setUri(gaboto.getConfig().getNSData() + id);
+	    oxpointsIdToEntityLookup.put(id, outside);
+	    entities.add(outside);
 	}
 
 	
@@ -465,9 +485,31 @@ public class TEIImporter {
 			}
 			
 			buildings.add(building);
+
 		}
 		
 		return buildings;
+	}
+	
+	private void getPortal(Element el, Place accessFrom, Place accessTo) {
+		Portal portal = new Portal();
+	    String id = el.getAttribute("oxpID");
+	    if (id == null)
+	    	throw new NullPointerException();
+		portal.setUri(gaboto.getConfig().getNSData() + id);
+		
+		Access a1 = new Access();
+		Access a2 = new Access();
+		
+		a1.setAccessFrom(accessFrom);
+		a1.setAccessTo(accessTo);
+		
+		a2.setAccessFrom(accessTo);
+		a2.setAccessTo(accessFrom);
+		
+		
+		
+		
 	}
 
 	private Room getRoom(Building building, Element roomEl) {
@@ -544,17 +586,22 @@ public class TEIImporter {
 		
 		// rooms
 		entities.add(building);
-		NodeList rooms = buildingEl.getElementsByTagName("place");
-		for(int j = 0; j < rooms.getLength(); j++){
-			if(! (rooms.item(j) instanceof Element))
+		NodeList subplaces = buildingEl.getElementsByTagName("place");
+		for(int j = 0; j < subplaces.getLength(); j++){
+			if(! (subplaces.item(j) instanceof Element))
 				continue;
 			
-			Element roomEl = (Element) rooms.item(j);
-			getRoom(building, roomEl);
+			Element subplaceEl = (Element) subplaces.item(j);
+			if (subplaceEl.getAttribute("type").equals("room")) {
+				getRoom(building, subplaceEl);
+			} else if (subplaceEl.getAttribute("type").equals("portal")) {
+				getPortal(subplaceEl, null, building);
+			}
 		}	
 		
 		
     oxpointsIdToEntityLookup.put(id, building);
+
 		return building;
 	}
 

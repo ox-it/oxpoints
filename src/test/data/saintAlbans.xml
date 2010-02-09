@@ -28,6 +28,7 @@
    <text>
       <body html:onload="load(13)" html:onunload="GUnload()">
          <listPlace>
+        <place oxpID="99999999" type="outside"/>
             <place oucsCode="O_stalban" oxpID="23232333" type="college">
                <placeName>St Alban Hall</placeName>
                <event when="1881" type="ended">

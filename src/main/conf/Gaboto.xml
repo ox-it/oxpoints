@@ -109,8 +109,18 @@
                 <property name="images" type="Image" collection="bag" uri="&oxp;inImage"/>
             </properties>
 
-
             <GabotoEntities>
+                <GabotoEntity name="Access" type="&oxp;Access">
+                    <properties>
+                        <property name="accessFrom" type="Place" uri="&oxp;accessFrom"/>
+                        <property name="accessTo" type="Place" uri="&oxp;accessTo"/>
+                        <property name="usingPortal" type="Portal" uri="&oxp;usingPortal"/>
+                        <property name="accessRights" type="String" collection="bag" uri="&dc;accessRights"/>
+                        <property name="incline" type="String" uri="&oxp;incline"/>
+                    </properties>
+                </GabotoEntity>
+                        
+                        
                 <GabotoEntity name="Image" type="&oxp;Image">
                     <properties>
                         <property name="width" type="String" uri="&oxp;width"/>
@@ -149,6 +159,17 @@
                     </properties>
 
                     <GabotoEntities>
+                        <GabotoEntity name="Outside" type="&oxp;Outside"/>
+                        
+                        <GabotoEntity name="Portal" type="&oxp;Portal">
+                            <properties>
+                                <property name="dcType" collection="bag" type="String" uri="&dc;title"/>
+                                <property name="format" collection="bag" type="String" uri="&dc;format"/>
+                                <property name="extent" type="String" uri="&dc;extent"/>
+                                <property name="steps" type="Integer" uri="&oxp;steps"/>
+                            </properties>
+                        </GabotoEntity>
+                        
                         <GabotoEntity name="Building" type="&oxp;Building">
                             <properties>
                                 <passiveProperty name="occupiedBy" type="Unit"
