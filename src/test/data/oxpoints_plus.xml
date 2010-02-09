@@ -28,7 +28,7 @@
   <text>
     <body html:onload="load(13)" html:onunload="GUnload()">
       <listPlace>
-        <place oxpID="99999999" type="outside"/>
+        <!--<place oxpID="99999999" type="outside"/>-->
         <place oucsCode="O_carpark1" oxpID="23232323" type="carpark">
           <placeName>56 and 58 Banbury Road</placeName>
           <label>approx 10 spaces</label>

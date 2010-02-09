@@ -62,25 +62,7 @@
 	    <idno type="olis"><xsl:value-of
 	    select="@olisID"/></idno>
 	  </xsl:if>	
-	  <trait name="type">
-	    <xsl:choose>
-	    <xsl:when test="tei:event[@type='status']">
-	      <xsl:attribute name="to">
-		<xsl:value-of
-		    select="tei:event[@type='status']/@when"/>
-	      </xsl:attribute>
-	      <xsl:text>Hall</xsl:text>
-	    </xsl:when>
-	    <xsl:otherwise>
-	      <xsl:choose>
-		<xsl:when test="@type='college'">College</xsl:when>
-		<xsl:otherwise>
-		  <xsl:value-of select="@type"/>
-		</xsl:otherwise>
-	      </xsl:choose>
-	    </xsl:otherwise>
-	    </xsl:choose>
-	  </trait>
+	  <xsl:call-template name="traitMe"/>
 	  <xsl:for-each select="tei:event[@type='status']">
 	      <trait name="type" from="{@when}">College</trait>
 	  </xsl:for-each>
@@ -120,6 +102,15 @@
    </xsl:copy>
   </xsl:template>
   
+  <xsl:template match="tei:place">
+    <xsl:copy>
+    <xsl:apply-templates select="@*"/>
+    <xsl:call-template name="traitMe"/>
+    <xsl:apply-templates
+	select="*|processing-instruction()|comment()|text()"/>
+    </xsl:copy>
+  </xsl:template>
+
   <xsl:template match="*">
     <xsl:copy>
       <xsl:apply-templates 
@@ -132,4 +123,30 @@
   <xsl:template match="@olisCode"/>
   <xsl:template match="@oucsCode"/>
   <xsl:template match="@obnCode"/>
+
+  <xsl:template name="traitMe">
+    <trait name="type">
+      <xsl:choose>
+	<xsl:when test="tei:event[@type='status']">
+	  <xsl:attribute name="to">
+	    <xsl:value-of
+		select="tei:event[@type='status']/@when"/>
+	  </xsl:attribute>
+	  <xsl:text>Hall</xsl:text>
+	</xsl:when>
+	<xsl:otherwise>
+	  <xsl:choose>
+	    <xsl:when test="@type='college'">College</xsl:when>
+	    <xsl:when test="@type='room'">Room</xsl:when>
+	    <xsl:when test="@type='building'">Building</xsl:when>
+	    <xsl:otherwise>
+	      <xsl:value-of select="@type"/>
+	    </xsl:otherwise>
+	  </xsl:choose>
+	</xsl:otherwise>
+      </xsl:choose>
+    </trait>
+
+  </xsl:template>
+
 </xsl:stylesheet>
