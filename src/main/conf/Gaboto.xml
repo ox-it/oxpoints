@@ -257,6 +257,8 @@
                     <GabotoEntities>
                         <GabotoEntity name="College" type="&oxp;College"/>
 
+						<GabotoEntity name="Hall" type="&oxp;Hall"/>
+
                         <GabotoEntity name="Department" type="&oxp;Department"/>
 
                         <GabotoEntity name="Division" type="&oxp;Division"/>

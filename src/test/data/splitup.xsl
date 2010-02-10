@@ -11,7 +11,7 @@
     <xsl:key name="PLACES" match="tei:place" use="@oxpID"/>
     <xsl:key name="RELS" match="tei:relation" use="substring-after(@active,'#')"/>
     <xsl:template match="/">
-        <xsl:result-document href="99999999.xml" method="xml"
+        <xsl:result-document href="individual/99999999.xml" method="xml"
             indent="yes">
             <place type="university">
                 <placeName>University of Oxford</placeName>
@@ -28,7 +28,7 @@
             </place>
         </xsl:result-document>
         <xsl:for-each select="key('ALLPLACES',1)">
-            <xsl:result-document href="{@oxpID}.xml" method="xml" indent="yes">
+            <xsl:result-document href="individual/{@oxpID}.xml" method="xml" indent="yes">
                 <xsl:copy>
                     <xsl:apply-templates select="@*"/>
                     <xsl:for-each select="tei:event">

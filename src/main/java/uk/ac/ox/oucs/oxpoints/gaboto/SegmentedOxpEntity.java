@@ -165,8 +165,10 @@ public class SegmentedOxpEntity {
 	
 	public void addToGaboto(Map<String,SegmentedOxpEntity> entityMapping) {
 		Object breakpoint ;
-		if (oxpID.equals("23232373"))
-			breakpoint = 1;
+		if (oxpID.equals("23232364")) {
+			Set<Relation> rels = relationsByID.get(oxpID);
+			rels.size();
+		}
 		
 		Set<TimeInstant> instants = new TreeSet<TimeInstant> ();
 		Map<TimeInstant,Integer> instantOffsets = new HashMap<TimeInstant,Integer>();
@@ -201,6 +203,8 @@ public class SegmentedOxpEntity {
 			for (int i=instantOffsets.get(typeSpan.from); i<instantOffsets.get(typeSpan.to); i++)
 				typeArray[i] = typeSpan;
 		}
+		
+		
 		
 		for (int i=0; i<instantArray.length-1; i++) {
 			try {
