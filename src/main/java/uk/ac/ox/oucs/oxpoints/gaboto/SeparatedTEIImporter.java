@@ -131,10 +131,6 @@ public class SeparatedTEIImporter {
 			warningHandler.addWarning("Entity has no oxpID");
 			return;
 		}
-		
-		if (oxpID.equals("23232364")) {
-			System.out.println("Foo");
-		}
 			
 		
 		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, oxpID, elements.get(0));

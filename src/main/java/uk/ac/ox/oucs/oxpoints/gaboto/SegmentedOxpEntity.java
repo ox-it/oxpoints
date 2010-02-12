@@ -152,8 +152,8 @@ public class SegmentedOxpEntity {
 			TimeInstant from = SeparatedTEIImporter.latest(active.from, passive.from);
 			relation.from = SeparatedTEIImporter.latest(relation.from, from);
 
-			TimeInstant to = SeparatedTEIImporter.latest(active.to, passive.to);
-			relation.to = SeparatedTEIImporter.latest(relation.to, to);
+			TimeInstant to = SeparatedTEIImporter.earliest(active.to, passive.to);
+			relation.to = SeparatedTEIImporter.earliest(relation.to, to);
 			
 			if (relation.from.compareTo(relation.to) != -1)
 				relationsToRemove.add(relation);
@@ -165,10 +165,6 @@ public class SegmentedOxpEntity {
 	
 	public void addToGaboto(Map<String,SegmentedOxpEntity> entityMapping) {
 		Object breakpoint ;
-		if (oxpID.equals("23232364")) {
-			Set<Relation> rels = relationsByID.get(oxpID);
-			rels.size();
-		}
 		
 		Set<TimeInstant> instants = new TreeSet<TimeInstant> ();
 		Map<TimeInstant,Integer> instantOffsets = new HashMap<TimeInstant,Integer>();
