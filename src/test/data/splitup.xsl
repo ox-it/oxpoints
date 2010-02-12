@@ -64,7 +64,7 @@
                     </xsl:if>	
                     <xsl:call-template name="traitMe"/>
                     <xsl:for-each select="tei:event[@type='status']">
-                        <trait name="type" from="{@when}">College</trait>
+                        <trait type="type" from="{@when}">College</trait>
                     </xsl:for-each>
 
                     <xsl:apply-templates 
@@ -111,6 +111,7 @@
         </xsl:copy>
     </xsl:template>
 
+
     <xsl:template match="*">
         <xsl:copy>
             <xsl:apply-templates 
@@ -118,14 +119,14 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="@type"/>
+    <xsl:template match="tei:place/@type"/>
     <xsl:template match="@olisID"/>
     <xsl:template match="@olisCode"/>
     <xsl:template match="@oucsCode"/>
     <xsl:template match="@obnCode"/>
 
     <xsl:template name="traitMe">
-        <trait name="type">
+        <trait type="type">
             <xsl:choose>
                 <xsl:when test="tei:event[@type='status']">
                     <xsl:attribute name="to">
