@@ -13,10 +13,11 @@
     <xsl:template match="/">
         <xsl:result-document href="individual/99999999.xml" method="xml"
             indent="yes">
-            <place type="university">
+            <place type="university" oxpID="99999999">
                 <placeName>University of Oxford</placeName>
+                <trait type="type">Unit</trait>
                 <xsl:for-each select="//tei:place[@type='building' and @obnCode]">
-                    <relation type="occupies"
+                    <relation name="occupies"
                         passive="#{@oxpID}">
                         <xsl:choose>
                             <xsl:when test="tei:event/@type='acquisition'">
@@ -151,6 +152,8 @@
                         <xsl:when test="@type='museum'">Museum</xsl:when>
                         <xsl:when test="@type='library'">Library</xsl:when>
                         <xsl:when test="@type='sublibrary'">SubLibrary</xsl:when>
+                        <xsl:when test="@type='poi'">Unit</xsl:when>
+                        <xsl:when test="@type='uas'">Department</xsl:when>
                         <xsl:otherwise>
                             <xsl:value-of select="@type"/>
                         </xsl:otherwise>

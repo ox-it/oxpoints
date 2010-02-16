@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 
 import net.sf.gaboto.EntityAlreadyExistsException;
@@ -18,21 +17,7 @@ import net.sf.gaboto.time.ImmutableTimeInstant;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Department;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Division;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.DrainCover;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Faculty;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Group;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Library;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Museum;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Room;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.SubLibrary;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.WAP;
 
 public class SegmentedOxpEntity {
 	private String oxpID;
@@ -41,23 +26,24 @@ public class SegmentedOxpEntity {
 	
 	private TimeInstant from;
 	private TimeInstant to;
+	private String filename;
 	
 	private SeparatedTEIImporter.WarningHandler warningHandler;
-	
-	private static final Map<String,Class<? extends OxpEntity>> typeMap = getTypeMap();
+
 	private static final Set<Relation> relations = new HashSet<Relation>();
 	private static final Map<String,Set<Relation>> relationsByID = new HashMap<String,Set<Relation>>();
 	private final Set<Property> properties = new HashSet<Property>();
 	private final Set<TypeSpan> types = new HashSet<TypeSpan>();
 	
-	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, Element element) {
+	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, Element element, String filename) {
 		this(
 				gaboto, warningHandler, oxpID,
 				new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
-				new ImmutableTimeInstant(element.getAttribute("inferredTo")));
+				new ImmutableTimeInstant(element.getAttribute("inferredTo")),
+				filename);
 	}
 
-	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, TimeInstant from, TimeInstant to) {
+	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, TimeInstant from, TimeInstant to, String filename) {
 		this.oxpID = oxpID;
 		this.uri = gaboto.getConfig().getNSData()+oxpID;
 		this.gaboto = gaboto;
@@ -67,7 +53,9 @@ public class SegmentedOxpEntity {
 		
 		this.warningHandler = warningHandler;
 		
-		System.out.println("NEW "+oxpID);
+		this.filename = filename;
+		
+		//System.out.println("NEW "+oxpID);
 
 	}
 	
@@ -78,7 +66,7 @@ public class SegmentedOxpEntity {
 					new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
 					new ImmutableTimeInstant(element.getAttribute("inferredTo"))));
 		} catch (ClassNotFoundException e) {
-			warningHandler.addWarning("Invalid type for entity "+oxpID+": "+element.getTextContent());
+			warningHandler.addWarning(filename, "Invalid type for entity "+oxpID+": "+element.getTextContent());
 		}
 	}
 	
@@ -121,7 +109,7 @@ public class SegmentedOxpEntity {
 	}
 	
 	public void addProperty(String property, Object value, TimeInstant start, TimeInstant end) {
-		System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
+		//System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
 		
 		properties.add(new Property(property, value, start, end));
 	}
@@ -164,8 +152,6 @@ public class SegmentedOxpEntity {
 	}
 	
 	public void addToGaboto(Map<String,SegmentedOxpEntity> entityMapping) {
-		Object breakpoint ;
-		
 		Set<TimeInstant> instants = new TreeSet<TimeInstant> ();
 		Map<TimeInstant,Integer> instantOffsets = new HashMap<TimeInstant,Integer>();
 		
@@ -207,7 +193,7 @@ public class SegmentedOxpEntity {
 				entities[i] = typeArray[i].entityClass.newInstance();
 
 			} catch (NullPointerException e) {
-				warningHandler.addWarning("Entity "+oxpID+" has periods of its existence without a type.");
+				warningHandler.addWarning(filename, "Entity "+oxpID+" has periods of its existence without a type.");
 				return;
 			} catch (InstantiationException e) {
 				throw new GabotoRuntimeException();
@@ -219,15 +205,17 @@ public class SegmentedOxpEntity {
 		}
 		
 		for (Property property : properties) {
+			Class<? extends OxpEntity> et=null;
 			try {
 				for (int i=instantOffsets.get(property.from); i<instantOffsets.get(property.to); i++) {
+					et = typeArray[i].entityClass;
 					Method m = typeArray[i].entityClass.getMethod(property.name, property.value.getClass());
 					m.invoke(entities[i], property.value);
 				}
 			} catch (SecurityException e) {
 				throw new GabotoRuntimeException();
 			} catch (NoSuchMethodException e) {
-				throw new GabotoRuntimeException();
+				warningHandler.addWarning(filename, "Cannot call "+property.name+" on entity of type "+et.getName());
 			} catch (IllegalArgumentException e) {
 				throw new GabotoRuntimeException();
 			} catch (IllegalAccessException e) {
@@ -240,10 +228,12 @@ public class SegmentedOxpEntity {
 		if (relationsByID.containsKey(oxpID))
 			for (Relation relation : relationsByID.get(oxpID)) {
 				OxpEntity proxy_;
+				Class<? extends OxpEntity> et=null;
 				try {
 					proxy_ = relation.argumentClass.newInstance();
 					proxy_.setUri(gaboto.getConfig().getNSData()+relation.passive);
 					for (int i=instantOffsets.get(relation.from); i<instantOffsets.get(relation.to); i++) {
+						et = typeArray[i].entityClass;
 						Method m = typeArray[i].entityClass.getMethod(relation.name, relation.argumentClass); //proxy.getClass());
 						m.invoke(entities[i], proxy_);
 					}
@@ -252,7 +242,7 @@ public class SegmentedOxpEntity {
 				} catch (SecurityException e) {
 					throw new GabotoRuntimeException();
 				} catch (NoSuchMethodException e) {
-					throw new GabotoRuntimeException();
+					warningHandler.addWarning(filename, "Cannot call "+relation.name+" on entity of type "+et.getName());
 				} catch (IllegalArgumentException e) {
 					throw new GabotoRuntimeException();
 				} catch (IllegalAccessException e) {
@@ -272,25 +262,7 @@ public class SegmentedOxpEntity {
 		}
 	}
 	
-	private static  Map<String,Class<? extends OxpEntity>> getTypeMap() {
-		Map<String,Class<? extends OxpEntity>> map = new HashMap<String,Class<? extends OxpEntity>>();
-		
-		map.put("college", College.class);
-		map.put("department", Department.class);
-		map.put("faculty", Faculty.class);
-		map.put("room", Room.class);
-		map.put("division", Division.class);
-		map.put("drain_cover", DrainCover.class);
-		map.put("building", Building.class);
-		map.put("library", Library.class);
-		map.put("sublibrary", SubLibrary.class);
-		map.put("carpark", Carpark.class);
-		map.put("wap", WAP.class);
-		map.put("museum", Museum.class);
-		map.put("group", Group.class);
-		
-		return map;
-	}
+
 	
 	private class Relation {
 		String active;
@@ -301,7 +273,7 @@ public class SegmentedOxpEntity {
 		Class<? extends OxpEntity> argumentClass;
 		
 		public Relation(String active, String passive, String name, TimeInstant from, TimeInstant to, Class<? extends OxpEntity> argumentClass) {
-			System.out.println("REL "+name+", "+active+", "+passive+", "+from.toString()+", "+to.toString());
+			//System.out.println("REL "+name+", "+active+", "+passive+", "+from.toString()+", "+to.toString());
 			if (active.equals(""))
 				throw new AssertionError();
 			this.active = active;
@@ -328,7 +300,6 @@ public class SegmentedOxpEntity {
 	}
 	
 	private class TypeSpan {
-		String name;
 		Class <? extends OxpEntity> entityClass;
 		TimeInstant from;
 		TimeInstant to;
@@ -336,7 +307,6 @@ public class SegmentedOxpEntity {
 		
 		@SuppressWarnings("unchecked")
 		public TypeSpan(String name, TimeInstant from, TimeInstant to) throws ClassNotFoundException{
-			this.name = name;
 			this.entityClass = (Class<? extends OxpEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities."+name);
 			try {
 				this.proxy = this.entityClass.newInstance();

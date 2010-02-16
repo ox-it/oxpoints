@@ -2,17 +2,16 @@ package uk.ac.ox.oucs.oxpoints.gaboto;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.TreeMap;
 import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import net.sf.gaboto.EntityAlreadyExistsException;
 import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoFactory;
 import net.sf.gaboto.GabotoRuntimeException;
@@ -29,21 +28,9 @@ import org.xml.sax.SAXException;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Department;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Division;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.DrainCover;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Faculty;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Group;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Museum;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Room;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.SubLibrary;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Library;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.WAP;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
 
 public class SeparatedTEIImporter {
 
@@ -52,6 +39,8 @@ public class SeparatedTEIImporter {
 
 	public final static String XML_NS = "http://www.w3.org/XML/1998/namespace";
 	private Logger logger = Logger.getLogger("uk.ac.ox.oucs.oxpoints.importer");
+
+	private Map<String,Website> websites = new HashMap<String,Website>();
 	
 		
 	private Map<String, SegmentedOxpEntity> oxpointsIdToEntityLookup = new HashMap<String, SegmentedOxpEntity>();
@@ -65,7 +54,6 @@ public class SeparatedTEIImporter {
 		assert directory.isDirectory();
 		
 		for (File file : directory.listFiles()) {
-			System.out.println("Loading " + file);
 			try {
 				if (file.toString().endsWith(".xml"))
 					loadFile(file);
@@ -86,6 +74,7 @@ public class SeparatedTEIImporter {
 	}
 	
 	public void loadFile(File file) throws IOException, SAXException, ParserConfigurationException {
+		warningHandler.setFilename(file.getName());
 		Vector<Element> elements = new Vector<Element>();
 		Document document = XMLUtils.readInputFileIntoJAXPDoc(file);
 		String oxpID;
@@ -110,20 +99,20 @@ public class SeparatedTEIImporter {
 			parseDates(elem, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		}
 
-		loadEntity(oxpID, elements);
+		loadEntity(oxpID, elements, file.getName());
 	}
 	
-	public void loadEntity(String oxpID, Vector<Element> elements) {
-		loadEntity(oxpID, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+	public void loadEntity(String oxpID, Vector<Element> elements, String filename) {
+		loadEntity(oxpID, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY, filename);
 	}
 	
-	public void loadEntity(String oxpID, Element element, TimeInstant lower, TimeInstant upper) {
+	public void loadEntity(String oxpID, Element element, TimeInstant lower, TimeInstant upper, String filename) {
 		Vector<Element> elements = new Vector<Element>();
 		elements.add(element);
-		loadEntity(oxpID, elements, lower, upper);
+		loadEntity(oxpID, elements, lower, upper, filename);
 	}
 	
-	public void loadEntity(String oxpID, Vector<Element> elements, TimeInstant lower, TimeInstant upper) {
+	public void loadEntity(String oxpID, Vector<Element> elements, TimeInstant lower, TimeInstant upper, String filename) {
 		if (elements.size() > 1)
 			throw new AssertionError("We can't yet handle discontinuous entities.");
 		
@@ -133,7 +122,7 @@ public class SeparatedTEIImporter {
 		}
 			
 		
-		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, oxpID, elements.get(0));
+		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, oxpID, elements.get(0), filename);
 		oxpointsIdToEntityLookup.put(oxpID, entity);
 
 		for (Element element : elements) {
@@ -145,10 +134,22 @@ public class SeparatedTEIImporter {
 				String tagName = elem.getTagName();
 				String elemType = elem.getAttribute("type");
 
-				if (tagName.equals("trait") && elem.getAttribute("name").equals("type"))
-					entity.addType(elem);
+				TimeInstant from = new ImmutableTimeInstant(elem.getAttribute("inferredFrom"));
+				TimeInstant to = new ImmutableTimeInstant(elem.getAttribute("inferredTo"));
 
-				if (tagName.equals("placeName")) {
+				if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
+					entity.addType(elem);
+					
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("url")) {
+					entity.addProperty("setHomepage", getWebsite(elem), from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("iturl")) {
+					entity.addProperty("setItHomepage", getWebsite(elem), from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("liburl")) {
+					entity.addProperty("setLibraryHomepage", getWebsite(elem), from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("weblearn")) {
+					entity.addProperty("setWeblearn", getWebsite(elem), from, to);
+
+				} else if (tagName.equals("placeName")) {
 					entity.addProperty("setName", elem);
 
 				} else if (tagName.equals("idno")) {
@@ -166,20 +167,16 @@ public class SeparatedTEIImporter {
 						if (!(children.item(k) instanceof Element))
 							continue;
 						Element child = (Element) children.item(k);
-						if (elemType.equals("point") && child.getTagName().equals("geo")) {
+						if (child.getTagName().equals("geo")) {
 							Location loc = new Location();
 							loc.setPos(child.getTextContent());
 							entity.addProperty("setLocation", loc, elem);
-						} else if (elemType.equals("address") && child.getTagName().equals("address")) {
+						} else if (child.getTagName().equals("address")) {
 							entity.addProperty("setAddress", extractAddress(child), elem);
 						}
 					}
 
 				}
-				
-				Object breakpoint;
-				if (oxpID.equals("32320022"))
-					breakpoint = 1;
 
 				if (tagName.equals("relation")) {
 					String relationMethod, relationName = elem.getAttribute("name");
@@ -203,7 +200,7 @@ public class SeparatedTEIImporter {
 						}
 					}
 				} else if (tagName.equals("place")) {
-					loadChildEntity(elem);
+					loadChildEntity(elem, filename);
 					entity.addRelation(
 							"setParent",
 							elem.getAttribute("oxpID"),
@@ -215,12 +212,13 @@ public class SeparatedTEIImporter {
 		}		
 	}
 	
-	private void loadChildEntity(Element elem) {
+	private void loadChildEntity(Element elem, String filename) {
 		loadEntity(
 				elem.getAttribute("oxpID"),
 				elem,
 				new ImmutableTimeInstant(elem.getAttribute("inferredFrom")),
-				new ImmutableTimeInstant(elem.getAttribute("inferredTo"))
+				new ImmutableTimeInstant(elem.getAttribute("inferredTo")),
+				filename
 		);
 	}
 
@@ -288,10 +286,35 @@ public class SeparatedTEIImporter {
 		return address;
 	}
 	
+	public WarningHandler getWarningHandler() {
+		return warningHandler;
+	}
+	
+	public Website getWebsite(Element elem) {
+		NodeList ns = elem.getElementsByTagName("desc");
+		ns = ((Element) ns.item(0)).getElementsByTagName("ptr");
+		Element e = (Element) ns.item(0);
+		String url = e.getAttribute("target");
+		
+		if (websites.containsKey(url)) {
+			return websites.get(url);
+		} else {
+			Website website = new Website();
+			System.out.println("Adding website "+url);
+			website.setUri(url);
+			websites.put(url, website);
+			try {
+				gaboto.add(website);
+			} catch (EntityAlreadyExistsException e1) {
+				throw new GabotoRuntimeException();
+			}
+			return website;
+		}
+	}
+	
 	public static void main(String[] args) {
 		String filename = args[0];
 		File directory = new File(filename);
-		System.out.println(filename);
 		if(! directory.exists())
 			throw new RuntimeException("Argument one needs to be a file");
 
@@ -299,17 +322,47 @@ public class SeparatedTEIImporter {
 		Gaboto gaboto = GabotoFactory.getEmptyInMemoryGaboto();
 		SeparatedTEIImporter importer = new SeparatedTEIImporter(gaboto);
 		importer.loadDirectory(directory);
-		gaboto.persistToDisk(args[1]);
-		System.out.println("done");
+		
+		WarningHandler warningHandler = importer.getWarningHandler();
+		if (warningHandler.hasWarnings()) {
+			warningHandler.printWarnings(System.err);
+			System.exit(1);
+		} else {
+			gaboto.persistToDisk(args[1]);
+			System.exit(0);
+		}
 	}
 	
 	public class WarningHandler {
-		private Vector<String> warnings = new Vector<String> ();
+		private TreeMap<String,Vector<String>> warnings = new TreeMap<String,Vector<String>>();
+		private String filename;
 		
 		public void addWarning(String warning) {
-			System.out.println("W "+warning);
-			warnings.add(warning);
+			addWarning(filename, warning);
+		}
+		
+		public void addWarning(String filename, String warning) {
+			if (!warnings.containsKey(filename))
+				warnings.put(filename,new Vector<String>());
+			warnings.get(filename).add(warning);
+		}
+		
+		public boolean hasWarnings() {
+			return (warnings.size() > 0);
+		}
+		
+		public void setFilename(String filename) {
+			this.filename = filename;
+		}
+		
+		public void printWarnings(PrintStream out) {
+			for (String filename : warnings.keySet()) {
+				out.println("In file '"+filename+"':");
+				for (String warning : warnings.get(filename))
+					out.println("    "+warning);
+			}	
 		}
 	}
 
 }
+	
