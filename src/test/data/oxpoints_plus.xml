@@ -212,7 +212,7 @@
             </location>
           </place>
           <place oxpID="23232343" type="building">
-            <placeName>Sports Ground</placeName>
+            <placeName>Balliol College Sports Ground</placeName>
             <location when="2007-01-25T11:42:03.703Z">
               <geo rend="15">-1.24923348426818 51.75551523054959</geo>
               <note> recorded by Plummer</note>
@@ -346,7 +346,7 @@
             </location>
           </place>
           <place oxpID="23232354" type="building">
-            <placeName>Library</placeName>
+            <placeName>Christ Church Library</placeName>
             <location when="2007-05-22T17:03:38.878+01:00">
               <geo rend="272">-1.2550699710845947 51.75108523521932</geo>
               <note> recorded by Owen Massey</note>
@@ -406,14 +406,14 @@
             </location>
           </place>
           <place oxpID="23232359" type="building">
-            <placeName>Chapel</placeName>
+            <placeName>Exeter College Chapel</placeName>
             <location when="2007-01-23T14:37:24.977Z">
               <geo rend="280">-1.25563859939575 51.75412716781519</geo>
               <note> recorded by Jonathan Marks</note>
             </location>
           </place>
           <place oxpID="23232360" type="building">
-            <placeName>Hall</placeName>
+            <placeName>Exeter College Hall</placeName>
             <location when="2007-01-23T14:38:51.793Z">
               <geo rend="280">-1.2557458877563 51.753527</geo>
               <note> recorded by Jonathan Marks</note>
@@ -625,7 +625,7 @@
             </location>
           </place>
           <place oxpID="23232376" type="building">
-            <placeName>Acland site Main entrance</placeName>
+            <placeName>Acland site main entrance</placeName>
             <location when="2007-01-29T13:18:39.048Z">
               <geo rend="105">-1.26030564308166 51.76110689801891</geo>
               <note> recorded by Steve Kersley</note>
@@ -765,13 +765,13 @@
             </desc>
           </trait>
           <place oxpID="23232388" type="building" subtype="primary">
-            <placeName>Main College</placeName>
+            <placeName>Lincoln College main building</placeName>
             <location when="2007-01-23T10:46:08.835Z">
               <geo rend="285">-1.2558746337890 51.75302465696556</geo>
               <note> recorded by Mike White</note>
             </location>
             <place oxpID="23232389" type="room">
-              <placeName>Hall</placeName>
+              <placeName>Lincoln College Hall</placeName>
             </place>
           </place>
           <place oxpID="23232390" type="building">
@@ -857,7 +857,7 @@
             </location>
           </place>
           <place oxpID="23232397" type="building">
-            <placeName>College Chapel</placeName>
+            <placeName>Harris Manchester College Chapel</placeName>
             <location when="2007-01-29T15:25:50.369Z">
               <geo rend="90">-1.2521839141845 51.75524957591128</geo>
               <note> recorded by Sarah Lawson</note>
@@ -1093,13 +1093,10 @@
             </location>
           </place>
           <place oxpID="23232418" type="building">
-            <placeName>(unknown building)</placeName>
-            <place oxpID="23232419" type="room">
-              <placeName>Boat House</placeName>
-            </place>
+              <placeName>The Queen's College Boat House</placeName>
           </place>
           <place oxpID="23232420" type="building">
-            <placeName>Chapel and Fellows' Garden</placeName>
+            <placeName>The Queen's College Chapel and Fellows' Garden</placeName>
           </place>
           <place oxpID="23233914" type="building">
             <placeName>(unknown building)</placeName>
@@ -1108,7 +1105,7 @@
             </place>
           </place>
           <place oxpID="23232422" type="building">
-            <placeName>The Hall</placeName>
+            <placeName>The Queen's College Hall</placeName>
           </place>
         </place>
         <place oucsCode="rege" oxpID="23232423" type="college">
@@ -1334,7 +1331,7 @@
             </location>
           </place>
           <place oxpID="23232444" type="building">
-            <placeName>Annexe</placeName>
+            <placeName>St Cross Annexe</placeName>
             <location when="2007-01-25T10:45:45.673Z">
               <geo rend="180">-1.24835371971130 51.75554843726949</geo>
               <note> recorded by Razvan Novacovschi</note>
@@ -1751,7 +1748,7 @@
             </location>
           </place>
           <place oxpID="23232482" type="building">
-            <placeName>SCR</placeName>
+            <placeName>Wadham SCR</placeName>
             <location when="2007-01-23T12:53:29.589Z">
               <geo rend="10">-1.2541043758392 51.75571447050277</geo>
               <note> recorded by Mike Smith</note>
@@ -3539,7 +3536,7 @@ data, and if so, how? -->
           </trait>
           <place oxpID="23232622" type="building" subtype="primary" obnCode="327">
             <event when="2001" type="construction"/>
-            <placeName>Said Business School</placeName>
+            <placeName>Said Business School main building</placeName>
             <location when="2007-01-29T12:44:33.353Z">
               <geo>-1.26849174499511 51.75338994968635</geo>
               <note> recorded by Jerome Hickey</note>
