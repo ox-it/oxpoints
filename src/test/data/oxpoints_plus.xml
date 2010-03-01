@@ -3006,7 +3006,7 @@ data, and if so, how? -->
           <event when="1924" type="acquisition"/>
           <placeName>15 Norham Gardens</placeName>
           <location when="2007-01-30T14:51:00.941Z">
-            <geo>-1.2554562091827392 51.763875911635765</geo>
+            <geo>-1.256055 51.763776</geo>
             <note> recorded by itss0059@edstud.ox.ac.uk</note>
           </location>
         </place>
@@ -3254,7 +3254,7 @@ data, and if so, how? -->
             <event when="1966" type="acquisition"/>
             <placeName>45 Banbury Road</placeName>
             <location when="2007-06-14T15:11:44.977+01:00">
-              <geo>-1.2609761953353882 51.764214556322095</geo>
+              <geo>-1.26082867 51.76336462</geo>
               <note> recorded by Janet McKnight</note>
             </location>
           </place>
@@ -3263,7 +3263,7 @@ data, and if so, how? -->
             <event when="1966" type="acquisition"/>
             <placeName>47 Banbury Road</placeName>
             <location when="2007-06-14T15:11:44.977+01:00">
-              <geo>-1.2609761953353882 51.764214556322095</geo>
+              <geo>-1.26084208 51.76349410</geo>
               <note> recorded by Janet McKnight</note>
             </location>
           </place>
@@ -3322,7 +3322,7 @@ data, and if so, how? -->
           <event when="1967" type="acquisition"/>
           <placeName>58 Banbury Road</placeName>
           <location when="2007-01-24T10:30:07.229Z">
-            <geo>-1.26038074493408 51.76321853528716</geo>
+            <geo>-1.260541 51.763498</geo>
             <note> recorded by Natasha Heaton</note>
           </location>
         </place>
@@ -4418,7 +4418,7 @@ data, and if so, how? -->
             <event when="1887" type="construction"/>
             <placeName>Ruskin School, 74 High Street</placeName>
             <location when="2008-01-09T16:00:00">
-              <geo>-1.25054 51.75246</geo>
+              <geo>-1.24948562 51.75241693</geo>
               <note>Submitted by Stephen Sangar</note>
             </location>
           </place>
@@ -4522,7 +4522,7 @@ data, and if so, how? -->
             <event when="1966" type="acquisition"/>
             <placeName>51-53 Banbury Road</placeName>
             <location when="2007-01-24T10:28:07.258Z">
-              <geo>-1.26085281372070 51.76321853528716</geo>
+              <geo>-1.26086087 51.76370658</geo>
               <note> recorded by Natasha Heaton</note>
             </location>
           </place>
@@ -6439,7 +6439,7 @@ data, and if so, how? -->
           <event when="1993" type="acquisition"/>
           <placeName>99 Banbury Road</placeName>
           <location>
-            <geo>-1.262457 51.769303</geo>
+            <geo>-1.26170577 51.76791623</geo>
           </location>
         </place>
         <place oucsCode="b_0010" oxpID="23233619" type="building" obnCode="389">
@@ -6516,7 +6516,7 @@ data, and if so, how? -->
           <event when="1878" type="construction"/>
           <placeName>Examination Schools</placeName>
           <location>
-            <geo>-1.250550 51.752460</geo>
+            <geo>-1.25003278 51.75249997</geo>
           </location>
         </place>
         <place oucsCode="b_0017" oxpID="23233625" type="building" obnCode="678">
@@ -6544,7 +6544,7 @@ data, and if so, how? -->
           <event when="1999" type="construction"/>
           <placeName>Manor Road Building</placeName>
           <location>
-            <geo>-1.248354 51.756941</geo>
+            <geo>-1.24628305 51.75711577</geo>
           </location>
           <place oucsCode="b_0020r1" oxpID="23233629" type="room">
             <placeName>Lecture Theatre</placeName>
@@ -6876,7 +6876,7 @@ data, and if so, how? -->
 	  <event when="1828" type="construction"/>
 	  <placeName>34 St Giles</placeName>
 	  <location when="2007-05-22T16:06:19.321+01:00">
-	    <geo>-1.2610888481140137 51.75854358297344</geo>
+	    <geo>-1.26075088 51.75843068</geo>
 	    <note> recorded by Janet McKnight</note>
 	  </location>
 	</place>
@@ -7171,7 +7171,7 @@ data, and if so, how? -->
           <event when="1885" type="construction"/>
           <event when="1966" type="acquisition"/>
           <location>
-            <geo>-1.261035 51.763044</geo>
+            <geo>-1.26084745 51.76305585</geo>
           </location>
         </place>
         <place type="building" obnCode="119" oxpID="23233697" oucsCode="e_15">
@@ -7270,7 +7270,7 @@ data, and if so, how? -->
           <event when="1875" type="construction"/>
           <event when="1972" type="acquisition"/>
           <location>
-            <geo>-1.255357 51.764276</geo>
+            <geo>-1.25580400 51.76408900</geo>
           </location>
         </place>
         <place type="building" obnCode="185" oxpID="23233745" oucsCode="e_63">
@@ -7418,7 +7418,7 @@ data, and if so, how? -->
           <event when="1840" type="construction"/>
           <event when="2003" type="acquisition"/>
           <location>
-            <geo>-1.261091 51.764783</geo>
+            <geo>-1.26096547 51.76474577</geo>
           </location>
         </place>
         <place type="building" obnCode="284" oxpID="23233799" oucsCode="e_117">
@@ -7461,7 +7461,7 @@ data, and if so, how? -->
           </location>
         </place>
         <place type="building" obnCode="298" oxpID="23233806" oucsCode="e_124">
-          <placeName>Bradmore Road Creche</placeName>
+          <placeName>Bradmore Road Nursery</placeName>
           <event when="1994" type="construction"/>
           <location>
             <geo>-1.258943 51.763627</geo>
