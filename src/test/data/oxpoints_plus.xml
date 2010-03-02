@@ -281,7 +281,7 @@
           <place oxpID="23232349" type="building" subtype="primary">
             <placeName>Brasenose College Lodge</placeName>
             <location when="2007-05-22T11:51:52.71+01:00">
-              <geo rend="95">-1.2542814016342163 51.75292669159709</geo>
+              <geo rend="95">-1.254394 51.753343</geo>
               <note> recorded by Janet McKnight</note>
             </location>
           </place>
@@ -1340,14 +1340,14 @@
           <place oxpID="23232445" type="building">
             <placeName>14 Wellington Square</placeName>
             <location when="2007-02-01T15:14:51.843Z">
-              <geo rend="180">-1.2618184089660644 51.7577134627117</geo>
+              <geo rend="180">-1.261953 51.757833</geo>
               <note> recorded by Razvan Novacovschi</note>
             </location>
           </place>
           <place oxpID="23232446" type="building">
             <placeName>15 Wellington Square</placeName>
             <location when="2007-02-01T15:15:32.139Z">
-              <geo rend="180">-1.2617969512939453 51.75770018066347</geo>
+              <geo rend="180">-1.261979 51.757853</geo>
               <note> recorded by Razvan Novacovschi</note>
             </location>
           </place>
@@ -2025,9 +2025,9 @@
           </trait>
           <place oxpID="23232502" type="building" subtype="primary" obnCode="234">
             <event when="1837" type="construction"/>
-            <placeName>2-4 St Johns Street</placeName>
+            <placeName>2-4 St John Street</placeName>
             <location when="2008-01-09T16:00:00">
-              <geo>-1.26138 51.75544</geo>
+              <geo>-1.261373 51.755366</geo>
               <note>Submitted by Stephen Sangar</note>
             </location>
           </place>
@@ -4915,7 +4915,7 @@ data, and if so, how? -->
             <event when="1845" type="construction"/>
             <placeName>Ashmolean Museum</placeName>
             <location when="2007-01-23T10:21:44.462Z">
-              <geo>-1.26018762588500 51.75536912069192</geo>
+              <geo>-1.260032 51.755250</geo>
               <note> recorded by Ian Miller</note>
             </location>
           </place>
@@ -6328,7 +6328,7 @@ data, and if so, how? -->
           <event when="1940" type="acquisition"/>
           <placeName>34-36 Beaumont Street</placeName>
           <location>
-            <geo>-1.260917 51.755117</geo>
+            <geo>-1.261041 51.755054</geo>
           </location>
         </place>
         <place oucsCode="b_0005" oxpID="23233603" type="building" obnCode="109">
@@ -6659,7 +6659,7 @@ data, and if so, how? -->
           <event when="1875" type="construction"/>
           <placeName>11 Wellington Square</placeName>
           <location>
-            <geo>-1.261982 51.757668</geo>
+            <geo>-1.261856 51.75775</geo>
           </location>
           <trait type="figure">
             <desc>
@@ -6673,7 +6673,7 @@ data, and if so, how? -->
           <event when="2001" type="construction"/>
           <placeName>Sackler Library</placeName>
           <location when="2008-01-09T16:00:00">
-            <geo>-1.2614 51.75544</geo>
+            <geo>-1.261293 51.75520</geo>
           </location>
         </place>
         <place oucsCode="b_0035" oxpID="23233649" type="building" obnCode="250">
@@ -6775,7 +6775,7 @@ data, and if so, how? -->
           <event when="1875" type="construction"/>
           <placeName>16 Wellington Square</placeName>
           <location when="2007-06-14T08:00:00.634+01:00">
-            <geo>-1.262028 51.757803</geo>
+            <geo>-1.262006 51.757870</geo>
             <note> recorded by Sebastian Rahtz</note>
           </location>
         </place>
@@ -6860,7 +6860,7 @@ data, and if so, how? -->
           <event when="1875" type="construction"/>
           <placeName>8 Wellington Square</placeName>
           <location when="2007-06-14T08:00:00.634+01:00">
-            <geo>-1.261717 51.757542</geo>
+            <geo>-1.261690 51.757564</geo>
             <note> recorded by Sebastian Rahtz</note>
           </location>
         </place>
@@ -6868,8 +6868,8 @@ data, and if so, how? -->
           <event when="1875" type="construction"/>
           <placeName>Barnett House, 32-42 Wellington Square</placeName>
           <location when="2008-07-30T17:01:00">
-            <geo>-1.262727 51.757231</geo>
-            <note> recorded by Janet McKnight (from GEarth / postcode)</note>
+            <geo>-1.262816 51.757670</geo>
+            <note></note>
           </location>
         </place>
 	<place oxpID="23233552" type="building" subtype="primary" obnCode="328">
@@ -7377,8 +7377,8 @@ data, and if so, how? -->
           <placeName>43-48 Wellington Square</placeName>
           <event when="1875" type="construction"/>
           <location>
-            <geo>-1.2623 51.7572</geo>
-            <note>Guesstimated from OSM and low accuracy GPS trace by Alex Dutton 2009-09-08</note>
+            <geo>-1.262269 51.757109</geo>
+            <note></note>
           </location>
         </place>
         <place type="building" obnCode="267" oxpID="23233788" oucsCode="e_106">
@@ -7475,8 +7475,8 @@ data, and if so, how? -->
           <placeName>9 Wellington Square</placeName>
           <event when="1875" type="construction"/>
           <location>
-            <geo>-1.2618 51.7577</geo>
-            <note>Guesstimated from OSM map and low accuracy GPS trace by Alex Dutton 2009-09-08</note>
+            <geo>-1.261759 51.757640</geo>
+            <note></note>
           </location>
         </place>
         <place type="building" obnCode="310" oxpID="23233815" oucsCode="e_133">
