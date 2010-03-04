@@ -2349,7 +2349,7 @@ Hospital</addrLine>
           <event when="1966" type="acquisition"/>
           <placeName>12 Bevington Road</placeName>
           <location when="2007-01-24T10:29:14.108Z">
-            <geo>-1.2610673904418 51.76284668180086</geo>
+            <geo>-1.261427 51.762953</geo>
             <note> recorded by Natasha Heaton</note>
           </location>
         </place>
@@ -3366,7 +3366,7 @@ data, and if so, how? -->
           <event when="1990" type="acquisition"/>
           <placeName>92 Woodstock Road</placeName>
           <location when="2007-01-24T10:25:22.617Z">
-            <geo>-1.26119613647460 51.76287324286575</geo>
+            <geo>-1.265370 51.768331</geo>
             <note> recorded by Natasha Heaton</note>
           </location>
         </place>
@@ -6355,7 +6355,7 @@ data, and if so, how? -->
           <event when="1966" type="acquisition"/>
           <placeName>11 Bevington Road</placeName>
           <location>
-            <geo>-1.261920 51.762570</geo>
+            <geo>-1.261293 51.762973</geo>
           </location>
         </place>
         <place oucsCode="b_0004" oxpID="23233602" type="building" obnCode="122">
