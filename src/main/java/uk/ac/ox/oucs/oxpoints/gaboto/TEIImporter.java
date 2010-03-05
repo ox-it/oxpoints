@@ -751,8 +751,10 @@ public class TEIImporter {
     if(! file.exists())
       throw new RuntimeException("Argument one needs to be a file");
     
-    Gaboto gab = GabotoFactory.getPersistentGaboto();
-    new TEIImporter(gab, file).run();
+    Gaboto gaboto = GabotoFactory.getEmptyInMemoryGaboto();
+	new TEIImporter(gaboto, file).run();
+	gaboto.persistToDisk(args[1]);
+	
   }
 	/**
    * @since  6 July 2009
