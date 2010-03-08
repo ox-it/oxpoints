@@ -14,8 +14,7 @@
     <xsl:template match="/">
         <xsl:result-document href="individual/99999999.xml" method="xml"
             indent="yes">
-            <place type="university">
-	      <idno type="oxpID">99999999</idno>
+            <org type="university" oxpID="99999999">
                 <placeName>University of Oxford</placeName>
                 <trait type="type"><desc>Unit</desc></trait>
                 <xsl:for-each select="//tei:place[@type='building' and @obnCode]">
@@ -28,7 +27,7 @@
                         </xsl:choose>
                     </relation>
                 </xsl:for-each>
-            </place>
+            </org>
         </xsl:result-document>
         <xsl:for-each select="key('ALLPLACES',1)">
 	  <xsl:variable name="whatami">

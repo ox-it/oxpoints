@@ -89,17 +89,10 @@ public class SeparatedTEIImporter {
 				if (!(nodes.item(i) instanceof Element))
 					continue;
 				Element e = (Element) nodes.item(i);
-				if (!e.getTagName().equals("org") && e.getTagName().equals("place")) {
-					warningHandler.addWarning(file.getName(), "Found tag '"+e.getTagName()+"' where 'place' or 'org' expected.");
-					return;
-				}
+
 				elements.add(e);
 			}
 		} else {
-			if (!element.getTagName().equals("org") && element.getTagName().equals("place")) {
-				warningHandler.addWarning(file.getName(), "Found tag '"+element.getTagName()+"' where 'place' or 'org' expected.");
-				return;
-			}
 			elements.add(element);
 		}
 		
@@ -189,7 +182,6 @@ public class SeparatedTEIImporter {
 					}
 
 				}
-
 				if (tagName.equals("relation")) {
 					String relationMethod, relationName = elem.getAttribute("name");
 					Class<? extends OxpEntity> relationClass;
@@ -211,13 +203,19 @@ public class SeparatedTEIImporter {
 							);
 						}
 					}
-				} else if (tagName.equals("place")) {
+				} else if (tagName.equals("place") || tagName.equals("org")) {
 					loadChildEntity(elem, filename);
 					entity.addRelation(
 							"setParent",
 							elem.getAttribute("oxpID"),
 							elem, Place.class, true
 					);
+				} else if (tagName.equals("note")) {
+					NodeList figures = element.getElementsByTagName("figure");
+					for (int j=0; j < figures.getLength(); j++) {
+						Element figure = (Element) figures.item(j);
+						
+					}
 				}
 			}
 
@@ -344,35 +342,35 @@ public class SeparatedTEIImporter {
 			System.exit(0);
 		}
 	}
-	
+
 	public class WarningHandler {
 		private TreeMap<String,Vector<String>> warnings = new TreeMap<String,Vector<String>>();
 		private String filename;
-		
+
 		public void addWarning(String warning) {
 			addWarning(filename, warning);
 		}
-		
+
 		public void addWarning(String filename, String warning) {
 			if (!warnings.containsKey(filename))
 				warnings.put(filename,new Vector<String>());
 			warnings.get(filename).add(warning);
 		}
-		
+
 		public boolean hasWarnings() {
 			return (warnings.size() > 0);
 		}
-		
+
 		public void setFilename(String filename) {
 			this.filename = filename;
 		}
-		
+
 		public void printWarnings(PrintStream out) {
 			for (String filename : warnings.keySet()) {
 				out.println("In file '"+filename+"':");
 				for (String warning : warnings.get(filename))
 					out.println("    "+warning);
-			}	
+			}
 		}
 	}
 	
@@ -390,5 +388,9 @@ public class SeparatedTEIImporter {
 		return validTypes;
 	}
 
+	public boolean hasWarnings() {
+		return warningHandler.hasWarnings();
+	}
+
 }
-	
+

@@ -18,10 +18,13 @@ import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 public class SegmentedOxpEntity {
 	private String oxpID;
 	private String uri;
+	private String tagName;
 	private Gaboto gaboto;
 	
 	private TimeInstant from;
@@ -40,10 +43,11 @@ public class SegmentedOxpEntity {
 				gaboto, warningHandler, oxpID,
 				new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
 				new ImmutableTimeInstant(element.getAttribute("inferredTo")),
+				element.getTagName(),
 				filename);
 	}
 
-	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, TimeInstant from, TimeInstant to, String filename) {
+	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, TimeInstant from, TimeInstant to, String tagName, String filename) {
 		this.oxpID = oxpID;
 		this.uri = gaboto.getConfig().getNSData()+oxpID;
 		this.gaboto = gaboto;
@@ -53,6 +57,9 @@ public class SegmentedOxpEntity {
 		
 		this.warningHandler = warningHandler;
 		
+		if (!tagName.equals("org") && !tagName.equals("place"))
+			warningHandler.addWarning(filename, "Root element must be either 'place' or 'org', not '"+tagName+"'.");
+		this.tagName = tagName;
 		this.filename = filename;
 		
 		//System.out.println("NEW "+oxpID);
@@ -61,10 +68,16 @@ public class SegmentedOxpEntity {
 	
 	public void addType(Element element) {
 		try {
-			types.add(new TypeSpan(
-					element.getTextContent(),
-					new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
-					new ImmutableTimeInstant(element.getAttribute("inferredTo"))));
+			TypeSpan typeSpan = new TypeSpan(
+				element.getElementsByTagName("desc").item(0).getTextContent(),
+				new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
+				new ImmutableTimeInstant(element.getAttribute("inferredTo")));
+			if (tagName.equals("place") && !Place.class.isAssignableFrom(typeSpan.entityClass))
+				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'place' element.");
+			else if (tagName.equals("org") && !Unit.class.isAssignableFrom(typeSpan.entityClass))
+				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'org' element.");
+
+			types.add(typeSpan);
 		} catch (ClassNotFoundException e) {
 			warningHandler.addWarning(filename, "Invalid type for entity "+oxpID+": "+element.getTextContent());
 		}
@@ -304,10 +317,12 @@ public class SegmentedOxpEntity {
 		TimeInstant from;
 		TimeInstant to;
 		OxpEntity proxy;
+		String typeName;
 		
 		@SuppressWarnings("unchecked")
 		public TypeSpan(String name, TimeInstant from, TimeInstant to) throws ClassNotFoundException{
 			this.entityClass = (Class<? extends OxpEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities."+name);
+			this.typeName = name;
 			try {
 				this.proxy = this.entityClass.newInstance();
 				this.proxy.setUri(gaboto.getConfig().getNSData()+oxpID);
