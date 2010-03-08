@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI 
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xml:lang="en"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>OXPOINTS</title>
+            <author>Sebastian Rahtz</author>
+         </titleStmt>
+         <publicationStmt>
+	   <p></p>
+	 </publicationStmt>
+         <sourceDesc>
+            <p>ab initio fun</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+<text>
+<body>
+  <schemaSpec ident="oxpoints" start="place org">
+    <moduleRef key="core"/>
+    <moduleRef key="header"/>
+    <moduleRef key="linking"/>
+    <moduleRef key="figures"/>
+    <moduleRef key="namesdates"/>
+    <moduleRef key="tei"/>
+   
+    <elementSpec ident="org" mode="change">
+      <classes>
+	<memberOf key="att.datable"/>
+	<memberOf key="att.typed"/>
+      </classes>
+      <content>
+	<rng:zeroOrMore>
+	  <rng:ref name="idno"/>
+	</rng:zeroOrMore>
+	<rng:zeroOrMore>
+	  <rng:choice>
+	    <rng:ref name="model.labelLike"/>
+	    <rng:ref name="model.placeTraitLike"/>
+	    <rng:ref name="model.nameLike"/>
+	    <rng:ref name="model.placeLike"/>
+	    <rng:ref name="model.noteLike"/>
+	  </rng:choice>
+	</rng:zeroOrMore>
+      </content>
+      <attList>
+	<attDef ident="oxpID" mode="add">
+	  <datatype><rng:text/></datatype>
+	</attDef>
+      </attList>
+    </elementSpec>
+    
+    <elementSpec ident="place" mode="change">
+      <classes>
+	<memberOf key="att.datable"/>
+	<memberOf key="att.typed"/>
+	<memberOf key="model.placeLike"/>
+      </classes>
+      <attList>
+	<attDef ident="rend" mode="delete"/>
+	<attDef ident="oxpID" mode="add">
+	  <datatype><rng:text/></datatype>
+	</attDef>
+      </attList>
+    </elementSpec>
+    
+    <elementSpec ident="relation" mode="change">
+      <classes>
+	<memberOf key="model.placeTraitLike"/>
+	<memberOf key="att.datable"/>
+	<memberOf key="att.editLike"/>
+	<memberOf key="att.naming"/>
+      </classes>
+      <attList>
+	<attDef ident="name" mode="change">
+	  <valList mode="add" type="closed">
+	    <valItem ident="controls"/>
+	    <valItem ident="occupies"/>
+	  </valList>
+	</attDef>
+	<attDef ident="active" mode="delete"/>
+	<attDef ident="mutual" mode="delete"/>
+	<attDef ident="rend" mode="delete"/>
+	<attDef ident="when" mode="delete"/>
+	<attDef ident="to" mode="delete"/>
+	<attDef ident="type" mode="change">
+	  <datatype maxOccurs="2">
+	    <rng:ref xmlns:rng="http://relaxng.org/ns/structure/1.0" name="data.enumerated"/>
+	  </datatype>
+	  <valList type="close">
+	    <valItem ident="geo"/>
+	    <valItem ident="political"/>
+	    <valItem ident="primary"/>
+	  </valList>
+	</attDef>
+      </attList>
+    </elementSpec>
+
+            <classSpec ident="att.ascribed" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="who" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.canonical" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.ranging" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="atLeast" mode="delete"/>
+                  <attDef ident="atMost" mode="delete"/>
+                  <attDef ident="min" mode="delete"/>
+                  <attDef ident="max" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.dimensions" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unit" mode="delete"/>
+                  <attDef ident="quantity" mode="delete"/>
+                  <attDef ident="extent" mode="delete"/>
+                  <attDef ident="precision" mode="delete"/>
+                  <attDef ident="scope" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.damaged" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="hand" mode="delete"/>
+                  <attDef ident="agent" mode="delete"/>
+                  <attDef ident="degree" mode="delete"/>
+                  <attDef ident="group" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable.w3c" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="period" mode="delete"/>
+                  <attDef ident="notBefore" mode="delete"/>
+                  <attDef ident="notAfter" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.declarable" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="default" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.declaring" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="decls" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.divLike" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="org" mode="delete"/>
+                  <attDef ident="sample" mode="delete"/>
+                  <attDef ident="part" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.duration.w3c" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="dur" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.editLike" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="cert" mode="delete"/>
+                  <attDef ident="resp" mode="delete"/>
+                  <attDef ident="evidence" mode="delete"/>
+                  <attDef ident="source" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.global" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="xml:id" mode="delete"/>
+                  <attDef ident="n" mode="delete"/>
+                  <attDef ident="xml:lang" mode="delete"/>
+                  <attDef ident="rendition" mode="delete"/>
+                  <attDef ident="xml:base" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.handFeatures" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="scribe" mode="delete"/>
+                  <attDef ident="script" mode="delete"/>
+                  <attDef ident="medium" mode="delete"/>
+                  <attDef ident="scope" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.internetMedia" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="mimeType" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.interpLike" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="resp" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="inst" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.measurement" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unit" mode="delete"/>
+                  <attDef ident="quantity" mode="delete"/>
+                  <attDef ident="commodity" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.naming" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="nymRef" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.placement" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="place" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.segLike" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="function" mode="delete"/>
+                  <attDef ident="part" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.sourced" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="ed" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.spanning" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="spanTo" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.tableDecoration" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="rows" mode="delete"/>
+                  <attDef ident="cols" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.timed" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="start" mode="delete"/>
+                  <attDef ident="end" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.transcriptional" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="hand" mode="delete"/>
+                  <attDef ident="status" mode="delete"/>
+                  <attDef ident="seq" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.translatable" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="version" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.xmlspace" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="xml:space" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.personal" module="tei" type="atts" mode="change">
+               <attList>
+                  <attDef ident="full" mode="delete"/>
+                  <attDef ident="sort" mode="delete"/>
+               </attList>
+            </classSpec>
+
+            <elementSpec ident="desc" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="address" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="addrLine" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="postCode" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="ptr" mode="change">
+               <attList>
+                  <attDef ident="cRef" mode="delete"/>
+                  <attDef ident="rend" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="ref" mode="change">
+               <attList>
+                  <attDef ident="cRef" mode="delete"/>
+                  <attDef ident="rend" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="osm"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="label" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="note" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="resp" mode="delete"/>
+                  <attDef ident="anchored" mode="delete"/>
+                  <attDef ident="target" mode="delete"/>
+                  <attDef ident="targetEnd" mode="delete"/>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="graphic" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="p" module="core" mode="delete"/>
+            <elementSpec ident="foreign" module="core" mode="delete"/>
+            <elementSpec ident="emph" module="core" mode="delete"/>
+            <elementSpec ident="hi" module="core" mode="delete"/>
+            <elementSpec ident="distinct" module="core" mode="delete"/>
+            <elementSpec ident="said" module="core" mode="delete"/>
+            <elementSpec ident="quote" module="core" mode="delete"/>
+            <elementSpec ident="q" module="core" mode="delete"/>
+            <elementSpec ident="cit" module="core" mode="delete"/>
+            <elementSpec ident="mentioned" module="core" mode="delete"/>
+            <elementSpec ident="soCalled" module="core" mode="delete"/>
+            <elementSpec ident="gloss" module="core" mode="delete"/>
+            <elementSpec ident="term" module="core" mode="delete"/>
+            <elementSpec ident="sic" module="core" mode="delete"/>
+            <elementSpec ident="corr" module="core" mode="delete"/>
+            <elementSpec ident="choice" module="core" mode="delete"/>
+            <elementSpec ident="reg" module="core" mode="delete"/>
+            <elementSpec ident="orig" module="core" mode="delete"/>
+            <elementSpec ident="gap" module="core" mode="delete"/>
+            <elementSpec ident="add" module="core" mode="delete"/>
+            <elementSpec ident="del" module="core" mode="delete"/>
+            <elementSpec ident="unclear" module="core" mode="delete"/>
+            <elementSpec ident="name" module="core" mode="delete"/>
+            <elementSpec ident="rs" module="core" mode="delete"/>
+            <elementSpec ident="num" module="core" mode="delete"/>
+            <elementSpec ident="measure" module="core" mode="delete"/>
+            <elementSpec ident="measureGrp" module="core" mode="delete"/>
+            <elementSpec ident="date" module="core" mode="delete"/>
+            <elementSpec ident="time" module="core" mode="delete"/>
+            <elementSpec ident="abbr" module="core" mode="delete"/>
+            <elementSpec ident="expan" module="core" mode="delete"/>
+            <elementSpec ident="list" module="core" mode="delete"/>
+            <elementSpec ident="item" module="core" mode="delete"/>
+            <elementSpec ident="head" module="core" mode="delete"/>
+            <elementSpec ident="headLabel" module="core" mode="delete"/>
+            <elementSpec ident="headItem" module="core" mode="delete"/>
+            <elementSpec ident="index" module="core" mode="delete"/>
+            <elementSpec ident="binaryObject" module="core" mode="delete"/>
+            <elementSpec ident="milestone" module="core" mode="delete"/>
+            <elementSpec ident="pb" module="core" mode="delete"/>
+            <elementSpec ident="lb" module="core" mode="delete"/>
+            <elementSpec ident="cb" module="core" mode="delete"/>
+            <elementSpec ident="analytic" module="core" mode="delete"/>
+            <elementSpec ident="monogr" module="core" mode="delete"/>
+            <elementSpec ident="series" module="core" mode="delete"/>
+            <elementSpec ident="author" module="core" mode="delete"/>
+            <elementSpec ident="editor" module="core" mode="delete"/>
+            <elementSpec ident="respStmt" module="core" mode="delete"/>
+            <elementSpec ident="resp" module="core" mode="delete"/>
+            <elementSpec ident="title" module="core" mode="delete"/>
+            <elementSpec ident="meeting" module="core" mode="delete"/>
+            <elementSpec ident="imprint" module="core" mode="delete"/>
+            <elementSpec ident="publisher" module="core" mode="delete"/>
+            <elementSpec ident="biblScope" module="core" mode="delete"/>
+            <elementSpec ident="pubPlace" module="core" mode="delete"/>
+            <elementSpec ident="bibl" module="core" mode="delete"/>
+            <elementSpec ident="biblStruct" module="core" mode="delete"/>
+            <elementSpec ident="listBibl" module="core" mode="delete"/>
+            <elementSpec ident="relatedItem" module="core" mode="delete"/>
+            <elementSpec ident="l" module="core" mode="delete"/>
+            <elementSpec ident="lg" module="core" mode="delete"/>
+            <elementSpec ident="sp" module="core" mode="delete"/>
+            <elementSpec ident="speaker" module="core" mode="delete"/>
+            <elementSpec ident="stage" module="core" mode="delete"/>
+            <elementSpec ident="teiCorpus" module="core" mode="delete"/>
+            <elementSpec ident="divGen" module="core" mode="delete"/>
+            <elementSpec ident="figure" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="figDesc" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="table" module="figures" mode="delete"/>
+            <elementSpec ident="row" module="figures" mode="delete"/>
+            <elementSpec ident="cell" module="figures" mode="delete"/>
+            <elementSpec ident="formula" module="figures" mode="delete"/>
+
+            <elementSpec ident="idno" mode="change">
+	      <classes>
+		<memberOf key="model.biblPart"/>
+		<memberOf key="model.labelLike"/>
+		<memberOf key="model.publicationStmtPart"/>
+	      </classes>
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="obn"/>
+                        <valItem ident="olis"/>
+                        <valItem ident="oliscode"/>
+                        <valItem ident="oucs"/>
+                        <valItem ident="oxpID"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="rend" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="teiHeader" module="header" mode="delete"/>
+            <elementSpec ident="fileDesc" module="header" mode="delete"/>
+            <elementSpec ident="titleStmt" module="header" mode="delete"/>
+            <elementSpec ident="sponsor" module="header" mode="delete"/>
+            <elementSpec ident="funder" module="header" mode="delete"/>
+            <elementSpec ident="principal" module="header" mode="delete"/>
+            <elementSpec ident="editionStmt" module="header" mode="delete"/>
+            <elementSpec ident="edition" module="header" mode="delete"/>
+            <elementSpec ident="extent" module="header" mode="delete"/>
+            <elementSpec ident="publicationStmt" module="header" mode="delete"/>
+            <elementSpec ident="distributor" module="header" mode="delete"/>
+            <elementSpec ident="authority" module="header" mode="delete"/>
+            <elementSpec ident="availability" module="header" mode="delete"/>
+            <elementSpec ident="seriesStmt" module="header" mode="delete"/>
+            <elementSpec ident="notesStmt" module="header" mode="delete"/>
+            <elementSpec ident="sourceDesc" module="header" mode="delete"/>
+            <elementSpec ident="biblFull" module="header" mode="delete"/>
+            <elementSpec ident="encodingDesc" module="header" mode="delete"/>
+            <elementSpec ident="projectDesc" module="header" mode="delete"/>
+            <elementSpec ident="samplingDecl" module="header" mode="delete"/>
+            <elementSpec ident="editorialDecl" module="header" mode="delete"/>
+            <elementSpec ident="correction" module="header" mode="delete"/>
+            <elementSpec ident="normalization" module="header" mode="delete"/>
+            <elementSpec ident="quotation" module="header" mode="delete"/>
+            <elementSpec ident="hyphenation" module="header" mode="delete"/>
+            <elementSpec ident="segmentation" module="header" mode="delete"/>
+            <elementSpec ident="stdVals" module="header" mode="delete"/>
+            <elementSpec ident="interpretation" module="header" mode="delete"/>
+            <elementSpec ident="tagsDecl" module="header" mode="delete"/>
+            <elementSpec ident="tagUsage" module="header" mode="delete"/>
+            <elementSpec ident="namespace" module="header" mode="delete"/>
+            <elementSpec ident="rendition" module="header" mode="delete"/>
+            <elementSpec ident="refsDecl" module="header" mode="delete"/>
+            <elementSpec ident="cRefPattern" module="header" mode="delete"/>
+            <elementSpec ident="refState" module="header" mode="delete"/>
+            <elementSpec ident="classDecl" module="header" mode="delete"/>
+            <elementSpec ident="taxonomy" module="header" mode="delete"/>
+            <elementSpec ident="category" module="header" mode="delete"/>
+            <elementSpec ident="catDesc" module="header" mode="delete"/>
+            <elementSpec ident="appInfo" module="header" mode="delete"/>
+            <elementSpec ident="application" module="header" mode="delete"/>
+            <elementSpec ident="profileDesc" module="header" mode="delete"/>
+            <elementSpec ident="handNote" module="header" mode="delete"/>
+            <elementSpec ident="creation" module="header" mode="delete"/>
+            <elementSpec ident="langUsage" module="header" mode="delete"/>
+            <elementSpec ident="language" module="header" mode="delete"/>
+            <elementSpec ident="textClass" module="header" mode="delete"/>
+            <elementSpec ident="keywords" module="header" mode="delete"/>
+            <elementSpec ident="classCode" module="header" mode="delete"/>
+            <elementSpec ident="catRef" module="header" mode="delete"/>
+            <elementSpec ident="revisionDesc" module="header" mode="delete"/>
+            <elementSpec ident="change" module="header" mode="delete"/>
+            <elementSpec ident="typeNote" module="header" mode="delete"/>
+            <elementSpec ident="geoDecl" module="header" mode="delete"/>
+
+            <elementSpec ident="orgName" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="placeName" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="location" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="address"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="trait" mode="change">
+               <attList>
+                  <attDef ident="rend" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="figure"/>
+                        <valItem ident="iturl"/>
+                        <valItem ident="liburl"/>
+                        <valItem ident="type"/>
+                        <valItem ident="url"/>
+                        <valItem ident="weblearn"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="persName" module="namesdates" mode="delete"/>
+            <elementSpec ident="surname" module="namesdates" mode="delete"/>
+            <elementSpec ident="forename" module="namesdates" mode="delete"/>
+            <elementSpec ident="genName" module="namesdates" mode="delete"/>
+            <elementSpec ident="nameLink" module="namesdates" mode="delete"/>
+            <elementSpec ident="addName" module="namesdates" mode="delete"/>
+            <elementSpec ident="roleName" module="namesdates" mode="delete"/>
+            <elementSpec ident="bloc" module="namesdates" mode="delete"/>
+            <elementSpec ident="country" module="namesdates" mode="delete"/>
+            <elementSpec ident="region" module="namesdates" mode="delete"/>
+            <elementSpec ident="district" module="namesdates" mode="delete"/>
+            <elementSpec ident="settlement" module="namesdates" mode="delete"/>
+            <elementSpec ident="offset" module="namesdates" mode="delete"/>
+            <elementSpec ident="geogName" module="namesdates" mode="delete"/>
+            <elementSpec ident="geogFeat" module="namesdates" mode="delete"/>
+            <elementSpec ident="affiliation" module="namesdates" mode="delete"/>
+            <elementSpec ident="age" module="namesdates" mode="delete"/>
+            <elementSpec ident="birth" module="namesdates" mode="delete"/>
+            <elementSpec ident="climate" module="namesdates" mode="delete"/>
+            <elementSpec ident="death" module="namesdates" mode="delete"/>
+            <elementSpec ident="education" module="namesdates" mode="delete"/>
+            <elementSpec ident="event" module="namesdates" mode="delete"/>
+            <elementSpec ident="faith" module="namesdates" mode="delete"/>
+            <elementSpec ident="floruit" module="namesdates" mode="delete"/>
+            <elementSpec ident="langKnowledge" module="namesdates" mode="delete"/>
+            <elementSpec ident="langKnown" module="namesdates" mode="delete"/>
+            <elementSpec ident="listOrg" module="namesdates" mode="delete"/>
+            <elementSpec ident="listEvent" module="namesdates" mode="delete"/>
+            <elementSpec ident="listPerson" module="namesdates" mode="delete"/>
+            <elementSpec ident="listPlace" module="namesdates" mode="delete"/>
+            <elementSpec ident="nationality" module="namesdates" mode="delete"/>
+            <elementSpec ident="occupation" module="namesdates" mode="delete"/>
+            <elementSpec ident="relationGrp" module="namesdates" mode="delete"/>
+            <elementSpec ident="person" module="namesdates" mode="delete"/>
+            <elementSpec ident="personGrp" module="namesdates" mode="delete"/>
+            <elementSpec ident="population" module="namesdates" mode="delete"/>
+            <elementSpec ident="residence" module="namesdates" mode="delete"/>
+            <elementSpec ident="sex" module="namesdates" mode="delete"/>
+            <elementSpec ident="socecStatus" module="namesdates" mode="delete"/>
+            <elementSpec ident="state" module="namesdates" mode="delete"/>
+            <elementSpec ident="terrain" module="namesdates" mode="delete"/>
+            <elementSpec ident="nym" module="namesdates" mode="delete"/>
+            <elementSpec ident="listNym" module="namesdates" mode="delete"/>
+            <classSpec ident="att.datable.iso" module="namesdates" type="atts" mode="change">
+               <attList>
+                  <attDef ident="when-iso" mode="delete"/>
+                  <attDef ident="notBefore-iso" mode="delete"/>
+                  <attDef ident="notAfter-iso" mode="delete"/>
+                  <attDef ident="from-iso" mode="delete"/>
+                  <attDef ident="to-iso" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.duration.iso" module="namesdates" type="atts" mode="change">
+               <attList>
+                  <attDef ident="dur-iso" mode="delete"/>
+               </attList>
+            </classSpec>
+
+            <elementSpec ident="TEI" mode="delete"/>
+            <elementSpec ident="text" module="textstructure" mode="delete"/>
+            <elementSpec ident="body" module="textstructure" mode="delete"/>
+            <elementSpec ident="group" module="textstructure" mode="delete"/>
+            <elementSpec ident="floatingText" module="textstructure" mode="delete"/>
+            <elementSpec ident="div" module="textstructure" mode="delete"/>
+            <elementSpec ident="div1" module="textstructure" mode="delete"/>
+            <elementSpec ident="div2" module="textstructure" mode="delete"/>
+            <elementSpec ident="div3" module="textstructure" mode="delete"/>
+            <elementSpec ident="div4" module="textstructure" mode="delete"/>
+            <elementSpec ident="div5" module="textstructure" mode="delete"/>
+            <elementSpec ident="div6" module="textstructure" mode="delete"/>
+            <elementSpec ident="div7" module="textstructure" mode="delete"/>
+            <elementSpec ident="trailer" module="textstructure" mode="delete"/>
+            <elementSpec ident="byline" module="textstructure" mode="delete"/>
+            <elementSpec ident="dateline" module="textstructure" mode="delete"/>
+            <elementSpec ident="argument" module="textstructure" mode="delete"/>
+            <elementSpec ident="epigraph" module="textstructure" mode="delete"/>
+            <elementSpec ident="opener" module="textstructure" mode="delete"/>
+            <elementSpec ident="closer" module="textstructure" mode="delete"/>
+            <elementSpec ident="salute" module="textstructure" mode="delete"/>
+            <elementSpec ident="signed" module="textstructure" mode="delete"/>
+            <elementSpec ident="postscript" module="textstructure" mode="delete"/>
+            <elementSpec ident="titlePage" module="textstructure" mode="delete"/>
+            <elementSpec ident="docTitle" module="textstructure" mode="delete"/>
+            <elementSpec ident="titlePart" module="textstructure" mode="delete"/>
+            <elementSpec ident="docAuthor" module="textstructure" mode="delete"/>
+            <elementSpec ident="imprimatur" module="textstructure" mode="delete"/>
+            <elementSpec ident="docEdition" module="textstructure" mode="delete"/>
+            <elementSpec ident="docImprint" module="textstructure" mode="delete"/>
+            <elementSpec ident="docDate" module="textstructure" mode="delete"/>
+            <elementSpec ident="front" module="textstructure" mode="delete"/>
+            <elementSpec ident="back" module="textstructure" mode="delete"/>
+  </schemaSpec>
+</body>
+</text>
+</TEI>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:html="http://www.w3.org/1999/xhtml">
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
       <titleStmt>
@@ -26,7 +26,7 @@
     </revisionDesc>
   </teiHeader>
   <text>
-    <body html:onload="load(13)" html:onunload="GUnload()">
+    <body>
       <listPlace>
         <!--<place oxpID="99999999" type="outside"/>-->
         <place oucsCode="O_carpark1" oxpID="23232323" type="carpark">
@@ -35,6 +35,7 @@
           <location>
             <geo>-1.259968959743287 51.76312928396877</geo>
           </location>
+
         </place>
         <place oucsCode="O_carpark10" oxpID="23232324" type="carpark">
           <placeName>School of Geography, Jowett Walk</placeName>
@@ -1553,8 +1554,8 @@
             <location when="2007-01-29T17:29:44.785Z">
               <geo rend="270">-1.25896453 51.75601665</geo>
               <note> recorded by Matt Jennings</note>
-            </location>
             <ref type="osm">relation/142736/6</ref>
+            </location>
           
           </place>
         </place>
@@ -2807,15 +2808,15 @@ data, and if so, how? -->
           <event when="1880" type="construction"/>
           <event when="1934" type="acquisition"/>
           <placeName>8-11 Keble Road</placeName>
+          <location>
+            <geo>-1.258256 51.759667</geo>
+          </location>
           <place oxpID="23232563" type="room">
             <placeName>Lecture Theatre</placeName>
           </place>
           <place oxpID="23232564" type="room">
             <placeName>Room 051</placeName>
           </place>
-          <location>
-            <geo>-1.258256 51.759667</geo>
-          </location>
         </place>
         <place oucsCode="compas" oxpID="23232565" type="department">
           <placeName>Centre on Migration, Policy and Society</placeName>
@@ -4877,6 +4878,9 @@ data, and if so, how? -->
         <place oxpID="23232731" type="building" obnCode="269" subtype="primary" oucsCode="b_0060">
           <event when="1971" type="construction"/>
           <placeName>Tinbergen Building</placeName>
+          <location>
+            <geo>-1.250441 51.758375</geo>
+          </location>
           <place oxpID="23232732" type="room">
             <placeName>D38</placeName>
           </place>
@@ -4892,9 +4896,6 @@ data, and if so, how? -->
           <place oxpID="23232736" type="room">
             <placeName>Lecture Theatre A/B</placeName>
           </place>
-          <location>
-            <geo>-1.250441 51.758375</geo>
-          </location>
         </place>
         <place oucsCode="O_bate" oxpID="23233480" type="museum">
           <placeName>Bate Collection of Musical Instruments</placeName>
@@ -6124,12 +6125,12 @@ data, and if so, how? -->
               <postCode>OX1 3BD</postCode>
             </address>
           </location>
-          <place oxpID="23233582" type="room">
-            <placeName>Seminar Room 1</placeName>
-          </place>
           <location>
             <geo>-1.254483 51.754470</geo>
           </location>
+          <place oxpID="23233582" type="room">
+            <placeName>Seminar Room 1</placeName>
+          </place>
         </place>
         <place oucsCode="libsys" oxpID="23233583" type="unit" subtype="mlp">
           <placeName>Systems and Electronic Resources Service</placeName>
@@ -7513,6 +7514,7 @@ data, and if so, how? -->
             <geo>-1.261759 51.757640</geo>
             <note></note>
           </location>
+
         </place>
         <place type="building" obnCode="310" oxpID="23233815" oucsCode="e_133">
           <placeName>Osney Mead Warehouse</placeName>
@@ -7899,7 +7901,7 @@ data, and if so, how? -->
         <relation name="controls" active="#23232483" passive="#32320094"/>
         <relation name="controls" active="#23232485" passive="#32320095"/>
         <relation name="controls" active="#23232729" passive="#32320096"/>
-        <relation name="occupies" type="geo_primary" active="#32320059" passive="#23233651"/>
+        <relation name="occupies" type="geo primary" active="#32320059" passive="#23233651"/>
         <relation name="occupies" type="geo primary" active="#32320070" passive="#23233648"/>
         <relation name="occupies" type="geo primary" active="#32320008" passive="#23233620"/>
         <relation name="occupies" type="geo primary" active="#32320073" passive="#23233628"/>
