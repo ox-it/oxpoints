@@ -83,12 +83,23 @@ public class SeparatedTEIImporter {
 
 		oxpID = element.getAttribute("oxpID");
 
-		if (element.getTagName().equals("placeList")) {
+		if (element.getTagName().equals("listPlace") || element.getTagName().equals("listOrg")) {
 			NodeList nodes = element.getChildNodes();
 			for (int i = 0; i < nodes.getLength(); i++) {
-				elements.add((Element) nodes.item(i));
+				if (!(nodes.item(i) instanceof Element))
+					continue;
+				Element e = (Element) nodes.item(i);
+				if (!e.getTagName().equals("org") && e.getTagName().equals("place")) {
+					warningHandler.addWarning(file.getName(), "Found tag '"+e.getTagName()+"' where 'place' or 'org' expected.");
+					return;
+				}
+				elements.add(e);
 			}
 		} else {
+			if (!element.getTagName().equals("org") && element.getTagName().equals("place")) {
+				warningHandler.addWarning(file.getName(), "Found tag '"+element.getTagName()+"' where 'place' or 'org' expected.");
+				return;
+			}
 			elements.add(element);
 		}
 		
@@ -138,6 +149,7 @@ public class SeparatedTEIImporter {
 				TimeInstant to = new ImmutableTimeInstant(elem.getAttribute("inferredTo"));
 
 				if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
+					elem.getElementsByTagName("desc");
 					entity.addType(elem);
 					
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("url")) {
@@ -362,6 +374,20 @@ public class SeparatedTEIImporter {
 					out.println("    "+warning);
 			}	
 		}
+	}
+	
+	private static Map<String,String> getValidTypes() {
+		Map<String,String> validTypes = new HashMap<String,String>();
+		
+		String[] places = {"Area","Building","Room","WAP","Site","CarPark","DrainCover"};
+		String[] orgs = {"College","Hall","Department","University","ServiceDepartment","Library","SubLibrary"};
+		
+		for (String i : places)
+			validTypes.put(i, "place");
+		for (String i : orgs)
+			validTypes.put(i, "org");
+		
+		return validTypes;
 	}
 
 }
