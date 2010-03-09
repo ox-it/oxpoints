@@ -27,11 +27,12 @@
 
 <xsl:template match="/">
   <xsl:for-each select="key('place_All',1)">
+    <xsl:variable name="ID" select="@oxpID"/>
     <xsl:if test="not(key('Occupies',@oxpID))">
       <xsl:for-each select="key('Controls',@oxpID)">
 	<xsl:for-each select="key('Oxp',substring-after('@active','#'))">
 	  <xsl:if test="not(key('Occupies',@oxpID))">
-	    <xsl:message>place<xsl:value-of	select="@oxpID"/>=<xsl:value-of select="@oucsCode"/>	(<xsl:value-of select="tei:placeName"/>) has no	building</xsl:message>
+	    <xsl:message>place<xsl:value-of	select="$ID"/>=<xsl:value-of select="@oucsCode"/>	(<xsl:value-of select="tei:placeName"/>) has no	building</xsl:message>
 	  </xsl:if>
 	</xsl:for-each>
       </xsl:for-each>
@@ -63,7 +64,7 @@
 	select="@oxpCode"/>/<xsl:value-of select="@oucsCode"/> has no type attribute</xsl:message>
       </xsl:if>
       <xsl:if test="(@type='building' and not(.//tei:geo))">
-	<xsl:message>Place <xsl:value-of
+	<xsl:message>Place <xsl:value-of select="@oxpID"/>: <xsl:value-of
 	select="tei:placeName"/>:<xsl:value-of
 	select="../tei:placeName"/>:<xsl:value-of
 	select="../../tei:placeName"/>: <xsl:value-of
