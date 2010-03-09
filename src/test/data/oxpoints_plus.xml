@@ -201,14 +201,14 @@
           <place oxpID="23232341" type="building">
             <placeName>Holywell Manor</placeName>
             <location when="2007-01-25T11:39:47.781Z">
-              <geo rend="15">-1.2475919723510 51.75617936030844</geo>
+              <geo rend="15">-1.247770 51.756584</geo>
               <note> recorded by Plummer</note>
             </location>
           </place>
           <place oxpID="23232342" type="building">
             <placeName>Jowett Walk Buildings</placeName>
             <location when="2007-01-25T11:40:24.578Z">
-              <geo rend="15">-1.250917911529541 51.7556082093038</geo>
+              <geo rend="15">-1.250772 51.755615</geo>
               <note> recorded by Plummer</note>
             </location>
           </place>
@@ -543,7 +543,7 @@
           <place oxpID="23232370" type="building">
             <placeName>Bridge of Sighs</placeName>
             <location when="2007-06-14T15:57:50.192+01:00">
-              <geo rend="272">-1.253787875175476 51.75450573461026</geo>
+              <geo rend="272">-1.253809 51.754466</geo>
               <note> recorded by Janet McKnight</note>
             </location>
           </place>
@@ -983,7 +983,7 @@
           <place oxpID="23232409" type="building">
             <placeName>Queen's Lane Lodge</placeName>
             <location when="2007-06-20">
-              <geo>-1.252265603999024 51.75421643455127</geo>
+              <geo>-1.252205 51.754117</geo>
             </location>
             <note> recorded by Sebastian Rahtz</note>
           </place>
@@ -3432,7 +3432,7 @@ data, and if so, how? -->
             <event when="2001" type="acquisition"/>
             <placeName>1 St Giles</placeName>
             <location when="2007-01-29T12:58:29.078Z">
-              <geo>-1.25899672508239 51.75582737275274</geo>
+              <geo>-1.258916 51.755495</geo>
               <note> recorded by Tom King</note>
             </location>
             <place oxpID="23232610" type="room">
@@ -3448,7 +3448,7 @@ data, and if so, how? -->
           <location type="address">
             <address>
               <addrLine>Old Indian Institute</addrLine>
-              <addrLine>Broad Street</addrLine>
+              <addrLine>34 Broad Street</addrLine>
               <addrLine>Oxford</addrLine>
               <postCode>OX1 3BD</postCode>
             </address>
@@ -3636,7 +3636,7 @@ data, and if so, how? -->
             <event when="1966" type="construction"/>
             <placeName>Mathematical Institute</placeName>
             <location when="2008-01-09T16:00:00">
-              <geo>-1.25959 51.75891</geo>
+              <geo>-1.259769 51.758866</geo>
               <note>Submitted by Stephen Sangar</note>
             </location>
           </place>
@@ -4998,7 +4998,7 @@ data, and if so, how? -->
             <event when="1683" type="construction"/>
             <placeName>Museum of the History of Science</placeName>
             <location when="2007-05-22T16:59:14.311+01:00">
-              <geo>-1.255488 51.754187</geo>
+              <geo>-1.255504 51.754323</geo>
               <note> recorded by Janet McKnight</note>
             </location>
           </place>
@@ -6120,17 +6120,20 @@ data, and if so, how? -->
           <placeName>Old Indian Institute Building</placeName>
           <location type="address">
             <address>
-              <addrLine>Broad Street</addrLine>
+              <addrLine>34 Broad Street</addrLine>
               <addrLine>Oxford</addrLine>
               <postCode>OX1 3BD</postCode>
             </address>
           </location>
           <location>
-            <geo>-1.254483 51.754470</geo>
+            <geo>-1.254233 51.754858</geo>
           </location>
           <place oxpID="23233582" type="room">
             <placeName>Seminar Room 1</placeName>
           </place>
+          <location>
+            <geo>-1.254233 51.754858</geo>
+          </location>
         </place>
         <place oucsCode="libsys" oxpID="23233583" type="unit" subtype="mlp">
           <placeName>Systems and Electronic Resources Service</placeName>
