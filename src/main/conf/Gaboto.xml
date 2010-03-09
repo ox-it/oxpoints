@@ -5,13 +5,14 @@
     <!ENTITY v "http://nwalsh.com/rdf/vCard#" >
     <!ENTITY geo "http://www.opengis.net/gml/" >
     <!ENTITY gabotoKML "http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#" >
+    <!ENTITY xhtml "http://www.w3.org/1999/xhtml" >
 ]>
 <Gaboto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <config>
         <lookupClass class="uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup" />
         <namespaces graphs="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#"
-            data="http://m.ox.ac.uk/oxpoints/id/"/>
+            data="http://m.ox.ac.uk/oxpoints/id/" images="http://m.ox.ac.uk/images/" />
 
         <namespacePrefixes>
             <namespacePrefix prefix="oxp" ns="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#"/>
@@ -126,7 +127,11 @@
                         <property name="width" type="String" uri="&oxp;width"/>
 
                         <property name="height" type="String" uri="&oxp;height"/>
-
+                        
+                        <property name="description" type="String" uri="&dc;description"/>
+                        <property name="title" type="String" uri="&dc;title"/>
+                        <property name="dcType" type="String" uri="&dc;type"/>
+                        
                         <passiveProperty name="imageContents" type="OxpEntity"
                             relationshipType="N:M" uri="&oxp;inImage"/>
                     </properties>
@@ -198,6 +203,8 @@
                         <GabotoEntity name="Site" type="&oxp;Site"/>
 
                         <GabotoEntity name="WAP" type="&oxp;WAP"/>
+                        
+                        <GabotoEntity name="Quadrangle" type="&oxp;Quadrangle"/>
                     </GabotoEntities>
                 </GabotoEntity>
 

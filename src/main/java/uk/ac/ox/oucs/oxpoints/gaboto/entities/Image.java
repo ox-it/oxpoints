@@ -33,6 +33,9 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 public class Image extends OxpEntity {
   private String width;
   private String height;
+  private String description;
+  private String title;
+  private String dcType;
   private Collection<OxpEntity> imageContents;
 
 
@@ -80,6 +83,60 @@ public class Image extends OxpEntity {
   )
   public void setHeight(String height){
     this.height = height;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/description",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getDescription(){
+    return this.description;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/description",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setDescription(String description){
+    this.description = description;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/title",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getTitle(){
+    return this.title;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/title",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setTitle(String title){
+    this.title = title;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/type",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getDcType(){
+    return this.dcType;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/type",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setDcType(String dcType){
+    this.dcType = dcType;
   }
 
   @PassiveProperty(
@@ -150,6 +207,21 @@ public class Image extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#height"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setHeight(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY description
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/description"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setDescription(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY title
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setTitle(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY dcType
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setDcType(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

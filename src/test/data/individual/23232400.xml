@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org xmlns="http://www.tei-c.org/ns/1.0" oxpID="23232400" from="1264">
+   <idno type="oucs">mert</idno>
+   <trait type="type">
+      <desc>College</desc>
+   </trait>
+          <orgName>Merton College</orgName>
+          
+          <location type="address">
+            <address>
+              <addrLine>Merton Street</addrLine>
+			      <addrLine>Oxford</addrLine>
+              <postCode>OX1 4JD</postCode>
+            </address>
+          </location>
+          <trait type="url">
+            <desc>
+              <ptr target="http://www.merton.ox.ac.uk/"/>
+            </desc>
+          </trait>
+          <trait type="iturl">
+            <desc>
+              <ptr target="http://mcit.merton.ox.ac.uk/"/>
+            </desc>
+          </trait>
+          
+          
+          
+        <relation passive="#32320048" name="controls"/>
+   <note>
+      <figure>
+          <graphic width="145px" height="125px"
+                  url="http://m.ox.ac.uk/images/collegepictures/mert.jpg"/>
+          <figDesc>http://en.wikipedia.org/wiki/Image:Merton_College_front_quad.jpg</figDesc>
+          <note>from
+                  http://upload.wikimedia.org/wikipedia/commons/3/37/Merton_College_front_quad.jpg</note>
+        </figure>
+   </note>
+
+   <!-- Merton College Main Site -->
+   <relation name="occupies" passive="#24000000" type="geo primary"/>
+</org>

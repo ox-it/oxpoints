@@ -28,6 +28,7 @@ import org.xml.sax.SAXException;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
@@ -66,7 +67,7 @@ public class SeparatedTEIImporter {
 			}
 		}
 		
-		SegmentedOxpEntity.constrainRelations(oxpointsIdToEntityLookup);
+		SegmentedOxpEntity.constrainRelations(oxpointsIdToEntityLookup, warningHandler);
 		
 		for (SegmentedOxpEntity entity : oxpointsIdToEntityLookup.values()) {
 			entity.addToGaboto(oxpointsIdToEntityLookup);
@@ -97,8 +98,9 @@ public class SeparatedTEIImporter {
 		}
 		
 		// The oxpID of the entity described by this file must match the filename
-		assert (file.getName().equals(oxpID+".xml"));
-
+		if (!file.getName().equals(oxpID+".xml"))
+			warningHandler.addWarning(file.getName(), "oxpID '"+oxpID+"' doesn't match filename ('"+file.getName()+"'.");
+		
 		for (Element elem : elements) {
 			parseDates(elem, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		}
@@ -164,6 +166,8 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setOBNCode", elem);
 					else if (elemType.equals("olis"))
 						entity.addProperty("setOLISCode", elem);
+					else if (elemType.equals("osm"))
+						entity.addProperty("setOsmId", elem);
 
 				} else if (tagName.equals("location")) {
 					NodeList children = elem.getChildNodes();
@@ -213,8 +217,35 @@ public class SeparatedTEIImporter {
 				} else if (tagName.equals("note")) {
 					NodeList figures = element.getElementsByTagName("figure");
 					for (int j=0; j < figures.getLength(); j++) {
+						if (!(figures.item(j) instanceof Element))
+							continue;
 						Element figure = (Element) figures.item(j);
-						
+						Image image = new Image();
+						try {
+							Element graphic = (Element) figure.getElementsByTagName("graphic").item(0);
+							if (graphic.getAttribute("url").startsWith("http://") || graphic.getAttribute("url").startsWith("https://"))
+								image.setUri(graphic.getAttribute("url"));
+							else
+								image.setUri(gaboto.getConfig().getImagesPrefix()+graphic.getAttribute("url"));
+							image.setWidth(graphic.getAttribute("width"));
+							image.setHeight(graphic.getAttribute("height"));
+						} catch (IndexOutOfBoundsException e) {
+							warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
+						}
+						try {
+							Element figDesc = (Element) figure.getElementsByTagName("figDesc").item(0);
+							image.setDescription(figDesc.getTextContent());
+						} catch (IndexOutOfBoundsException e) {
+							warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
+						}
+						if (figure.hasAttribute("type"))
+							image.setDcType(figure.getAttribute("type"));
+						entity.addProperty("addImage", image, elem);
+						try {
+							gaboto.add(image);
+						} catch (EntityAlreadyExistsException e) {
+							warningHandler.addWarning(filename, "Image '"+image.getUri()+"' defined more than once.");
+						}
 					}
 				}
 			}
@@ -310,7 +341,6 @@ public class SeparatedTEIImporter {
 			return websites.get(url);
 		} else {
 			Website website = new Website();
-			System.out.println("Adding website "+url);
 			website.setUri(url);
 			websites.put(url, website);
 			try {
@@ -372,20 +402,6 @@ public class SeparatedTEIImporter {
 					out.println("    "+warning);
 			}
 		}
-	}
-	
-	private static Map<String,String> getValidTypes() {
-		Map<String,String> validTypes = new HashMap<String,String>();
-		
-		String[] places = {"Area","Building","Room","WAP","Site","CarPark","DrainCover"};
-		String[] orgs = {"College","Hall","Department","University","ServiceDepartment","Library","SubLibrary"};
-		
-		for (String i : places)
-			validTypes.put(i, "place");
-		for (String i : orgs)
-			validTypes.put(i, "org");
-		
-		return validTypes;
 	}
 
 	public boolean hasWarnings() {

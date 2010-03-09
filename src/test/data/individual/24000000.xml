@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<place xmlns="http://www.tei-c.org/ns/1.0" oxpID="24000000" type="primary">
+    <trait type="type">
+        <desc>Site</desc>
+    </trait>
+    <placeName>Merton College Main Site</placeName>
+    <idno type="osm">way/39622869</idno>
+
+    <note>
+        <figure type="overview">
+            <graphic url="http://www.merton.ox.ac.uk/aboutmerton/section_specific/collegemap.jpg"/>
+            <figDesc>Drawing of Merton College Main Site with main buildings and areas marked.</figDesc>
+        </figure>
+    </note>
+
+    <place oxpID="23232401">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>Lodge</placeName>
+        <location when="2007-01-20T21:26:32.601Z">
+            <geo rend="180">-1.252216100692749 51.75129113668488</geo>
+            <note> recorded by Sebastian Rahtz</note>
+        </location>
+        <idno type="osm">way/39622784</idno>
+    </place>
+
+    <place oxpID="23232402">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>Warden's Lodgings</placeName>
+        <location when="2007-01-20T21:28:55.222Z">
+            <geo rend="190">-1.249623 51.751628</geo>
+            <note> recorded by Sebastian Rahtz</note>
+        </location>
+    </place>
+
+    <place oxpID="23232403">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>Chapel</placeName>
+        <idno type="osm">way/39606739</idno>
+    </place>
+
+    <place oxpID="24000001">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>Hall</placeName>
+    </place>
+
+    <place oxpID="24000002">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>South Lodge</placeName>
+        <idno type="osm">way/39607373</idno>
+    </place>
+
+    <place oxpID="24000003">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>North Lodge</placeName>
+        <idno type="osm">way/39607640</idno>
+    </place>
+
+    <place oxpID="24000004">
+        <trait type="type">
+            <desc>Quadrangle</desc>
+        </trait>
+        <placeName>St. Alban's Quad</placeName>
+    </place>
+
+    <place oxpID="24000005">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>Grove</placeName>
+    </place>
+
+    <place oxpID="24000006">
+        <trait type="type">
+            <desc>Quadrangle</desc>
+        </trait>
+        <placeName>Mob Quad</placeName>
+    </place>
+
+    <place oxpID="24000007">
+        <trait type="type">
+            <desc>Building</desc>
+        </trait>
+        <placeName>Real Tennis Court</placeName>
+        <idno type="osm">way/45405545</idno>
+    </place>
+
+</place>

@@ -143,21 +143,29 @@ public class SegmentedOxpEntity {
 		
 	}
 	
-	public static void constrainRelations(Map<String,SegmentedOxpEntity> entityMapping) {
+	public static void constrainRelations(Map<String,SegmentedOxpEntity> entityMapping, SeparatedTEIImporter.WarningHandler warningHandler) {
 		Set<Relation> relationsToRemove = new HashSet<Relation>();
 		
 		for (Relation relation : relations) {
 			SegmentedOxpEntity active = entityMapping.get(relation.active);
 			SegmentedOxpEntity passive = entityMapping.get(relation.passive);
 			
-			TimeInstant from = SeparatedTEIImporter.latest(active.from, passive.from);
-			relation.from = SeparatedTEIImporter.latest(relation.from, from);
-
-			TimeInstant to = SeparatedTEIImporter.earliest(active.to, passive.to);
-			relation.to = SeparatedTEIImporter.earliest(relation.to, to);
-			
-			if (relation.from.compareTo(relation.to) != -1)
+			if (active == null) {
+				warningHandler.addWarning(null, "Entity "+relation.active+" referenced in relation but is not defined.");
 				relationsToRemove.add(relation);
+			} else if (passive == null) {
+				warningHandler.addWarning(null, "Entity "+relation.passive+" referenced in relation but is not defined.");
+				relationsToRemove.add(relation);
+			} else {
+				TimeInstant from = SeparatedTEIImporter.latest(active.from, passive.from);
+				relation.from = SeparatedTEIImporter.latest(relation.from, from);
+
+				TimeInstant to = SeparatedTEIImporter.earliest(active.to, passive.to);
+				relation.to = SeparatedTEIImporter.earliest(relation.to, to);
+
+				if (relation.from.compareTo(relation.to) != -1)
+					relationsToRemove.add(relation);
+			}
 		}
 		
 		for (Relation relation : relationsToRemove)
