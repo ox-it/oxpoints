@@ -44,7 +44,7 @@ public class SeparatedTEIImporter {
 	private Map<String,Website> websites = new HashMap<String,Website>();
 	
 		
-	private Map<String, SegmentedOxpEntity> oxpointsIdToEntityLookup = new HashMap<String, SegmentedOxpEntity>();
+	private Map<String, SegmentedOxpEntity> entitiesByURI = new HashMap<String, SegmentedOxpEntity>();
 	
 	public SeparatedTEIImporter(Gaboto gaboto) {
 		this.gaboto = gaboto;
@@ -67,10 +67,10 @@ public class SeparatedTEIImporter {
 			}
 		}
 		
-		SegmentedOxpEntity.constrainRelations(oxpointsIdToEntityLookup, warningHandler);
+		SegmentedOxpEntity.constrainRelations(entitiesByURI, warningHandler);
 		
-		for (SegmentedOxpEntity entity : oxpointsIdToEntityLookup.values()) {
-			entity.addToGaboto(oxpointsIdToEntityLookup);
+		for (SegmentedOxpEntity entity : entitiesByURI.values()) {
+			entity.addToGaboto(entitiesByURI);
 		}
 	}
 	
@@ -78,12 +78,24 @@ public class SeparatedTEIImporter {
 		warningHandler.setFilename(file.getName());
 		Vector<Element> elements = new Vector<Element>();
 		Document document = XMLUtils.readInputFileIntoJAXPDoc(file);
-		String oxpID;
+		String oxpID, uri;
 		
 		Element element = document.getDocumentElement();
 
-		oxpID = element.getAttribute("oxpID");
+		// Handle lists of figures
+		if (element.getTagName().equals("list")) {
+			NodeList figures = element.getElementsByTagName("figure");
+			for (int i = 0; i < figures.getLength(); i++) {
+				Element figure = (Element) figures.item(0);
+				parseDates(figure, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+				loadImage((Element) figure, file.getName());
+			}
+			return;
+		}
 
+		oxpID = element.getAttribute("oxpID");
+		uri = gaboto.getConfig().getNSData() + oxpID;
+		
 		if (element.getTagName().equals("listPlace") || element.getTagName().equals("listOrg")) {
 			NodeList nodes = element.getChildNodes();
 			for (int i = 0; i < nodes.getLength(); i++) {
@@ -105,31 +117,31 @@ public class SeparatedTEIImporter {
 			parseDates(elem, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		}
 
-		loadEntity(oxpID, elements, file.getName());
+		loadEntity(uri, elements, file.getName());
 	}
 	
-	public void loadEntity(String oxpID, Vector<Element> elements, String filename) {
-		loadEntity(oxpID, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY, filename);
+	public void loadEntity(String uri, Vector<Element> elements, String filename) {
+		loadEntity(uri, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY, filename);
 	}
 	
-	public void loadEntity(String oxpID, Element element, TimeInstant lower, TimeInstant upper, String filename) {
+	public void loadEntity(String uri, Element element, TimeInstant lower, TimeInstant upper, String filename) {
 		Vector<Element> elements = new Vector<Element>();
 		elements.add(element);
-		loadEntity(oxpID, elements, lower, upper, filename);
+		loadEntity(uri, elements, lower, upper, filename);
 	}
 	
-	public void loadEntity(String oxpID, Vector<Element> elements, TimeInstant lower, TimeInstant upper, String filename) {
+	public void loadEntity(String uri, Vector<Element> elements, TimeInstant lower, TimeInstant upper, String filename) {
 		if (elements.size() > 1)
 			throw new AssertionError("We can't yet handle discontinuous entities.");
 		
-		if (oxpID.equals("")) {
+		if (uri.equals("")) {
 			warningHandler.addWarning("Entity has no oxpID");
 			return;
 		}
 			
 		
-		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, oxpID, elements.get(0), filename);
-		oxpointsIdToEntityLookup.put(oxpID, entity);
+		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, uri, elements.get(0), filename);
+		entitiesByURI.put(uri, entity);
 
 		for (Element element : elements) {
 			NodeList nodes = element.getChildNodes();
@@ -195,14 +207,14 @@ public class SeparatedTEIImporter {
 					
 						entity.addRelation(
 								relationMethod,
-								elem.getAttribute("passive").substring(1),
+								gaboto.getConfig().getNSData()+elem.getAttribute("passive").substring(1),
 								elem, relationClass
 						);
 						
 						if (elem.getAttribute("type").equals("geo primary")) {
 							entity.addRelation(
 									"setPrimaryPlace",
-									elem.getAttribute("passive").substring(1),
+									gaboto.getConfig().getNSData()+elem.getAttribute("passive").substring(1),
 									elem, Place.class
 							);
 						}
@@ -211,7 +223,7 @@ public class SeparatedTEIImporter {
 					loadChildEntity(elem, filename);
 					entity.addRelation(
 							"setParent",
-							elem.getAttribute("oxpID"),
+							gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
 							elem, Place.class, true
 					);
 				} else if (tagName.equals("note")) {
@@ -219,33 +231,8 @@ public class SeparatedTEIImporter {
 					for (int j=0; j < figures.getLength(); j++) {
 						if (!(figures.item(j) instanceof Element))
 							continue;
-						Element figure = (Element) figures.item(j);
-						Image image = new Image();
-						try {
-							Element graphic = (Element) figure.getElementsByTagName("graphic").item(0);
-							if (graphic.getAttribute("url").startsWith("http://") || graphic.getAttribute("url").startsWith("https://"))
-								image.setUri(graphic.getAttribute("url"));
-							else
-								image.setUri(gaboto.getConfig().getImagesPrefix()+graphic.getAttribute("url"));
-							image.setWidth(graphic.getAttribute("width"));
-							image.setHeight(graphic.getAttribute("height"));
-						} catch (IndexOutOfBoundsException e) {
-							warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
-						}
-						try {
-							Element figDesc = (Element) figure.getElementsByTagName("figDesc").item(0);
-							image.setDescription(figDesc.getTextContent());
-						} catch (IndexOutOfBoundsException e) {
-							warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
-						}
-						if (figure.hasAttribute("type"))
-							image.setDcType(figure.getAttribute("type"));
-						entity.addProperty("addImage", image, elem);
-						try {
-							gaboto.add(image);
-						} catch (EntityAlreadyExistsException e) {
-							warningHandler.addWarning(filename, "Image '"+image.getUri()+"' defined more than once.");
-						}
+						String imageURI = loadImage((Element) figures.item(j), filename);
+						entity.addRelation("addImage", imageURI, element, Image.class);
 					}
 				}
 			}
@@ -255,7 +242,7 @@ public class SeparatedTEIImporter {
 	
 	private void loadChildEntity(Element elem, String filename) {
 		loadEntity(
-				elem.getAttribute("oxpID"),
+				gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
 				elem,
 				new ImmutableTimeInstant(elem.getAttribute("inferredFrom")),
 				new ImmutableTimeInstant(elem.getAttribute("inferredTo")),
@@ -263,7 +250,51 @@ public class SeparatedTEIImporter {
 		);
 	}
 
-	
+	private String loadImage(Element figure, String filename) {
+		String uri = "", width="", height="", description="", type="";
+		try {
+			Element graphic = (Element) figure.getElementsByTagName("graphic").item(0);
+			if (graphic.getAttribute("url").startsWith("http://") || graphic.getAttribute("url").startsWith("https://"))
+				uri = graphic.getAttribute("url");
+			else
+				uri = gaboto.getConfig().getImagesPrefix()+graphic.getAttribute("url");
+			width = graphic.getAttribute("width");
+			height = graphic.getAttribute("height");
+		} catch (IndexOutOfBoundsException e) {
+			warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
+		}
+		try {
+			Element figDesc = (Element) figure.getElementsByTagName("figDesc").item(0);
+			description = figDesc.getTextContent();
+		} catch (IndexOutOfBoundsException e) {
+			warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
+		}
+		if (figure.hasAttribute("type"))
+			type = figure.getAttribute("type");
+		else
+			type = "unknown";
+		
+		SegmentedOxpEntity image = new SegmentedOxpEntity(
+				gaboto, warningHandler, uri, TimeSpan.BIG_BANG,
+				TimeSpan.DOOMS_DAY, "figure", filename);
+		
+		for (String corresp : figure.getAttribute("corresp").split(" ")) {
+			if (corresp.length() == 0)
+				continue;
+			else if (corresp.length() != 9 || !corresp.startsWith("#"))
+				warningHandler.addWarning(filename, "Invalid corresp attribute for figure.");
+			else
+				image.addRelation("addImage", gaboto.getConfig().getNSData()+corresp.substring(1), TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY, Image.class, true);
+		}
+		image.addType("Image", TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+		image.addProperty("setWidth", width, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+		image.addProperty("setHeight", height, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+		image.addProperty("setDescription", description, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+		image.addProperty("setDcType", type, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+
+		entitiesByURI.put(uri, image);
+		return uri;
+	}
 
 	public void parseDates(Element element, TimeInstant lower, TimeInstant upper) {
 		String from = element.getAttribute("from");
@@ -382,6 +413,8 @@ public class SeparatedTEIImporter {
 		}
 
 		public void addWarning(String filename, String warning) {
+			if (filename == null)
+				filename = "";
 			if (!warnings.containsKey(filename))
 				warnings.put(filename,new Vector<String>());
 			warnings.get(filename).add(warning);
@@ -397,9 +430,16 @@ public class SeparatedTEIImporter {
 
 		public void printWarnings(PrintStream out) {
 			for (String filename : warnings.keySet()) {
+				if (filename.equals(""))
+					continue;
 				out.println("In file '"+filename+"':");
 				for (String warning : warnings.get(filename))
 					out.println("    "+warning);
+			}
+			if (warnings.containsKey("")) {
+				out.println("Non-localised warnings:");
+				for (String warning : warnings.get(""))
+					out.println("    "+warning);					
 			}
 		}
 	}

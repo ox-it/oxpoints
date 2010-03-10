@@ -22,7 +22,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 public class SegmentedOxpEntity {
-	private String oxpID;
 	private String uri;
 	private String tagName;
 	private Gaboto gaboto;
@@ -34,7 +33,7 @@ public class SegmentedOxpEntity {
 	private SeparatedTEIImporter.WarningHandler warningHandler;
 
 	private static final Set<Relation> relations = new HashSet<Relation>();
-	private static final Map<String,Set<Relation>> relationsByID = new HashMap<String,Set<Relation>>();
+	private static final Map<String,Set<Relation>> relationsByURI = new HashMap<String,Set<Relation>>();
 	private final Set<Property> properties = new HashSet<Property>();
 	private final Set<TypeSpan> types = new HashSet<TypeSpan>();
 	
@@ -47,18 +46,18 @@ public class SegmentedOxpEntity {
 				filename);
 	}
 
-	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, TimeInstant from, TimeInstant to, String tagName, String filename) {
-		this.oxpID = oxpID;
-		this.uri = gaboto.getConfig().getNSData()+oxpID;
+	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String uri, TimeInstant from, TimeInstant to, String tagName, String filename) {
 		this.gaboto = gaboto;
+		
+		this.uri = uri;
 		
 		this.from = from;
 		this.to = to;
 		
 		this.warningHandler = warningHandler;
 		
-		if (!tagName.equals("org") && !tagName.equals("place"))
-			warningHandler.addWarning(filename, "Root element must be either 'place' or 'org', not '"+tagName+"'.");
+		if (!tagName.equals("org") && !tagName.equals("place") && !tagName.equals("figure"))
+			warningHandler.addWarning(filename, "Root element must be either 'place', 'org' or 'figure', not '"+tagName+"'.");
 		this.tagName = tagName;
 		this.filename = filename;
 		
@@ -67,11 +66,15 @@ public class SegmentedOxpEntity {
 	}
 	
 	public void addType(Element element) {
+		addType(
+			element.getElementsByTagName("desc").item(0).getTextContent(),
+			new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
+			new ImmutableTimeInstant(element.getAttribute("inferredTo")));
+	}
+	
+	public void addType(String type, TimeInstant start, TimeInstant end) {
 		try {
-			TypeSpan typeSpan = new TypeSpan(
-				element.getElementsByTagName("desc").item(0).getTextContent(),
-				new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
-				new ImmutableTimeInstant(element.getAttribute("inferredTo")));
+			TypeSpan typeSpan = new TypeSpan(type, start, end);
 			if (tagName.equals("place") && !Place.class.isAssignableFrom(typeSpan.entityClass))
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'place' element.");
 			else if (tagName.equals("org") && !Unit.class.isAssignableFrom(typeSpan.entityClass))
@@ -79,7 +82,7 @@ public class SegmentedOxpEntity {
 
 			types.add(typeSpan);
 		} catch (ClassNotFoundException e) {
-			warningHandler.addWarning(filename, "Invalid type for entity "+oxpID+": "+element.getTextContent());
+			warningHandler.addWarning(filename, "Invalid type for entity "+uri+": "+type);
 		}
 	}
 	
@@ -127,19 +130,19 @@ public class SegmentedOxpEntity {
 		properties.add(new Property(property, value, start, end));
 	}
 	
-	public void addRelation(String property, String passiveOxpID, TimeInstant start, TimeInstant end, Class<? extends OxpEntity>argumentClass, boolean inverted) {
+	public void addRelation(String property, String passiveUri, TimeInstant start, TimeInstant end, Class<? extends OxpEntity>argumentClass, boolean inverted) {
 		Relation relation;
 		
 		if (inverted)
-			relation = new Relation(passiveOxpID, oxpID, property, start, end, argumentClass);
+			relation = new Relation(passiveUri, uri, property, start, end, argumentClass);
 		else
-			relation = new Relation(oxpID, passiveOxpID, property, start, end, argumentClass);
+			relation = new Relation(uri, passiveUri, property, start, end, argumentClass);
 		
 		relations.add(relation);
-		String activeID = inverted ? passiveOxpID : oxpID;
-		if (!relationsByID.containsKey(activeID))
-			relationsByID.put(activeID, new HashSet<Relation>());
-		relationsByID.get(activeID).add(relation);
+		String activeURI = inverted ? passiveUri : uri;
+		if (!relationsByURI.containsKey(activeURI))
+			relationsByURI.put(activeURI, new HashSet<Relation>());
+		relationsByURI.get(activeURI).add(relation);
 		
 	}
 	
@@ -151,10 +154,10 @@ public class SegmentedOxpEntity {
 			SegmentedOxpEntity passive = entityMapping.get(relation.passive);
 			
 			if (active == null) {
-				warningHandler.addWarning(null, "Entity "+relation.active+" referenced in relation but is not defined.");
+				warningHandler.addWarning(null, "Entity "+relation.active+" referenced in relation by "+relation.passive+" but is not defined.");
 				relationsToRemove.add(relation);
 			} else if (passive == null) {
-				warningHandler.addWarning(null, "Entity "+relation.passive+" referenced in relation but is not defined.");
+				warningHandler.addWarning(null, "Entity "+relation.passive+" referenced in relation by "+relation.active+" but is not defined.");
 				relationsToRemove.add(relation);
 			} else {
 				TimeInstant from = SeparatedTEIImporter.latest(active.from, passive.from);
@@ -168,8 +171,10 @@ public class SegmentedOxpEntity {
 			}
 		}
 		
-		for (Relation relation : relationsToRemove)
+		for (Relation relation : relationsToRemove) {
+			warningHandler.addWarning(null, "Relation between "+relation.active+" and "+relation.passive+" precluded by lack of overlap.");
 			relations.remove(relation);
+		}
 	}
 	
 	public void addToGaboto(Map<String,SegmentedOxpEntity> entityMapping) {
@@ -186,8 +191,8 @@ public class SegmentedOxpEntity {
 			instants.add(typeSpan.to);
 		}
 		
-		if (relationsByID.containsKey(oxpID))
-			for (Relation relation : relationsByID.get(oxpID)) {
+		if (relationsByURI.containsKey(uri))
+			for (Relation relation : relationsByURI.get(uri)) {
 				instants.add(relation.from);
 				instants.add(relation.to);
 			}
@@ -214,7 +219,7 @@ public class SegmentedOxpEntity {
 				entities[i] = typeArray[i].entityClass.newInstance();
 
 			} catch (NullPointerException e) {
-				warningHandler.addWarning(filename, "Entity "+oxpID+" has periods of its existence without a type.");
+				warningHandler.addWarning(filename, "Entity "+uri+" has periods of its existence without a type.");
 				return;
 			} catch (InstantiationException e) {
 				throw new GabotoRuntimeException();
@@ -246,8 +251,8 @@ public class SegmentedOxpEntity {
 			}
 		}
 		
-		if (relationsByID.containsKey(oxpID))
-			for (Relation relation : relationsByID.get(oxpID)) {
+		if (relationsByURI.containsKey(uri))
+			for (Relation relation : relationsByURI.get(uri)) {
 				OxpEntity proxy_;
 				Class<? extends OxpEntity> et=null;
 				try {
@@ -283,7 +288,12 @@ public class SegmentedOxpEntity {
 		}
 	}
 	
-
+	private String coerceToURI(String oxpIdOrURI) {
+		if (oxpIdOrURI.length() == 8)
+			return gaboto.getConfig().getNSData()+oxpIdOrURI;
+		else
+			return oxpIdOrURI;
+	}
 	
 	private class Relation {
 		String active;
@@ -333,7 +343,7 @@ public class SegmentedOxpEntity {
 			this.typeName = name;
 			try {
 				this.proxy = this.entityClass.newInstance();
-				this.proxy.setUri(gaboto.getConfig().getNSData()+oxpID);
+				this.proxy.setUri(uri);
 			} catch (InstantiationException e) {
 				throw new GabotoRuntimeException();
 			} catch (IllegalAccessException e) {
