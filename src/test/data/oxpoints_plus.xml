@@ -156,7 +156,11 @@
             </location>
           </place>
           <place oxpID="23232337" type="building">
-            <placeName>Oxmore Towers</placeName>
+            <placeName>Hawksmoor Towers</placeName>
+			<location when="2010-03-11">
+              <geo rend="0">-1.252812 51.753579</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
             <place oxpID="23232338" type="room">
               <placeName>Wharton Room</placeName>
             </place>
@@ -682,7 +686,11 @@
             </location>
           </place>
           <place oxpID="23232381" type="building">
-            <placeName>(unknown building)</placeName>
+            <placeName>Balfour Building</placeName>
+			<location when="2010-03-11">
+              <geo>-1.260078 51.763946</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
             <place oxpID="23232382" type="room">
               <placeName>Meeting Room</placeName>
             </place>
@@ -943,6 +951,10 @@
           </place>
           <place oxpID="23232403" type="building">
             <placeName>The Chapel</placeName>
+			<location when="2010-03-11">
+              <geo>-1.252672 51.750893</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
           </place>
         </place>
         <place oucsCode="newc" oxpID="23232405" type="college">
@@ -975,7 +987,11 @@
             </location>
           </place>
           <place oxpID="23232407" type="building">
-            <placeName>(unknown building)</placeName>
+            <placeName>New Buildings</placeName>
+			<location when="2010-03-11">
+              <geo>-1.250982 51.754688</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
             <place oxpID="23232408" type="room">
               <placeName>Lecture Room 6</placeName>
             </place>
@@ -1113,7 +1129,11 @@
             </location>
           </place>
           <place oxpID="23232418" type="building">
-              <placeName>The Queen's College Boat House</placeName>
+            <placeName>The Queen's College Boat House</placeName>
+			<location when="2010-03-11">
+              <geo>-1.249394 51.743121</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
           </place>
           <place oxpID="23232420" type="building">
             <placeName>The Queen's College Chapel and Fellows' Garden</placeName>
@@ -1126,6 +1146,10 @@
           </place>
           <place oxpID="23232422" type="building">
             <placeName>The Queen's College Hall</placeName>
+			<location when="2010-03-11">
+              <geo>-1.251025 51.753221</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
           </place>
         </place>
         <place oucsCode="rege" oxpID="23232423" type="college">
@@ -1231,6 +1255,10 @@
           </place>
           <place oxpID="23232432" type="building">
             <placeName>Hilda Besse Building</placeName>
+			<location when="2010-03-11">
+              <geo>-1.262977 51.763481</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
             <place oxpID="23232433" type="room">
               <placeName>Clock Room</placeName>
             </place>
@@ -1301,7 +1329,11 @@
             </location>
           </place>
           <place oxpID="23232439" type="building">
-            <placeName>(unknown building)</placeName>
+            <placeName>Bernard Sunley Building</placeName>
+			<location when="2010-03-11">
+              <geo>-1.244137 51.755429</geo>
+              <note>recorded by Gerard Hoen</note>
+            </location>
             <place oxpID="23232440" type="room">
               <placeName>Bernard Sunley Lecture Theatre</placeName>
             </place>
@@ -7195,6 +7227,10 @@ data, and if so, how? -->
         </place>
         <place type="building" obnCode="105" oxpID="23233685" oucsCode="e_3">
           <placeName>Old Observatory</placeName>
+		  <location when="2010-03-11">
+            <geo>-1.253541 51.759915</geo>
+            <note>recorded by Gerard Hoen</note>
+          </location>
           <event when="1875" type="construction"/>
         </place>
         <place type="building" obnCode="110" oxpID="23233690" oucsCode="e_8">
@@ -7246,6 +7282,10 @@ data, and if so, how? -->
         </place>
         <place type="building" obnCode="138" oxpID="23233707" oucsCode="e_25">
           <placeName>Botanic Garden Cottage</placeName>
+		  <location when="2010-03-11">
+            <geo>-1.248563 51.750697</geo>
+            <note>recorded by Gerard Hoen</note>
+          </location>
           <event when="1880" type="construction"/>
           <event when="1880" type="acquisition"/>
         </place>
