@@ -1,12 +1,11 @@
 package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
-import com.hp.hpl.jena.rdf.model.Bag;
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
@@ -65,8 +64,16 @@ public class Unit extends OxpEntity {
     try {
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
-      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
       list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
+      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lat", list);
+
+      list = new ArrayList<Method>();
+      list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
+      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lon", list);
+
+      list = new ArrayList<Method>();
+      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation", list);
 
     } catch (Exception e) {
@@ -107,14 +114,14 @@ public class Unit extends OxpEntity {
     this.address = address;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage")
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
   public Website getHomepage(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.homepage;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage")
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
   public void setHomepage(Website homepage){
     if( homepage != null )
       this.removeMissingReference( homepage.getUri() );
@@ -153,7 +160,7 @@ public class Unit extends OxpEntity {
     this.name = name;
   }
 
-  @IndirectProperty({"http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation"})
+  @IndirectProperty({"http://www.opengis.net/gml/lat","http://www.opengis.net/gml/lon"})
   @BagURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies")
   public Collection<Building> getOccupiedBuildings(){
     if(! this.isDirectReferencesResolved())
@@ -179,7 +186,7 @@ public class Unit extends OxpEntity {
     this.occupiedBuildings.add(occupiedBuilding);
   }
 
-  @IndirectProperty({"http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation"})
+  @IndirectProperty({"http://www.opengis.net/gml/lat","http://www.opengis.net/gml/lon"})
   @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#primaryPlace")
   public Place getPrimaryPlace(){
     if(! this.isDirectReferencesResolved())
@@ -252,8 +259,12 @@ public class Unit extends OxpEntity {
 
 
 
-  public Object getLocation(){
-    return this.getPropertyValue("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation", false, true);
+  public Object getLatitude(){
+    return this.getPropertyValue("http://www.opengis.net/gml/lat", false, true);
+  }
+
+  public Object getLongitude(){
+    return this.getPropertyValue("http://www.opengis.net/gml/lon", false, true);
   }
 
 
@@ -317,7 +328,7 @@ public class Unit extends OxpEntity {
     }
 
     // Load SIMPLE_URI_PROPERTY homepage
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage"));
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
@@ -346,20 +357,18 @@ public class Unit extends OxpEntity {
       this.setName(((Literal)stmt.getObject()).getString());
 
     // Load BAG_URI_PROPERTY occupiedBuildings
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies"));
-    if(stmt != null && stmt.getObject().isResource() && null != stmt.getBag()){
-      Bag bag = stmt.getBag();
-      NodeIterator nodeIt = bag.iterator();
-      while(nodeIt.hasNext()){
-        RDFNode node = nodeIt.nextNode();
-        if(! node.isResource())
-          throw new IllegalArgumentException("node should be a resource");
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isResource())
+              throw new IllegalArgumentException("node should be a resource");
 
-        Resource missingReference = (Resource)node;
-        EntityExistsCallback callback = new EntityExistsCallback(){
-          public void entityExists(EntityPool p, GabotoEntity entity) {
-            addOccupiedBuilding((Building) entity);
-          }
+            Resource missingReference = (Resource)node;
+            EntityExistsCallback callback = new EntityExistsCallback(){
+              public void entityExists(EntityPool p, GabotoEntity entity) {
+                addOccupiedBuilding((Building) entity);
+            }
         };
         this.addMissingReference(missingReference, callback);
       }

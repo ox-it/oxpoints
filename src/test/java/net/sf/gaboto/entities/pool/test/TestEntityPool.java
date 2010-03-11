@@ -46,9 +46,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import uk.ac.ox.oucs.oxpoints.OxpointsFactory;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ResIterator;
@@ -248,18 +248,17 @@ public class TestEntityPool {
           return false;
         System.err.println(col.getPrimaryPlace());
         // load location
-        Location loc = col.getPrimaryPlace().getLocation();
+        Place place = col.getPrimaryPlace();
 
         // reject if no location is set
-        if (loc == null)
+        if (place.getLatitude() == null || place.getLongitude() == null)
           return false;
 
         double lat_oucs = 51.760010;
         double long_oucs = -1.260350;
 
-        double lat_diff = Double.valueOf(loc.getPos().split(" ")[0]) - lat_oucs;
-        double long_diff = Double.valueOf(loc.getPos().split(" ")[1])
-            - long_oucs;
+        double lat_diff = place.getLatitude() - lat_oucs;
+        double long_diff = place.getLongitude() - long_oucs;
         double distance = Math
             .sqrt(lat_diff * lat_diff + long_diff * long_diff);
 

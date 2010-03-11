@@ -26,7 +26,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
@@ -138,10 +137,22 @@ public class SeparatedTEIImporter {
 			warningHandler.addWarning("Entity has no oxpID");
 			return;
 		}
-			
+		
 		
 		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, uri, elements.get(0), filename);
 		entitiesByURI.put(uri, entity);
+
+		for (String sameAs : elements.get(0).getAttribute("corresp").split(" "))
+			if (sameAs.length() > 0) {
+				Website website = new Website();
+				website.setUri(sameAs);
+				try {
+					gaboto.add(website);
+				} catch (EntityAlreadyExistsException e) {
+					warningHandler.addWarning("Website <"+sameAs+"> referenced in corresp attribute more than once.");
+				}
+				entity.addProperty("addSameAs", website);
+			}
 
 		for (Element element : elements) {
 			NodeList nodes = element.getChildNodes();
@@ -178,8 +189,10 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setOBNCode", elem);
 					else if (elemType.equals("olis"))
 						entity.addProperty("setOLISCode", elem);
-					else if (elemType.equals("osm"))
+					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
+						entity.addProperty("addSameAs", createWebsite("http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id"), elem);
+					}
 
 				} else if (tagName.equals("location")) {
 					NodeList children = elem.getChildNodes();
@@ -189,9 +202,15 @@ public class SeparatedTEIImporter {
 							continue;
 						Element child = (Element) children.item(k);
 						if (child.getTagName().equals("geo")) {
-							Location loc = new Location();
-							loc.setPos(child.getTextContent());
-							entity.addProperty("setLocation", loc, elem);
+							try {
+								String[] coords = child.getTextContent().split(" ");
+								entity.addProperty("setLongitude", Float.valueOf(coords[0]), child);
+								entity.addProperty("setLatitude", Float.valueOf(coords[1]), child);
+							} catch (NumberFormatException e) {
+								warningHandler.addWarning(filename, "location element should contain two floats separated by a space.");
+							} catch (IndexOutOfBoundsException e) {
+								warningHandler.addWarning(filename, "location element should contain two floats separated by a space.");
+							}
 						} else if (child.getTagName().equals("address")) {
 							entity.addProperty("setAddress", extractAddress(child), elem);
 						}
@@ -251,7 +270,7 @@ public class SeparatedTEIImporter {
 	}
 
 	private String loadImage(Element figure, String filename) {
-		String uri = "", width="", height="", description="", type="";
+		String uri = "", width="", height="", description="";
 		try {
 			Element graphic = (Element) figure.getElementsByTagName("graphic").item(0);
 			if (graphic.getAttribute("url").startsWith("http://") || graphic.getAttribute("url").startsWith("https://"))
@@ -269,14 +288,14 @@ public class SeparatedTEIImporter {
 		} catch (IndexOutOfBoundsException e) {
 			warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
 		}
-		if (figure.hasAttribute("type"))
-			type = figure.getAttribute("type");
-		else
-			type = "unknown";
 		
 		SegmentedOxpEntity image = new SegmentedOxpEntity(
 				gaboto, warningHandler, uri, TimeSpan.BIG_BANG,
 				TimeSpan.DOOMS_DAY, "figure", filename);
+		
+		for (String dcType : figure.getAttribute("type").split(" "))
+			if (dcType.length() > 0)
+				image.addProperty("addDcType", dcType, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		
 		for (String corresp : figure.getAttribute("corresp").split(" ")) {
 			if (corresp.length() == 0)
@@ -290,8 +309,7 @@ public class SeparatedTEIImporter {
 		image.addProperty("setWidth", width, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		image.addProperty("setHeight", height, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		image.addProperty("setDescription", description, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
-		image.addProperty("setDcType", type, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
-
+		
 		entitiesByURI.put(uri, image);
 		return uri;
 	}
@@ -368,12 +386,16 @@ public class SeparatedTEIImporter {
 		Element e = (Element) ns.item(0);
 		String url = e.getAttribute("target");
 		
-		if (websites.containsKey(url)) {
-			return websites.get(url);
+		return createWebsite(url);
+	}
+	
+	public Website createWebsite(String uri) {
+		if (websites.containsKey(uri)) {
+			return websites.get(uri);
 		} else {
 			Website website = new Website();
-			website.setUri(url);
-			websites.put(url, website);
+			website.setUri(uri);
+			websites.put(uri, website);
 			try {
 				gaboto.add(website);
 			} catch (EntityAlreadyExistsException e1) {

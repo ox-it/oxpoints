@@ -2,8 +2,10 @@ package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
@@ -17,6 +19,7 @@ import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
+import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 
@@ -35,7 +38,8 @@ public class Image extends OxpEntity {
   private String height;
   private String description;
   private String title;
-  private String dcType;
+  private Collection<String> dcType;
+  private String date;
   private Collection<OxpEntity> imageContents;
 
 
@@ -46,11 +50,11 @@ public class Image extends OxpEntity {
 
   @Override
   public String getType(){
-    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Image";
+    return "http://xmlns.com/foaf/0.1/Image";
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#width",
+    value = "http://www.w3.org/2003/12/exif/nswidth",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -59,7 +63,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#width",
+    value = "http://www.w3.org/2003/12/exif/nswidth",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -68,7 +72,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#height",
+    value = "http://www.w3.org/2003/12/exif/nsheight",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -77,7 +81,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#height",
+    value = "http://www.w3.org/2003/12/exif/nsheight",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -121,26 +125,50 @@ public class Image extends OxpEntity {
     this.title = title;
   }
 
-  @SimpleLiteralProperty(
+  @BagLiteralProperty(
     value = "http://purl.org/dc/elements/1.1/type",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public String getDcType(){
+  public Collection<String> getDcType(){
     return this.dcType;
   }
 
-  @SimpleLiteralProperty(
+  @BagLiteralProperty(
     value = "http://purl.org/dc/elements/1.1/type",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public void setDcType(String dcType){
+  public void setDcType(Collection<String> dcType){
     this.dcType = dcType;
   }
 
+  public void addDcType(String dcTypeP){
+    if(this.dcType == null)
+      setDcType( new HashSet<String>() );
+    this.dcType.add(dcTypeP);
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/date",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getDate(){
+    return this.date;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/date",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setDate(String date){
+    this.date = date;
+  }
+
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#inImage",
+    uri = "http://xmlns.com/foaf/0.1/depiction",
     entity = "OxpEntity"
   )
   public Collection<OxpEntity> getImageContents(){
@@ -150,7 +178,7 @@ public class Image extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#inImage",
+    uri = "http://xmlns.com/foaf/0.1/depiction",
     entity = "OxpEntity"
   )
   private void setImageContents(Collection<OxpEntity> imageContents){
@@ -179,7 +207,7 @@ public class Image extends OxpEntity {
       }
 
       public String getUri() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#inImage";
+        return "http://xmlns.com/foaf/0.1/depiction";
       }
 
       public int getCollectionType() {
@@ -199,12 +227,12 @@ public class Image extends OxpEntity {
     Statement stmt;
 
     // Load SIMPLE_LITERAL_PROPERTY width
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#width"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/nswidth"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setWidth(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_LITERAL_PROPERTY height
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#height"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/nsheight"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setHeight(((Literal)stmt.getObject()).getString());
 
@@ -218,10 +246,22 @@ public class Image extends OxpEntity {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setTitle(((Literal)stmt.getObject()).getString());
 
-    // Load SIMPLE_LITERAL_PROPERTY dcType
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
+    // Load BAG_LITERAL_PROPERTY dcType
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
+
+            addDcType(((Literal)node).getString());
+        }
+    }
+
+    // Load SIMPLE_LITERAL_PROPERTY date
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/date"));
     if(stmt != null && stmt.getObject().isLiteral())
-      this.setDcType(((Literal)stmt.getObject()).getString());
+      this.setDate(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

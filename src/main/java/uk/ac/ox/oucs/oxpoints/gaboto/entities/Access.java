@@ -1,12 +1,11 @@
 package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
-import com.hp.hpl.jena.rdf.model.Bag;
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
@@ -183,18 +182,15 @@ public class Access extends OxpEntity {
     }
 
     // Load BAG_LITERAL_PROPERTY accessRights
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/accessRights"));
-    if(stmt != null && stmt.getObject().isResource() && stmt.getBag() != null){
-      Bag bag = stmt.getBag();
-      NodeIterator nodeIt = bag.iterator();
-      while(nodeIt.hasNext()){
-        RDFNode node = nodeIt.nextNode();
-        if(! node.isLiteral())
-          throw new IllegalArgumentException("node should be a literal");
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/dc/elements/1.1/accessRights"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
 
-        addAccessRight(((Literal)node).getString());
-      }
-
+            addAccessRight(((Literal)node).getString());
+        }
     }
 
     // Load SIMPLE_LITERAL_PROPERTY incline

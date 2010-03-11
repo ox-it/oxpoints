@@ -14,7 +14,7 @@
     <xsl:template match="/">
         <xsl:result-document href="individual/99999999.xml" method="xml"
             indent="yes">
-            <org type="university" oxpID="99999999">
+            <org type="university" oxpID="99999999" corresp="http://education.data.gov.uk/doc/institution/H-0156 http://dbpedia.org/resource/University_of_Oxford">
                 <placeName>University of Oxford</placeName>
                 <trait type="type"><desc>Unit</desc></trait>
                 <xsl:for-each select="//tei:place[@type='building' and @obnCode]">
@@ -65,10 +65,10 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:for-each>
-                    <xsl:if test="@oucsCode">
+                    <xsl:if test="@oucsCode and not($whatami='place')">
                         <idno type="oucs"><xsl:value-of
                                 select="@oucsCode"/></idno>
-                    </xsl:if>
+                    </xsl:if> 
                     <xsl:if test="@obnCode">
                         <idno type="obn"><xsl:value-of
                                 select="@obnCode"/></idno>
@@ -146,6 +146,8 @@
                 select="*|@*|processing-instruction()|comment()|text()"/>
         </xsl:copy>
     </xsl:template>
+
+    <xsl:template match="tei:place/@oucsCode"/>
 
     <xsl:template match="tei:place/@type"/>
 

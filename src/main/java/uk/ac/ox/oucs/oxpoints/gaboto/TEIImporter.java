@@ -37,7 +37,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
 
 import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoFactory;
@@ -53,7 +52,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Access;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark;
@@ -297,15 +295,12 @@ public class TEIImporter {
       throw new NullPointerException();
     cp.setUri(gaboto.getConfig().getNSData() + id);
 		
-    String code = el.getAttribute("oucsCode");
-    if (code == null)
-      throw new NullPointerException("Carpark " + id + " has no oucsCode");
-    cp.setOUCSCode(code);
     String obn = el.getAttribute("obnCode");
     cp.setOBNCode(obn);
     
 		cp.setName(findName(el));
-		cp.setLocation(findLocation(el));
+
+		setLocation(cp, el);
 		
 		// label
 		NodeList nl = el.getElementsByTagName("label");
@@ -523,10 +518,6 @@ public class TEIImporter {
     // get name
     room.setName(findName(roomEl));
     
-    // oucs code
-    String code = roomEl.getAttribute("oucsCode");
-    room.setOUCSCode(code);
-    
     String obn = roomEl.getAttribute("obnCode");
     room.setOBNCode(obn);
 
@@ -554,9 +545,6 @@ public class TEIImporter {
       throw new NullPointerException();
     building.setUri(gaboto.getConfig().getNSData() + id);
 		// get uri
-		
-    String code = buildingEl.getAttribute("oucsCode");
-    building.setOUCSCode(code);
     
     String obn = buildingEl.getAttribute("obnCode");
     building.setOBNCode(obn);
@@ -571,7 +559,7 @@ public class TEIImporter {
     building.setHomepage(findHomepage(buildingEl, building.getTimeSpan()));
 
 		// location
-		building.setLocation(findLocation(buildingEl));
+		setLocation(building, buildingEl);
 		
 		// osmId
 		NodeList refs = buildingEl.getElementsByTagName("ref");
@@ -705,7 +693,7 @@ public class TEIImporter {
 	
 
 	
-	private Location findLocation(Element el) {
+	private void setLocation(Place p, Element el) {
 		NodeList children = el.getChildNodes();
 		for(int i = 0; i < children.getLength(); i++){
 			if(children.item(i).getNodeName().equals("location")){
@@ -715,17 +703,14 @@ public class TEIImporter {
 				Element location = (Element) children.item(i);
 				NodeList geos = location.getElementsByTagName("geo");
 				if(geos.getLength() > 0){
-					String geo = geos.item(0).getTextContent();
+					String[] coords = geos.item(0).getTextContent().split(" ");
 					
-					Location loc = new Location();
-					loc.setPos(geo);
+					p.setLatitude(Float.valueOf(coords[0]));
+					p.setLongitude(Float.valueOf(coords[1]));
 					
-					return loc;
 				}
 			}
 		}
-
-		return null;
 	}
 
 	

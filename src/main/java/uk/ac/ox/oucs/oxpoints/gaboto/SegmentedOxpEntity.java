@@ -288,11 +288,8 @@ public class SegmentedOxpEntity {
 		}
 	}
 	
-	private String coerceToURI(String oxpIdOrURI) {
-		if (oxpIdOrURI.length() == 8)
-			return gaboto.getConfig().getNSData()+oxpIdOrURI;
-		else
-			return oxpIdOrURI;
+	public String getTagName() {
+		return tagName;
 	}
 	
 	private class Relation {

@@ -81,16 +81,16 @@ public class TestGabotoEntity  {
 		Building b = new Building();
 		b.setTimeSpan(new TimeSpan(1900,null,null));
 		b.setName("Test Building");
-		Location loc = new Location();
-		loc.setPos("50.12312414234 0.12312432");
-		b.setLocation(loc);
+		String[] loc = "50.12312414234 0.12312432".split(" ");
+		b.setLongitude(Float.valueOf(loc[0]));
+		b.setLatitude(Float.valueOf(loc[1]));
 		
 		Building b2 = new Building();
 		b2.setTimeSpan(new TimeSpan(1900,null,null));
 		b2.setName("Test Building 2");
-		Location loc2 = new Location();
-		loc2.setPos("57.1239812 21.123987");
-		b2.setLocation(loc2);
+		String[] loc2 = "57.1239812 21.123987".split(" ");
+		b.setLongitude(Float.valueOf(loc2[0]));
+		b.setLatitude(Float.valueOf(loc2[1]));
 		
 		Unit u = new Unit();
 		u.setUri(oxp.generateIdUri());
@@ -125,9 +125,9 @@ public class TestGabotoEntity  {
 		b.setUri(oxp.generateIdUri());
 		b.setTimeSpan(new TimeSpan(1900,null,null));
 		b.setName("Test Building");
-		Location loc = new Location();
-		loc.setPos("50.12312414234 0.12312432");
-		b.setLocation(loc);
+		String[] loc = "50.12312414234 0.12312432".split(" ");
+		b.setLongitude(Float.valueOf(loc[0]));
+		b.setLatitude(Float.valueOf(loc[1]));
 		
 		Unit u = new Unit();
 		u.setUri(oxp.generateIdUri());

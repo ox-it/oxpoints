@@ -25,7 +25,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Room extends Place {
-  private String usedFor;
+  private String dcType;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -39,21 +39,21 @@ public class Room extends Place {
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#usedFor",
+    value = "http://purl.org/dc/elements/1.1/type",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public String getUsedFor(){
-    return this.usedFor;
+  public String getDcType(){
+    return this.dcType;
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#usedFor",
+    value = "http://purl.org/dc/elements/1.1/type",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public void setUsedFor(String usedFor){
-    this.usedFor = usedFor;
+  public void setDcType(String dcType){
+    this.dcType = dcType;
   }
 
 
@@ -66,10 +66,10 @@ public class Room extends Place {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
-    // Load SIMPLE_LITERAL_PROPERTY usedFor
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#usedFor"));
+    // Load SIMPLE_LITERAL_PROPERTY dcType
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
     if(stmt != null && stmt.getObject().isLiteral())
-      this.setUsedFor(((Literal)stmt.getObject()).getString());
+      this.setDcType(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

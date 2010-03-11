@@ -31,7 +31,6 @@ import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 
@@ -42,10 +41,10 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  */
 public class Place extends OxpEntity {
   private String name;
-  private String oUCSCode;
   private String oBNCode;
   private Place parent;
-  private Location location;
+  private Float latitude;
+  private Float longitude;
   private Address address;
   private Website homepage;
   private Collection<Place> containedPlaces;
@@ -91,24 +90,6 @@ public class Place extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public String getOUCSCode(){
-    return this.oUCSCode;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setOUCSCode(String oUCSCode){
-    this.oUCSCode = oUCSCode;
-  }
-
-  @SimpleLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOBNCode",
     datatypeType = "javaprimitive",
     javaType = "String"
@@ -142,14 +123,40 @@ public class Place extends OxpEntity {
     this.parent = parent;
   }
 
-  @ComplexProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation")
-  public Location getLocation(){
-    return this.location;
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lat",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public Float getLatitude(){
+    return this.latitude;
   }
 
-  @ComplexProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation")
-  public void setLocation(Location location){
-    this.location = location;
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lat",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public void setLatitude(Float latitude){
+    this.latitude = latitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lon",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public Float getLongitude(){
+    return this.longitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lon",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public void setLongitude(Float longitude){
+    this.longitude = longitude;
   }
 
   @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
@@ -162,14 +169,14 @@ public class Place extends OxpEntity {
     this.address = address;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage")
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
   public Website getHomepage(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.homepage;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage")
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
   public void setHomepage(Website homepage){
     if( homepage != null )
       this.removeMissingReference( homepage.getUri() );
@@ -258,11 +265,6 @@ public class Place extends OxpEntity {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setName(((Literal)stmt.getObject()).getString());
 
-    // Load SIMPLE_LITERAL_PROPERTY oUCSCode
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOUCSCode"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setOUCSCode(((Literal)stmt.getObject()).getString());
-
     // Load SIMPLE_LITERAL_PROPERTY oBNCode
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOBNCode"));
     if(stmt != null && stmt.getObject().isLiteral())
@@ -280,13 +282,15 @@ public class Place extends OxpEntity {
       this.addMissingReference(missingReference, callback);
     }
 
-    // Load SIMPLE_COMPLEX_PROPERTY location
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation"));
-    if(stmt != null && stmt.getObject().isAnon()){
-      Location bean = new Location();
-      bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
-      setLocation(bean);
-    }
+    // Load SIMPLE_LITERAL_PROPERTY latitude
+    stmt = res.getProperty(snapshot.getProperty("http://www.opengis.net/gml/lat"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setLatitude(((Literal)stmt.getObject()).getFloat());
+
+    // Load SIMPLE_LITERAL_PROPERTY longitude
+    stmt = res.getProperty(snapshot.getProperty("http://www.opengis.net/gml/lon"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setLongitude(((Literal)stmt.getObject()).getFloat());
 
     // Load SIMPLE_COMPLEX_PROPERTY address
     stmt = res.getProperty(snapshot.getProperty("http://nwalsh.com/rdf/vCard#adr"));
@@ -297,7 +301,7 @@ public class Place extends OxpEntity {
     }
 
     // Load SIMPLE_URI_PROPERTY homepage
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage"));
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){

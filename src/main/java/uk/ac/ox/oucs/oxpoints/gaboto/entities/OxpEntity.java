@@ -1,11 +1,10 @@
 package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
-import com.hp.hpl.jena.rdf.model.Bag;
-import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
@@ -31,6 +30,7 @@ import net.sf.gaboto.node.pool.EntityPool;
  */
 abstract public class OxpEntity extends GabotoEntity {
   private Collection<Image> images;
+  private Collection<Website> sameAss;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -43,14 +43,14 @@ abstract public class OxpEntity extends GabotoEntity {
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OxpEntity";
   }
 
-  @BagURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#inImage")
+  @BagURIProperty("http://xmlns.com/foaf/0.1/depiction")
   public Collection<Image> getImages(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.images;
   }
 
-  @BagURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#inImage")
+  @BagURIProperty("http://xmlns.com/foaf/0.1/depiction")
   public void setImages(Collection<Image> images){
     if( images != null ){
       for( GabotoEntity _entity : images)
@@ -68,6 +68,31 @@ abstract public class OxpEntity extends GabotoEntity {
     this.images.add(image);
   }
 
+  @BagURIProperty("http://www.w3.org/2002/07/owl#sameAs")
+  public Collection<Website> getSameAss(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.sameAss;
+  }
+
+  @BagURIProperty("http://www.w3.org/2002/07/owl#sameAs")
+  public void setSameAss(Collection<Website> sameAss){
+    if( sameAss != null ){
+      for( GabotoEntity _entity : sameAss)
+        this.removeMissingReference( _entity.getUri() );
+    }
+
+    this.sameAss = sameAss;
+  }
+
+  public void addSameAs(Website sameAs){
+    if( sameAs != null )
+      this.removeMissingReference( sameAs.getUri() );
+    if(this.sameAss == null )
+      this.sameAss = new HashSet<Website>();
+    this.sameAss.add(sameAs);
+  }
+
 
 
 
@@ -79,20 +104,36 @@ abstract public class OxpEntity extends GabotoEntity {
     Statement stmt;
 
     // Load BAG_URI_PROPERTY images
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#inImage"));
-    if(stmt != null && stmt.getObject().isResource() && null != stmt.getBag()){
-      Bag bag = stmt.getBag();
-      NodeIterator nodeIt = bag.iterator();
-      while(nodeIt.hasNext()){
-        RDFNode node = nodeIt.nextNode();
-        if(! node.isResource())
-          throw new IllegalArgumentException("node should be a resource");
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://xmlns.com/foaf/0.1/depiction"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isResource())
+              throw new IllegalArgumentException("node should be a resource");
 
-        Resource missingReference = (Resource)node;
-        EntityExistsCallback callback = new EntityExistsCallback(){
-          public void entityExists(EntityPool p, GabotoEntity entity) {
-            addImage((Image) entity);
-          }
+            Resource missingReference = (Resource)node;
+            EntityExistsCallback callback = new EntityExistsCallback(){
+              public void entityExists(EntityPool p, GabotoEntity entity) {
+                addImage((Image) entity);
+            }
+        };
+        this.addMissingReference(missingReference, callback);
+      }
+    }
+
+    // Load BAG_URI_PROPERTY sameAss
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2002/07/owl#sameAs"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isResource())
+              throw new IllegalArgumentException("node should be a resource");
+
+            Resource missingReference = (Resource)node;
+            EntityExistsCallback callback = new EntityExistsCallback(){
+              public void entityExists(EntityPool p, GabotoEntity entity) {
+                addSameAs((Website) entity);
+            }
         };
         this.addMissingReference(missingReference, callback);
       }
