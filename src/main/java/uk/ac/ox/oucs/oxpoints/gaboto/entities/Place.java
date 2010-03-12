@@ -43,8 +43,8 @@ public class Place extends OxpEntity {
   private String name;
   private String oBNCode;
   private Place parent;
-  private Float latitude;
   private Float longitude;
+  private Float latitude;
   private Address address;
   private Website homepage;
   private Collection<Place> containedPlaces;
@@ -59,11 +59,11 @@ public class Place extends OxpEntity {
     try {
       list = new ArrayList<Method>();
       list.add(Place.class.getMethod("getParent", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lat", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
 
       list = new ArrayList<Method>();
       list.add(Place.class.getMethod("getParent", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lon", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
 
     } catch (Exception e) {
       throw new GabotoRuntimeException(e);
@@ -112,7 +112,7 @@ public class Place extends OxpEntity {
   }
 
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
-  @IndirectProperty({"http://www.opengis.net/gml/lon","http://www.opengis.net/gml/lat"})
+  @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public Place getParent(){
     if(! this.isDirectReferencesResolved())
@@ -128,25 +128,7 @@ public class Place extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://www.opengis.net/gml/lat",
-    datatypeType = "javaprimitive",
-    javaType = "Float"
-  )
-  public Float getLatitude(){
-    return this.latitude;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://www.opengis.net/gml/lat",
-    datatypeType = "javaprimitive",
-    javaType = "Float"
-  )
-  public void setLatitude(Float latitude){
-    this.latitude = latitude;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://www.opengis.net/gml/lon",
+    value = "http://www.w3.org/2003/01/geo/wgs84_pos#long",
     datatypeType = "javaprimitive",
     javaType = "Float"
   )
@@ -155,12 +137,30 @@ public class Place extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://www.opengis.net/gml/lon",
+    value = "http://www.w3.org/2003/01/geo/wgs84_pos#long",
     datatypeType = "javaprimitive",
     javaType = "Float"
   )
   public void setLongitude(Float longitude){
     this.longitude = longitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public Float getLatitude(){
+    return this.latitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public void setLatitude(Float latitude){
+    this.latitude = latitude;
   }
 
   @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
@@ -286,15 +286,15 @@ public class Place extends OxpEntity {
       this.addMissingReference(missingReference, callback);
     }
 
-    // Load SIMPLE_LITERAL_PROPERTY latitude
-    stmt = res.getProperty(snapshot.getProperty("http://www.opengis.net/gml/lat"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setLatitude(((Literal)stmt.getObject()).getFloat());
-
     // Load SIMPLE_LITERAL_PROPERTY longitude
-    stmt = res.getProperty(snapshot.getProperty("http://www.opengis.net/gml/lon"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/01/geo/wgs84_pos#long"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setLongitude(((Literal)stmt.getObject()).getFloat());
+
+    // Load SIMPLE_LITERAL_PROPERTY latitude
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/01/geo/wgs84_pos#lat"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setLatitude(((Literal)stmt.getObject()).getFloat());
 
     // Load SIMPLE_COMPLEX_PROPERTY address
     stmt = res.getProperty(snapshot.getProperty("http://nwalsh.com/rdf/vCard#adr"));

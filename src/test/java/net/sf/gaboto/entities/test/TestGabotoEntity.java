@@ -46,13 +46,13 @@ import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
 import net.sf.gaboto.util.GabotoPredefinedQueries;
+import net.sf.gaboto.vocabulary.GeoVocab;
 import net.sf.gaboto.vocabulary.OxPointsVocab;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import uk.ac.ox.oucs.oxpoints.OxpointsFactory;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
@@ -111,8 +111,8 @@ public class TestGabotoEntity  {
 		u3.setSubsetOf(u2);
 		
 		
-		assertEquals(loc, u.getPropertyValue(OxPointsVocab.hasLocation_URI));
-		assertEquals(loc2, u3.getPropertyValue(OxPointsVocab.hasLocation_URI));
+		assertEquals(loc, u.getPropertyValue(GeoVocab.long_).toString()+" "+u.getPropertyValue(GeoVocab.lat).toString());
+		assertEquals(loc2, u3.getPropertyValue(GeoVocab.long_).toString()+" "+u3.getPropertyValue(GeoVocab.lat).toString());
 	}
 		
 	
@@ -144,7 +144,8 @@ public class TestGabotoEntity  {
 		pool.addEntity(b);
 		pool.addEntity(u);
 		
-		assertEquals(loc, u.getPropertyValue(OxPointsVocab.hasLocation_URI));
+		assertEquals(loc, u.getPropertyValue(GeoVocab.long_).toString()+" "+u.getPropertyValue(GeoVocab.lat).toString());
+
 	}
 	
 	@Test

@@ -65,13 +65,13 @@ public class Unit extends OxpEntity {
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
       list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
       list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lat", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
 
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
       list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
       list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lon", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
 
     } catch (Exception e) {
       throw new GabotoRuntimeException(e);
@@ -157,7 +157,7 @@ public class Unit extends OxpEntity {
     this.name = name;
   }
 
-  @IndirectProperty({"http://www.opengis.net/gml/lat","http://www.opengis.net/gml/lon"})
+  @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @BagURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies")
   public Collection<Building> getOccupiedBuildings(){
     if(! this.isDirectReferencesResolved())
@@ -183,7 +183,7 @@ public class Unit extends OxpEntity {
     this.occupiedBuildings.add(occupiedBuilding);
   }
 
-  @IndirectProperty({"http://www.opengis.net/gml/lat","http://www.opengis.net/gml/lon"})
+  @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#primaryPlace")
   public Place getPrimaryPlace(){
     if(! this.isDirectReferencesResolved())
@@ -199,7 +199,7 @@ public class Unit extends OxpEntity {
   }
 
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
-  @IndirectProperty({"http://www.opengis.net/gml/lat","http://www.opengis.net/gml/lon"})
+  @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public Unit getSubsetOf(){
     if(! this.isDirectReferencesResolved())
@@ -256,12 +256,12 @@ public class Unit extends OxpEntity {
 
 
 
-  public Object getLatitude(){
-    return this.getPropertyValue("http://www.opengis.net/gml/lat", false, true);
+  public Object getLongitude(){
+    return this.getPropertyValue("http://www.w3.org/2003/01/geo/wgs84_pos#long", false, true);
   }
 
-  public Object getLongitude(){
-    return this.getPropertyValue("http://www.opengis.net/gml/lon", false, true);
+  public Object getLatitude(){
+    return this.getPropertyValue("http://www.w3.org/2003/01/geo/wgs84_pos#lat", false, true);
   }
 
 

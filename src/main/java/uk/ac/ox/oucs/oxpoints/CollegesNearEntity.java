@@ -44,6 +44,7 @@ import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.EntityPoolConfiguration;
 import net.sf.gaboto.query.GabotoQueryImpl;
 import net.sf.gaboto.time.TimeInstant;
+import net.sf.gaboto.vocabulary.GeoVocab;
 import net.sf.gaboto.vocabulary.OxPointsVocab;
 
 
@@ -101,7 +102,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 			College col = (College) en;
 			
 			// get its location
-			Location colLoc = (Location) col.getPropertyValue(OxPointsVocab.hasLocation);
+			Location colLoc = (Location) col.getPropertyValue(GeoVocab.lat);
 			if(null == colLoc)
 				continue;
 			
@@ -129,38 +130,37 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 		// but we are interested in its location. We
 		// can get to this property, by calling its getPropertyValue
 		// method.
-		Location loc = (Location) entity.getPropertyValue(OxPointsVocab.hasLocation);
-		if(null == loc)
+		final Float long_ = (Float) entity.getPropertyValue(GeoVocab.long_);
+		final Float lat = (Float) entity.getPropertyValue(GeoVocab.lat);
+		if (long_ == null || lat == null)
 			throw new IllegalArgumentException("The entity " + entity.getUri() + " does not have a location.");
-		
-		// store latitude and longitude
-		final double lat = loc.getLatitude();
-		final double _long = loc.getLongitude();
 		
 		// sort results
 		Collections.sort(listOfColleges, new Comparator<College>(){
 
-      public int compare(College c1, College c2) {
+			public int compare(College c1, College c2) {
 				// distance of college 1
-				Location l = (Location) c1.getPropertyValue(OxPointsVocab.hasLocation);
-				double distX = Math.abs(lat - l.getLatitude());
-				double distY = Math.abs(_long - l.getLongitude());
+				Float c_long_ = (Float) c1.getPropertyValue(GeoVocab.long_);
+				Float c_lat = (Float) c1.getPropertyValue(GeoVocab.lat);
+				double distX = Math.abs(lat - c_lat);
+				double distY = Math.abs(long_ - c_long_);
 				double dis1 = Math.sqrt(distX*distX + distY*distY);
-				
+
 				// distance of college 2
-				l = (Location) c2.getPropertyValue(OxPointsVocab.hasLocation);
-				distX = Math.abs(lat - l.getLatitude());
-				distY = Math.abs(_long - l.getLongitude());
+				c_long_ = (Float) c2.getPropertyValue(GeoVocab.long_);
+				c_lat = (Float) c2.getPropertyValue(GeoVocab.lat);
+				distX = Math.abs(lat - c_lat);
+				distY = Math.abs(long_ - c_long_);
 				double dis2 = Math.sqrt(distX*distX + distY*distY);
-				
+
 				if(dis1 < dis2)
 					return -1;
 				else if(dis1 > dis2)
 					return 1;
-				
+
 				return 0;
 			}
-			
+
 		});
 		
 		//create result pool
