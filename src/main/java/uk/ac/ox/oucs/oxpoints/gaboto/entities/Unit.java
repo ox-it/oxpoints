@@ -63,17 +63,15 @@ public class Unit extends OxpEntity {
     try {
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
       list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://www.opengis.net/gml/lat", list);
 
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
       list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://www.opengis.net/gml/lon", list);
-
-      list = new ArrayList<Method>();
-      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation", list);
 
     } catch (Exception e) {
       throw new GabotoRuntimeException(e);
@@ -201,15 +199,15 @@ public class Unit extends OxpEntity {
   }
 
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
-  @IndirectProperty({"http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation"})
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#subsetOf")
+  @IndirectProperty({"http://www.opengis.net/gml/lat","http://www.opengis.net/gml/lon"})
+  @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public Unit getSubsetOf(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.subsetOf;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#subsetOf")
+  @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public void setSubsetOf(Unit subsetOf){
     if( subsetOf != null )
       this.removeMissingReference( subsetOf.getUri() );
@@ -231,7 +229,7 @@ public class Unit extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#subsetOf",
+    uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Unit"
   )
   public Collection<Unit> getHasSubsets(){
@@ -241,7 +239,7 @@ public class Unit extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#subsetOf",
+    uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Unit"
   )
   private void setHasSubsets(Collection<Unit> hasSubsets){
@@ -278,7 +276,7 @@ public class Unit extends OxpEntity {
       }
 
       public String getUri() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#subsetOf";
+        return "http://purl.org/dc/terms/isPartOf";
       }
 
       public int getCollectionType() {
@@ -370,7 +368,7 @@ public class Unit extends OxpEntity {
     }
 
     // Load SIMPLE_URI_PROPERTY subsetOf
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#subsetOf"));
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/terms/isPartOf"));
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){

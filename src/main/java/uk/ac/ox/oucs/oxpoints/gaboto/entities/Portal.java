@@ -30,10 +30,8 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Portal extends Place {
-  private Collection<String> dcType;
   private Collection<String> format;
-  private String extent;
-  private Integer steps;
+  private String accesses;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -44,30 +42,6 @@ public class Portal extends Place {
   @Override
   public String getType(){
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Portal";
-  }
-
-  @BagLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/type",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public Collection<String> getDcType(){
-    return this.dcType;
-  }
-
-  @BagLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/type",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setDcType(Collection<String> dcType){
-    this.dcType = dcType;
-  }
-
-  public void addDcType(String dcTypeP){
-    if(this.dcType == null)
-      setDcType( new HashSet<String>() );
-    this.dcType.add(dcTypeP);
   }
 
   @BagLiteralProperty(
@@ -95,39 +69,21 @@ public class Portal extends Place {
   }
 
   @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/extent",
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#accesses",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public String getExtent(){
-    return this.extent;
+  public String getAccesses(){
+    return this.accesses;
   }
 
   @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/extent",
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#accesses",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public void setExtent(String extent){
-    this.extent = extent;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#steps",
-    datatypeType = "javaprimitive",
-    javaType = "Integer"
-  )
-  public Integer getSteps(){
-    return this.steps;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#steps",
-    datatypeType = "javaprimitive",
-    javaType = "Integer"
-  )
-  public void setSteps(Integer steps){
-    this.steps = steps;
+  public void setAccesses(String accesses){
+    this.accesses = accesses;
   }
 
 
@@ -139,18 +95,6 @@ public class Portal extends Place {
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
-
-    // Load BAG_LITERAL_PROPERTY dcType
-    {
-        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
-        while (stmts.hasNext()) {
-            RDFNode node = stmts.next().getObject();
-            if(! node.isLiteral())
-              throw new IllegalArgumentException("node should be a literal");
-
-            addDcType(((Literal)node).getString());
-        }
-    }
 
     // Load BAG_LITERAL_PROPERTY format
     {
@@ -164,15 +108,10 @@ public class Portal extends Place {
         }
     }
 
-    // Load SIMPLE_LITERAL_PROPERTY extent
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/extent"));
+    // Load SIMPLE_LITERAL_PROPERTY accesses
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#accesses"));
     if(stmt != null && stmt.getObject().isLiteral())
-      this.setExtent(((Literal)stmt.getObject()).getString());
-
-    // Load SIMPLE_LITERAL_PROPERTY steps
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#steps"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setSteps(((Literal)stmt.getObject()).getInt());
+      this.setAccesses(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

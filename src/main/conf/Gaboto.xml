@@ -3,11 +3,12 @@
     <!ENTITY oxp "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#" >
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
-    <!ENTITY v "http://nwalsh.com/rdf/vCard#" >
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY vCard "http://nwalsh.com/rdf/vCard#" >
     <!ENTITY geo "http://www.opengis.net/gml/" >
     <!ENTITY gabotoKML "http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#" >
     <!ENTITY xhtml "http://www.w3.org/1999/xhtml" >
-    <!ENTITY exif "http://www.w3.org/2003/12/exif/ns" >
+    <!ENTITY exif "http://www.w3.org/2003/12/exif/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
 ]>
 <Gaboto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -18,7 +19,16 @@
             data="http://m.ox.ac.uk/oxpoints/id/" images="http://m.ox.ac.uk/images/" />
 
         <namespacePrefixes>
-            <namespacePrefix prefix="oxp" ns="http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#"/>
+            <namespacePrefix prefix="oxp" ns="&oxp;"/>
+            <namespacePrefix prefix="foaf" ns="&foaf;"/>
+            <namespacePrefix prefix="dc" ns="&dc;"/>
+            <namespacePrefix prefix="dct" ns="&dct;"/>
+            <namespacePrefix prefix="vCard" ns="&vCard;"/>
+            <namespacePrefix prefix="geo" ns="&geo;"/>
+            <namespacePrefix prefix="gabotoKML" ns="&gabotoKML;"/>
+            <namespacePrefix prefix="xhtml" ns="&xhtml;"/>
+            <namespacePrefix prefix="exif" ns="&exif;"/>
+            <namespacePrefix prefix="owl" ns="&owl;"/>
         </namespacePrefixes>
 
         <database>
@@ -57,50 +67,32 @@
 
 
     <GabotoBeans>
-        <GabotoBean name="Address" type="&v;Address">
+        <GabotoBean name="Addess" type="&vCard;Address">
             <properties>
-                <property name="postCode" type="String" uri="&v;postal_code"/>
-                <property name="streetAddress" type="String" uri="&v;street_address"/>
+                <property name="postCode" type="String" uri="&vCard;postal_code"/>
+                <property name="streetAddress" type="String" uri="&vCard;street_address"/>
             </properties>
         </GabotoBean>
-
-
-        <GabotoBean name="Location" type="&geo;Point">
-            <properties>
-                <property name="pos" type="String" uri="&geo;pos"/>
-            </properties>
-            <customMethods>
-                <method>
-                    <![CDATA[
-  public Double getLatitude() {
-    String p = getPos();
-    if (p == null) 
-      return null;
-    try {
-      return Double.valueOf(p.split(" ")[1]);
-    } catch (NumberFormatException e) {
-      return null;
-    }
-  }
-                     ]]>
-                </method>
-                <method>
-                    <![CDATA[
-  public Double getLongitude() {
-    String p = getPos();
-    if (p == null) 
-      return null;
-    try {
-      return Double.valueOf(p.split(" ")[0]);
-    } catch (NumberFormatException e) {
-      return null;
-    }
-  }
-                    ]]>
-                </method>
-            </customMethods>
+<!--
+		<GabotoBean name="AccessRight" type="&oxp;AccessRight">
+        	<properties>
+        		<property name="userType" type="String" collection="bag" uri="&oxp;userType"/>
+        		<property name="transportMode" type="String" collection="bag" uri="&oxp;transportMode"/>
+        		<property name="applicableTimes" type="String" uri="&oxp;applicableTimes"/>
+        		<property name="interventionRequired" type="boolean" uri="&oxp;interventionRequired"/>
+        	</properties>
         </GabotoBean>
 
+		<GabotoBean name="Access" type="&oxp;Access">
+            <properties>
+                <property name="accessFrom" type="Place" uri="&oxp;accessFrom"/>
+                <property name="accessTo" type="Place" uri="&oxp;accessTo"/>
+                <property name="accessRights" type="AccessRight" uri="&oxp;accessRights"/>
+                <property name="incline" type="String" uri="&oxp;incline"/>
+            </properties>
+        </GabotoBean>
+-->
+        
     </GabotoBeans>
 
 
@@ -116,15 +108,7 @@
             </properties>
 
             <GabotoEntities>
-                <GabotoEntity name="Access" type="&oxp;Access">
-                    <properties>
-                        <property name="accessFrom" type="Place" uri="&oxp;accessFrom"/>
-                        <property name="accessTo" type="Place" uri="&oxp;accessTo"/>
-                        <property name="usingPortal" type="Portal" uri="&oxp;usingPortal"/>
-                        <property name="accessRights" type="String" collection="bag" uri="&dc;accessRights"/>
-                        <property name="incline" type="String" uri="&oxp;incline"/>
-                    </properties>
-                </GabotoEntity>
+                
                         
                         
                 <GabotoEntity name="Image" type="&foaf;Image">
@@ -136,6 +120,9 @@
                         <property name="title" type="String" uri="&dc;title"/>
                         <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
                         <property name="date" type="String" uri="&dc;date"/>
+                        
+                        <property name="latitude" type="Float" uri="&geo;lat"/>
+                        <property name="longitude" type="Float" uri="&geo;lon"/>
                         
                         <passiveProperty name="imageContents" type="OxpEntity"
                             relationshipType="N:M" uri="&foaf;depiction"/>
@@ -149,20 +136,21 @@
 
                         <property name="OBNCode"  type="String" uri="&oxp;hasOBNCode"/>
                         <property name="parent" type="Place"
-                            uri="&oxp;physicallyContainedWithin">
-                            <indirectProperty uri="&oxp;hasLocation"/>
+                            uri="&dct;isPartOf">
+                            <indirectProperty uri="&geo;lon"/>
+                            <indirectProperty uri="&geo;lat"/>
                             <unstoredProperty uri="&gabotoKML;parent"/>
                         </property>
 
                         <property name="latitude" type="Float" uri="&geo;lat"/>
                         <property name="longitude" type="Float" uri="&geo;lon"/>
 
-                        <property name="address" type="Address" uri="&v;adr"/>
+                        <property name="address" type="Address" uri="&vCard;adr"/>
 
                         <property name="homepage" type="Website" uri="&foaf;homepage"/>
 
                         <passiveProperty name="containedPlaces" type="Place" relationshipType="1:N"
-                            uri="&oxp;physicallyContainedWithin"/>
+                            uri="&dct;isPartOf"/>
                             
 						<property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
 
@@ -170,15 +158,14 @@
 
                     <GabotoEntities>
                         <GabotoEntity name="Outside" type="&oxp;Outside"/>
-                        
+<!--                        
                         <GabotoEntity name="Portal" type="&oxp;Portal">
                             <properties>
-                                <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
                                 <property name="format" collection="bag" type="String" uri="&dc;format"/>
-                                <property name="extent" type="String" uri="&dc;extent"/>
-                                <property name="steps" type="Integer" uri="&oxp;steps"/>
+                                <property name="accesses" type="Access" uri="&oxp;accesses"/>
                             </properties>
                         </GabotoEntity>
+-->
                         
                         <GabotoEntity name="Building" type="&oxp;Building">
                             <properties>
@@ -216,7 +203,7 @@
                 <GabotoEntity name="Unit" type="&oxp;Unit">
                     <properties>
                         <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
-                        <property name="address" type="Address" uri="&v;adr"/>
+                        <property name="address" type="Address" uri="&vCard;adr"/>
 
                         <property name="homepage" type="Website" uri="&foaf;homepage"/>
 
@@ -235,15 +222,16 @@
                             <indirectProperty name="longitude" uri="&geo;lon" n="1"/>
                         </property>
 
-                        <property name="subsetOf" type="Unit" uri="&oxp;subsetOf">
-                            <indirectProperty uri="&oxp;hasLocation" n="3"/>
+                        <property name="subsetOf" type="Unit" uri="&dct;isPartOf">
+                            <indirectProperty uri="&geo;lat" n="3"/>
+                            <indirectProperty uri="&geo;lon" n="3"/>
                             <unstoredProperty uri="&gabotoKML;parent"/>
                         </property>
 
                         <property name="weblearn" type="Website" uri="&oxp;hasWeblearn"/>
 
                         <passiveProperty name="hasSubsets" type="Unit" relationshipType="1:N"
-                            uri="&oxp;subsetOf"/>
+                            uri="&dct;isPartOf"/>
 
                     </properties>
 

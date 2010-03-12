@@ -59,7 +59,11 @@ public class Place extends OxpEntity {
     try {
       list = new ArrayList<Method>();
       list.add(Place.class.getMethod("getParent", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation", list);
+      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lat", list);
+
+      list = new ArrayList<Method>();
+      list.add(Place.class.getMethod("getParent", (Class<?>[])null));
+      indirectPropertyLookupTable.put("http://www.opengis.net/gml/lon", list);
 
     } catch (Exception e) {
       throw new GabotoRuntimeException(e);
@@ -108,15 +112,15 @@ public class Place extends OxpEntity {
   }
 
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
-  @IndirectProperty({"http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLocation"})
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin")
+  @IndirectProperty({"http://www.opengis.net/gml/lon","http://www.opengis.net/gml/lat"})
+  @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public Place getParent(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.parent;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin")
+  @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public void setParent(Place parent){
     if( parent != null )
       this.removeMissingReference( parent.getUri() );
@@ -184,7 +188,7 @@ public class Place extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin",
+    uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Place"
   )
   public Collection<Place> getContainedPlaces(){
@@ -194,7 +198,7 @@ public class Place extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin",
+    uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Place"
   )
   private void setContainedPlaces(Collection<Place> containedPlaces){
@@ -241,7 +245,7 @@ public class Place extends OxpEntity {
       }
 
       public String getUri() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin";
+        return "http://purl.org/dc/terms/isPartOf";
       }
 
       public int getCollectionType() {
@@ -271,7 +275,7 @@ public class Place extends OxpEntity {
       this.setOBNCode(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_URI_PROPERTY parent
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#physicallyContainedWithin"));
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/terms/isPartOf"));
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){

@@ -39,6 +39,8 @@ public class Image extends OxpEntity {
   private String title;
   private Collection<String> dcType;
   private String date;
+  private Float latitude;
+  private Float longitude;
   private Collection<OxpEntity> imageContents;
 
 
@@ -53,7 +55,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://www.w3.org/2003/12/exif/nswidth",
+    value = "http://www.w3.org/2003/12/exif/ns#width",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -62,7 +64,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://www.w3.org/2003/12/exif/nswidth",
+    value = "http://www.w3.org/2003/12/exif/ns#width",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -71,7 +73,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://www.w3.org/2003/12/exif/nsheight",
+    value = "http://www.w3.org/2003/12/exif/ns#height",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -80,7 +82,7 @@ public class Image extends OxpEntity {
   }
 
   @SimpleLiteralProperty(
-    value = "http://www.w3.org/2003/12/exif/nsheight",
+    value = "http://www.w3.org/2003/12/exif/ns#height",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
@@ -148,6 +150,42 @@ public class Image extends OxpEntity {
     this.date = date;
   }
 
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lat",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public Float getLatitude(){
+    return this.latitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lat",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public void setLatitude(Float latitude){
+    this.latitude = latitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lon",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public Float getLongitude(){
+    return this.longitude;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.opengis.net/gml/lon",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public void setLongitude(Float longitude){
+    this.longitude = longitude;
+  }
+
   @PassiveProperty(
     uri = "http://xmlns.com/foaf/0.1/depiction",
     entity = "OxpEntity"
@@ -208,12 +246,12 @@ public class Image extends OxpEntity {
     Statement stmt;
 
     // Load SIMPLE_LITERAL_PROPERTY width
-    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/nswidth"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/ns#width"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setWidth(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_LITERAL_PROPERTY height
-    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/nsheight"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/ns#height"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setHeight(((Literal)stmt.getObject()).getString());
 
@@ -238,6 +276,16 @@ public class Image extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/date"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setDate(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY latitude
+    stmt = res.getProperty(snapshot.getProperty("http://www.opengis.net/gml/lat"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setLatitude(((Literal)stmt.getObject()).getFloat());
+
+    // Load SIMPLE_LITERAL_PROPERTY longitude
+    stmt = res.getProperty(snapshot.getProperty("http://www.opengis.net/gml/lon"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setLongitude(((Literal)stmt.getObject()).getFloat());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

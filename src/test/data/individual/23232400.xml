@@ -36,7 +36,7 @@
                   http://upload.wikimedia.org/wikipedia/commons/3/37/Merton_College_front_quad.jpg</note>
         </figure>
    </note>
-
-   <!-- Merton College Main Site -->
-   <relation name="occupies" passive="#24000000" type="geo primary"/>
+   <relation name="occupies" passive="#23232401" type="geo primary"/>
+   <relation name="occupies" passive="#23232402" type="geo"/>
+   <relation name="occupies" passive="#23232403" type="geo"/>
 </org>
