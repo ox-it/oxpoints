@@ -27,7 +27,6 @@ import net.sf.gaboto.node.annotation.IndirectProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
-import net.sf.gaboto.node.annotation.StaticProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
@@ -268,22 +267,6 @@ public class Unit extends OxpEntity {
   }
 
 
-                            
-    @StaticProperty("http://purl.org/dc/elements/1.1/description")
-    public String getDescription(){
-        String description = "";
-        
-        if(getHomepage() != null)
-            description += "Website: <a href=\"" + getHomepage().getUri() + "\">" + getHomepage().getUri() + "</a><br/>";
-        if(getImages() != null && getImages().size() > 0){
-        	Image img = getImages().iterator().next();
-        	description += "<img src=\"" + img.getUri() + "\" width=\"" + img.getWidth() + "\" height=\"" + img.getHeight() + "\"/>";
-        }
-        
-        return description;
-    }
-                    
-                        
 
   public Collection<PassiveEntitiesRequest> getPassiveEntitiesRequest(){
     Collection<PassiveEntitiesRequest> requests = super.getPassiveEntitiesRequest();

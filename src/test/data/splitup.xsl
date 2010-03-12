@@ -17,6 +17,15 @@
             <org type="university" oxpID="99999999" corresp="http://education.data.gov.uk/doc/institution/H-0156 http://dbpedia.org/resource/University_of_Oxford">
                 <placeName>University of Oxford</placeName>
                 <trait type="type"><desc>Unit</desc></trait>
+                <note>
+                    <ptr target="http://education.data.gov.uk/doc/institution/H-0156" type="sameAs"/>
+                </note>
+                <trait type="url">
+                    <desc>
+                        <ptr target="http://www.ox.ac.uk/"/>
+                    </desc>
+                </trait>
+                <desc>The University of Oxford is the oldest surviving university in the English-speaking world.</desc>
                 <xsl:for-each select="//tei:place[@type='building' and @obnCode]">
                     <relation name="occupies"
                         passive="#{@oxpID}">

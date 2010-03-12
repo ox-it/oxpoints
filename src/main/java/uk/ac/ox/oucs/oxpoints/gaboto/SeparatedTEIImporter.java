@@ -179,8 +179,11 @@ public class SeparatedTEIImporter {
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("weblearn")) {
 					entity.addProperty("setWeblearn", getWebsite(elem), from, to);
 
-				} else if (tagName.equals("placeName")) {
+				} else if (tagName.equals("placeName") || tagName.equals("orgName")) {
 					entity.addProperty("setName", elem);
+					
+				} else if (tagName.equals("desc")) {
+					entity.addProperty("setDescription", elem);
 
 				} else if (tagName.equals("idno")) {
 					if (elemType.equals("oucs"))

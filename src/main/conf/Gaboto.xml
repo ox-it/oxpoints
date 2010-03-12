@@ -112,6 +112,7 @@
             <properties>
                 <property name="images" type="Image" collection="bag" uri="&foaf;depiction"/>
                 <property name="sameAss" type="Website" collection="bag" uri="&owl;sameAs"/>
+                <property name="description" type="String" uri="&dc;description"/>
             </properties>
 
             <GabotoEntities>
@@ -132,7 +133,6 @@
 
                         <property name="height" type="String" uri="&exif;height"/>
                         
-                        <property name="description" type="String" uri="&dc;description"/>
                         <property name="title" type="String" uri="&dc;title"/>
                         <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
                         <property name="date" type="String" uri="&dc;date"/>
@@ -247,7 +247,7 @@
 
                     </properties>
 
-
+<!--
                     <customMethods>
                         <method>
                             <![CDATA[
@@ -266,7 +266,7 @@
     }
                     ]]>
                         </method>
-                    </customMethods>
+                    </customMethods>-->
 
                     <GabotoEntities>
                         <GabotoEntity name="College" type="&oxp;College"/>

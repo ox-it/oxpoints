@@ -1,6 +1,7 @@
 package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -19,6 +20,7 @@ import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagURIProperty;
+import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
@@ -31,6 +33,7 @@ import net.sf.gaboto.node.pool.EntityPool;
 abstract public class OxpEntity extends GabotoEntity {
   private Collection<Image> images;
   private Collection<Website> sameAss;
+  private String description;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -93,6 +96,24 @@ abstract public class OxpEntity extends GabotoEntity {
     this.sameAss.add(sameAs);
   }
 
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/description",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getDescription(){
+    return this.description;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/description",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setDescription(String description){
+    this.description = description;
+  }
+
 
 
 
@@ -138,6 +159,11 @@ abstract public class OxpEntity extends GabotoEntity {
         this.addMissingReference(missingReference, callback);
       }
     }
+
+    // Load SIMPLE_LITERAL_PROPERTY description
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/description"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setDescription(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

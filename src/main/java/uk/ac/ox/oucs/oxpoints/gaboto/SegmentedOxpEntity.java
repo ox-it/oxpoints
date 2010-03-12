@@ -257,7 +257,7 @@ public class SegmentedOxpEntity {
 				Class<? extends OxpEntity> et=null;
 				try {
 					proxy_ = relation.argumentClass.newInstance();
-					proxy_.setUri(gaboto.getConfig().getNSData()+relation.passive);
+					proxy_.setUri(relation.passive);
 					for (int i=instantOffsets.get(relation.from); i<instantOffsets.get(relation.to); i++) {
 						et = typeArray[i].entityClass;
 						Method m = typeArray[i].entityClass.getMethod(relation.name, relation.argumentClass); //proxy.getClass());

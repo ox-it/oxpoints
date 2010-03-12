@@ -36,7 +36,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 public class Image extends OxpEntity {
   private String width;
   private String height;
-  private String description;
   private String title;
   private Collection<String> dcType;
   private String date;
@@ -87,24 +86,6 @@ public class Image extends OxpEntity {
   )
   public void setHeight(String height){
     this.height = height;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/description",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public String getDescription(){
-    return this.description;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/description",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setDescription(String description){
-    this.description = description;
   }
 
   @SimpleLiteralProperty(
@@ -235,11 +216,6 @@ public class Image extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/12/exif/nsheight"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setHeight(((Literal)stmt.getObject()).getString());
-
-    // Load SIMPLE_LITERAL_PROPERTY description
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/description"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setDescription(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_LITERAL_PROPERTY title
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
