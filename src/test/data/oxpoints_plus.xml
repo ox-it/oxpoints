@@ -5179,17 +5179,17 @@ data, and if so, how? -->
           <place oxpID="23233505" type="building" obnCode="245">
             <event when="1880" type="construction"/>
             <placeName>Cricket Pavilion</placeName>
-            <location when="2007-01-26T09:10:42.092Z">
-              <geo>-1.2537074089050 51.76072174598091</geo>
-              <note> recorded by Plummer</note>
+            <location when="2010-03-12">
+              <geo>-1.253895 51.761469</geo>
+              <note>recorded by Gerard Hoen</note>
             </location>
           </place>
           <place oxpID="23233506" type="building" obnCode="258">
             <event when="1963" type="construction"/>
             <placeName>Tentorium</placeName>
-            <location when="2007-01-26T09:11:50.57Z">
-              <geo>-1.25033855438232 51.76154517047947</geo>
-              <note> recorded by Plummer</note>
+            <location when="2010-03-12">
+              <geo>-1.251621 51.762777</geo>
+              <note>recorded by Gerard Hoen</note>
             </location>
           </place>
         </place>
