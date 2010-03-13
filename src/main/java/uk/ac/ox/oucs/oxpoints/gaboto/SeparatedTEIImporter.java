@@ -30,6 +30,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
 
 public class SeparatedTEIImporter {
@@ -138,7 +139,11 @@ public class SeparatedTEIImporter {
 			return;
 		}
 		
-		
+		if (entitiesByURI.containsKey(uri)) {
+			warningHandler.addWarning(filename, "Entity "+uri+" described more than once.");
+			return;
+		}
+			
 		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, uri, elements.get(0), filename);
 		entitiesByURI.put(uri, entity);
 
@@ -151,8 +156,15 @@ public class SeparatedTEIImporter {
 				} catch (EntityAlreadyExistsException e) {
 					warningHandler.addWarning("Website <"+sameAs+"> referenced in corresp attribute more than once.");
 				}
-				entity.addProperty("addSameAs", website);
+				entity.addProperty("addSameAs", website, elements.get(0));
 			}
+		
+		for (String subtype : elements.get(0).getAttribute("subtype").split(" "))
+			if (subtype.length() > 0)
+				entity.addProperty("addDcType", subtype, elements.get(0));
+
+		if (elements.get(0).hasAttribute("type"))
+			entity.addType(elements.get(0).getAttribute("type"), elements.get(0));
 
 		for (Element element : elements) {
 			NodeList nodes = element.getChildNodes();
@@ -167,9 +179,16 @@ public class SeparatedTEIImporter {
 				TimeInstant to = new ImmutableTimeInstant(elem.getAttribute("inferredTo"));
 
 				if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
-					elem.getElementsByTagName("desc");
 					entity.addType(elem);
 					
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("subtype")) {
+					try{
+						Element subtype = (Element) elem.getElementsByTagName("desc").item(0);
+						entity.addProperty("addDcType", subtype);
+					} catch (Exception e) {
+						warningHandler.addWarning(filename, "subtype trait malformed.");
+					}
+
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("url")) {
 					entity.addProperty("setHomepage", getWebsite(elem), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("iturl")) {
@@ -221,19 +240,29 @@ public class SeparatedTEIImporter {
 
 				}
 				if (tagName.equals("relation")) {
-					String relationMethod, relationName = elem.getAttribute("name");
-					Class<? extends OxpEntity> relationClass;
+					String relationMethod = "", relationName = elem.getAttribute("name");
+					Boolean inverted = false;
+					Class<? extends OxpEntity> relationClass = null;
 					if (relationName.equals("occupies")) {
-						relationMethod = "addOccupiedBuilding";
-						relationClass = Building.class;
+						relationMethod = "addOccupiedPlace";
+						relationClass = Place.class;
+					} else if (relationName.equals("primary")) {
+						relationMethod = "setPrimaryPlace";
+						relationClass = Place.class;
+					} else if (relationName.equals("controls")) {
+						relationMethod = "setParent";
+						relationClass = Unit.class;
+						inverted = true;
+					}
 					
+					if (!relationMethod.equals("")) {
 						entity.addRelation(
 								relationMethod,
 								gaboto.getConfig().getNSData()+elem.getAttribute("passive").substring(1),
-								elem, relationClass
+								elem, relationClass, inverted
 						);
 						
-						if (elem.getAttribute("type").equals("geo primary")) {
+						if (elem.getAttribute("type").equals("primary")) {
 							entity.addRelation(
 									"setPrimaryPlace",
 									gaboto.getConfig().getNSData()+elem.getAttribute("passive").substring(1),
@@ -246,7 +275,7 @@ public class SeparatedTEIImporter {
 					entity.addRelation(
 							"setParent",
 							gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
-							elem, Place.class, true
+							elem, tagName.equals("place") ? Place.class : Unit.class, true
 					);
 				} else if (tagName.equals("note")) {
 					NodeList figures = element.getElementsByTagName("figure");

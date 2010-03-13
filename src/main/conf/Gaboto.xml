@@ -69,7 +69,7 @@
 
 
     <GabotoBeans>
-        <GabotoBean name="Addess" type="&vCard;Address">
+        <GabotoBean name="Address" type="&vCard;Address">
             <properties>
                 <property name="postCode" type="String" uri="&vCard;postal_code"/>
                 <property name="streetAddress" type="String" uri="&vCard;street_address"/>
@@ -107,6 +107,7 @@
                 <property name="images" type="Image" collection="bag" uri="&foaf;depiction"/>
                 <property name="sameAss" type="Website" collection="bag" uri="&owl;sameAs"/>
                 <property name="description" type="String" uri="&dc;description"/>
+                <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
             </properties>
 
             <GabotoEntities>
@@ -120,7 +121,6 @@
                         <property name="height" type="String" uri="&exif;height"/>
                         
                         <property name="title" type="String" uri="&dc;title"/>
-                        <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
                         <property name="date" type="String" uri="&dc;date"/>
                         
                         <property name="longitude" type="Float" uri="&geo;long"/>
@@ -187,14 +187,11 @@
 
                         <GabotoEntity486 name="Entrance" type="&oxp;Entrance"/>
 
-                        <GabotoEntity name="Room" type="&oxp;Room">
-                        	<properties>
-                        		<property name="dcType" type="String"
-                        			uri="&dc;type" relationshipType="N:M"/>
-                        	</properties>
-                        </GabotoEntity>
+                        <GabotoEntity name="Room" type="&oxp;Room"/>
 
                         <GabotoEntity name="Site" type="&oxp;Site"/>
+
+                        <GabotoEntity name="Space" type="&oxp;Space"/>
 
                         <GabotoEntity name="WAP" type="&oxp;WAP"/>
                         
@@ -213,7 +210,7 @@
 
                         <property name="name" type="String" uri="&dc;title"/>
 
-                        <property name="occupiedBuildings" type="Building" collection="bag"
+                        <property name="occupiedPlaces" type="Place" collection="bag"
                             uri="&oxp;occupies">
                             <indirectProperty uri="&geo;long" n="2"/>
                             <indirectProperty uri="&geo;lat" n="2"/>
@@ -224,7 +221,7 @@
                             <indirectProperty name="latitude" uri="&geo;lat" n="1"/>
                         </property>
 
-                        <property name="subsetOf" type="Unit" uri="&dct;isPartOf">
+                        <property name="parent" type="Unit" uri="&dct;isPartOf">
                             <indirectProperty uri="&geo;long" n="3"/>
                             <indirectProperty uri="&geo;lat" n="3"/>
                             <unstoredProperty uri="&gabotoKML;parent"/>
@@ -232,7 +229,7 @@
 
                         <property name="weblearn" type="Website" uri="&oxp;hasWeblearn"/>
 
-                        <passiveProperty name="hasSubsets" type="Unit" relationshipType="1:N"
+                        <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N"
                             uri="&dct;isPartOf"/>
 
                     </properties>
@@ -260,6 +257,8 @@
 
                     <GabotoEntities>
                         <GabotoEntity name="College" type="&oxp;College"/>
+
+						<GabotoEntity name="University" type="&oxp;University"/>
 
 						<GabotoEntity name="Hall" type="&oxp;Hall"/>
 

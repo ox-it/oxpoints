@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
-public class Room extends Place {
+public class University extends Unit {
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -24,7 +24,7 @@ public class Room extends Place {
 
   @Override
   public String getType(){
-    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Room";
+    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#University";
   }
 
 

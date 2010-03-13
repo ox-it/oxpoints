@@ -259,7 +259,7 @@ public class TEIImporter {
     Unit passive = (Unit) oxpointsIdToEntityLookup.get(passiveID);
     if(passive == null )
       throw new RuntimeException("Could not load passive entity from id: " + passiveID );
-    passive.setSubsetOf(active);
+    passive.setParent(active);
   }
   
   
@@ -283,7 +283,7 @@ public class TEIImporter {
     if(u.getPrimaryPlace() == null)
       u.setPrimaryPlace(b);
 	  if (b instanceof Building )		
-      u.addOccupiedBuilding((Building)b);
+      u.addOccupiedPlace((Building)b);
 	}
 	
 
@@ -473,7 +473,7 @@ public class TEIImporter {
 			Building building = getBuilding(place, ts);
 			
 			// occupants
-			unit.addOccupiedBuilding(building);
+			unit.addOccupiedPlace(building);
 			
 			// is it the primary building
 			if(place.hasAttribute("subtype") && place.getAttribute("subtype").equals("primary")) {

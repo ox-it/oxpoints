@@ -87,7 +87,7 @@ public class TestPassiveProperties  {
 		for(GabotoEntity e : pool.getEntities()){
 			College col = (College) e;
 			
-			if(col.getOccupiedBuildings() != null)
+			if(col.getOccupiedPlaces() != null)
 				foundPassive = true;
 		}
 		

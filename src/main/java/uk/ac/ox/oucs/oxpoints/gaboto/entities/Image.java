@@ -2,10 +2,8 @@ package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
@@ -19,7 +17,6 @@ import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
-import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 
@@ -37,7 +34,6 @@ public class Image extends OxpEntity {
   private String width;
   private String height;
   private String title;
-  private Collection<String> dcType;
   private String date;
   private Float longitude;
   private Float latitude;
@@ -106,30 +102,6 @@ public class Image extends OxpEntity {
   )
   public void setTitle(String title){
     this.title = title;
-  }
-
-  @BagLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/type",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public Collection<String> getDcType(){
-    return this.dcType;
-  }
-
-  @BagLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/type",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setDcType(Collection<String> dcType){
-    this.dcType = dcType;
-  }
-
-  public void addDcType(String dcTypeP){
-    if(this.dcType == null)
-      setDcType( new HashSet<String>() );
-    this.dcType.add(dcTypeP);
   }
 
   @SimpleLiteralProperty(
@@ -259,18 +231,6 @@ public class Image extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setTitle(((Literal)stmt.getObject()).getString());
-
-    // Load BAG_LITERAL_PROPERTY dcType
-    {
-        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
-        while (stmts.hasNext()) {
-            RDFNode node = stmts.next().getObject();
-            if(! node.isLiteral())
-              throw new IllegalArgumentException("node should be a literal");
-
-            addDcType(((Literal)node).getString());
-        }
-    }
 
     // Load SIMPLE_LITERAL_PROPERTY date
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/date"));

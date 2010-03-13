@@ -19,6 +19,7 @@ import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
+import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 
@@ -34,6 +35,7 @@ abstract public class OxpEntity extends GabotoEntity {
   private Collection<Image> images;
   private Collection<Website> sameAss;
   private String description;
+  private Collection<String> dcType;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -114,6 +116,30 @@ abstract public class OxpEntity extends GabotoEntity {
     this.description = description;
   }
 
+  @BagLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/type",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public Collection<String> getDcType(){
+    return this.dcType;
+  }
+
+  @BagLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/type",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setDcType(Collection<String> dcType){
+    this.dcType = dcType;
+  }
+
+  public void addDcType(String dcTypeP){
+    if(this.dcType == null)
+      setDcType( new HashSet<String>() );
+    this.dcType.add(dcTypeP);
+  }
+
 
 
 
@@ -164,6 +190,18 @@ abstract public class OxpEntity extends GabotoEntity {
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/description"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setDescription(((Literal)stmt.getObject()).getString());
+
+    // Load BAG_LITERAL_PROPERTY dcType
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/dc/elements/1.1/type"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
+
+            addDcType(((Literal)node).getString());
+        }
+    }
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

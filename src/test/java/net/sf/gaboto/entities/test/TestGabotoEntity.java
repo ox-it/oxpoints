@@ -108,7 +108,7 @@ public class TestGabotoEntity  {
 		u3.setUri(oxp.generateIdUri());
 		u3.setTimeSpan(new TimeSpan(1900,null,null));
 		u3.setName("Test Unit");
-		u3.setSubsetOf(u2);
+		u3.setParent(u2);
 		
 		
 		assertEquals(loc, u.getPropertyValue(GeoVocab.long_).toString()+" "+u.getPropertyValue(GeoVocab.lat).toString());
@@ -133,7 +133,7 @@ public class TestGabotoEntity  {
 		u.setUri(oxp.generateIdUri());
 		u.setTimeSpan(new TimeSpan(1900,null,null));
 		u.setName("Test Unit");
-		u.addOccupiedBuilding(b);
+		u.addOccupiedPlace(b);
 		
 		// add to data store
 		oxp.add(b);

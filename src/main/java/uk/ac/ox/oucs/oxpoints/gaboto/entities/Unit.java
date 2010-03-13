@@ -48,11 +48,11 @@ public class Unit extends OxpEntity {
   private Website homepage;
   private Website itHomepage;
   private String name;
-  private Collection<Building> occupiedBuildings;
+  private Collection<Place> occupiedPlaces;
   private Place primaryPlace;
-  private Unit subsetOf;
+  private Unit parent;
   private Website weblearn;
-  private Collection<Unit> hasSubsets;
+  private Collection<Unit> hasChildren;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -63,14 +63,14 @@ public class Unit extends OxpEntity {
     try {
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
-      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
-      list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getParent", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getOccupiedPlaces", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
 
       list = new ArrayList<Method>();
       list.add(Unit.class.getMethod("getPrimaryPlace", (Class<?>[])null));
-      list.add(Unit.class.getMethod("getSubsetOf", (Class<?>[])null));
-      list.add(Unit.class.getMethod("getOccupiedBuildings", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getParent", (Class<?>[])null));
+      list.add(Unit.class.getMethod("getOccupiedPlaces", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
 
     } catch (Exception e) {
@@ -159,28 +159,28 @@ public class Unit extends OxpEntity {
 
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @BagURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies")
-  public Collection<Building> getOccupiedBuildings(){
+  public Collection<Place> getOccupiedPlaces(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
-    return this.occupiedBuildings;
+    return this.occupiedPlaces;
   }
 
   @BagURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies")
-  public void setOccupiedBuildings(Collection<Building> occupiedBuildings){
-    if( occupiedBuildings != null ){
-      for( GabotoEntity _entity : occupiedBuildings)
+  public void setOccupiedPlaces(Collection<Place> occupiedPlaces){
+    if( occupiedPlaces != null ){
+      for( GabotoEntity _entity : occupiedPlaces)
         this.removeMissingReference( _entity.getUri() );
     }
 
-    this.occupiedBuildings = occupiedBuildings;
+    this.occupiedPlaces = occupiedPlaces;
   }
 
-  public void addOccupiedBuilding(Building occupiedBuilding){
-    if( occupiedBuilding != null )
-      this.removeMissingReference( occupiedBuilding.getUri() );
-    if(this.occupiedBuildings == null )
-      this.occupiedBuildings = new HashSet<Building>();
-    this.occupiedBuildings.add(occupiedBuilding);
+  public void addOccupiedPlace(Place occupiedPlace){
+    if( occupiedPlace != null )
+      this.removeMissingReference( occupiedPlace.getUri() );
+    if(this.occupiedPlaces == null )
+      this.occupiedPlaces = new HashSet<Place>();
+    this.occupiedPlaces.add(occupiedPlace);
   }
 
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
@@ -201,17 +201,17 @@ public class Unit extends OxpEntity {
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
-  public Unit getSubsetOf(){
+  public Unit getParent(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
-    return this.subsetOf;
+    return this.parent;
   }
 
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
-  public void setSubsetOf(Unit subsetOf){
-    if( subsetOf != null )
-      this.removeMissingReference( subsetOf.getUri() );
-    this.subsetOf = subsetOf;
+  public void setParent(Unit parent){
+    if( parent != null )
+      this.removeMissingReference( parent.getUri() );
+    this.parent = parent;
   }
 
   @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
@@ -232,24 +232,24 @@ public class Unit extends OxpEntity {
     uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Unit"
   )
-  public Collection<Unit> getHasSubsets(){
+  public Collection<Unit> getHasChildren(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
-    return this.hasSubsets;
+    return this.hasChildren;
   }
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Unit"
   )
-  private void setHasSubsets(Collection<Unit> hasSubsets){
-    this.hasSubsets = hasSubsets;
+  private void setHasChildren(Collection<Unit> hasChildren){
+    this.hasChildren = hasChildren;
   }
 
-  private void addHasSubset(Unit hasSubsetP){
-    if(this.hasSubsets == null)
-      setHasSubsets( new HashSet<Unit>() );
-    this.hasSubsets.add(hasSubsetP);
+  private void addHasChildren(Unit hasChildrenP){
+    if(this.hasChildren == null)
+      setHasChildren( new HashSet<Unit>() );
+    this.hasChildren.add(hasChildrenP);
   }
 
 
@@ -284,7 +284,7 @@ public class Unit extends OxpEntity {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addHasSubset((Unit)entity);
+        addHasChildren((Unit)entity);
       }
     });
     return requests;
@@ -337,7 +337,7 @@ public class Unit extends OxpEntity {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setName(((Literal)stmt.getObject()).getString());
 
-    // Load BAG_URI_PROPERTY occupiedBuildings
+    // Load BAG_URI_PROPERTY occupiedPlaces
     {
         StmtIterator stmts = res.listProperties(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies"));
         while (stmts.hasNext()) {
@@ -348,7 +348,7 @@ public class Unit extends OxpEntity {
             Resource missingReference = (Resource)node;
             EntityExistsCallback callback = new EntityExistsCallback(){
               public void entityExists(EntityPool p, GabotoEntity entity) {
-                addOccupiedBuilding((Building) entity);
+                addOccupiedPlace((Place) entity);
             }
         };
         this.addMissingReference(missingReference, callback);
@@ -367,13 +367,13 @@ public class Unit extends OxpEntity {
       this.addMissingReference(missingReference, callback);
     }
 
-    // Load SIMPLE_URI_PROPERTY subsetOf
+    // Load SIMPLE_URI_PROPERTY parent
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/terms/isPartOf"));
     if(stmt != null && stmt.getObject().isResource()){
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
         public void entityExists(EntityPool p, GabotoEntity entity) {
-          setSubsetOf((Unit)entity);
+          setParent((Unit)entity);
         }
       };
       this.addMissingReference(missingReference, callback);

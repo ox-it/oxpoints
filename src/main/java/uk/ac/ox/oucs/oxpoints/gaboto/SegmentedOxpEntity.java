@@ -68,6 +68,12 @@ public class SegmentedOxpEntity {
 	public void addType(Element element) {
 		addType(
 			element.getElementsByTagName("desc").item(0).getTextContent(),
+			element);
+	}
+	
+	public void addType(String type, Element element) {
+		addType(
+			type,
 			new ImmutableTimeInstant(element.getAttribute("inferredFrom")),
 			new ImmutableTimeInstant(element.getAttribute("inferredTo")));
 	}
@@ -126,6 +132,9 @@ public class SegmentedOxpEntity {
 	
 	public void addProperty(String property, Object value, TimeInstant start, TimeInstant end) {
 		//System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
+		
+		if (this.uri.endsWith("23232373") && start.getStartYear() < 100)
+			System.out.println("Foo");
 		
 		properties.add(new Property(property, value, start, end));
 	}
@@ -219,8 +228,9 @@ public class SegmentedOxpEntity {
 				entities[i] = typeArray[i].entityClass.newInstance();
 
 			} catch (NullPointerException e) {
-				warningHandler.addWarning(filename, "Entity "+uri+" has periods of its existence without a type.");
-				return;
+				throw e;
+				//warningHandler.addWarning(filename, "Entity "+uri+" has periods of its existence without a type.");
+				//return;
 			} catch (InstantiationException e) {
 				throw new GabotoRuntimeException();
 			} catch (IllegalAccessException e) {
