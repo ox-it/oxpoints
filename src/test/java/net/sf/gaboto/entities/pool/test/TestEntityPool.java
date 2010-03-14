@@ -108,6 +108,7 @@ public class TestEntityPool {
    * I suspect that under some circumstances a default graph is added but not used.
    * Then it came back again. 
    */
+  // FIXME What does this even test?
   @Test
   public void testModelSizeEquality()  {
 
@@ -126,7 +127,7 @@ public class TestEntityPool {
       //  System.out.println("Statement in m2: " + stmt);
     }
 
-     assertTrue(m1.size() + " not equals to " + m2.size(), Math.abs(m1.size()-m2.size()) == 1);
+     assertTrue(m1.size() + " not equals to " + m2.size(), Math.abs(m1.size()-m2.size()) == 0);
   }
 
   @Test

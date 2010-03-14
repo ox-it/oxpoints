@@ -102,7 +102,7 @@ public class CollegesNearEntity extends GabotoQueryImpl {
 			College col = (College) en;
 			
 			// get its location
-			Location colLoc = (Location) col.getPropertyValue(GeoVocab.lat);
+			Float colLoc = (Float) col.getPropertyValue(GeoVocab.lat);
 			if(null == colLoc)
 				continue;
 			

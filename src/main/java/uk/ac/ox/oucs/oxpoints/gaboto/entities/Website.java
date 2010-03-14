@@ -89,7 +89,7 @@ public class Website extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage",
+    uri = "http://xmlns.com/foaf/0.1/homepage",
     entity = "OxpEntity"
   )
   public Collection<OxpEntity> getIsHomepageIn(){
@@ -99,7 +99,7 @@ public class Website extends OxpEntity {
   }
 
   @PassiveProperty(
-    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage",
+    uri = "http://xmlns.com/foaf/0.1/homepage",
     entity = "OxpEntity"
   )
   private void setIsHomepageIn(Collection<OxpEntity> isHomepageIn){
@@ -186,7 +186,7 @@ public class Website extends OxpEntity {
       }
 
       public String getUri() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasHomepage";
+        return "http://xmlns.com/foaf/0.1/homepage";
       }
 
       public int getCollectionType() {

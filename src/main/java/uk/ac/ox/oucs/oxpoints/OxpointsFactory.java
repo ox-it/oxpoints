@@ -36,7 +36,7 @@ import java.io.File;
 
 import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoFactory;
-import uk.ac.ox.oucs.oxpoints.gaboto.TEIImporter;
+import uk.ac.ox.oucs.oxpoints.gaboto.SeparatedTEIImporter;
 
 /**
  * @author timp
@@ -45,14 +45,14 @@ import uk.ac.ox.oucs.oxpoints.gaboto.TEIImporter;
  */
 public final class OxpointsFactory {
   
-  public static String filename = "src/test/data/oxpoints_plus.xml"; 
+  public static String filename = "src/test/data/individual/"; 
 
   public static Gaboto getOxpointsFromXML() {
     return getOxpointsFromXML(filename);
   }
   public static Gaboto getOxpointsFromXML(String filenameIn) { 
     System.err.println("Reading oxp from " + filenameIn);
-    File file = new File(filenameIn);
+    File file = new File("examples/oxpoints/" + filenameIn);
     if(! file.exists()) {
       file = new File("examples/oxpoints/" + filename);      
       if(! file.exists()) {
@@ -60,8 +60,9 @@ public final class OxpointsFactory {
       }
     }
     Gaboto oxp = GabotoFactory.getEmptyInMemoryGaboto();
-    synchronized (oxp) { 
-      new TEIImporter(oxp, file).run();
+    synchronized (oxp) {
+      SeparatedTEIImporter importer = new SeparatedTEIImporter(oxp);
+      importer.load(file);
     }
     return oxp;
     

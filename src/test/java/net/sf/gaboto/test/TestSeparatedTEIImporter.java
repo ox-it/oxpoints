@@ -15,6 +15,7 @@ import org.junit.Assert;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
 
+import uk.ac.ox.oucs.oxpoints.OxpointsFactory;
 import uk.ac.ox.oucs.oxpoints.gaboto.SeparatedTEIImporter;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
 
@@ -24,16 +25,7 @@ public class TestSeparatedTEIImporter {
 	
 	@Before
 	public void setUp() {
-		gaboto = GabotoFactory.getEmptyInMemoryGaboto();
-		importer = new SeparatedTEIImporter(gaboto);
-		importer.loadDirectory(new File("src/test/data/individual/"));
-	}
-	
-	@Test
-	public void testWhole() throws Exception {
-		Assert.assertTrue(!importer.hasWarnings());
-		gaboto.persistToDisk("target/");
-		Utils.assertFileContentsStringEqual("target/graphs.rdf", "src/test/data/reference/separated_graphs.rdf");
+		gaboto = OxpointsFactory.getOxpointsFromXML();
 	}
 	
 	@Test

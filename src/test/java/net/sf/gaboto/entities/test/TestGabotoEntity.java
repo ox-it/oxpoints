@@ -81,16 +81,16 @@ public class TestGabotoEntity  {
 		Building b = new Building();
 		b.setTimeSpan(new TimeSpan(1900,null,null));
 		b.setName("Test Building");
-		String[] loc = "50.12312414234 0.12312432".split(" ");
-		b.setLongitude(Float.valueOf(loc[0]));
-		b.setLatitude(Float.valueOf(loc[1]));
+		String loc = "50.123123 0.12312432";
+		b.setLongitude(Float.valueOf(loc.split(" ")[0]));
+		b.setLatitude(Float.valueOf(loc.split(" ")[1]));
 		
 		Building b2 = new Building();
 		b2.setTimeSpan(new TimeSpan(1900,null,null));
 		b2.setName("Test Building 2");
-		String[] loc2 = "57.1239812 21.123987".split(" ");
-		b.setLongitude(Float.valueOf(loc2[0]));
-		b.setLatitude(Float.valueOf(loc2[1]));
+		String loc2 = "57.12398 21.123987";
+		b2.setLongitude(Float.valueOf(loc2.split(" ")[0]));
+		b2.setLatitude(Float.valueOf(loc2.split(" ")[1]));
 		
 		Unit u = new Unit();
 		u.setUri(oxp.generateIdUri());
@@ -110,7 +110,6 @@ public class TestGabotoEntity  {
 		u3.setName("Test Unit");
 		u3.setParent(u2);
 		
-		
 		assertEquals(loc, u.getPropertyValue(GeoVocab.long_).toString()+" "+u.getPropertyValue(GeoVocab.lat).toString());
 		assertEquals(loc2, u3.getPropertyValue(GeoVocab.long_).toString()+" "+u3.getPropertyValue(GeoVocab.lat).toString());
 	}
@@ -125,9 +124,9 @@ public class TestGabotoEntity  {
 		b.setUri(oxp.generateIdUri());
 		b.setTimeSpan(new TimeSpan(1900,null,null));
 		b.setName("Test Building");
-		String[] loc = "50.12312414234 0.12312432".split(" ");
-		b.setLongitude(Float.valueOf(loc[0]));
-		b.setLatitude(Float.valueOf(loc[1]));
+		String loc = "50.123123 0.12312432";
+		b.setLongitude(Float.valueOf(loc.split(" ")[0]));
+		b.setLatitude(Float.valueOf(loc.split(" ")[1]));
 		
 		Unit u = new Unit();
 		u.setUri(oxp.generateIdUri());
@@ -225,16 +224,16 @@ public class TestGabotoEntity  {
             System.err.println("Adding individual :" + entry.getKey());
             pool.add((GabotoEntity)entry.getValue());            
           } else { 
-            System.err.println("Ignoring:" + entry.getKey());
+            System.err.println("Ignoring1:" + entry.getKey());
           }
         } else { 
-          System.err.println("Ignoring:" + entry.getKey());
+          System.err.println("Ignoring2:" + entry.getKey());
         }
       } else { 
-        System.err.println("Ignoring:" + entry.getKey());
+        System.err.println("Ignoring3:" + entry.getKey());
       }
     }
-    assertEquals(3, pool.size());
+    assertEquals(4, pool.size());
   }
   @SuppressWarnings("unchecked")
   @Test
@@ -267,6 +266,6 @@ public class TestGabotoEntity  {
           }
       }
     }
-    assertEquals(3, pool.size());
+    assertEquals(4, pool.size());
   }
 }

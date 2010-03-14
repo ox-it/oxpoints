@@ -26,7 +26,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
@@ -51,20 +50,19 @@ public class SeparatedTEIImporter {
 		this.warningHandler = new WarningHandler();
 	}
 	
+	public void load(File path) {
+		if (path.isDirectory())
+			loadDirectory(path);
+		else
+			loadFile(path);
+	}
+	
 	public void loadDirectory(File directory) {
 		assert directory.isDirectory();
 		
 		for (File file : directory.listFiles()) {
-			try {
-				if (file.toString().endsWith(".xml"))
-					loadFile(file);
-			} catch (IOException e) {
-				logger.warning("Could not read from file '" + file.getAbsolutePath() + "'");
-			} catch (SAXException e) {
-				logger.warning("SAX exception parsing '" + file.getAbsolutePath() + "'");
-			} catch (ParserConfigurationException e) {
-				throw new GabotoRuntimeException();
-			}
+			if (file.toString().endsWith(".xml"))
+				loadFile(file);
 		}
 		
 		SegmentedOxpEntity.constrainRelations(entitiesByURI, warningHandler);
@@ -74,11 +72,23 @@ public class SeparatedTEIImporter {
 		}
 	}
 	
-	public void loadFile(File file) throws IOException, SAXException, ParserConfigurationException {
+	public void loadFile(File file) {
 		warningHandler.setFilename(file.getName());
 		Vector<Element> elements = new Vector<Element>();
-		Document document = XMLUtils.readInputFileIntoJAXPDoc(file);
+		Document document = null;
 		String oxpID, uri;
+		
+		try {
+			document = XMLUtils.readInputFileIntoJAXPDoc(file);
+	} catch (IOException e) {
+		logger.warning("Could not read from file '" + file.getAbsolutePath() + "'");
+		return;
+	} catch (SAXException e) {
+		logger.warning("SAX exception parsing '" + file.getAbsolutePath() + "'");
+		return;
+	} catch (ParserConfigurationException e) {
+		throw new GabotoRuntimeException();
+	}
 		
 		Element element = document.getDocumentElement();
 

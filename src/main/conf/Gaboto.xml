@@ -302,7 +302,7 @@
                             relationshipType="1:N" uri="&oxp;hasITHomepage"/>
 
                         <passiveProperty name="isHomepageIn" type="OxpEntity" relationshipType="1:N"
-                            uri="&oxp;hasHomepage"/>
+                            uri="&foaf;homepage"/>
 
                         <passiveProperty name="isLibraryHomepageIn" type="OxpEntity"
                             relationshipType="1:N" uri="&oxp;hasLibraryHomepage"/>
