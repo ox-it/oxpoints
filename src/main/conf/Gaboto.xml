@@ -32,6 +32,8 @@
             <namespacePrefix prefix="exif" ns="&exif;"/>
             <namespacePrefix prefix="owl" ns="&owl;"/>
         </namespacePrefixes>
+        
+        <dataDirectory>/var/lib/gaboto/oxpoints/0.3/</dataDirectory>
 
         <database>
             <!-- We have our own copy of the driver, there is a bug in the jena one -->
