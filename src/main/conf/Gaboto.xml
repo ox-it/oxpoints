@@ -17,7 +17,7 @@
     <config>
         <lookupClass class="uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup" />
         <namespaces graphs="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#"
-            data="http://m.ox.ac.uk/oxpoints/id/" images="http://m.ox.ac.uk/images/" />
+            data="http://oxpoints.oucs.ox.ac.uk/id/" images="http://oxpoints.oucs.ox.ac.uk/images/" />
 
         <namespacePrefixes>
             <namespacePrefix prefix="oxp" ns="&oxp;"/>
