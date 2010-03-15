@@ -155,7 +155,10 @@
                             uri="&dct;isPartOf"/>
                             
 						<property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
-
+						
+						<passiveProperty name="occupiedBy" type="Unit"
+                                    relationshipType="N:M" uri="&oxp;occupies"/>
+                        
                     </properties>
 
                     <GabotoEntities>
@@ -169,14 +172,7 @@
                         </GabotoEntity>
 -->
                         
-                        <GabotoEntity name="Building" type="&oxp;Building">
-                            <properties>
-                                <passiveProperty name="occupiedBy" type="Unit"
-                                    relationshipType="N:M" uri="&oxp;occupies"/>
-                            </properties>
-
-                        </GabotoEntity>
-
+                        <GabotoEntity name="Building" type="&oxp;Building"/>
                         <GabotoEntity name="Carpark" type="&oxp;Carpark">
                             <properties>
                                 <property name="capacity" type="Integer" uri="&oxp;capacity"/>

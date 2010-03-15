@@ -49,6 +49,7 @@ public class Place extends OxpEntity {
   private Website homepage;
   private Collection<Place> containedPlaces;
   private String osmId;
+  private Collection<Unit> occupiedBy;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -229,6 +230,30 @@ public class Place extends OxpEntity {
     this.osmId = osmId;
   }
 
+  @PassiveProperty(
+    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies",
+    entity = "Unit"
+  )
+  public Collection<Unit> getOccupiedBy(){
+    if(! isPassiveEntitiesLoaded() )
+      loadPassiveEntities();
+    return this.occupiedBy;
+  }
+
+  @PassiveProperty(
+    uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies",
+    entity = "Unit"
+  )
+  private void setOccupiedBy(Collection<Unit> occupiedBy){
+    this.occupiedBy = occupiedBy;
+  }
+
+  private void addOccupiedBy(Unit occupiedByP){
+    if(this.occupiedBy == null)
+      setOccupiedBy( new HashSet<Unit>() );
+    this.occupiedBy.add(occupiedByP);
+  }
+
 
 
 
@@ -254,6 +279,23 @@ public class Place extends OxpEntity {
 
       public void passiveEntityLoaded(GabotoEntity entity) {
         addContainedPlace((Place)entity);
+      }
+    });
+    requests.add(new PassiveEntitiesRequest(){
+      public String getType() {
+        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
+      }
+
+      public String getUri() {
+        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies";
+      }
+
+      public int getCollectionType() {
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_BAG;
+      }
+
+      public void passiveEntityLoaded(GabotoEntity entity) {
+        addOccupiedBy((Unit)entity);
       }
     });
     return requests;
