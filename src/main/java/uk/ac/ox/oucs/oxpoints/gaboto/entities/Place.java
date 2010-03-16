@@ -40,7 +40,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Place extends OxpEntity {
-  private String name;
   private String oBNCode;
   private Place parent;
   private Float longitude;
@@ -74,24 +73,6 @@ public class Place extends OxpEntity {
   @Override
   public String getType(){
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Place";
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/title",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public String getName(){
-    return this.name;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/title",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setName(String name){
-    this.name = name;
   }
 
   @SimpleLiteralProperty(
@@ -305,11 +286,6 @@ public class Place extends OxpEntity {
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
-
-    // Load SIMPLE_LITERAL_PROPERTY name
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setName(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_LITERAL_PROPERTY oBNCode
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOBNCode"));

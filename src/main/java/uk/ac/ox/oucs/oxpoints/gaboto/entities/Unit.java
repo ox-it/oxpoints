@@ -47,7 +47,6 @@ public class Unit extends OxpEntity {
   private Address address;
   private Website homepage;
   private Website itHomepage;
-  private String name;
   private Collection<Place> occupiedPlaces;
   private Place primaryPlace;
   private Unit parent;
@@ -137,24 +136,6 @@ public class Unit extends OxpEntity {
     if( itHomepage != null )
       this.removeMissingReference( itHomepage.getUri() );
     this.itHomepage = itHomepage;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/title",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public String getName(){
-    return this.name;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://purl.org/dc/elements/1.1/title",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setName(String name){
-    this.name = name;
   }
 
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
@@ -331,11 +312,6 @@ public class Unit extends OxpEntity {
       };
       this.addMissingReference(missingReference, callback);
     }
-
-    // Load SIMPLE_LITERAL_PROPERTY name
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setName(((Literal)stmt.getObject()).getString());
 
     // Load BAG_URI_PROPERTY occupiedPlaces
     {

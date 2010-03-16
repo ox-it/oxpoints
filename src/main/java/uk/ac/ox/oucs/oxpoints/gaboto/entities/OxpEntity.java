@@ -32,6 +32,7 @@ import net.sf.gaboto.node.pool.EntityPool;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 abstract public class OxpEntity extends GabotoEntity {
+  private String name;
   private Collection<Image> images;
   private Collection<Website> sameAss;
   private String description;
@@ -46,6 +47,24 @@ abstract public class OxpEntity extends GabotoEntity {
   @Override
   public String getType(){
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OxpEntity";
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/title",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getName(){
+    return this.name;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://purl.org/dc/elements/1.1/title",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setName(String name){
+    this.name = name;
   }
 
   @BagURIProperty("http://xmlns.com/foaf/0.1/depiction")
@@ -149,6 +168,11 @@ abstract public class OxpEntity extends GabotoEntity {
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
+
+    // Load SIMPLE_LITERAL_PROPERTY name
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/title"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setName(((Literal)stmt.getObject()).getString());
 
     // Load BAG_URI_PROPERTY images
     {
