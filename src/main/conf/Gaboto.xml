@@ -17,7 +17,7 @@
     <config>
         <lookupClass class="uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup" />
         <namespaces graphs="http://ns.ox.ac.uk/namespaces/oxpoints/graphs#"
-            data="http://oxpoints.oucs.ox.ac.uk/id/" images="http://oxpoints.oucs.ox.ac.uk/images/" />
+            data="http://oxpoints.oucs.ox.ac.uk/id/" images="http://oxpoints.oucs.ox.ac.uk/images" />
 
         <namespacePrefixes>
             <namespacePrefix prefix="oxp" ns="&oxp;"/>
@@ -152,6 +152,8 @@
                         <property name="address" type="Address" uri="&vCard;adr"/>
 
                         <property name="homepage" type="Website" uri="&foaf;homepage"/>
+
+                        <property name="floor" type="Float" uri="&oxp;floor"/>
 
                         <passiveProperty name="containedPlaces" type="Place" relationshipType="1:N"
                             uri="&dct;isPartOf"/>

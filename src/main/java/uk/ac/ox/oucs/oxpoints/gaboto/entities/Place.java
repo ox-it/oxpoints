@@ -46,6 +46,7 @@ public class Place extends OxpEntity {
   private Float latitude;
   private Address address;
   private Website homepage;
+  private Float floor;
   private Collection<Place> containedPlaces;
   private String osmId;
   private Collection<Unit> occupiedBy;
@@ -167,6 +168,24 @@ public class Place extends OxpEntity {
     if( homepage != null )
       this.removeMissingReference( homepage.getUri() );
     this.homepage = homepage;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#floor",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public Float getFloor(){
+    return this.floor;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#floor",
+    datatypeType = "javaprimitive",
+    javaType = "Float"
+  )
+  public void setFloor(Float floor){
+    this.floor = floor;
   }
 
   @PassiveProperty(
@@ -333,6 +352,11 @@ public class Place extends OxpEntity {
       };
       this.addMissingReference(missingReference, callback);
     }
+
+    // Load SIMPLE_LITERAL_PROPERTY floor
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#floor"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setFloor(((Literal)stmt.getObject()).getFloat());
 
     // Load SIMPLE_LITERAL_PROPERTY osmId
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));

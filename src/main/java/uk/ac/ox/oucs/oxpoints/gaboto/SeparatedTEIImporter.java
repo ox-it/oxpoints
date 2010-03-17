@@ -176,6 +176,13 @@ public class SeparatedTEIImporter {
 		if (elements.get(0).hasAttribute("type"))
 			entity.addType(elements.get(0).getAttribute("type"), elements.get(0));
 
+		if (elements.get(0).hasAttribute("floor"))
+			try {
+				entity.addProperty("setFloor", Float.valueOf(elements.get(0).getAttribute("floor")), elements.get(0));
+			} catch (NumberFormatException e) {
+				warningHandler.addWarning(filename, "floor attribute must be a number, not '"+elements.get(0).getAttribute("floor")+"'.");
+			}
+
 		for (Element element : elements) {
 			NodeList nodes = element.getChildNodes();
 			for (int i = 0; i < nodes.getLength(); i++) {
