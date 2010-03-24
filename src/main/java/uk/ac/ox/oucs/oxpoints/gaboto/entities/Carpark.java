@@ -25,7 +25,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Carpark extends Place {
-  private Integer capacity;
+  protected Integer capacity;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;

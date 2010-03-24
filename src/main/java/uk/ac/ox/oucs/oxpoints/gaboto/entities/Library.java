@@ -29,8 +29,8 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Library extends Unit {
-  private String oLISCode;
-  private Website libraryHomepage;
+  protected String oLISCode;
+  protected Website libraryHomepage;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;

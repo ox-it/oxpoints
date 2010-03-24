@@ -21,6 +21,7 @@ import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
+import net.sf.gaboto.node.annotation.BagComplexProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.IndirectProperty;
@@ -33,7 +34,10 @@ import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
+import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
+
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 
@@ -43,14 +47,16 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Unit extends OxpEntity {
-  private String oUCSCode;
-  private Address address;
-  private Website homepage;
-  private Website itHomepage;
-  private Collection<Place> occupiedPlaces;
-  private Place primaryPlace;
-  private Unit parent;
-  private Website weblearn;
+  protected String oUCSCode;
+  protected Address address;
+  protected Collection<Tel> telephoneNumbers;
+  protected Website homepage;
+  protected Website itHomepage;
+  protected Collection<Place> occupiedPlaces;
+  protected Place primaryPlace;
+  protected Unit parent;
+  protected Website weblearn;
+  protected Image logo;
   private Collection<Unit> hasChildren;
 
 
@@ -100,14 +106,30 @@ public class Unit extends OxpEntity {
     this.oUCSCode = oUCSCode;
   }
 
-  @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
+  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public Address getAddress(){
     return this.address;
   }
 
-  @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
+  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public void setAddress(Address address){
     this.address = address;
+  }
+
+  @BagComplexProperty("http://www.w3.org/2006/vcard/ns#tel")
+  public Collection<Tel> getTelephoneNumbers(){
+    return this.telephoneNumbers;
+  }
+
+  @BagComplexProperty("http://www.w3.org/2006/vcard/ns#tel")
+  public void setTelephoneNumbers(Collection<Tel> telephoneNumbers){
+    this.telephoneNumbers = telephoneNumbers;
+  }
+
+  public void addTelephoneNumber(Tel telephoneNumberP){
+    if(this.telephoneNumbers == null)
+      setTelephoneNumbers( new HashSet<Tel>() );
+    this.telephoneNumbers.add(telephoneNumberP);
   }
 
   @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
@@ -209,6 +231,20 @@ public class Unit extends OxpEntity {
     this.weblearn = weblearn;
   }
 
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/logo")
+  public Image getLogo(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.logo;
+  }
+
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/logo")
+  public void setLogo(Image logo){
+    if( logo != null )
+      this.removeMissingReference( logo.getUri() );
+    this.logo = logo;
+  }
+
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
     entity = "Unit"
@@ -282,11 +318,35 @@ public class Unit extends OxpEntity {
       this.setOUCSCode(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_COMPLEX_PROPERTY address
-    stmt = res.getProperty(snapshot.getProperty("http://nwalsh.com/rdf/vCard#adr"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#adr"));
     if(stmt != null && stmt.getObject().isAnon()){
       Address bean = new Address();
       bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
       setAddress(bean);
+    }
+
+    // Load BAG_COMPLEX_PROPERTY telephoneNumbers
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#tel"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isAnon())
+              throw new IllegalArgumentException("node should be a blank node");
+
+            Resource anon_res = (Resource) node;
+            String type = anon_res.getProperty(snapshot.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).getObject().toString();
+            Tel prop;
+            try {
+                prop = (Tel) (new OxpointsGabotoOntologyLookup()).getBeanClassFor(type).newInstance();
+            } catch (InstantiationException e) {
+                throw new GabotoRuntimeException();
+            } catch (IllegalAccessException e) {
+                throw new GabotoRuntimeException();
+            }
+            prop.loadFromResource(anon_res, snapshot, pool);
+            addTelephoneNumber(prop);
+        }
+
     }
 
     // Load SIMPLE_URI_PROPERTY homepage
@@ -362,6 +422,18 @@ public class Unit extends OxpEntity {
       EntityExistsCallback callback = new EntityExistsCallback(){
         public void entityExists(EntityPool p, GabotoEntity entity) {
           setWeblearn((Website)entity);
+        }
+      };
+      this.addMissingReference(missingReference, callback);
+    }
+
+    // Load SIMPLE_URI_PROPERTY logo
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/logo"));
+    if(stmt != null && stmt.getObject().isResource()){
+      Resource missingReference = (Resource)stmt.getObject();
+      EntityExistsCallback callback = new EntityExistsCallback(){
+        public void entityExists(EntityPool p, GabotoEntity entity) {
+          setLogo((Image)entity);
         }
       };
       this.addMissingReference(missingReference, callback);

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.sf.gaboto.node.GabotoEntity;
+import net.sf.gaboto.node.GabotoBean;
 import net.sf.gaboto.GabotoRuntimeException;
 
 import net.sf.gaboto.OntologyLookup;
@@ -21,6 +22,7 @@ import net.sf.gaboto.OntologyLookup;
 public class OxpointsGabotoOntologyLookup implements OntologyLookup {
   private static Map<String,String> entityClassLookupNames;
   private static Map<String,Class<? extends GabotoEntity>> entityClassLookupClass;
+  private static Map<String,Class<? extends GabotoBean>> beanClassLookupClass;
   private static Map<Class<? extends GabotoEntity>, String> classToURILookup;
   private static Collection<String> entityClassNames;
   private static Set<String> entityTypes;
@@ -85,6 +87,19 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Division", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Division"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#WAP", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.WAP"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Room", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Room"));
+    } catch (ClassNotFoundException e) {
+      throw new GabotoRuntimeException(e);
+    }
+  }
+
+  static{
+    beanClassLookupClass = new HashMap<String,Class<? extends GabotoBean>>();
+
+    try {
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Tel", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel"));
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Voice", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice"));
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Address", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Address"));
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Fax", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax"));
     } catch (ClassNotFoundException e) {
       throw new GabotoRuntimeException(e);
     }
@@ -223,6 +238,10 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
 
   public Class<? extends GabotoEntity> getEntityClassFor(String typeURI){
     return entityClassLookupClass.get(typeURI);
+  }
+
+  public Class<? extends GabotoBean> getBeanClassFor(String typeURI){
+    return beanClassLookupClass.get(typeURI);
   }
 
   public String getLocalName(String typeURI){

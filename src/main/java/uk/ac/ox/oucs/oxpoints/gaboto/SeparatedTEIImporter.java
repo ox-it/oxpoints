@@ -26,6 +26,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
@@ -207,13 +210,17 @@ public class SeparatedTEIImporter {
 					}
 
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("url")) {
-					entity.addProperty("setHomepage", getWebsite(elem), from, to);
+					entity.addProperty("setHomepage", getWebsite(elem, filename, true), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("iturl")) {
-					entity.addProperty("setItHomepage", getWebsite(elem), from, to);
+					entity.addProperty("setItHomepage", getWebsite(elem, filename, false), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("liburl")) {
-					entity.addProperty("setLibraryHomepage", getWebsite(elem), from, to);
+					entity.addProperty("setLibraryHomepage", getWebsite(elem, filename, false), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("weblearn")) {
-					entity.addProperty("setWeblearn", getWebsite(elem), from, to);
+					entity.addProperty("setWeblearn", getWebsite(elem, filename, false), from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("telephone")) {
+					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("facsimile")) {
+					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
 
 				} else if (tagName.equals("placeName") || tagName.equals("orgName")) {
 					entity.addProperty("setName", elem);
@@ -230,7 +237,7 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setOLISCode", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
-						entity.addProperty("addSameAs", createWebsite("http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id"), elem);
+						entity.addProperty("addSameAs", createWebsite(filename, "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", true), elem);
 					}
 
 				} else if (tagName.equals("location")) {
@@ -300,7 +307,10 @@ public class SeparatedTEIImporter {
 						if (!(figures.item(j) instanceof Element))
 							continue;
 						String imageURI = loadImage((Element) figures.item(j), filename);
-						entity.addRelation("addImage", imageURI, element, Image.class);
+						if (((Element) figures.item(j)).getAttribute("type").equals("logo"))
+							entity.addRelation("setLogo", imageURI, element, Image.class);
+						else
+							entity.addRelation("addImage", imageURI, element, Image.class);
 					}
 				}
 			}
@@ -319,7 +329,7 @@ public class SeparatedTEIImporter {
 	}
 
 	private String loadImage(Element figure, String filename) {
-		String uri = "", width="", height="", description="";
+		String uri = "", width="", height="", description=null;
 		try {
 			Element graphic = (Element) figure.getElementsByTagName("graphic").item(0);
 			if (graphic.getAttribute("url").startsWith("http://") || graphic.getAttribute("url").startsWith("https://"))
@@ -334,8 +344,8 @@ public class SeparatedTEIImporter {
 		try {
 			Element figDesc = (Element) figure.getElementsByTagName("figDesc").item(0);
 			description = figDesc.getTextContent();
-		} catch (IndexOutOfBoundsException e) {
-			warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
+		} catch (NullPointerException e) {
+			//warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
 		}
 		
 		SegmentedOxpEntity image = new SegmentedOxpEntity(
@@ -357,7 +367,8 @@ public class SeparatedTEIImporter {
 		image.addType("Image", TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		image.addProperty("setWidth", width, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		image.addProperty("setHeight", height, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
-		image.addProperty("setDescription", description, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
+		if (description != null)
+			image.addProperty("setDescription", description, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		
 		entitiesByURI.put(uri, image);
 		return uri;
@@ -429,26 +440,44 @@ public class SeparatedTEIImporter {
 		return warningHandler;
 	}
 	
-	public Website getWebsite(Element elem) {
+	public Website getWebsite(Element elem, String filename, boolean requireUnique) {
 		NodeList ns = elem.getElementsByTagName("desc");
 		ns = ((Element) ns.item(0)).getElementsByTagName("ptr");
 		Element e = (Element) ns.item(0);
 		String url = e.getAttribute("target");
 		
-		return createWebsite(url);
+		return createWebsite(filename, url, requireUnique);
 	}
 	
-	public Website createWebsite(String uri) {
+	public Tel getTelephoneNumber(Element elem) {
+		NodeList ns = elem.getElementsByTagName("desc");
+		String value = ((Element) ns.item(0)).getTextContent();
+		
+		Tel tel;
+		if (elem.getAttribute("type").equals("telephone"))
+			tel = new Voice();
+		else
+			tel = new Fax();
+		
+		tel.setValue(value);
+		return tel;
+		
+	}
+	
+	public Website createWebsite(String filename, String uri, boolean requireUnique) {
 		if (websites.containsKey(uri)) {
+			if (false && requireUnique)
+				warningHandler.addWarning(filename, "Website <"+uri+"> seen more than once.");
 			return websites.get(uri);
 		} else {
 			Website website = new Website();
 			website.setUri(uri);
-			websites.put(uri, website);
+			if (requireUnique)
+				websites.put(uri, website);
 			try {
 				gaboto.add(website);
 			} catch (EntityAlreadyExistsException e1) {
-				throw new GabotoRuntimeException();
+				//throw new GabotoRuntimeException();
 			}
 			return website;
 		}

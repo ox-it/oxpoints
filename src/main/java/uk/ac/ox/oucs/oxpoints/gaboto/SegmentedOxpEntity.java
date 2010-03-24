@@ -133,10 +133,13 @@ public class SegmentedOxpEntity {
 	public void addProperty(String property, Object value, TimeInstant start, TimeInstant end) {
 		//System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
 		
-		if (this.uri.endsWith("23232373") && start.getStartYear() < 100)
-			System.out.println("Foo");
+		properties.add(new Property(property, value, start, end, null));
+	}
+	
+	public void addProperty(String property, Object value, TimeInstant start, TimeInstant end, Class<?> argumentClass) {
+		//System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
 		
-		properties.add(new Property(property, value, start, end));
+		properties.add(new Property(property, value, start, end, argumentClass));
 	}
 	
 	public void addRelation(String property, String passiveUri, TimeInstant start, TimeInstant end, Class<? extends OxpEntity>argumentClass, boolean inverted) {
@@ -245,7 +248,7 @@ public class SegmentedOxpEntity {
 			try {
 				for (int i=instantOffsets.get(property.from); i<instantOffsets.get(property.to); i++) {
 					et = typeArray[i].entityClass;
-					Method m = typeArray[i].entityClass.getMethod(property.name, property.value.getClass());
+					Method m = typeArray[i].entityClass.getMethod(property.name, property.argumentClass);
 					m.invoke(entities[i], property.value);
 				}
 			} catch (SecurityException e) {
@@ -328,12 +331,14 @@ public class SegmentedOxpEntity {
 		Object value;
 		TimeInstant from;
 		TimeInstant to;
+		Class<?> argumentClass;
 		
-		public Property(String name, Object value, TimeInstant from, TimeInstant to) {
+		public Property(String name, Object value, TimeInstant from, TimeInstant to, Class<?> argumentClass) {
 			this.name = name;
 			this.value = value;
 			this.from = from;
 			this.to = to;
+			this.argumentClass = (argumentClass != null) ? argumentClass : value.getClass(); 
 		}
 	}
 	

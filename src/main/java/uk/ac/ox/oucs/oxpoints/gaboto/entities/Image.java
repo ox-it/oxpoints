@@ -31,12 +31,12 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Image extends OxpEntity {
-  private String width;
-  private String height;
-  private String title;
-  private String date;
-  private Float longitude;
-  private Float latitude;
+  protected String width;
+  protected String height;
+  protected String title;
+  protected String date;
+  protected Float longitude;
+  protected Float latitude;
   private Collection<OxpEntity> imageContents;
 
 

@@ -22,6 +22,7 @@ import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+import net.sf.gaboto.node.annotation.UnstoredProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
@@ -32,11 +33,11 @@ import net.sf.gaboto.node.pool.EntityPool;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 abstract public class OxpEntity extends GabotoEntity {
-  private String name;
-  private Collection<Image> images;
-  private Collection<Website> sameAss;
-  private String description;
-  private Collection<String> dcType;
+  protected String name;
+  protected Collection<Image> images;
+  protected Collection<Website> sameAss;
+  protected String description;
+  protected Collection<String> dcType;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -49,6 +50,7 @@ abstract public class OxpEntity extends GabotoEntity {
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OxpEntity";
   }
 
+  @UnstoredProperty({"http://www.w3.org/2000/01/rdf-schema#label"})
   @SimpleLiteralProperty(
     value = "http://purl.org/dc/elements/1.1/title",
     datatypeType = "javaprimitive",

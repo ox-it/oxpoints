@@ -4,13 +4,15 @@
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY dct "http://purl.org/dc/terms/" >
-    <!ENTITY vCard "http://nwalsh.com/rdf/vCard#" >
+    <!ENTITY vCard "http://www.w3.org/2006/vcard/ns#" >
     <!ENTITY gml "http://www.opengis.net/gml/" >
     <!ENTITY gabotoKML "http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#" >
     <!ENTITY xhtml "http://www.w3.org/1999/xhtml" >
     <!ENTITY exif "http://www.w3.org/2003/12/exif/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY geo "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
 ]>
 <Gaboto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
@@ -73,10 +75,24 @@
     <GabotoBeans>
         <GabotoBean name="Address" type="&vCard;Address">
             <properties>
-                <property name="postCode" type="String" uri="&vCard;postal_code"/>
-                <property name="streetAddress" type="String" uri="&vCard;street_address"/>
+                <property name="streetAddress" type="String" uri="&vCard;street-address"/>
+                <property name="extendedAddress" type="String" uri="&vCard;extended-address"/>
+                <property name="locality" type="String" uri="&vCard;locality"/>
+                <property name="postCode" type="String" uri="&vCard;postal-code"/>
             </properties>
         </GabotoBean>
+        
+        <GabotoBean name="Tel" type="&vCard;Tel">
+        	<properties>
+        		<property name="value" type="String" uri="&rdf;value"/>
+        	</properties>
+        	
+        	<GabotoBeans>
+        		<GabotoBean name="Voice" type="&vCard;Voice"/>
+        		<GabotoBean name="Fax" type="&vCard;Fax"/>
+        	</GabotoBeans>
+        </GabotoBean>
+        		
 <!--
 		<GabotoBean name="AccessRight" type="&oxp;AccessRight">
         	<properties>
@@ -106,7 +122,9 @@
         <GabotoEntity name="OxpEntity" type="&oxp;OxpEntity" abstract="true">
 
             <properties>
-                <property name="name" type="String" uri="&dc;title"/>
+                <property name="name" type="String" uri="&dc;title">
+                    <unstoredProperty uri="&rdfs;label"/>
+                </property>
                 <property name="images" type="Image" collection="bag" uri="&foaf;depiction"/>
                 <property name="sameAss" type="Website" collection="bag" uri="&owl;sameAs"/>
                 <property name="description" type="String" uri="&dc;description"/>
@@ -150,8 +168,7 @@
                         <property name="latitude" type="Float" uri="&geo;lat"/>
                         
                         <property name="address" type="Address" uri="&vCard;adr"/>
-
-                        <property name="homepage" type="Website" uri="&foaf;homepage"/>
+						<property name="homepage" type="Website" uri="&foaf;homepage"/>
 
                         <property name="floor" type="Float" uri="&oxp;floor"/>
 
@@ -164,6 +181,27 @@
                                     relationshipType="N:M" uri="&oxp;occupies"/>
                         
                     </properties>
+                    
+                                        <customMethods>
+                    	<method>
+                    		<![CDATA[
+	@StaticProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#fullyQualifiedTitle")
+	public String getFullyQualifiedTitle() {
+		if (getName() == null || getName().equals(""))
+			return null;
+			
+		Place parent = getParent();
+		String title = getName();
+		while (parent != null) {
+			if (parent.getName() != null && !parent.getName().equals(""))
+				title += ", " + parent.getName();
+			parent = parent.getParent();
+		}
+		return title;
+	}
+	]]>
+						</method>
+					</customMethods>
 
                     <GabotoEntities>
                         <GabotoEntity name="Outside" type="&oxp;Outside"/>
@@ -203,7 +241,8 @@
                     <properties>
                         <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
                         <property name="address" type="Address" uri="&vCard;adr"/>
-
+						<property name="telephoneNumbers" collection="bag" type="Tel" uri="&vCard;tel"/>
+                        
                         <property name="homepage" type="Website" uri="&foaf;homepage"/>
 
                         <property name="itHomepage" type="Website" uri="&oxp;hasITHomepage"/>
@@ -226,6 +265,7 @@
                         </property>
 
                         <property name="weblearn" type="Website" uri="&oxp;hasWeblearn"/>
+                        <property name="logo" type="Image" uri="&foaf;logo"/>
 
                         <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N"
                             uri="&dct;isPartOf"/>
@@ -252,6 +292,7 @@
                     ]]>
                         </method>
                     </customMethods>-->
+                    
 
                     <GabotoEntities>
                         <GabotoEntity name="College" type="&oxp;College"/>

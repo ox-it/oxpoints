@@ -25,7 +25,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Library;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class SubLibrary extends Library {
-  private String sublocationType;
+  protected String sublocationType;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;

@@ -24,6 +24,7 @@ import net.sf.gaboto.node.annotation.IndirectProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
+import net.sf.gaboto.node.annotation.StaticProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
@@ -40,15 +41,15 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Place extends OxpEntity {
-  private String oBNCode;
-  private Place parent;
-  private Float longitude;
-  private Float latitude;
-  private Address address;
-  private Website homepage;
-  private Float floor;
+  protected String oBNCode;
+  protected Place parent;
+  protected Float longitude;
+  protected Float latitude;
+  protected Address address;
+  protected Website homepage;
+  protected Float floor;
   private Collection<Place> containedPlaces;
-  private String osmId;
+  protected String osmId;
   private Collection<Unit> occupiedBy;
 
 
@@ -146,12 +147,12 @@ public class Place extends OxpEntity {
     this.latitude = latitude;
   }
 
-  @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
+  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public Address getAddress(){
     return this.address;
   }
 
-  @ComplexProperty("http://nwalsh.com/rdf/vCard#adr")
+  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public void setAddress(Address address){
     this.address = address;
   }
@@ -259,6 +260,23 @@ public class Place extends OxpEntity {
 
 
 
+                    		
+	@StaticProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#fullyQualifiedTitle")
+	public String getFullyQualifiedTitle() {
+		if (getName() == null || getName().equals(""))
+			return null;
+			
+		Place parent = getParent();
+		String title = getName();
+		while (parent != null) {
+			if (parent.getName() != null && !parent.getName().equals(""))
+				title += ", " + parent.getName();
+			parent = parent.getParent();
+		}
+		return title;
+	}
+	
+						
 
   public Collection<PassiveEntitiesRequest> getPassiveEntitiesRequest(){
     Collection<PassiveEntitiesRequest> requests = super.getPassiveEntitiesRequest();
@@ -334,7 +352,7 @@ public class Place extends OxpEntity {
       this.setLatitude(((Literal)stmt.getObject()).getFloat());
 
     // Load SIMPLE_COMPLEX_PROPERTY address
-    stmt = res.getProperty(snapshot.getProperty("http://nwalsh.com/rdf/vCard#adr"));
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#adr"));
     if(stmt != null && stmt.getObject().isAnon()){
       Address bean = new Address();
       bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
