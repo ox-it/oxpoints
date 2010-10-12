@@ -10,6 +10,7 @@
     <!ENTITY xhtml "http://www.w3.org/1999/xhtml" >
     <!ENTITY exif "http://www.w3.org/2003/12/exif/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY org "http://www.w3.org/ns/org#" >
     <!ENTITY geo "http://www.w3.org/2003/01/geo/wgs84_pos#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -233,12 +234,17 @@
 
                         <GabotoEntity name="WAP" type="&oxp;WAP"/>
                         
-                        <GabotoEntity name="Quadrangle" type="&oxp;Quadrangle"/>
+                        <GabotoEntity name="OpenSpace" type="&oxp;OpenSpace">
+                          <GabotoEntities>
+                            <GabotoEntity name="Quadrangle" type="&oxp;Quadrangle"/>
+                          </GabotoEntities>
+                        </GabotoEntity>
+                          
                     </GabotoEntities>
                 </GabotoEntity>
 
-                <GabotoEntity name="Unit" type="&oxp;Unit">
-                    <properties>
+                <GabotoEntity name="Organization" type="&org;Organization">
+                  <properties>
                         <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
                         <property name="address" type="Address" uri="&vCard;adr"/>
 						<property name="telephoneNumbers" collection="bag" type="Tel" uri="&vCard;tel"/>
@@ -270,10 +276,13 @@
                         <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N"
                             uri="&dct;isPartOf"/>
 
-                    </properties>
+                  </properties>
+                  
+                  <GabotoEntities>
+                    <GabotoEntity name="Unit" type="&oxp;Unit">
 
 <!--
-                    <customMethods>
+                      <customMethods>
                         <method>
                             <![CDATA[
     @StaticProperty("http://purl.org/dc/elements/1.1/description")
@@ -291,10 +300,10 @@
     }
                     ]]>
                         </method>
-                    </customMethods>-->
+                      </customMethods>-->
                     
 
-                    <GabotoEntities>
+                      <GabotoEntities>
                         <GabotoEntity name="College" type="&oxp;College"/>
 
 						<GabotoEntity name="University" type="&oxp;University"/>
@@ -311,7 +320,7 @@
 
                         <GabotoEntity name="Library" type="&oxp;Library">
                             <properties>
-                                <property name="OLISCode" type="String" uri="&oxp;hasOLISCode"/>
+                                <property name="OLISCode" collection="bag" type="String" uri="&oxp;hasOLISCode"/>
                                 
                                 <property name="libraryHomepage" type="Website"
                                     uri="&oxp;hasLibraryHomepage"/>
@@ -329,8 +338,14 @@
                         <GabotoEntity name="Museum" type="&oxp;Museum"/>
 
                         <GabotoEntity name="ServiceDepartment" type="&oxp;ServiceDepartment"/>
-                    </GabotoEntities>
+                      </GabotoEntities>
+                    </GabotoEntity>
+                    
+                    <GabotoEntity name="StudentGroup" type="&oxp;StudentGroup"/>
+                    
+                  </GabotoEntities>
                 </GabotoEntity>
+                
 
                 <GabotoEntity name="Website" type="&oxp;Website">
                     <properties>
