@@ -17,9 +17,9 @@ import net.sf.gaboto.time.ImmutableTimeInstant;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
 
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Organization;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 public class SegmentedOxpEntity {
 	private String uri;
@@ -83,7 +83,7 @@ public class SegmentedOxpEntity {
 			TypeSpan typeSpan = new TypeSpan(type, start, end);
 			if (tagName.equals("place") && !Place.class.isAssignableFrom(typeSpan.entityClass))
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'place' element.");
-			else if (tagName.equals("org") && !Unit.class.isAssignableFrom(typeSpan.entityClass))
+			else if (tagName.equals("org") && !Organization.class.isAssignableFrom(typeSpan.entityClass))
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'org' element.");
 
 			types.add(typeSpan);
@@ -231,9 +231,9 @@ public class SegmentedOxpEntity {
 				entities[i] = typeArray[i].entityClass.newInstance();
 
 			} catch (NullPointerException e) {
-				throw e;
-				//warningHandler.addWarning(filename, "Entity "+uri+" has periods of its existence without a type.");
-				//return;
+				//throw e;
+				warningHandler.addWarning(filename, "Entity "+uri+" has periods of its existence without a type.");
+				return;
 			} catch (InstantiationException e) {
 				throw new GabotoRuntimeException();
 			} catch (IllegalAccessException e) {

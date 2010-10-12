@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.OpenSpace;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
-public class Quadrangle extends Place {
+public class Quadrangle extends OpenSpace {
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;

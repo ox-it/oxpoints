@@ -2,12 +2,16 @@ package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +19,7 @@ import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
-import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
@@ -29,7 +33,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class Library extends Unit {
-  protected String oLISCode;
+  protected Collection<String> oLISCode;
   protected Website libraryHomepage;
 
 
@@ -43,22 +47,28 @@ public class Library extends Unit {
     return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Library";
   }
 
-  @SimpleLiteralProperty(
+  @BagLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISCode",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public String getOLISCode(){
+  public Collection<String> getOLISCode(){
     return this.oLISCode;
   }
 
-  @SimpleLiteralProperty(
+  @BagLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISCode",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public void setOLISCode(String oLISCode){
+  public void setOLISCode(Collection<String> oLISCode){
     this.oLISCode = oLISCode;
+  }
+
+  public void addOLISCode(String oLISCodeP){
+    if(this.oLISCode == null)
+      setOLISCode( new HashSet<String>() );
+    this.oLISCode.add(oLISCodeP);
   }
 
   @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage")
@@ -85,10 +95,17 @@ public class Library extends Unit {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
-    // Load SIMPLE_LITERAL_PROPERTY oLISCode
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISCode"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setOLISCode(((Literal)stmt.getObject()).getString());
+    // Load BAG_LITERAL_PROPERTY oLISCode
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISCode"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
+
+            addOLISCode(((Literal)node).getString());
+        }
+    }
 
     // Load SIMPLE_URI_PROPERTY libraryHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage"));

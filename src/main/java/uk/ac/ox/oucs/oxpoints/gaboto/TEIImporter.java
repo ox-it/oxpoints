@@ -342,7 +342,7 @@ public class TEIImporter {
 		
 		// olis code
 		String code = libraryEl.getAttribute("olisCode");
-		lib.setOLISCode(code);
+		lib.addOLISCode(code);
 
 		lib.setLibraryHomepage(findLibWebsite(libraryEl, lib.getTimeSpan()));
 		

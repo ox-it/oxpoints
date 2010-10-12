@@ -31,6 +31,8 @@ import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
+import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
+
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;

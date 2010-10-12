@@ -234,7 +234,7 @@ public class SeparatedTEIImporter {
 					else if (elemType.equals("obn"))
 						entity.addProperty("setOBNCode", elem);
 					else if (elemType.equals("olis"))
-						entity.addProperty("setOLISCode", elem);
+						entity.addProperty("addOLISCode", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
 						entity.addProperty("addSameAs", createWebsite(filename, "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", true), elem);
