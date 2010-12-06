@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
@@ -410,28 +411,37 @@ public class SeparatedTEIImporter {
 	
 	private Address extractAddress(Element elem) {
 
-		String add = "";
 		String postCode = "";
 		Address address = new Address();
+		LinkedList<String> addrLines = new LinkedList<String>();
 
 		NodeList addressChildren = elem.getChildNodes();
 		for (int j = 0; j < addressChildren.getLength(); j++){
 			if (! (addressChildren.item(j) instanceof Element))
 				continue;
-
 			Element addressPart = (Element) addressChildren.item(j);
 
-			if (addressPart.getNodeName().equals("addrLine")) {
-				if (add.length() > 0 )
-					add += ", ";
-				add += addressPart.getTextContent();
-			} else if (addressPart.getNodeName().equals("postCode"))
+			if (addressPart.getNodeName().equals("addrLine"))
+				addrLines.add(addressPart.getTextContent());
+			else if (addressPart.getNodeName().equals("postCode"))
 				postCode += addressPart.getTextContent();
 			else
 				throw new RuntimeException("Unrecognized element:" + addressPart);
 		}
+		
+		if (addrLines.size() >= 1)
+			address.setStreetAddress(addrLines.getFirst());
+		if (addrLines.size() >= 2)
+			address.setLocality(addrLines.getLast());
+		if (addrLines.size() == 3)
+			address.setExtendedAddress(addrLines.get(1));
+		if (addrLines.size() >= 4) {
+			String add = addrLines.get(1);
+			for (int i = 2; i < addrLines.size() - 1; i++)
+				add += ", " + addrLines.get(i);
+			address.setExtendedAddress(add);
+		}
 
-		address.setStreetAddress(add);
 		address.setPostCode(postCode);
 		return address;
 	}
