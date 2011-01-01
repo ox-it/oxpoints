@@ -102,6 +102,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     beanClassLookupClass = new HashMap<String,Class<? extends GabotoBean>>();
 
     try {
+      beanClassLookupClass.put("http://xmlns.com/foaf/0.1/OnlineAccount", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount"));
       beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Tel", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel"));
       beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Voice", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice"));
       beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Address", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Address"));

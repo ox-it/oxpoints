@@ -37,6 +37,7 @@ import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
@@ -52,6 +53,7 @@ public class Organization extends OxpEntity {
   protected Collection<Tel> telephoneNumbers;
   protected Website homepage;
   protected Website itHomepage;
+  protected Collection<OnlineAccount> onlineAccount;
   protected Collection<Place> occupiedPlaces;
   protected Place primaryPlace;
   protected Unit parent;
@@ -158,6 +160,22 @@ public class Organization extends OxpEntity {
     if( itHomepage != null )
       this.removeMissingReference( itHomepage.getUri() );
     this.itHomepage = itHomepage;
+  }
+
+  @BagComplexProperty("http://xmlns.com/foaf/0.1/holdsAccount")
+  public Collection<OnlineAccount> getOnlineAccount(){
+    return this.onlineAccount;
+  }
+
+  @BagComplexProperty("http://xmlns.com/foaf/0.1/holdsAccount")
+  public void setOnlineAccount(Collection<OnlineAccount> onlineAccount){
+    this.onlineAccount = onlineAccount;
+  }
+
+  public void addOnlineAccount(OnlineAccount onlineAccountP){
+    if(this.onlineAccount == null)
+      setOnlineAccount( new HashSet<OnlineAccount>() );
+    this.onlineAccount.add(onlineAccountP);
   }
 
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
@@ -371,6 +389,30 @@ public class Organization extends OxpEntity {
         }
       };
       this.addMissingReference(missingReference, callback);
+    }
+
+    // Load BAG_COMPLEX_PROPERTY onlineAccount
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://xmlns.com/foaf/0.1/holdsAccount"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isAnon())
+              throw new IllegalArgumentException("node should be a blank node");
+
+            Resource anon_res = (Resource) node;
+            String type = anon_res.getProperty(snapshot.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).getObject().toString();
+            OnlineAccount prop;
+            try {
+                prop = (OnlineAccount) (new OxpointsGabotoOntologyLookup()).getBeanClassFor(type).newInstance();
+            } catch (InstantiationException e) {
+                throw new GabotoRuntimeException();
+            } catch (IllegalAccessException e) {
+                throw new GabotoRuntimeException();
+            }
+            prop.loadFromResource(anon_res, snapshot, pool);
+            addOnlineAccount(prop);
+        }
+
     }
 
     // Load BAG_URI_PROPERTY occupiedPlaces

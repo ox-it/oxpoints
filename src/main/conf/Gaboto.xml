@@ -93,6 +93,14 @@
         		<GabotoBean name="Fax" type="&vCard;Fax"/>
         	</GabotoBeans>
         </GabotoBean>
+        
+        <GabotoBean name="OnlineAccount" type="&foaf;OnlineAccount">
+          <properties>
+            <property name="accountServiceHomepage" type="Resource" uri="&foaf;accountServiceHomepage"/>
+            <property name="accountName" type="String" uri="&foaf;accountName"/>
+          </properties>
+        </GabotoBean>
+            
         		
 <!--
 		<GabotoBean name="AccessRight" type="&oxp;AccessRight">
@@ -252,6 +260,7 @@
                         <property name="homepage" type="Website" uri="&foaf;homepage"/>
 
                         <property name="itHomepage" type="Website" uri="&oxp;hasITHomepage"/>
+                        <property name="onlineAccount" type="OnlineAccount" uri="&foaf;holdsAccount" collection="bag"/>
 
                         <property name="occupiedPlaces" type="Place" collection="bag"
                             uri="&oxp;occupies">

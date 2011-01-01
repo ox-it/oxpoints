@@ -28,6 +28,7 @@ import org.xml.sax.SAXException;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
@@ -239,6 +240,11 @@ public class SeparatedTEIImporter {
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
 						entity.addProperty("addSameAs", createWebsite(filename, "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", true), elem);
+					} else if (elemType.equals("twitter")) {
+						OnlineAccount account = new OnlineAccount();
+						account.setAccountServiceHomepage("http://www.twitter.com/");
+						account.setAccountName(elem.getTextContent());
+						entity.addProperty("addOnlineAccount", account, elem);
 					}
 
 				} else if (tagName.equals("location")) {
@@ -476,8 +482,8 @@ public class SeparatedTEIImporter {
 	
 	public Website createWebsite(String filename, String uri, boolean requireUnique) {
 		if (websites.containsKey(uri)) {
-			if (false && requireUnique)
-				warningHandler.addWarning(filename, "Website <"+uri+"> seen more than once.");
+//			if (false && requireUnique)
+//				warningHandler.addWarning(filename, "Website <"+uri+"> seen more than once.");
 			return websites.get(uri);
 		} else {
 			Website website = new Website();
