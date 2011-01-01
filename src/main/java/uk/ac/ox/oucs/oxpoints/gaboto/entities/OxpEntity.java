@@ -20,6 +20,7 @@ import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagLiteralProperty;
+import net.sf.gaboto.node.annotation.BagResourceProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
@@ -35,7 +36,7 @@ import net.sf.gaboto.node.pool.EntityPool;
 abstract public class OxpEntity extends GabotoEntity {
   protected String name;
   protected Collection<Image> images;
-  protected Collection<Website> sameAss;
+  protected Collection<String> sameAss;
   protected String description;
   protected Collection<String> dcType;
 
@@ -94,29 +95,20 @@ abstract public class OxpEntity extends GabotoEntity {
     this.images.add(image);
   }
 
-  @BagURIProperty("http://www.w3.org/2002/07/owl#sameAs")
-  public Collection<Website> getSameAss(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
+  @BagResourceProperty("http://www.w3.org/2002/07/owl#sameAs")
+  public Collection<String> getSameAss(){
     return this.sameAss;
   }
 
-  @BagURIProperty("http://www.w3.org/2002/07/owl#sameAs")
-  public void setSameAss(Collection<Website> sameAss){
-    if( sameAss != null ){
-      for( GabotoEntity _entity : sameAss)
-        this.removeMissingReference( _entity.getUri() );
-    }
-
+  @BagResourceProperty("http://www.w3.org/2002/07/owl#sameAs")
+  public void setSameAss(Collection<String> sameAss){
     this.sameAss = sameAss;
   }
 
-  public void addSameAs(Website sameAs){
-    if( sameAs != null )
-      this.removeMissingReference( sameAs.getUri() );
-    if(this.sameAss == null )
-      this.sameAss = new HashSet<Website>();
-    this.sameAss.add(sameAs);
+  public void addSameAs(String sameAsP){
+    if(this.sameAss == null)
+      setSameAss( new HashSet<String>() );
+    this.sameAss.add(sameAsP);
   }
 
   @SimpleLiteralProperty(
@@ -194,22 +186,15 @@ abstract public class OxpEntity extends GabotoEntity {
       }
     }
 
-    // Load BAG_URI_PROPERTY sameAss
+    // Load BAG_RESOURCE_PROPERTY sameAss
     {
         StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2002/07/owl#sameAs"));
         while (stmts.hasNext()) {
             RDFNode node = stmts.next().getObject();
-            if(! node.isResource())
-              throw new IllegalArgumentException("node should be a resource");
-
-            Resource missingReference = (Resource)node;
-            EntityExistsCallback callback = new EntityExistsCallback(){
-              public void entityExists(EntityPool p, GabotoEntity entity) {
-                addSameAs((Website) entity);
+            if(node.isLiteral()){
+                this.addSameAs(((Literal)node).getLexicalForm());
             }
-        };
-        this.addMissingReference(missingReference, callback);
-      }
+        }
     }
 
     // Load SIMPLE_LITERAL_PROPERTY description

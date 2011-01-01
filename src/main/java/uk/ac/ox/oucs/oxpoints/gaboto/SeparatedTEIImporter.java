@@ -164,14 +164,7 @@ public class SeparatedTEIImporter {
 
 		for (String sameAs : elements.get(0).getAttribute("corresp").split(" "))
 			if (sameAs.length() > 0) {
-				Website website = new Website();
-				website.setUri(sameAs);
-				try {
-					gaboto.add(website);
-				} catch (EntityAlreadyExistsException e) {
-					warningHandler.addWarning("Website <"+sameAs+"> referenced in corresp attribute more than once.");
-				}
-				entity.addProperty("addSameAs", website, elements.get(0));
+				entity.addProperty("addSameAs", sameAs, elements.get(0));
 			}
 		
 		for (String subtype : elements.get(0).getAttribute("subtype").split(" "))
@@ -239,7 +232,7 @@ public class SeparatedTEIImporter {
 						entity.addProperty("addOLISCode", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
-						entity.addProperty("addSameAs", createWebsite(filename, "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", true), elem);
+						entity.addProperty("addSameAs", "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", elem);
 					} else if (elemType.equals("twitter")) {
 						OnlineAccount account = new OnlineAccount();
 						account.setAccountServiceHomepage("http://www.twitter.com/");
