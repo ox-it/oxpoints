@@ -260,7 +260,7 @@
                         <property name="homepage" type="Website" uri="&foaf;homepage"/>
 
                         <property name="itHomepage" type="Website" uri="&oxp;hasITHomepage"/>
-                        <property name="onlineAccount" type="OnlineAccount" uri="&foaf;holdsAccount" collection="bag"/>
+                        <property name="onlineAccount" type="OnlineAccount" uri="&foaf;account" collection="bag"/>
 
                         <property name="occupiedPlaces" type="Place" collection="bag"
                             uri="&oxp;occupies">

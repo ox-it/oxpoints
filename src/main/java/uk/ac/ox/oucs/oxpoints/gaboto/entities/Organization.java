@@ -162,12 +162,12 @@ public class Organization extends OxpEntity {
     this.itHomepage = itHomepage;
   }
 
-  @BagComplexProperty("http://xmlns.com/foaf/0.1/holdsAccount")
+  @BagComplexProperty("http://xmlns.com/foaf/0.1/account")
   public Collection<OnlineAccount> getOnlineAccount(){
     return this.onlineAccount;
   }
 
-  @BagComplexProperty("http://xmlns.com/foaf/0.1/holdsAccount")
+  @BagComplexProperty("http://xmlns.com/foaf/0.1/account")
   public void setOnlineAccount(Collection<OnlineAccount> onlineAccount){
     this.onlineAccount = onlineAccount;
   }
@@ -393,7 +393,7 @@ public class Organization extends OxpEntity {
 
     // Load BAG_COMPLEX_PROPERTY onlineAccount
     {
-        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://xmlns.com/foaf/0.1/holdsAccount"));
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://xmlns.com/foaf/0.1/account"));
         while (stmts.hasNext()) {
             RDFNode node = stmts.next().getObject();
             if(! node.isAnon())
