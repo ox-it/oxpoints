@@ -177,7 +177,7 @@
                         <property name="latitude" type="Float" uri="&geo;lat"/>
                         
                         <property name="address" type="Address" uri="&vCard;adr"/>
-						<property name="homepage" type="Website" uri="&foaf;homepage"/>
+						<property name="homepage" type="Resource" uri="&foaf;homepage"/>
 
                         <property name="floor" type="Float" uri="&oxp;floor"/>
 
@@ -254,12 +254,13 @@
                 <GabotoEntity name="Organization" type="&org;Organization">
                   <properties>
                         <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
+                        <property name="financeCode" type="String" uri="&oxp;hasFinanceCode"/>
                         <property name="address" type="Address" uri="&vCard;adr"/>
 						<property name="telephoneNumbers" collection="bag" type="Tel" uri="&vCard;tel"/>
                         
-                        <property name="homepage" type="Website" uri="&foaf;homepage"/>
+                        <property name="homepage" type="Resource" uri="&foaf;homepage"/>
 
-                        <property name="itHomepage" type="Website" uri="&oxp;hasITHomepage"/>
+                        <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                         <property name="onlineAccount" type="OnlineAccount" uri="&foaf;account" collection="bag"/>
 
                         <property name="occupiedPlaces" type="Place" collection="bag"
@@ -279,7 +280,7 @@
                             <unstoredProperty uri="&gabotoKML;parent"/>
                         </property>
 
-                        <property name="weblearn" type="Website" uri="&oxp;hasWeblearn"/>
+                        <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
                         <property name="logo" type="Image" uri="&foaf;logo"/>
 
                         <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N"
@@ -299,7 +300,7 @@
         String description = "";
         
         if(getHomepage() != null)
-            description += "Website: <a href=\"" + getHomepage().getUri() + "\">" + getHomepage().getUri() + "</a><br/>";
+            description += "Website: <a href=\"" + getHomepage() + "\">" + getHomepage().getUri() + "</a><br/>";
         if(getImages() != null && getImages().size() > 0){
         	Image img = getImages().iterator().next();
         	description += "<img src=\"" + img.getUri() + "\" width=\"" + img.getWidth() + "\" height=\"" + img.getHeight() + "\"/>";
@@ -331,7 +332,7 @@
                             <properties>
                                 <property name="OLISCode" collection="bag" type="String" uri="&oxp;hasOLISCode"/>
                                 
-                                <property name="libraryHomepage" type="Website"
+                                <property name="libraryHomepage" type="Resource"
                                     uri="&oxp;hasLibraryHomepage"/>
                             </properties>
                             <GabotoEntities>

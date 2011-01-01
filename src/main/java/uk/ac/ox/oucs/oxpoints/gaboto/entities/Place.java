@@ -22,6 +22,7 @@ import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.IndirectProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
+import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
 import net.sf.gaboto.node.annotation.StaticProperty;
@@ -48,7 +49,7 @@ public class Place extends OxpEntity {
   protected Float longitude;
   protected Float latitude;
   protected Address address;
-  protected Website homepage;
+  protected String homepage;
   protected Float floor;
   private Collection<Place> containedPlaces;
   protected String osmId;
@@ -159,17 +160,13 @@ public class Place extends OxpEntity {
     this.address = address;
   }
 
-  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
-  public Website getHomepage(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
+  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
+  public String getHomepage(){
     return this.homepage;
   }
 
-  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
-  public void setHomepage(Website homepage){
-    if( homepage != null )
-      this.removeMissingReference( homepage.getUri() );
+  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
+  public void setHomepage(String homepage){
     this.homepage = homepage;
   }
 
@@ -361,16 +358,10 @@ public class Place extends OxpEntity {
       setAddress(bean);
     }
 
-    // Load SIMPLE_URI_PROPERTY homepage
+    // Load SIMPLE_RESOURCE_PROPERTY homepage
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setHomepage((Website)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
+    if(stmt != null && stmt.getObject().isLiteral()){
+      this.setHomepage(((Literal)stmt.getObject()).getLexicalForm());
     }
 
     // Load SIMPLE_LITERAL_PROPERTY floor

@@ -20,9 +20,7 @@ import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagLiteralProperty;
-import net.sf.gaboto.node.annotation.SimpleURIProperty;
-
-import net.sf.gaboto.node.pool.EntityExistsCallback;
+import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.pool.EntityPool;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
@@ -34,7 +32,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
  */
 public class Library extends Unit {
   protected Collection<String> oLISCode;
-  protected Website libraryHomepage;
+  protected String libraryHomepage;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -71,17 +69,13 @@ public class Library extends Unit {
     this.oLISCode.add(oLISCodeP);
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage")
-  public Website getLibraryHomepage(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage")
+  public String getLibraryHomepage(){
     return this.libraryHomepage;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage")
-  public void setLibraryHomepage(Website libraryHomepage){
-    if( libraryHomepage != null )
-      this.removeMissingReference( libraryHomepage.getUri() );
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage")
+  public void setLibraryHomepage(String libraryHomepage){
     this.libraryHomepage = libraryHomepage;
   }
 
@@ -107,16 +101,10 @@ public class Library extends Unit {
         }
     }
 
-    // Load SIMPLE_URI_PROPERTY libraryHomepage
+    // Load SIMPLE_RESOURCE_PROPERTY libraryHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setLibraryHomepage((Website)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
+    if(stmt != null && stmt.getObject().isLiteral()){
+      this.setLibraryHomepage(((Literal)stmt.getObject()).getLexicalForm());
     }
 
   }

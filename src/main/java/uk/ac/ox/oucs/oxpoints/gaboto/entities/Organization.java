@@ -26,6 +26,7 @@ import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.IndirectProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
+import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
@@ -49,15 +50,16 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  */
 public class Organization extends OxpEntity {
   protected String oUCSCode;
+  protected String financeCode;
   protected Address address;
   protected Collection<Tel> telephoneNumbers;
-  protected Website homepage;
-  protected Website itHomepage;
+  protected String homepage;
+  protected String itHomepage;
   protected Collection<OnlineAccount> onlineAccount;
   protected Collection<Place> occupiedPlaces;
   protected Place primaryPlace;
   protected Unit parent;
-  protected Website weblearn;
+  protected String weblearn;
   protected Image logo;
   private Collection<Unit> hasChildren;
 
@@ -108,6 +110,24 @@ public class Organization extends OxpEntity {
     this.oUCSCode = oUCSCode;
   }
 
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasFinanceCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getFinanceCode(){
+    return this.financeCode;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasFinanceCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setFinanceCode(String financeCode){
+    this.financeCode = financeCode;
+  }
+
   @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public Address getAddress(){
     return this.address;
@@ -134,31 +154,23 @@ public class Organization extends OxpEntity {
     this.telephoneNumbers.add(telephoneNumberP);
   }
 
-  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
-  public Website getHomepage(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
+  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
+  public String getHomepage(){
     return this.homepage;
   }
 
-  @SimpleURIProperty("http://xmlns.com/foaf/0.1/homepage")
-  public void setHomepage(Website homepage){
-    if( homepage != null )
-      this.removeMissingReference( homepage.getUri() );
+  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
+  public void setHomepage(String homepage){
     this.homepage = homepage;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage")
-  public Website getItHomepage(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage")
+  public String getItHomepage(){
     return this.itHomepage;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage")
-  public void setItHomepage(Website itHomepage){
-    if( itHomepage != null )
-      this.removeMissingReference( itHomepage.getUri() );
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage")
+  public void setItHomepage(String itHomepage){
     this.itHomepage = itHomepage;
   }
 
@@ -235,17 +247,13 @@ public class Organization extends OxpEntity {
     this.parent = parent;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
-  public Website getWeblearn(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
+  public String getWeblearn(){
     return this.weblearn;
   }
 
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
-  public void setWeblearn(Website weblearn){
-    if( weblearn != null )
-      this.removeMissingReference( weblearn.getUri() );
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
+  public void setWeblearn(String weblearn){
     this.weblearn = weblearn;
   }
 
@@ -335,6 +343,11 @@ public class Organization extends OxpEntity {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setOUCSCode(((Literal)stmt.getObject()).getString());
 
+    // Load SIMPLE_LITERAL_PROPERTY financeCode
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasFinanceCode"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setFinanceCode(((Literal)stmt.getObject()).getString());
+
     // Load SIMPLE_COMPLEX_PROPERTY address
     stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#adr"));
     if(stmt != null && stmt.getObject().isAnon()){
@@ -367,28 +380,16 @@ public class Organization extends OxpEntity {
 
     }
 
-    // Load SIMPLE_URI_PROPERTY homepage
+    // Load SIMPLE_RESOURCE_PROPERTY homepage
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setHomepage((Website)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
+    if(stmt != null && stmt.getObject().isLiteral()){
+      this.setHomepage(((Literal)stmt.getObject()).getLexicalForm());
     }
 
-    // Load SIMPLE_URI_PROPERTY itHomepage
+    // Load SIMPLE_RESOURCE_PROPERTY itHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setItHomepage((Website)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
+    if(stmt != null && stmt.getObject().isLiteral()){
+      this.setItHomepage(((Literal)stmt.getObject()).getLexicalForm());
     }
 
     // Load BAG_COMPLEX_PROPERTY onlineAccount
@@ -457,16 +458,10 @@ public class Organization extends OxpEntity {
       this.addMissingReference(missingReference, callback);
     }
 
-    // Load SIMPLE_URI_PROPERTY weblearn
+    // Load SIMPLE_RESOURCE_PROPERTY weblearn
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setWeblearn((Website)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
+    if(stmt != null && stmt.getObject().isLiteral()){
+      this.setWeblearn(((Literal)stmt.getObject()).getLexicalForm());
     }
 
     // Load SIMPLE_URI_PROPERTY logo

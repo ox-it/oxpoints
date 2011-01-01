@@ -35,7 +35,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
 
 public class SeparatedTEIImporter {
 
@@ -45,9 +44,6 @@ public class SeparatedTEIImporter {
 	public final static String XML_NS = "http://www.w3.org/XML/1998/namespace";
 	private Logger logger = Logger.getLogger("uk.ac.ox.oucs.oxpoints.importer");
 
-	private Map<String,Website> websites = new HashMap<String,Website>();
-	
-		
 	private Map<String, SegmentedOxpEntity> entitiesByURI = new HashMap<String, SegmentedOxpEntity>();
 	
 	public SeparatedTEIImporter(Gaboto gaboto) {
@@ -230,6 +226,8 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setOBNCode", elem);
 					else if (elemType.equals("olis"))
 						entity.addProperty("addOLISCode", elem);
+					else if (elemType.equals("finance"))
+						entity.addProperty("setFinanceCode", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
 						entity.addProperty("addSameAs", "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", elem);
@@ -449,13 +447,13 @@ public class SeparatedTEIImporter {
 		return warningHandler;
 	}
 	
-	public Website getWebsite(Element elem, String filename, boolean requireUnique) {
+	public String getWebsite(Element elem, String filename, boolean requireUnique) {
 		NodeList ns = elem.getElementsByTagName("desc");
 		ns = ((Element) ns.item(0)).getElementsByTagName("ptr");
 		Element e = (Element) ns.item(0);
 		String url = e.getAttribute("target");
 		
-		return createWebsite(filename, url, requireUnique);
+		return url;
 	}
 	
 	public Tel getTelephoneNumber(Element elem) {
@@ -471,25 +469,6 @@ public class SeparatedTEIImporter {
 		tel.setValue(value);
 		return tel;
 		
-	}
-	
-	public Website createWebsite(String filename, String uri, boolean requireUnique) {
-		if (websites.containsKey(uri)) {
-//			if (false && requireUnique)
-//				warningHandler.addWarning(filename, "Website <"+uri+"> seen more than once.");
-			return websites.get(uri);
-		} else {
-			Website website = new Website();
-			website.setUri(uri);
-			if (requireUnique)
-				websites.put(uri, website);
-			try {
-				gaboto.add(website);
-			} catch (EntityAlreadyExistsException e1) {
-				//throw new GabotoRuntimeException();
-			}
-			return website;
-		}
 	}
 	
 	public static void main(String[] args) {
