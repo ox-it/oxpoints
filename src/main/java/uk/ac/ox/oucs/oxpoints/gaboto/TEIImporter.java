@@ -436,8 +436,6 @@ public class TEIImporter {
 		
     // add unit
     entities.add(unit);
-    if (id == null)
-      throw new NullPointerException();
     oxpointsIdToEntityLookup.put(id, unit);
 	}
 	

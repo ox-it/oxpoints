@@ -47,8 +47,6 @@ import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.vocabulary.GeoVocab;
 import net.sf.gaboto.vocabulary.OxPointsVocab;
 
-
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Location;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
 
 import com.hp.hpl.jena.vocabulary.DC_11;

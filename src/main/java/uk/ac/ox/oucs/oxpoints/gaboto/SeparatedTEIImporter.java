@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import net.sf.gaboto.EntityAlreadyExistsException;
 import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoFactory;
 import net.sf.gaboto.GabotoRuntimeException;
