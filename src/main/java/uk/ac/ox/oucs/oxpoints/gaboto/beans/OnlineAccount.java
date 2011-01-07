@@ -77,8 +77,8 @@ public class OnlineAccount extends GabotoBean {
 
     // Load SIMPLE_RESOURCE_PROPERTY accountServiceHomepage
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/accountServiceHomepage"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setAccountServiceHomepage(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setAccountServiceHomepage(((Resource) stmt.getObject()).getURI());
     }
 
     // Load SIMPLE_LITERAL_PROPERTY accountName
@@ -88,8 +88,8 @@ public class OnlineAccount extends GabotoBean {
 
     // Load SIMPLE_RESOURCE_PROPERTY accountProfilePage
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/accountProfilePage"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setAccountProfilePage(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setAccountProfilePage(((Resource) stmt.getObject()).getURI());
     }
 
   }

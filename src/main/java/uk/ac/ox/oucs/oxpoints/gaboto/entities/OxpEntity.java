@@ -191,8 +191,8 @@ abstract public class OxpEntity extends GabotoEntity {
         StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2002/07/owl#sameAs"));
         while (stmts.hasNext()) {
             RDFNode node = stmts.next().getObject();
-            if(node.isLiteral()){
-                this.addSameAs(((Literal)node).getLexicalForm());
+            if(node.isURIResource()){
+                this.addSameAs(((Resource) node).getURI());
             }
         }
     }

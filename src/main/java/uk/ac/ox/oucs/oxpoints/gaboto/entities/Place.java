@@ -360,8 +360,8 @@ public class Place extends OxpEntity {
 
     // Load SIMPLE_RESOURCE_PROPERTY homepage
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setHomepage(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setHomepage(((Resource) stmt.getObject()).getURI());
     }
 
     // Load SIMPLE_LITERAL_PROPERTY floor

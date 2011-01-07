@@ -21,6 +21,7 @@ import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
+
 import net.sf.gaboto.node.pool.EntityPool;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
@@ -103,8 +104,8 @@ public class Library extends Unit {
 
     // Load SIMPLE_RESOURCE_PROPERTY libraryHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryHomepage"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setLibraryHomepage(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setLibraryHomepage(((Resource) stmt.getObject()).getURI());
     }
 
   }

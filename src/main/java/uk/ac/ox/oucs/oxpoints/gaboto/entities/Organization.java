@@ -382,14 +382,14 @@ public class Organization extends OxpEntity {
 
     // Load SIMPLE_RESOURCE_PROPERTY homepage
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setHomepage(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setHomepage(((Resource) stmt.getObject()).getURI());
     }
 
     // Load SIMPLE_RESOURCE_PROPERTY itHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setItHomepage(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setItHomepage(((Resource) stmt.getObject()).getURI());
     }
 
     // Load BAG_COMPLEX_PROPERTY onlineAccount
@@ -460,8 +460,8 @@ public class Organization extends OxpEntity {
 
     // Load SIMPLE_RESOURCE_PROPERTY weblearn
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn"));
-    if(stmt != null && stmt.getObject().isLiteral()){
-      this.setWeblearn(((Literal)stmt.getObject()).getLexicalForm());
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setWeblearn(((Resource) stmt.getObject()).getURI());
     }
 
     // Load SIMPLE_URI_PROPERTY logo
