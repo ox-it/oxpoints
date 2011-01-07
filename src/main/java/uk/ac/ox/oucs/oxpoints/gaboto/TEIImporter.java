@@ -594,55 +594,49 @@ public class TEIImporter {
 		return building;
 	}
 
-	private Website findHomepage(Element el, TimeSpan ts){
+	private String findHomepage(Element el, TimeSpan ts){
 		return findWebsite(el, "url");
 	}
 	
-	private Website findITWebsite(Element el, TimeSpan ts){
+	private String findITWebsite(Element el, TimeSpan ts){
 		return findWebsite(el, "iturl");
 	}
 	
-	private Website findLibWebsite(Element el, TimeSpan ts){
+	private String findLibWebsite(Element el, TimeSpan ts){
 		return findWebsite(el, "liburl");
 	}
 	
-	private Website findWeblearn(Element el, TimeSpan ts){
+	private String findWeblearn(Element el, TimeSpan ts){
 		return findWebsite(el, "weblearn");
 	}
 	
 
-	private Website findWebsite(Element el, String type){
+	private String findWebsite(Element el, String type){
 		NodeList traits = el.getChildNodes();
 		for(int i = 0; i < traits.getLength(); i++){
 			if(traits.item(i).getNodeName().equals("trait")){
 				if(! (traits.item(i) instanceof Element))
 					continue;
-				
+
 				Element trait = (Element) traits.item(i);
 				if(!trait.hasAttribute("type") || !trait.getAttribute("type").equals(type))
 					continue;
-				
+
 				// find ptr
 				NodeList ptrs = trait.getElementsByTagName("ptr");
 				if(ptrs.getLength() > 0){
-					Website website = new Website();
 					String uri = ((Element)ptrs.item(0)).getAttribute("target");
-          if (uri == null)
-            throw new ElementRuntimeException(el, "URI Null");
-          if (uri.trim().equals(""))
-            throw new ElementRuntimeException(el, "URI empty");
-					website.setUri(uri);
-					//website.setTimeSpan(ts);
-					
-					entities.add(website);
-					
-					return website;
+					if (uri == null)
+						throw new ElementRuntimeException(el, "URI Null");
+					if (uri.trim().equals(""))
+						throw new ElementRuntimeException(el, "URI empty");
+					return uri;
 				} else{
 					throw new RuntimeException("Missed pointer for " + type + ".");
 				}
 			}
 		}
-		
+
 		return null;
 	}
 

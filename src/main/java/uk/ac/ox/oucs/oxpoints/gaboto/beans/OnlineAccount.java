@@ -22,6 +22,7 @@ import net.sf.gaboto.node.pool.EntityPool;
 public class OnlineAccount extends GabotoBean {
   protected String accountServiceHomepage;
   protected String accountName;
+  protected String accountProfilePage;
 
   @Override
   public String getType(){
@@ -56,6 +57,16 @@ public class OnlineAccount extends GabotoBean {
     this.accountName = accountName;
   }
 
+  @ResourceProperty("http://xmlns.com/foaf/0.1/accountProfilePage")
+  public String getAccountProfilePage(){
+    return this.accountProfilePage;
+  }
+
+  @ResourceProperty("http://xmlns.com/foaf/0.1/accountProfilePage")
+  public void setAccountProfilePage(String accountProfilePage){
+    this.accountProfilePage = accountProfilePage;
+  }
+
 
 
 
@@ -75,8 +86,14 @@ public class OnlineAccount extends GabotoBean {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setAccountName(((Literal)stmt.getObject()).getString());
 
+    // Load SIMPLE_RESOURCE_PROPERTY accountProfilePage
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/accountProfilePage"));
+    if(stmt != null && stmt.getObject().isLiteral()){
+      this.setAccountProfilePage(((Literal)stmt.getObject()).getLexicalForm());
+    }
+
   }
   public String toString() {
-    return this.accountServiceHomepage + ", " + this.accountName ;
+    return this.accountServiceHomepage + ", " + this.accountName + ", " + this.accountProfilePage ;
   }
 }

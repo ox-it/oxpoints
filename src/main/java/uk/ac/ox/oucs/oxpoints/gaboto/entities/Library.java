@@ -21,7 +21,6 @@ import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
-import net.sf.gaboto.node.pool.EntityPool;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 

@@ -98,6 +98,7 @@
           <properties>
             <property name="accountServiceHomepage" type="Resource" uri="&foaf;accountServiceHomepage"/>
             <property name="accountName" type="String" uri="&foaf;accountName"/>
+            <property name="accountProfilePage" type="Resource" uri="&foaf;accountProfilePage"/>
           </properties>
         </GabotoBean>
             

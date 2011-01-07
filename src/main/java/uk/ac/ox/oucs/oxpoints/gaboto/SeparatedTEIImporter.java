@@ -235,6 +235,7 @@ public class SeparatedTEIImporter {
 						OnlineAccount account = new OnlineAccount();
 						account.setAccountServiceHomepage("http://www.twitter.com/");
 						account.setAccountName(elem.getTextContent());
+						account.setAccountProfilePage("http://www.twitter.com/" + elem.getTextContent());
 						entity.addProperty("addOnlineAccount", account, elem);
 					}
 
