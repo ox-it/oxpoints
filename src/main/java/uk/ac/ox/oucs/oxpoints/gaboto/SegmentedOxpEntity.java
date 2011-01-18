@@ -56,8 +56,8 @@ public class SegmentedOxpEntity {
 		
 		this.warningHandler = warningHandler;
 		
-		if (!tagName.equals("org") && !tagName.equals("place") && !tagName.equals("figure"))
-			warningHandler.addWarning(filename, "Root element must be either 'place', 'org' or 'figure', not '"+tagName+"'.");
+		if (!tagName.equals("org") && !tagName.equals("place") && !tagName.equals("object") && !tagName.equals("figure"))
+			warningHandler.addWarning(filename, "Root element must be either 'place', 'org', 'object' or 'figure', not '"+tagName+"'.");
 		this.tagName = tagName;
 		this.filename = filename;
 		
@@ -85,6 +85,8 @@ public class SegmentedOxpEntity {
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'place' element.");
 			else if (tagName.equals("org") && !Organization.class.isAssignableFrom(typeSpan.entityClass))
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'org' element.");
+			else if (tagName.equals("object") && (Place.class.isAssignableFrom(typeSpan.entityClass) || Organization.class.isAssignableFrom(typeSpan.entityClass)))
+				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'object' element.");
 
 			types.add(typeSpan);
 		} catch (ClassNotFoundException e) {

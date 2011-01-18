@@ -163,6 +163,7 @@ public class TestGabotoSnapshot {
     
     GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
     EntityPool pool = nowSnap.loadEntitiesWithProperty(DC_11.title, "Somerville College");
+    long i = nowSnap.size();
     assertTrue("it is " + pool.getSize(), pool.getSize() == 1);
   }
 

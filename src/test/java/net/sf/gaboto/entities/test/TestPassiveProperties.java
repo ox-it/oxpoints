@@ -43,6 +43,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import uk.ac.ox.oucs.oxpoints.OxpointsFactory;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Building;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.College;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Website;
 import static org.junit.Assert.assertTrue;
@@ -60,14 +61,14 @@ public class TestPassiveProperties  {
 		
 		GabotoSnapshot snapshot = oxp.getSnapshot(TimeInstant.now());
 		EntityPoolConfiguration config = new EntityPoolConfiguration(snapshot);
-		config.addAcceptedType(OxPointsVocab.Website_URI);
+		config.addAcceptedType(OxPointsVocab.Building_URI);
 		EntityPool pool = EntityPool.createFrom(config);
 		
 		boolean foundPassive = false;
     for(GabotoEntity e : pool.getEntities()){
-			Website web = (Website) e;
+			Building building = (Building) e;
 			
-			if(web.getIsHomepageIn() != null)
+			if(building.getOccupiedBy() != null)
 				foundPassive = true;
 		}
 		

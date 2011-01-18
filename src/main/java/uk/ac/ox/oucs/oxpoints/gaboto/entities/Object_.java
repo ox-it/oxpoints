@@ -7,14 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Object_;
+import net.sf.gaboto.node.GabotoEntity;
+
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
-public class WAP extends Object_ {
+public class Object_ extends SpatialThing {
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -24,7 +26,7 @@ public class WAP extends Object_ {
 
   @Override
   public String getType(){
-    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#WAP";
+    return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Object";
   }
 
 

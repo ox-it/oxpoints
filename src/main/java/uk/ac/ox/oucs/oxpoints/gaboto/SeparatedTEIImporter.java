@@ -30,9 +30,11 @@ import uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Measure;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 public class SeparatedTEIImporter {
@@ -198,7 +200,10 @@ public class SeparatedTEIImporter {
 					} catch (Exception e) {
 						warningHandler.addWarning(filename, "subtype trait malformed.");
 					}
-
+				
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("measures")) {
+					Element desc = (Element) elem.getElementsByTagName("desc").item(0);
+					entity.addProperty("setMeasures", "http://purl.org/meter/resource/" + desc.getTextContent(), elem);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("url")) {
 					entity.addProperty("setHomepage", getWebsite(elem, filename, true), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("iturl")) {
@@ -227,6 +232,8 @@ public class SeparatedTEIImporter {
 						entity.addProperty("addOLISCode", elem);
 					else if (elemType.equals("finance"))
 						entity.addProperty("setFinanceCode", elem);
+					else if (elemType.equals("metering"))
+						entity.addProperty("setMeasureIdentifier", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
 						entity.addProperty("addSameAs", "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", elem);
@@ -275,6 +282,18 @@ public class SeparatedTEIImporter {
 						relationMethod = "setParent";
 						relationClass = Unit.class;
 						inverted = true;
+					} else if (relationName.equals("supplies")) {
+						// Gaboto thinks it's so clever, dropping the 's'
+						relationMethod = "addSupplie";
+						relationClass = SpatialThing.class;
+					} else if (relationName.equals("upstreamOf")) {
+						relationMethod = "setDownstreamOf";
+						relationClass = Measure.class;
+						inverted = true;
+					} else if (relationName.equals("contains")) {
+						relationMethod = "setParent";
+						relationClass = Place.class;
+						inverted = true;
 					}
 					
 					if (!relationMethod.equals("")) {
@@ -292,7 +311,7 @@ public class SeparatedTEIImporter {
 							);
 						}
 					}
-				} else if (tagName.equals("place") || tagName.equals("org")) {
+				} else if (tagName.equals("place") || tagName.equals("org") || tagName.equals("object")) {
 					loadChildEntity(elem, filename);
 					entity.addRelation(
 							"setParent",
