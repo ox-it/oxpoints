@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
 import java.util.logging.Logger;
@@ -218,7 +220,22 @@ public class SeparatedTEIImporter {
 					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
 
 				} else if (tagName.equals("placeName") || tagName.equals("orgName")) {
-					entity.addProperty("setName", elem);
+					Set<String> types = new HashSet<String>();
+					for (String type : elem.getAttribute("type").split("\\s+"))
+						if (type.length() > 0)
+							types.add(type);
+					if (types.isEmpty())
+						types.add("preferred");
+					if (types.contains("preferred")) {
+						entity.addProperty("setName", elem);
+						entity.addProperty("setPrefLabel", elem);
+					}
+					if (types.contains("sort"))
+						entity.addProperty("setSortLabel", elem);
+					if (types.contains("alternate"))
+						entity.addProperty("addAltLabel", elem);
+					if (types.contains("hidden"))
+						entity.addProperty("addHiddenLabel", elem);
 					
 				} else if (tagName.equals("desc")) {
 					entity.addProperty("setDescription", elem);
@@ -445,17 +462,18 @@ public class SeparatedTEIImporter {
 				throw new RuntimeException("Unrecognized element:" + addressPart);
 		}
 		
-		if (addrLines.size() >= 1)
+		if (addrLines.size() == 1) {
 			address.setStreetAddress(addrLines.getFirst());
-		if (addrLines.size() >= 2)
+		} else if (addrLines.size() == 2) {
+			address.setStreetAddress(addrLines.getFirst());
 			address.setLocality(addrLines.getLast());
-		if (addrLines.size() == 3)
-			address.setExtendedAddress(addrLines.get(1));
-		if (addrLines.size() >= 4) {
+		} else if (addrLines.size() >= 3) {
+			address.setExtendedAddress(addrLines.getFirst());
 			String add = addrLines.get(1);
 			for (int i = 2; i < addrLines.size() - 1; i++)
 				add += ", " + addrLines.get(i);
-			address.setExtendedAddress(add);
+			address.setStreetAddress(add);
+			address.setLocality(addrLines.getLast());
 		}
 
 		address.setPostCode(postCode);

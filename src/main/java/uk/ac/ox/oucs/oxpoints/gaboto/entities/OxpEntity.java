@@ -39,6 +39,10 @@ abstract public class OxpEntity extends GabotoEntity {
   protected Collection<String> sameAss;
   protected String description;
   protected Collection<String> dcType;
+  protected String prefLabel;
+  protected Collection<String> altLabels;
+  protected Collection<String> hiddenLabels;
+  protected String sortLabel;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -153,6 +157,90 @@ abstract public class OxpEntity extends GabotoEntity {
     this.dcType.add(dcTypeP);
   }
 
+  @SimpleLiteralProperty(
+    value = "http://www.w3.org/2004/02/skos/core#prefLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getPrefLabel(){
+    return this.prefLabel;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.w3.org/2004/02/skos/core#prefLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setPrefLabel(String prefLabel){
+    this.prefLabel = prefLabel;
+  }
+
+  @BagLiteralProperty(
+    value = "http://www.w3.org/2004/02/skos/core#altLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public Collection<String> getAltLabels(){
+    return this.altLabels;
+  }
+
+  @BagLiteralProperty(
+    value = "http://www.w3.org/2004/02/skos/core#altLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setAltLabels(Collection<String> altLabels){
+    this.altLabels = altLabels;
+  }
+
+  public void addAltLabel(String altLabelP){
+    if(this.altLabels == null)
+      setAltLabels( new HashSet<String>() );
+    this.altLabels.add(altLabelP);
+  }
+
+  @BagLiteralProperty(
+    value = "http://www.w3.org/2004/02/skos/core#hiddenLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public Collection<String> getHiddenLabels(){
+    return this.hiddenLabels;
+  }
+
+  @BagLiteralProperty(
+    value = "http://www.w3.org/2004/02/skos/core#hiddenLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setHiddenLabels(Collection<String> hiddenLabels){
+    this.hiddenLabels = hiddenLabels;
+  }
+
+  public void addHiddenLabel(String hiddenLabelP){
+    if(this.hiddenLabels == null)
+      setHiddenLabels( new HashSet<String>() );
+    this.hiddenLabels.add(hiddenLabelP);
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://open.vocab.org/terms/sortLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getSortLabel(){
+    return this.sortLabel;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://open.vocab.org/terms/sortLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setSortLabel(String sortLabel){
+    this.sortLabel = sortLabel;
+  }
+
 
 
 
@@ -213,6 +301,40 @@ abstract public class OxpEntity extends GabotoEntity {
             addDcType(((Literal)node).getString());
         }
     }
+
+    // Load SIMPLE_LITERAL_PROPERTY prefLabel
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2004/02/skos/core#prefLabel"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setPrefLabel(((Literal)stmt.getObject()).getString());
+
+    // Load BAG_LITERAL_PROPERTY altLabels
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2004/02/skos/core#altLabel"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
+
+            addAltLabel(((Literal)node).getString());
+        }
+    }
+
+    // Load BAG_LITERAL_PROPERTY hiddenLabels
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2004/02/skos/core#hiddenLabel"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
+
+            addHiddenLabel(((Literal)node).getString());
+        }
+    }
+
+    // Load SIMPLE_LITERAL_PROPERTY sortLabel
+    stmt = res.getProperty(snapshot.getProperty("http://open.vocab.org/terms/sortLabel"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setSortLabel(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

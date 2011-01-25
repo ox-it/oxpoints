@@ -15,6 +15,8 @@
 <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 <!ENTITY meter "http://purl.org/meter/">
+<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+<!ENTITY ov "http://open.vocab.org/terms/">
 ]>
 <Gaboto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <config>
@@ -33,6 +35,8 @@
       <namespacePrefix prefix="exif" ns="&exif;"/>
       <namespacePrefix prefix="owl" ns="&owl;"/>
       <namespacePrefix prefix="meter" ns="&meter;"/>
+      <namespacePrefix prefix="skos" ns="&skos;"/>
+      <namespacePrefix prefix="ov" ns="&ov;"/>
     </namespacePrefixes>
     <dataDirectory>/var/lib/gaboto/oxpoints/0.3/</dataDirectory>
     <database>
@@ -125,6 +129,10 @@
         <property name="sameAss" type="Resource" collection="bag" uri="&owl;sameAs"/>
         <property name="description" type="String" uri="&dc;description"/>
         <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
+        <property name="prefLabel" type="String" uri="&skos;prefLabel"/>
+        <property name="altLabels" type="String" collection="bag" uri="&skos;altLabel"/>
+        <property name="hiddenLabels" type="String" collection="bag" uri="&skos;hiddenLabel"/>
+        <property name="sortLabel" type="String" uri="&ov;sortLabel"/>
       </properties>
       <GabotoEntities>
         <GabotoEntity name="Image" type="&foaf;Image">
