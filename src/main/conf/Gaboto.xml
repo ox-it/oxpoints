@@ -165,7 +165,7 @@
                 <property name="homepage" type="Resource" uri="&foaf;homepage"/>
                 <property name="floor" type="Float" uri="&oxp;floor"/>
                 <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
-                <passiveProperty name="occupiedBy" type="Unit" relationshipType="N:M" uri="&oxp;occupies"/>
+                <passiveProperty name="occupiedBy" type="Organization" relationshipType="N:M" uri="&oxp;occupies"/>
               </properties>
               <customMethods>
                 <method><![CDATA[

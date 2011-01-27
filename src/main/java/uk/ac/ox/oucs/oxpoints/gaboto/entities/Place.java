@@ -43,7 +43,7 @@ public class Place extends SpatialThing {
   protected String homepage;
   protected Float floor;
   protected String osmId;
-  private Collection<Unit> occupiedBy;
+  private Collection<Organization> occupiedBy;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -132,9 +132,9 @@ public class Place extends SpatialThing {
 
   @PassiveProperty(
     uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies",
-    entity = "Unit"
+    entity = "Organization"
   )
-  public Collection<Unit> getOccupiedBy(){
+  public Collection<Organization> getOccupiedBy(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
     return this.occupiedBy;
@@ -142,15 +142,15 @@ public class Place extends SpatialThing {
 
   @PassiveProperty(
     uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies",
-    entity = "Unit"
+    entity = "Organization"
   )
-  private void setOccupiedBy(Collection<Unit> occupiedBy){
+  private void setOccupiedBy(Collection<Organization> occupiedBy){
     this.occupiedBy = occupiedBy;
   }
 
-  private void addOccupiedBy(Unit occupiedByP){
+  private void addOccupiedBy(Organization occupiedByP){
     if(this.occupiedBy == null)
-      setOccupiedBy( new HashSet<Unit>() );
+      setOccupiedBy( new HashSet<Organization>() );
     this.occupiedBy.add(occupiedByP);
   }
 
@@ -181,7 +181,7 @@ public class Place extends SpatialThing {
       requests = new HashSet<PassiveEntitiesRequest>();
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
+        return "http://www.w3.org/ns/org#Organization";
       }
 
       public String getUri() {
@@ -193,7 +193,7 @@ public class Place extends SpatialThing {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addOccupiedBy((Unit)entity);
+        addOccupiedBy((Organization)entity);
       }
     });
     return requests;
