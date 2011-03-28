@@ -37,6 +37,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
 public class SpatialThing extends OxpEntity {
+  protected Place containedBy;
   protected Place parent;
   protected Float longitude;
   protected Float latitude;
@@ -50,11 +51,11 @@ public class SpatialThing extends OxpEntity {
 
     try {
       list = new ArrayList<Method>();
-      list.add(SpatialThing.class.getMethod("getParent", (Class<?>[])null));
+      list.add(SpatialThing.class.getMethod("getContainedBy", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
 
       list = new ArrayList<Method>();
-      list.add(SpatialThing.class.getMethod("getParent", (Class<?>[])null));
+      list.add(SpatialThing.class.getMethod("getContainedBy", (Class<?>[])null));
       indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
 
     } catch (Exception e) {
@@ -69,6 +70,20 @@ public class SpatialThing extends OxpEntity {
 
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
+  @SimpleURIProperty("http://data.ordnancesurvey.co.uk/ontology/spatialrelations/within")
+  public Place getContainedBy(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.containedBy;
+  }
+
+  @SimpleURIProperty("http://data.ordnancesurvey.co.uk/ontology/spatialrelations/within")
+  public void setContainedBy(Place containedBy){
+    if( containedBy != null )
+      this.removeMissingReference( containedBy.getUri() );
+    this.containedBy = containedBy;
+  }
+
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
   public Place getParent(){
     if(! this.isDirectReferencesResolved())
@@ -177,6 +192,18 @@ public class SpatialThing extends OxpEntity {
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
     super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
+
+    // Load SIMPLE_URI_PROPERTY containedBy
+    stmt = res.getProperty(snapshot.getProperty("http://data.ordnancesurvey.co.uk/ontology/spatialrelations/within"));
+    if(stmt != null && stmt.getObject().isResource()){
+      Resource missingReference = (Resource)stmt.getObject();
+      EntityExistsCallback callback = new EntityExistsCallback(){
+        public void entityExists(EntityPool p, GabotoEntity entity) {
+          setContainedBy((Place)entity);
+        }
+      };
+      this.addMissingReference(missingReference, callback);
+    }
 
     // Load SIMPLE_URI_PROPERTY parent
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/terms/isPartOf"));

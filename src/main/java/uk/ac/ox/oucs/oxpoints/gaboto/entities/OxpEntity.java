@@ -23,6 +23,7 @@ import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.BagResourceProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+import net.sf.gaboto.node.annotation.SimpleURIProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
@@ -36,6 +37,7 @@ import net.sf.gaboto.node.pool.EntityPool;
 abstract public class OxpEntity extends GabotoEntity {
   protected String name;
   protected Collection<Image> images;
+  protected Image img;
   protected Collection<String> sameAss;
   protected String description;
   protected Collection<String> dcType;
@@ -97,6 +99,20 @@ abstract public class OxpEntity extends GabotoEntity {
     if(this.images == null )
       this.images = new HashSet<Image>();
     this.images.add(image);
+  }
+
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/img")
+  public Image getImg(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.img;
+  }
+
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/img")
+  public void setImg(Image img){
+    if( img != null )
+      this.removeMissingReference( img.getUri() );
+    this.img = img;
   }
 
   @BagResourceProperty("http://www.w3.org/2002/07/owl#sameAs")
@@ -272,6 +288,18 @@ abstract public class OxpEntity extends GabotoEntity {
         };
         this.addMissingReference(missingReference, callback);
       }
+    }
+
+    // Load SIMPLE_URI_PROPERTY img
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/img"));
+    if(stmt != null && stmt.getObject().isResource()){
+      Resource missingReference = (Resource)stmt.getObject();
+      EntityExistsCallback callback = new EntityExistsCallback(){
+        public void entityExists(EntityPool p, GabotoEntity entity) {
+          setImg((Image)entity);
+        }
+      };
+      this.addMissingReference(missingReference, callback);
     }
 
     // Load BAG_RESOURCE_PROPERTY sameAss

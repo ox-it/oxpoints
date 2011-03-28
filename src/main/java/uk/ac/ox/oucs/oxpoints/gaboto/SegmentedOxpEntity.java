@@ -283,7 +283,7 @@ public class SegmentedOxpEntity {
 				} catch (SecurityException e) {
 					throw new GabotoRuntimeException();
 				} catch (NoSuchMethodException e) {
-					warningHandler.addWarning(filename, "Cannot call "+relation.name+" on entity of type "+et.getName());
+					warningHandler.addWarning(filename, "Cannot call "+relation.name+" on entity of type "+et.getName()+" with argument of type "+relation.argumentClass);
 				} catch (IllegalArgumentException e) {
 					throw new GabotoRuntimeException();
 				} catch (IllegalAccessException e) {

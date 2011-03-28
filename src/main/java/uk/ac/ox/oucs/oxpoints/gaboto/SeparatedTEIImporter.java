@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -34,6 +35,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Measure;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Organization;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
@@ -286,54 +288,45 @@ public class SeparatedTEIImporter {
 
 				}
 				if (tagName.equals("relation")) {
-					String relationMethod = "", relationName = elem.getAttribute("name");
-					Boolean inverted = false;
-					Class<? extends OxpEntity> relationClass = null;
+					String relationName = elem.getAttribute("name");
+					List<Relation> relations = new LinkedList<Relation>();
 					if (relationName.equals("occupies")) {
-						relationMethod = "addOccupiedPlace";
-						relationClass = Place.class;
+						relations.add(new Relation(Place.class, "addOccupiedPlace"));
+						relations.add(new Relation(Place.class, "addSite"));
+						if (elem.getAttribute("type").equals("primary")) {
+							relations.add(new Relation(Place.class, "setPrimaryPlace"));
+							relations.add(new Relation(Place.class, "setPrimarySite"));
+						}
 					} else if (relationName.equals("primary")) {
-						relationMethod = "setPrimaryPlace";
-						relationClass = Place.class;
+						relations.add(new Relation(Place.class, "setPrimaryPlace"));
+						relations.add(new Relation(Place.class, "setPrimarySite"));
 					} else if (relationName.equals("controls")) {
-						relationMethod = "setParent";
-						relationClass = Unit.class;
-						inverted = true;
+						relations.add(new Relation(Organization.class, "setParent", true));
+						relations.add(new Relation(Organization.class, "setSubOrganizationOf", true));
 					} else if (relationName.equals("supplies")) {
 						// Gaboto thinks it's so clever, dropping the 's'
-						relationMethod = "addSupplie";
-						relationClass = SpatialThing.class;
+						relations.add(new Relation(SpatialThing.class, "addSupplie"));
 					} else if (relationName.equals("upstreamOf")) {
-						relationMethod = "setDownstreamOf";
-						relationClass = Measure.class;
-						inverted = true;
+						relations.add(new Relation(Measure.class, "setDownstreamOf", true));
 					} else if (relationName.equals("contains")) {
-						relationMethod = "setParent";
-						relationClass = Place.class;
-						inverted = true;
+						relations.add(new Relation(Place.class, "setParent", true));
+						relations.add(new Relation(Place.class, "setContainedBy", true));
 					}
-					
-					if (!relationMethod.equals("")) {
+
+					for (Relation relation : relations) {
 						entity.addRelation(
-								relationMethod,
+								relation.relationMethod,
 								gaboto.getConfig().getNSData()+elem.getAttribute("passive").substring(1),
-								elem, relationClass, inverted
+								elem, relation.relationClass, relation.inverted
 						);
-						
-						if (elem.getAttribute("type").equals("primary")) {
-							entity.addRelation(
-									"setPrimaryPlace",
-									gaboto.getConfig().getNSData()+elem.getAttribute("passive").substring(1),
-									elem, Place.class
-							);
-						}
+
 					}
 				} else if (tagName.equals("place") || tagName.equals("org") || tagName.equals("object")) {
 					loadChildEntity(elem, filename);
 					entity.addRelation(
 							"setParent",
 							gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
-							elem, tagName.equals("place") ? Place.class : Unit.class, true
+							elem, tagName.equals("place") ? Place.class : Organization.class, true
 					);
 				} else if (tagName.equals("note")) {
 					NodeList figures = element.getElementsByTagName("figure");
@@ -345,6 +338,8 @@ public class SeparatedTEIImporter {
 							entity.addRelation("setLogo", imageURI, element, Image.class);
 						else
 							entity.addRelation("addImage", imageURI, element, Image.class);
+						if (((Element) figures.item(j)).getAttribute("type").equals("primary"))
+							entity.addRelation("setImg", imageURI, element, Image.class);
 					}
 				}
 			}
@@ -571,6 +566,21 @@ public class SeparatedTEIImporter {
 
 	public boolean hasWarnings() {
 		return warningHandler.hasWarnings();
+	}
+	
+	private class Relation {
+		Class<? extends OxpEntity> relationClass;
+		String relationMethod;
+		boolean inverted = false;
+		protected Relation(Class<? extends OxpEntity> relationClass, String relationMethod) {
+			this.relationClass = relationClass;
+			this.relationMethod = relationMethod;
+		}
+		protected Relation(Class<? extends OxpEntity> relationClass, String relationMethod, boolean inverted) {
+			this.relationClass = relationClass;
+			this.relationMethod = relationMethod;
+			this.inverted = inverted;
+		}
 	}
 
 }

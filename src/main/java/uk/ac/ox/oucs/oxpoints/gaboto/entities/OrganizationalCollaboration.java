@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
-public class Group extends Agent {
+public class OrganizationalCollaboration extends Unit {
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -24,7 +24,7 @@ public class Group extends Agent {
 
   @Override
   public String getType(){
-    return "http://xmlns.com/foaf/0.1/Group";
+    return "http://www.w3.org/ns/org#OrganizationalCollaboration";
   }
 
 
