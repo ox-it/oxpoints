@@ -117,10 +117,19 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
 
     try {
       beanClassLookupClass.put("http://xmlns.com/foaf/0.1/OnlineAccount", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount"));
-      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Tel", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel"));
-      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Voice", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice"));
-      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Address", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Address"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/Reception", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Reception"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/Boardroom", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Boardroom"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/Banquet", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Banquet"));
       beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Fax", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/ComputerLaboratory", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.ComputerLaboratory"));
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Voice", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice"));
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Tel", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/Classroom", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Classroom"));
+      beanClassLookupClass.put("http://www.w3.org/2006/vcard/ns#Address", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Address"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/SpaceConfiguration", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/Cabaret", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Cabaret"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/Theatre", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.Theatre"));
+      beanClassLookupClass.put("http://purl.org/openorg/space-configuration/UShape", (Class<?  extends GabotoBean>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans.UShape"));
     } catch (ClassNotFoundException e) {
       throw new GabotoRuntimeException(e);
     }

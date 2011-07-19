@@ -2,8 +2,10 @@ package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.lang.reflect.Method;
 
@@ -13,10 +15,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.gaboto.GabotoRuntimeException;
 import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
+import net.sf.gaboto.node.annotation.BagComplexProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
@@ -29,6 +33,7 @@ import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 
@@ -43,6 +48,8 @@ public class Place extends SpatialThing {
   protected String homepage;
   protected Float floor;
   protected String osmId;
+  protected Collection<SpaceConfiguration> spaceConfiguration;
+  protected Collection<SpaceConfiguration> primarySpaceConfiguration;
   private Collection<Organization> occupiedBy;
 
 
@@ -128,6 +135,38 @@ public class Place extends SpatialThing {
   )
   public void setOsmId(String osmId){
     this.osmId = osmId;
+  }
+
+  @BagComplexProperty("http://purl.org/openorg/space-configuration/spaceConfiguration")
+  public Collection<SpaceConfiguration> getSpaceConfiguration(){
+    return this.spaceConfiguration;
+  }
+
+  @BagComplexProperty("http://purl.org/openorg/space-configuration/spaceConfiguration")
+  public void setSpaceConfiguration(Collection<SpaceConfiguration> spaceConfiguration){
+    this.spaceConfiguration = spaceConfiguration;
+  }
+
+  public void addSpaceConfiguration(SpaceConfiguration spaceConfigurationP){
+    if(this.spaceConfiguration == null)
+      setSpaceConfiguration( new HashSet<SpaceConfiguration>() );
+    this.spaceConfiguration.add(spaceConfigurationP);
+  }
+
+  @BagComplexProperty("http://purl.org/openorg/space-configuration/primarySpaceConfiguration")
+  public Collection<SpaceConfiguration> getPrimarySpaceConfiguration(){
+    return this.primarySpaceConfiguration;
+  }
+
+  @BagComplexProperty("http://purl.org/openorg/space-configuration/primarySpaceConfiguration")
+  public void setPrimarySpaceConfiguration(Collection<SpaceConfiguration> primarySpaceConfiguration){
+    this.primarySpaceConfiguration = primarySpaceConfiguration;
+  }
+
+  public void addPrimarySpaceConfiguration(SpaceConfiguration primarySpaceConfigurationP){
+    if(this.primarySpaceConfiguration == null)
+      setPrimarySpaceConfiguration( new HashSet<SpaceConfiguration>() );
+    this.primarySpaceConfiguration.add(primarySpaceConfigurationP);
   }
 
   @PassiveProperty(
@@ -232,6 +271,54 @@ public class Place extends SpatialThing {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setOsmId(((Literal)stmt.getObject()).getString());
+
+    // Load BAG_COMPLEX_PROPERTY spaceConfiguration
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/openorg/space-configuration/spaceConfiguration"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isAnon())
+              throw new IllegalArgumentException("node should be a blank node");
+
+            Resource anon_res = (Resource) node;
+            String type = anon_res.getProperty(snapshot.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).getObject().toString();
+            SpaceConfiguration prop;
+            try {
+                prop = (SpaceConfiguration) (new OxpointsGabotoOntologyLookup()).getBeanClassFor(type).newInstance();
+            } catch (InstantiationException e) {
+                throw new GabotoRuntimeException();
+            } catch (IllegalAccessException e) {
+                throw new GabotoRuntimeException();
+            }
+            prop.loadFromResource(anon_res, snapshot, pool);
+            addSpaceConfiguration(prop);
+        }
+
+    }
+
+    // Load BAG_COMPLEX_PROPERTY primarySpaceConfiguration
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://purl.org/openorg/space-configuration/primarySpaceConfiguration"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isAnon())
+              throw new IllegalArgumentException("node should be a blank node");
+
+            Resource anon_res = (Resource) node;
+            String type = anon_res.getProperty(snapshot.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).getObject().toString();
+            SpaceConfiguration prop;
+            try {
+                prop = (SpaceConfiguration) (new OxpointsGabotoOntologyLookup()).getBeanClassFor(type).newInstance();
+            } catch (InstantiationException e) {
+                throw new GabotoRuntimeException();
+            } catch (IllegalAccessException e) {
+                throw new GabotoRuntimeException();
+            }
+            prop.loadFromResource(anon_res, snapshot, pool);
+            addPrimarySpaceConfiguration(prop);
+        }
+
+    }
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

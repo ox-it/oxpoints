@@ -17,6 +17,8 @@
 <!ENTITY meter "http://purl.org/meter/">
 <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 <!ENTITY ov "http://open.vocab.org/terms/">
+<!ENTITY oo "http://purl.org/openorg/space-configuration/">
+<!ENTITY oosc "http://purl.org/openorg/space-configuration/">
 <!ENTITY org "http://www.w3.org/ns/org#">
 <!ENTITY spatialrelations "http://data.ordnancesurvey.co.uk/ontology/spatialrelations/">
 ]>
@@ -39,6 +41,8 @@
       <namespacePrefix prefix="meter" ns="&meter;"/>
       <namespacePrefix prefix="skos" ns="&skos;"/>
       <namespacePrefix prefix="ov" ns="&ov;"/>
+      <namespacePrefix prefix="oo" ns="&oo;"/>
+      <namespacePrefix prefix="oosc" ns="&oosc;"/>
     </namespacePrefixes>
     <dataDirectory>/var/lib/gaboto/oxpoints/0.3/</dataDirectory>
     <database>
@@ -99,6 +103,23 @@
         <property name="accountProfilePage" type="Resource" uri="&foaf;accountProfilePage"/>
       </properties>
     </GabotoBean>
+    <GabotoBean name="SpaceConfiguration" type="&oosc;SpaceConfiguration">
+      <properties>
+        <property name="capacity" type="int" uri="&oo;capacity"/>
+        <property name="comment" type="String" uri="&rdfs;comment"/>
+      </properties>
+      <GabotoBeans>
+        <GabotoBean name="Boardroom" type="&oosc;Boardroom"/>
+        <GabotoBean name="UShape" type="&oosc;UShape"/>
+        <GabotoBean name="Banquet" type="&oosc;Banquet"/>
+        <GabotoBean name="Cabaret" type="&oosc;Cabaret"/>
+        <GabotoBean name="Reception" type="&oosc;Reception"/>
+        <GabotoBean name="Theatre" type="&oosc;Theatre"/>
+        <GabotoBean name="Classroom" type="&oosc;Classroom"/>
+        <GabotoBean name="ComputerLaboratory" type="&oosc;ComputerLaboratory"/>
+      </GabotoBeans>
+    </GabotoBean>
+
 
     <!--
 		<GabotoBean name="AccessRight" type="&oxp;AccessRight">
@@ -169,6 +190,8 @@
                 <property name="homepage" type="Resource" uri="&foaf;homepage"/>
                 <property name="floor" type="Float" uri="&oxp;floor"/>
                 <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
+                <property name="spaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;spaceConfiguration"/>
+                <property name="primarySpaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;primarySpaceConfiguration"/>
                 <passiveProperty name="occupiedBy" type="Organization" relationshipType="N:M" uri="&oxp;occupies"/>
               </properties>
               <customMethods>
@@ -258,6 +281,10 @@
               <indirectProperty uri="&geo;lat" n="3"/>
               <unstoredProperty uri="&gabotoKML;parent"/>
             </property>
+            <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
+            <property name="logo" type="Image" uri="&foaf;logo"/>
+            <property name="OLISAlephCode" type="String" uri="&oxp;hasOLISAlephCode"/>
+            <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N" uri="&dct;isPartOf"/>
           </properties>
           <GabotoEntities>
             <GabotoEntity name="Group" type="&foaf;Group"/>

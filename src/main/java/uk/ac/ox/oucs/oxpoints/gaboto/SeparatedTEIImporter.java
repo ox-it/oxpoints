@@ -31,6 +31,7 @@ import org.xml.sax.SAXException;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Measure;
@@ -220,6 +221,33 @@ public class SeparatedTEIImporter {
 					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("facsimile")) {
 					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("configuration")) {
+					String subtype = elem.getAttribute("subtype");
+					
+					try {
+						@SuppressWarnings("unchecked")
+						Class<? extends SpaceConfiguration> klass = (Class<? extends SpaceConfiguration>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans."+subtype);
+						SpaceConfiguration sc = klass.newInstance();
+
+						NodeList children = elem.getChildNodes();
+						for (int k=0; k<children.getLength(); k++) {
+							if (!(children.item(k) instanceof Element))
+								continue;
+							Element child = (Element) children.item(k);
+							if (child.getAttribute("type").equals("capacity"))
+								sc.setCapacity(Integer.parseInt(child.getTextContent()));
+							else if (child.getAttribute("type").equals("comment"))
+								sc.setComment(child.getTextContent());
+						}
+						entity.addProperty("addSpaceConfiguration", sc, from, to, SpaceConfiguration.class);
+								
+					} catch (ClassNotFoundException e) {
+						warningHandler.addWarning(filename, "Could not find SpaceConfiguration of type "+subtype+".");
+					} catch (ClassCastException e) {
+						warningHandler.addWarning(filename, subtype+" should be a type of SpaceConfiguration, but isn't.");
+					} catch (Exception e) {
+						warningHandler.addWarning(filename, "Unexpected exception when creating SpaceConfiguration of type "+subtype+".");
+					}
 
 				} else if (tagName.equals("placeName") || tagName.equals("orgName")) {
 					Set<String> types = new HashSet<String>();
@@ -251,6 +279,8 @@ public class SeparatedTEIImporter {
 						entity.addProperty("addOLISCode", elem);
 					else if (elemType.equals("finance"))
 						entity.addProperty("setFinanceCode", elem);
+					else if (elemType.equals("olis-aleph"))
+						entity.addProperty("setOLISAlephCode", elem);
 					else if (elemType.equals("metering"))
 						entity.addProperty("setMeasureIdentifier", elem);
 					else if (elemType.equals("osm")) {
