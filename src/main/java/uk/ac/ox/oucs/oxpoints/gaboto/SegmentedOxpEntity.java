@@ -60,8 +60,6 @@ public class SegmentedOxpEntity {
 			warningHandler.addWarning(filename, "Root element must be either 'place', 'org', 'object' or 'figure', not '"+tagName+"'.");
 		this.tagName = tagName;
 		this.filename = filename;
-		
-		//System.out.println("NEW "+oxpID);
 
 	}
 	
