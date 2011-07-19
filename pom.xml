@@ -7,7 +7,7 @@
 
   <groupId>uk.ac.ox.oucs.erewhon</groupId>
   <artifactId>oxpoints</artifactId>
-  <version>0.3.5</version>
+  <version>0.3.6</version>
   <packaging>jar</packaging>
 
   <name>Oxpoints</name>
@@ -46,7 +46,7 @@
     <dependency>
      <groupId>net.sf.gaboto</groupId>
      <artifactId>gaboto</artifactId>
-     <version>0.4.5</version>
+     <version>0.4.6</version>
     </dependency>
 
     <dependency>
