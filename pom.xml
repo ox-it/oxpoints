@@ -80,6 +80,7 @@
       <version>4.5</version>
     </dependency>
 
+
   </dependencies>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
@@ -176,6 +177,22 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <finalName>importer</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>uk.ac.ox.oucs.oxpoints.gaboto.SeparatedTEIImporter</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
     </plugins>
     <resources>
      <resource>
