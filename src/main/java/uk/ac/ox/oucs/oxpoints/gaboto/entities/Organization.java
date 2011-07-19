@@ -45,7 +45,6 @@ public class Organization extends Agent {
   protected String itHomepage;
   protected String weblearn;
   protected Image logo;
-  protected String oLISAlephCode;
   private Collection<Unit> hasChildren;
 
 
@@ -137,24 +136,6 @@ public class Organization extends Agent {
     if( logo != null )
       this.removeMissingReference( logo.getUri() );
     this.logo = logo;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public String getOLISAlephCode(){
-    return this.oLISAlephCode;
-  }
-
-  @SimpleLiteralProperty(
-    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode",
-    datatypeType = "javaprimitive",
-    javaType = "String"
-  )
-  public void setOLISAlephCode(String oLISAlephCode){
-    this.oLISAlephCode = oLISAlephCode;
   }
 
   @PassiveProperty(
@@ -257,11 +238,6 @@ public class Organization extends Agent {
       };
       this.addMissingReference(missingReference, callback);
     }
-
-    // Load SIMPLE_LITERAL_PROPERTY oLISAlephCode
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setOLISAlephCode(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

@@ -1,6 +1,7 @@
 package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
+import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
@@ -23,12 +24,15 @@ import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.node.annotation.BagComplexProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.IndirectProperty;
+import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
+import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
+import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
@@ -52,6 +56,10 @@ public class Agent extends OxpEntity {
   protected Place primaryPlace;
   protected Organization parent;
   protected Organization subOrganizationOf;
+  protected String weblearn;
+  protected Image logo;
+  protected String oLISAlephCode;
+  private Collection<Unit> hasChildren;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -234,6 +242,72 @@ public class Agent extends OxpEntity {
     this.subOrganizationOf = subOrganizationOf;
   }
 
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
+  public String getWeblearn(){
+    return this.weblearn;
+  }
+
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
+  public void setWeblearn(String weblearn){
+    this.weblearn = weblearn;
+  }
+
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/logo")
+  public Image getLogo(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.logo;
+  }
+
+  @SimpleURIProperty("http://xmlns.com/foaf/0.1/logo")
+  public void setLogo(Image logo){
+    if( logo != null )
+      this.removeMissingReference( logo.getUri() );
+    this.logo = logo;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getOLISAlephCode(){
+    return this.oLISAlephCode;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setOLISAlephCode(String oLISAlephCode){
+    this.oLISAlephCode = oLISAlephCode;
+  }
+
+  @PassiveProperty(
+    uri = "http://purl.org/dc/terms/isPartOf",
+    entity = "Unit"
+  )
+  public Collection<Unit> getHasChildren(){
+    if(! isPassiveEntitiesLoaded() )
+      loadPassiveEntities();
+    return this.hasChildren;
+  }
+
+  @PassiveProperty(
+    uri = "http://purl.org/dc/terms/isPartOf",
+    entity = "Unit"
+  )
+  private void setHasChildren(Collection<Unit> hasChildren){
+    this.hasChildren = hasChildren;
+  }
+
+  private void addHasChildren(Unit hasChildrenP){
+    if(this.hasChildren == null)
+      setHasChildren( new HashSet<Unit>() );
+    this.hasChildren.add(hasChildrenP);
+  }
+
 
 
 
@@ -246,6 +320,31 @@ public class Agent extends OxpEntity {
     return this.getPropertyValue("http://www.w3.org/2003/01/geo/wgs84_pos#lat", false, true);
   }
 
+
+
+  public Collection<PassiveEntitiesRequest> getPassiveEntitiesRequest(){
+    Collection<PassiveEntitiesRequest> requests = super.getPassiveEntitiesRequest();
+    if(requests == null)
+      requests = new HashSet<PassiveEntitiesRequest>();
+    requests.add(new PassiveEntitiesRequest(){
+      public String getType() {
+        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
+      }
+
+      public String getUri() {
+        return "http://purl.org/dc/terms/isPartOf";
+      }
+
+      public int getCollectionType() {
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
+      }
+
+      public void passiveEntityLoaded(GabotoEntity entity) {
+        addHasChildren((Unit)entity);
+      }
+    });
+    return requests;
+  }
 
 
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
@@ -389,6 +488,29 @@ public class Agent extends OxpEntity {
       };
       this.addMissingReference(missingReference, callback);
     }
+
+    // Load SIMPLE_RESOURCE_PROPERTY weblearn
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn"));
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setWeblearn(((Resource) stmt.getObject()).getURI());
+    }
+
+    // Load SIMPLE_URI_PROPERTY logo
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/logo"));
+    if(stmt != null && stmt.getObject().isResource()){
+      Resource missingReference = (Resource)stmt.getObject();
+      EntityExistsCallback callback = new EntityExistsCallback(){
+        public void entityExists(EntityPool p, GabotoEntity entity) {
+          setLogo((Image)entity);
+        }
+      };
+      this.addMissingReference(missingReference, callback);
+    }
+
+    // Load SIMPLE_LITERAL_PROPERTY oLISAlephCode
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setOLISAlephCode(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){
