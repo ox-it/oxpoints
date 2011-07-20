@@ -17,7 +17,7 @@
 <!ENTITY meter "http://purl.org/meter/">
 <!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 <!ENTITY ov "http://open.vocab.org/terms/">
-<!ENTITY oo "http://purl.org/openorg/space-configuration/">
+<!ENTITY oo "http://purl.org/openorg/">
 <!ENTITY oosc "http://purl.org/openorg/space-configuration/">
 <!ENTITY org "http://www.w3.org/ns/org#">
 <!ENTITY spatialrelations "http://data.ordnancesurvey.co.uk/ontology/spatialrelations/">

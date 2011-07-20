@@ -28,7 +28,7 @@ public class SpaceConfiguration extends GabotoBean {
   }
 
   @SimpleLiteralProperty(
-    value = "http://purl.org/openorg/space-configuration/capacity",
+    value = "http://purl.org/openorg/capacity",
     datatypeType = "javaprimitive",
     javaType = "int"
   )
@@ -37,7 +37,7 @@ public class SpaceConfiguration extends GabotoBean {
   }
 
   @SimpleLiteralProperty(
-    value = "http://purl.org/openorg/space-configuration/capacity",
+    value = "http://purl.org/openorg/capacity",
     datatypeType = "javaprimitive",
     javaType = "int"
   )
@@ -72,7 +72,7 @@ public class SpaceConfiguration extends GabotoBean {
     Statement stmt;
 
     // Load SIMPLE_LITERAL_PROPERTY capacity
-    stmt = res.getProperty(snapshot.getProperty("http://purl.org/openorg/space-configuration/capacity"));
+    stmt = res.getProperty(snapshot.getProperty("http://purl.org/openorg/capacity"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setCapacity(((Literal)stmt.getObject()).getInt());
 
