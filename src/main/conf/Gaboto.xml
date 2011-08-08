@@ -43,6 +43,7 @@
       <namespacePrefix prefix="ov" ns="&ov;"/>
       <namespacePrefix prefix="oo" ns="&oo;"/>
       <namespacePrefix prefix="oosc" ns="&oosc;"/>
+      <namespacePrefix prefix="org" ns="&org;"/>
     </namespacePrefixes>
     <dataDirectory>/var/lib/gaboto/oxpoints/0.3/</dataDirectory>
     <database>
@@ -143,7 +144,7 @@
   </GabotoBeans>
   <GabotoEntities>
     <!-- Common base class -->
-    <GabotoEntity name="OxpEntity" type="&oxp;OxpEntity" abstract="true">
+    <GabotoEntity name="OxpEntity" type="&oxp;OxpEntity">
       <properties>
         <property name="name" type="String" uri="&dc;title">
           <unstoredProperty uri="&rdfs;label"/>
@@ -152,13 +153,51 @@
         <property name="img" type="Image" uri="&foaf;img"/>
         <property name="sameAss" type="Resource" collection="bag" uri="&owl;sameAs"/>
         <property name="description" type="String" uri="&dc;description"/>
+        <property name="homepage" type="Resource" uri="&foaf;homepage"/>
         <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
         <property name="prefLabel" type="String" uri="&skos;prefLabel"/>
         <property name="altLabels" type="String" collection="bag" uri="&skos;altLabel"/>
         <property name="hiddenLabels" type="String" collection="bag" uri="&skos;hiddenLabel"/>
         <property name="sortLabel" type="String" uri="&ov;sortLabel"/>
+        <passiveProperty name="memberOf" type="SKOSCollection" relationshipType="N:M" uri="&skos;member"/> 
       </properties>
+      <customMethods>
+        <method><![CDATA[
+  @StaticProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#allCollections")
+  public Collection<SKOSCollection> getAllCollections() {
+	  Collection<SKOSCollection> collections = new HashSet<SKOSCollection>();
+	  if (getMemberOf() == null)
+		  return collections;
+	  for (SKOSCollection collection : getMemberOf()) {
+		  collections.add(collection);
+		  if (collection instanceof SKOSCollection)
+			  collections.addAll(((SKOSCollection) collection).getAllCollections());
+	  }
+	  return collections;
+  }]]></method></customMethods>
       <GabotoEntities>
+        <GabotoEntity name="SKOSCollection" type="&skos;Collection">
+          <properties>
+            <property name="member" type="OxpEntity" collection="bag" uri="&skos;member">
+              <indirectProperty uri="&skos;member"/>
+            </property>
+          </properties>
+          <customMethods>
+              <method><![CDATA[
+  @StaticProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#allMembers")
+  public Collection<OxpEntity> getAllMembers() {
+	  Collection<OxpEntity> members = new HashSet<OxpEntity>();
+	  if (getMember() == null)
+		  return members;
+	  for (OxpEntity member : getMember()) {
+		  if (member instanceof SKOSCollection)
+			  members.addAll(((SKOSCollection) member).getAllMembers());
+		  else
+			  members.add(member);
+	  }
+	  return members;
+  }]]></method></customMethods>
+        </GabotoEntity>
         <GabotoEntity name="Image" type="&foaf;Image">
           <properties>
             <property name="width" type="String" uri="&exif;width"/>
@@ -187,7 +226,6 @@
               <properties>
                 <property name="OBNCode" type="String" uri="&oxp;hasOBNCode"/>
                 <property name="address" type="Address" uri="&vCard;adr"/>
-                <property name="homepage" type="Resource" uri="&foaf;homepage"/>
                 <property name="floor" type="Float" uri="&oxp;floor"/>
                 <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
                 <property name="spaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;spaceConfiguration"/>
@@ -263,7 +301,6 @@
         <GabotoEntity name="Agent" type="&foaf;Agent">
           <properties>
             <property name="telephoneNumbers" collection="bag" type="Tel" uri="&vCard;tel"/>
-            <property name="homepage" type="Resource" uri="&foaf;homepage"/>
             <property name="onlineAccount" type="OnlineAccount" uri="&foaf;account" collection="bag"/>
             <property name="site" type="Place" collection="bag" uri="&org;hasSite">
               <indirectProperty uri="&geo;long" n="2"/>
@@ -284,7 +321,9 @@
             <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
             <property name="logo" type="Image" uri="&foaf;logo"/>
             <property name="OLISAlephCode" type="String" uri="&oxp;hasOLISAlephCode"/>
-            <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N" uri="&dct;isPartOf"/>
+            <passiveProperty name="hasChildren" type="Organization" relationshipType="1:N" uri="&dct;isPartOf"/>
+            <passiveProperty name="subOrganizations" type="Organization" relationshipType="1:N" uri="&org;subOrganizationOf"/>
+            
           </properties>
           <GabotoEntities>
             <GabotoEntity name="Group" type="&foaf;Group"/>
@@ -296,7 +335,7 @@
                 <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                 <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
                 <property name="logo" type="Image" uri="&foaf;logo"/>
-                <passiveProperty name="hasChildren" type="Unit" relationshipType="1:N" uri="&dct;isPartOf"/>
+                <passiveProperty name="hasChildren" type="Organization" relationshipType="1:N" uri="&dct;isPartOf"/>
               </properties>
               <GabotoEntities>
                 <GabotoEntity name="Unit" type="&oxp;Unit">

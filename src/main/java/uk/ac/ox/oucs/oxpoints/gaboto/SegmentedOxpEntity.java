@@ -20,6 +20,7 @@ import net.sf.gaboto.time.TimeSpan;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Organization;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.SKOSCollection;
 
 public class SegmentedOxpEntity {
 	private String uri;
@@ -79,7 +80,8 @@ public class SegmentedOxpEntity {
 	public void addType(String type, TimeInstant start, TimeInstant end) {
 		try {
 			TypeSpan typeSpan = new TypeSpan(type, start, end);
-			if (tagName.equals("place") && !Place.class.isAssignableFrom(typeSpan.entityClass))
+			if (tagName.equals("org") && typeSpan.entityClass.equals(SKOSCollection.class)) {}
+			else if (tagName.equals("place") && !Place.class.isAssignableFrom(typeSpan.entityClass))
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'place' element.");
 			else if (tagName.equals("org") && !Organization.class.isAssignableFrom(typeSpan.entityClass))
 				warningHandler.addWarning(filename, "Type '"+typeSpan.typeName+"' not applicable for 'org' element.");

@@ -333,6 +333,8 @@ public class SeparatedTEIImporter {
 					} else if (relationName.equals("controls")) {
 						relations.add(new Relation(Organization.class, "setParent", true));
 						relations.add(new Relation(Organization.class, "setSubOrganizationOf", true));
+					} else if (relationName.equals("member")) {
+						relations.add(new Relation(OxpEntity.class, "addMember"));
 					} else if (relationName.equals("supplies")) {
 						// Gaboto thinks it's so clever, dropping the 's'
 						relations.add(new Relation(SpatialThing.class, "addSupplie"));

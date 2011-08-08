@@ -32,8 +32,9 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     entityClassLookupNames = new HashMap<String,String>();
 
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Object", "Object_");
-    entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace", "OpenSpace");
+    entityClassLookupNames.put("http://www.w3.org/2004/02/skos/core#Collection", "SKOSCollection");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Department", "Department");
+    entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace", "OpenSpace");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#StudentGroup", "StudentGroup");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#ServiceDepartment", "ServiceDepartment");
     entityClassLookupNames.put("http://xmlns.com/foaf/0.1/Image", "Image");
@@ -73,8 +74,9 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
 
     try {
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Object", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Object_"));
-      entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.OpenSpace"));
+      entityClassLookupClass.put("http://www.w3.org/2004/02/skos/core#Collection", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.SKOSCollection"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Department", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Department"));
+      entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.OpenSpace"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#StudentGroup", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.StudentGroup"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#ServiceDepartment", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.ServiceDepartment"));
       entityClassLookupClass.put("http://xmlns.com/foaf/0.1/Image", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Image"));
@@ -140,8 +142,9 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
 
     try {
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Object_"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Object");
-      classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.OpenSpace"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace");
+      classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.SKOSCollection"), "http://www.w3.org/2004/02/skos/core#Collection");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Department"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Department");
+      classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.OpenSpace"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.StudentGroup"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#StudentGroup");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.ServiceDepartment"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#ServiceDepartment");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Image"), "http://xmlns.com/foaf/0.1/Image");
@@ -182,8 +185,9 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
   static {
     nameToURILookup = new HashMap<String,String>();
     nameToURILookup.put("Object_", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Object");
-    nameToURILookup.put("OpenSpace", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace");
+    nameToURILookup.put("SKOSCollection", "http://www.w3.org/2004/02/skos/core#Collection");
     nameToURILookup.put("Department", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Department");
+    nameToURILookup.put("OpenSpace", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace");
     nameToURILookup.put("StudentGroup", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#StudentGroup");
     nameToURILookup.put("ServiceDepartment", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#ServiceDepartment");
     nameToURILookup.put("Image", "http://xmlns.com/foaf/0.1/Image");
@@ -222,8 +226,9 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     entityTypes = new HashSet<String>();
 
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Object");
-    entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace");
+    entityTypes.add("http://www.w3.org/2004/02/skos/core#Collection");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Department");
+    entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#OpenSpace");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#StudentGroup");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#ServiceDepartment");
     entityTypes.add("http://xmlns.com/foaf/0.1/Image");
@@ -262,6 +267,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     entityClassNames = new HashSet<String>();
 
     entityClassNames.add("OxpEntity");
+    entityClassNames.add("SKOSCollection");
     entityClassNames.add("Image");
     entityClassNames.add("SpatialThing");
     entityClassNames.add("Place");

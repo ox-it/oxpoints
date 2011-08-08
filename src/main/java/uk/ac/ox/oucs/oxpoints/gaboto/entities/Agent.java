@@ -48,7 +48,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
  */
 public class Agent extends OxpEntity {
   protected Collection<Tel> telephoneNumbers;
-  protected String homepage;
   protected Collection<OnlineAccount> onlineAccount;
   protected Collection<Place> site;
   protected Collection<Place> occupiedPlaces;
@@ -59,7 +58,8 @@ public class Agent extends OxpEntity {
   protected String weblearn;
   protected Image logo;
   protected String oLISAlephCode;
-  private Collection<Unit> hasChildren;
+  private Collection<Organization> hasChildren;
+  private Collection<Organization> subOrganizations;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -104,16 +104,6 @@ public class Agent extends OxpEntity {
     if(this.telephoneNumbers == null)
       setTelephoneNumbers( new HashSet<Tel>() );
     this.telephoneNumbers.add(telephoneNumberP);
-  }
-
-  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
-  public String getHomepage(){
-    return this.homepage;
-  }
-
-  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
-  public void setHomepage(String homepage){
-    this.homepage = homepage;
   }
 
   @BagComplexProperty("http://xmlns.com/foaf/0.1/account")
@@ -286,9 +276,9 @@ public class Agent extends OxpEntity {
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Unit"
+    entity = "Organization"
   )
-  public Collection<Unit> getHasChildren(){
+  public Collection<Organization> getHasChildren(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
     return this.hasChildren;
@@ -296,16 +286,40 @@ public class Agent extends OxpEntity {
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Unit"
+    entity = "Organization"
   )
-  private void setHasChildren(Collection<Unit> hasChildren){
+  private void setHasChildren(Collection<Organization> hasChildren){
     this.hasChildren = hasChildren;
   }
 
-  private void addHasChildren(Unit hasChildrenP){
+  private void addHasChildren(Organization hasChildrenP){
     if(this.hasChildren == null)
-      setHasChildren( new HashSet<Unit>() );
+      setHasChildren( new HashSet<Organization>() );
     this.hasChildren.add(hasChildrenP);
+  }
+
+  @PassiveProperty(
+    uri = "http://www.w3.org/ns/org#subOrganizationOf",
+    entity = "Organization"
+  )
+  public Collection<Organization> getSubOrganizations(){
+    if(! isPassiveEntitiesLoaded() )
+      loadPassiveEntities();
+    return this.subOrganizations;
+  }
+
+  @PassiveProperty(
+    uri = "http://www.w3.org/ns/org#subOrganizationOf",
+    entity = "Organization"
+  )
+  private void setSubOrganizations(Collection<Organization> subOrganizations){
+    this.subOrganizations = subOrganizations;
+  }
+
+  private void addSubOrganization(Organization subOrganizationP){
+    if(this.subOrganizations == null)
+      setSubOrganizations( new HashSet<Organization>() );
+    this.subOrganizations.add(subOrganizationP);
   }
 
 
@@ -328,7 +342,7 @@ public class Agent extends OxpEntity {
       requests = new HashSet<PassiveEntitiesRequest>();
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
+        return "http://www.w3.org/ns/org#Organization";
       }
 
       public String getUri() {
@@ -340,7 +354,24 @@ public class Agent extends OxpEntity {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addHasChildren((Unit)entity);
+        addHasChildren((Organization)entity);
+      }
+    });
+    requests.add(new PassiveEntitiesRequest(){
+      public String getType() {
+        return "http://www.w3.org/ns/org#Organization";
+      }
+
+      public String getUri() {
+        return "http://www.w3.org/ns/org#subOrganizationOf";
+      }
+
+      public int getCollectionType() {
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
+      }
+
+      public void passiveEntityLoaded(GabotoEntity entity) {
+        addSubOrganization((Organization)entity);
       }
     });
     return requests;
@@ -373,12 +404,6 @@ public class Agent extends OxpEntity {
             addTelephoneNumber(prop);
         }
 
-    }
-
-    // Load SIMPLE_RESOURCE_PROPERTY homepage
-    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
-    if(stmt != null && stmt.getObject().isURIResource()){
-      this.setHomepage(((Resource) stmt.getObject()).getURI());
     }
 
     // Load BAG_COMPLEX_PROPERTY onlineAccount

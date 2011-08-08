@@ -23,7 +23,6 @@ import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.node.annotation.BagComplexProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
-import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.StaticProperty;
 
@@ -45,7 +44,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 public class Place extends SpatialThing {
   protected String oBNCode;
   protected Address address;
-  protected String homepage;
   protected Float floor;
   protected String osmId;
   protected Collection<SpaceConfiguration> spaceConfiguration;
@@ -89,16 +87,6 @@ public class Place extends SpatialThing {
   @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public void setAddress(Address address){
     this.address = address;
-  }
-
-  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
-  public String getHomepage(){
-    return this.homepage;
-  }
-
-  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
-  public void setHomepage(String homepage){
-    this.homepage = homepage;
   }
 
   @SimpleLiteralProperty(
@@ -254,12 +242,6 @@ public class Place extends SpatialThing {
       Address bean = new Address();
       bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
       setAddress(bean);
-    }
-
-    // Load SIMPLE_RESOURCE_PROPERTY homepage
-    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
-    if(stmt != null && stmt.getObject().isURIResource()){
-      this.setHomepage(((Resource) stmt.getObject()).getURI());
     }
 
     // Load SIMPLE_LITERAL_PROPERTY floor

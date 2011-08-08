@@ -22,29 +22,35 @@ import net.sf.gaboto.node.GabotoEntity;
 import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.BagResourceProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
+import net.sf.gaboto.node.annotation.PassiveProperty;
+import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
+import net.sf.gaboto.node.annotation.StaticProperty;
 import net.sf.gaboto.node.annotation.UnstoredProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
+import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
 
 /**
  * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
-abstract public class OxpEntity extends GabotoEntity {
+public class OxpEntity extends GabotoEntity {
   protected String name;
   protected Collection<Image> images;
   protected Image img;
   protected Collection<String> sameAss;
   protected String description;
+  protected String homepage;
   protected Collection<String> dcType;
   protected String prefLabel;
   protected Collection<String> altLabels;
   protected Collection<String> hiddenLabels;
   protected String sortLabel;
+  private Collection<SKOSCollection> memberOf;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -147,6 +153,16 @@ abstract public class OxpEntity extends GabotoEntity {
   )
   public void setDescription(String description){
     this.description = description;
+  }
+
+  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
+  public String getHomepage(){
+    return this.homepage;
+  }
+
+  @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
+  public void setHomepage(String homepage){
+    this.homepage = homepage;
   }
 
   @BagLiteralProperty(
@@ -257,10 +273,71 @@ abstract public class OxpEntity extends GabotoEntity {
     this.sortLabel = sortLabel;
   }
 
+  @PassiveProperty(
+    uri = "http://www.w3.org/2004/02/skos/core#member",
+    entity = "SKOSCollection"
+  )
+  public Collection<SKOSCollection> getMemberOf(){
+    if(! isPassiveEntitiesLoaded() )
+      loadPassiveEntities();
+    return this.memberOf;
+  }
+
+  @PassiveProperty(
+    uri = "http://www.w3.org/2004/02/skos/core#member",
+    entity = "SKOSCollection"
+  )
+  private void setMemberOf(Collection<SKOSCollection> memberOf){
+    this.memberOf = memberOf;
+  }
+
+  private void addMemberOf(SKOSCollection memberOfP){
+    if(this.memberOf == null)
+      setMemberOf( new HashSet<SKOSCollection>() );
+    this.memberOf.add(memberOfP);
+  }
 
 
 
 
+
+
+  @StaticProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#allCollections")
+  public Collection<SKOSCollection> getAllCollections() {
+	  Collection<SKOSCollection> collections = new HashSet<SKOSCollection>();
+	  if (getMemberOf() == null)
+		  return collections;
+	  for (SKOSCollection collection : getMemberOf()) {
+		  collections.add(collection);
+		  if (collection instanceof SKOSCollection)
+			  collections.addAll(((SKOSCollection) collection).getAllCollections());
+	  }
+	  return collections;
+  }
+
+  public Collection<PassiveEntitiesRequest> getPassiveEntitiesRequest(){
+    Collection<PassiveEntitiesRequest> requests = super.getPassiveEntitiesRequest();
+    if(requests == null)
+      requests = new HashSet<PassiveEntitiesRequest>();
+    requests.add(new PassiveEntitiesRequest(){
+      public String getType() {
+        return "http://www.w3.org/2004/02/skos/core#Collection";
+      }
+
+      public String getUri() {
+        return "http://www.w3.org/2004/02/skos/core#member";
+      }
+
+      public int getCollectionType() {
+        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_BAG;
+      }
+
+      public void passiveEntityLoaded(GabotoEntity entity) {
+        addMemberOf((SKOSCollection)entity);
+      }
+    });
+    return requests;
+  }
 
 
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
@@ -317,6 +394,12 @@ abstract public class OxpEntity extends GabotoEntity {
     stmt = res.getProperty(snapshot.getProperty("http://purl.org/dc/elements/1.1/description"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setDescription(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_RESOURCE_PROPERTY homepage
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setHomepage(((Resource) stmt.getObject()).getURI());
+    }
 
     // Load BAG_LITERAL_PROPERTY dcType
     {

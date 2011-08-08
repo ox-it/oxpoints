@@ -45,7 +45,7 @@ public class Organization extends Agent {
   protected String itHomepage;
   protected String weblearn;
   protected Image logo;
-  private Collection<Unit> hasChildren;
+  private Collection<Organization> hasChildren;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -140,9 +140,9 @@ public class Organization extends Agent {
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Unit"
+    entity = "Organization"
   )
-  public Collection<Unit> getHasChildren(){
+  public Collection<Organization> getHasChildren(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
     return this.hasChildren;
@@ -150,15 +150,15 @@ public class Organization extends Agent {
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Unit"
+    entity = "Organization"
   )
-  private void setHasChildren(Collection<Unit> hasChildren){
+  private void setHasChildren(Collection<Organization> hasChildren){
     this.hasChildren = hasChildren;
   }
 
-  private void addHasChildren(Unit hasChildrenP){
+  private void addHasChildren(Organization hasChildrenP){
     if(this.hasChildren == null)
-      setHasChildren( new HashSet<Unit>() );
+      setHasChildren( new HashSet<Organization>() );
     this.hasChildren.add(hasChildrenP);
   }
 
@@ -174,7 +174,7 @@ public class Organization extends Agent {
       requests = new HashSet<PassiveEntitiesRequest>();
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
-        return "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Unit";
+        return "http://www.w3.org/ns/org#Organization";
       }
 
       public String getUri() {
@@ -186,7 +186,7 @@ public class Organization extends Agent {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addHasChildren((Unit)entity);
+        addHasChildren((Organization)entity);
       }
     });
     return requests;
