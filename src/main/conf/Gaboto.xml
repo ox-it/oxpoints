@@ -312,8 +312,8 @@
               <indirectProperty name="latitude" uri="&geo;lat" n="1"/>
             </property>
             <property name="primaryPlace" type="Place" uri="&oxp;primaryPlace"/>
-            <property name="parent" type="Organization" uri="&dct;isPartOf"/>
-            <property name="subOrganizationOf" type="Organization" uri="&org;subOrganizationOf">
+            <property name="parent" type="Agent" uri="&dct;isPartOf"/>
+            <property name="subOrganizationOf" type="Agent" uri="&org;subOrganizationOf">
               <indirectProperty uri="&geo;long" n="3"/>
               <indirectProperty uri="&geo;lat" n="3"/>
               <unstoredProperty uri="&gabotoKML;parent"/>
@@ -321,8 +321,8 @@
             <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
             <property name="logo" type="Image" uri="&foaf;logo"/>
             <property name="OLISAlephCode" type="String" uri="&oxp;hasOLISAlephCode"/>
-            <passiveProperty name="hasChildren" type="Organization" relationshipType="1:N" uri="&dct;isPartOf"/>
-            <passiveProperty name="subOrganizations" type="Organization" relationshipType="1:N" uri="&org;subOrganizationOf"/>
+            <passiveProperty name="hasChildren" type="Agent" relationshipType="1:N" uri="&dct;isPartOf"/>
+            <passiveProperty name="subOrganizations" type="Agent" relationshipType="1:N" uri="&org;subOrganizationOf"/>
             
           </properties>
           <GabotoEntities>
@@ -335,7 +335,6 @@
                 <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                 <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
                 <property name="logo" type="Image" uri="&foaf;logo"/>
-                <passiveProperty name="hasChildren" type="Organization" relationshipType="1:N" uri="&dct;isPartOf"/>
               </properties>
               <GabotoEntities>
                 <GabotoEntity name="Unit" type="&oxp;Unit">

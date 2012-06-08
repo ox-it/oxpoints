@@ -53,13 +53,13 @@ public class Agent extends OxpEntity {
   protected Collection<Place> occupiedPlaces;
   protected Place primarySite;
   protected Place primaryPlace;
-  protected Organization parent;
-  protected Organization subOrganizationOf;
+  protected Agent parent;
+  protected Agent subOrganizationOf;
   protected String weblearn;
   protected Image logo;
   protected String oLISAlephCode;
-  private Collection<Organization> hasChildren;
-  private Collection<Organization> subOrganizations;
+  private Collection<Agent> hasChildren;
+  private Collection<Agent> subOrganizations;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -203,14 +203,14 @@ public class Agent extends OxpEntity {
   }
 
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
-  public Organization getParent(){
+  public Agent getParent(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.parent;
   }
 
   @SimpleURIProperty("http://purl.org/dc/terms/isPartOf")
-  public void setParent(Organization parent){
+  public void setParent(Agent parent){
     if( parent != null )
       this.removeMissingReference( parent.getUri() );
     this.parent = parent;
@@ -219,14 +219,14 @@ public class Agent extends OxpEntity {
   @UnstoredProperty({"http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#parent"})
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
   @SimpleURIProperty("http://www.w3.org/ns/org#subOrganizationOf")
-  public Organization getSubOrganizationOf(){
+  public Agent getSubOrganizationOf(){
     if(! this.isDirectReferencesResolved())
       this.resolveDirectReferences();
     return this.subOrganizationOf;
   }
 
   @SimpleURIProperty("http://www.w3.org/ns/org#subOrganizationOf")
-  public void setSubOrganizationOf(Organization subOrganizationOf){
+  public void setSubOrganizationOf(Agent subOrganizationOf){
     if( subOrganizationOf != null )
       this.removeMissingReference( subOrganizationOf.getUri() );
     this.subOrganizationOf = subOrganizationOf;
@@ -276,9 +276,9 @@ public class Agent extends OxpEntity {
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Organization"
+    entity = "Agent"
   )
-  public Collection<Organization> getHasChildren(){
+  public Collection<Agent> getHasChildren(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
     return this.hasChildren;
@@ -286,23 +286,23 @@ public class Agent extends OxpEntity {
 
   @PassiveProperty(
     uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Organization"
+    entity = "Agent"
   )
-  private void setHasChildren(Collection<Organization> hasChildren){
+  private void setHasChildren(Collection<Agent> hasChildren){
     this.hasChildren = hasChildren;
   }
 
-  private void addHasChildren(Organization hasChildrenP){
+  private void addHasChildren(Agent hasChildrenP){
     if(this.hasChildren == null)
-      setHasChildren( new HashSet<Organization>() );
+      setHasChildren( new HashSet<Agent>() );
     this.hasChildren.add(hasChildrenP);
   }
 
   @PassiveProperty(
     uri = "http://www.w3.org/ns/org#subOrganizationOf",
-    entity = "Organization"
+    entity = "Agent"
   )
-  public Collection<Organization> getSubOrganizations(){
+  public Collection<Agent> getSubOrganizations(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
     return this.subOrganizations;
@@ -310,15 +310,15 @@ public class Agent extends OxpEntity {
 
   @PassiveProperty(
     uri = "http://www.w3.org/ns/org#subOrganizationOf",
-    entity = "Organization"
+    entity = "Agent"
   )
-  private void setSubOrganizations(Collection<Organization> subOrganizations){
+  private void setSubOrganizations(Collection<Agent> subOrganizations){
     this.subOrganizations = subOrganizations;
   }
 
-  private void addSubOrganization(Organization subOrganizationP){
+  private void addSubOrganization(Agent subOrganizationP){
     if(this.subOrganizations == null)
-      setSubOrganizations( new HashSet<Organization>() );
+      setSubOrganizations( new HashSet<Agent>() );
     this.subOrganizations.add(subOrganizationP);
   }
 
@@ -342,7 +342,7 @@ public class Agent extends OxpEntity {
       requests = new HashSet<PassiveEntitiesRequest>();
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
-        return "http://www.w3.org/ns/org#Organization";
+        return "http://xmlns.com/foaf/0.1/Agent";
       }
 
       public String getUri() {
@@ -354,12 +354,12 @@ public class Agent extends OxpEntity {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addHasChildren((Organization)entity);
+        addHasChildren((Agent)entity);
       }
     });
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
-        return "http://www.w3.org/ns/org#Organization";
+        return "http://xmlns.com/foaf/0.1/Agent";
       }
 
       public String getUri() {
@@ -371,7 +371,7 @@ public class Agent extends OxpEntity {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addSubOrganization((Organization)entity);
+        addSubOrganization((Agent)entity);
       }
     });
     return requests;
@@ -496,7 +496,7 @@ public class Agent extends OxpEntity {
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
         public void entityExists(EntityPool p, GabotoEntity entity) {
-          setParent((Organization)entity);
+          setParent((Agent)entity);
         }
       };
       this.addMissingReference(missingReference, callback);
@@ -508,7 +508,7 @@ public class Agent extends OxpEntity {
       Resource missingReference = (Resource)stmt.getObject();
       EntityExistsCallback callback = new EntityExistsCallback(){
         public void entityExists(EntityPool p, GabotoEntity entity) {
-          setSubOrganizationOf((Organization)entity);
+          setSubOrganizationOf((Agent)entity);
         }
       };
       this.addMissingReference(missingReference, callback);

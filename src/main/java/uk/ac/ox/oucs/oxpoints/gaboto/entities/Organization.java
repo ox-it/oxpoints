@@ -7,9 +7,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 
 import java.lang.reflect.Method;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -18,14 +16,12 @@ import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.ComplexProperty;
-import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.SimpleURIProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
-import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
@@ -45,7 +41,6 @@ public class Organization extends Agent {
   protected String itHomepage;
   protected String weblearn;
   protected Image logo;
-  private Collection<Organization> hasChildren;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -138,59 +133,10 @@ public class Organization extends Agent {
     this.logo = logo;
   }
 
-  @PassiveProperty(
-    uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Organization"
-  )
-  public Collection<Organization> getHasChildren(){
-    if(! isPassiveEntitiesLoaded() )
-      loadPassiveEntities();
-    return this.hasChildren;
-  }
-
-  @PassiveProperty(
-    uri = "http://purl.org/dc/terms/isPartOf",
-    entity = "Organization"
-  )
-  private void setHasChildren(Collection<Organization> hasChildren){
-    this.hasChildren = hasChildren;
-  }
-
-  private void addHasChildren(Organization hasChildrenP){
-    if(this.hasChildren == null)
-      setHasChildren( new HashSet<Organization>() );
-    this.hasChildren.add(hasChildrenP);
-  }
 
 
 
 
-
-
-
-  public Collection<PassiveEntitiesRequest> getPassiveEntitiesRequest(){
-    Collection<PassiveEntitiesRequest> requests = super.getPassiveEntitiesRequest();
-    if(requests == null)
-      requests = new HashSet<PassiveEntitiesRequest>();
-    requests.add(new PassiveEntitiesRequest(){
-      public String getType() {
-        return "http://www.w3.org/ns/org#Organization";
-      }
-
-      public String getUri() {
-        return "http://purl.org/dc/terms/isPartOf";
-      }
-
-      public int getCollectionType() {
-        return EntityPool.PASSIVE_PROPERTY_COLLECTION_TYPE_NONE;
-      }
-
-      public void passiveEntityLoaded(GabotoEntity entity) {
-        addHasChildren((Organization)entity);
-      }
-    });
-    return requests;
-  }
 
 
   public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
