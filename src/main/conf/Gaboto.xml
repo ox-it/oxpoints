@@ -320,6 +320,7 @@
             </property>
             <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
             <property name="logo" type="Image" uri="&foaf;logo"/>
+            <property name="address" type="Address" uri="&vCard;adr"/>
             <property name="OLISAlephCode" type="String" uri="&oxp;hasOLISAlephCode"/>
             <passiveProperty name="hasChildren" type="Agent" relationshipType="1:N" uri="&dct;isPartOf"/>
             <passiveProperty name="subOrganizations" type="Agent" relationshipType="1:N" uri="&org;subOrganizationOf"/>
@@ -331,10 +332,8 @@
               <properties>
                 <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
                 <property name="financeCode" type="String" uri="&oxp;hasFinanceCode"/>
-                <property name="address" type="Address" uri="&vCard;adr"/>
                 <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                 <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
-                <property name="logo" type="Image" uri="&foaf;logo"/>
               </properties>
               <GabotoEntities>
                 <GabotoEntity name="Unit" type="&oxp;Unit">
@@ -362,11 +361,11 @@
                     <GabotoEntity name="College" type="&oxp;College"/>
                     <GabotoEntity name="University" type="&oxp;University"/>
                     <GabotoEntity name="Hall" type="&oxp;Hall"/>
+                    <GabotoEntity name="OrganizationalCollaboration" type="&org;OrganizationalCollaboration"/>
+                    <GabotoEntity name="OrganizationalUnit" type="&org;OrganizationalUnit"/>
                     <GabotoEntity name="Department" type="&oxp;Department"/>
                     <GabotoEntity name="Division" type="&oxp;Division"/>
                     <GabotoEntity name="Faculty" type="&oxp;Faculty"/>
-                    <GabotoEntity name="OrganizationalCollaboration" type="&org;OrganizationalCollaboration"/>
-                    <GabotoEntity name="OrganizationalUnit" type="&org;OrganizationalUnit"/>
                     <GabotoEntity name="Library" type="&oxp;Library">
                       <properties>
                         <property name="OLISCode" collection="bag" type="String" uri="&oxp;hasOLISCode"/>
