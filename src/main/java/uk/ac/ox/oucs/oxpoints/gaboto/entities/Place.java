@@ -48,7 +48,7 @@ public class Place extends SpatialThing {
   protected String osmId;
   protected Collection<SpaceConfiguration> spaceConfiguration;
   protected Collection<SpaceConfiguration> primarySpaceConfiguration;
-  private Collection<Organization> occupiedBy;
+  private Collection<Agent> occupiedBy;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -159,9 +159,9 @@ public class Place extends SpatialThing {
 
   @PassiveProperty(
     uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies",
-    entity = "Organization"
+    entity = "Agent"
   )
-  public Collection<Organization> getOccupiedBy(){
+  public Collection<Agent> getOccupiedBy(){
     if(! isPassiveEntitiesLoaded() )
       loadPassiveEntities();
     return this.occupiedBy;
@@ -169,15 +169,15 @@ public class Place extends SpatialThing {
 
   @PassiveProperty(
     uri = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#occupies",
-    entity = "Organization"
+    entity = "Agent"
   )
-  private void setOccupiedBy(Collection<Organization> occupiedBy){
+  private void setOccupiedBy(Collection<Agent> occupiedBy){
     this.occupiedBy = occupiedBy;
   }
 
-  private void addOccupiedBy(Organization occupiedByP){
+  private void addOccupiedBy(Agent occupiedByP){
     if(this.occupiedBy == null)
-      setOccupiedBy( new HashSet<Organization>() );
+      setOccupiedBy( new HashSet<Agent>() );
     this.occupiedBy.add(occupiedByP);
   }
 
@@ -208,7 +208,7 @@ public class Place extends SpatialThing {
       requests = new HashSet<PassiveEntitiesRequest>();
     requests.add(new PassiveEntitiesRequest(){
       public String getType() {
-        return "http://www.w3.org/ns/org#Organization";
+        return "http://xmlns.com/foaf/0.1/Agent";
       }
 
       public String getUri() {
@@ -220,7 +220,7 @@ public class Place extends SpatialThing {
       }
 
       public void passiveEntityLoaded(GabotoEntity entity) {
-        addOccupiedBy((Organization)entity);
+        addOccupiedBy((Agent)entity);
       }
     });
     return requests;

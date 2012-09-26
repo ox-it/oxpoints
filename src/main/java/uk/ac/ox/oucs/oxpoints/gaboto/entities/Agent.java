@@ -23,6 +23,7 @@ import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagComplexProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
+import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.IndirectProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
@@ -36,6 +37,7 @@ import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 
@@ -57,6 +59,7 @@ public class Agent extends OxpEntity {
   protected Agent subOrganizationOf;
   protected String weblearn;
   protected Image logo;
+  protected Address address;
   protected String oLISAlephCode;
   private Collection<Agent> hasChildren;
   private Collection<Agent> subOrganizations;
@@ -254,6 +257,16 @@ public class Agent extends OxpEntity {
     if( logo != null )
       this.removeMissingReference( logo.getUri() );
     this.logo = logo;
+  }
+
+  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
+  public Address getAddress(){
+    return this.address;
+  }
+
+  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
+  public void setAddress(Address address){
+    this.address = address;
   }
 
   @SimpleLiteralProperty(
@@ -530,6 +543,14 @@ public class Agent extends OxpEntity {
         }
       };
       this.addMissingReference(missingReference, callback);
+    }
+
+    // Load SIMPLE_COMPLEX_PROPERTY address
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#adr"));
+    if(stmt != null && stmt.getObject().isAnon()){
+      Address bean = new Address();
+      bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
+      setAddress(bean);
     }
 
     // Load SIMPLE_LITERAL_PROPERTY oLISAlephCode

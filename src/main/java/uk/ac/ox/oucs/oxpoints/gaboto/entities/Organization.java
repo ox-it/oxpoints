@@ -15,17 +15,10 @@ import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.GabotoEntity;
 
-import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
-import net.sf.gaboto.node.annotation.SimpleURIProperty;
 
-import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
-
-import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
-
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
 
@@ -37,10 +30,8 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
 public class Organization extends Agent {
   protected String oUCSCode;
   protected String financeCode;
-  protected Address address;
   protected String itHomepage;
   protected String weblearn;
-  protected Image logo;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -89,16 +80,6 @@ public class Organization extends Agent {
     this.financeCode = financeCode;
   }
 
-  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
-  public Address getAddress(){
-    return this.address;
-  }
-
-  @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
-  public void setAddress(Address address){
-    this.address = address;
-  }
-
   @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage")
   public String getItHomepage(){
     return this.itHomepage;
@@ -117,20 +98,6 @@ public class Organization extends Agent {
   @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn")
   public void setWeblearn(String weblearn){
     this.weblearn = weblearn;
-  }
-
-  @SimpleURIProperty("http://xmlns.com/foaf/0.1/logo")
-  public Image getLogo(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
-    return this.logo;
-  }
-
-  @SimpleURIProperty("http://xmlns.com/foaf/0.1/logo")
-  public void setLogo(Image logo){
-    if( logo != null )
-      this.removeMissingReference( logo.getUri() );
-    this.logo = logo;
   }
 
 
@@ -153,14 +120,6 @@ public class Organization extends Agent {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setFinanceCode(((Literal)stmt.getObject()).getString());
 
-    // Load SIMPLE_COMPLEX_PROPERTY address
-    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#adr"));
-    if(stmt != null && stmt.getObject().isAnon()){
-      Address bean = new Address();
-      bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
-      setAddress(bean);
-    }
-
     // Load SIMPLE_RESOURCE_PROPERTY itHomepage
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasITHomepage"));
     if(stmt != null && stmt.getObject().isURIResource()){
@@ -171,18 +130,6 @@ public class Organization extends Agent {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn"));
     if(stmt != null && stmt.getObject().isURIResource()){
       this.setWeblearn(((Resource) stmt.getObject()).getURI());
-    }
-
-    // Load SIMPLE_URI_PROPERTY logo
-    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/logo"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setLogo((Image)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
     }
 
   }

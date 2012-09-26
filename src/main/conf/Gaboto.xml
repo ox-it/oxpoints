@@ -230,7 +230,7 @@
                 <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
                 <property name="spaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;spaceConfiguration"/>
                 <property name="primarySpaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;primarySpaceConfiguration"/>
-                <passiveProperty name="occupiedBy" type="Organization" relationshipType="N:M" uri="&oxp;occupies"/>
+                <passiveProperty name="occupiedBy" type="Agent" relationshipType="N:M" uri="&oxp;occupies"/>
               </properties>
               <customMethods>
                 <method><![CDATA[

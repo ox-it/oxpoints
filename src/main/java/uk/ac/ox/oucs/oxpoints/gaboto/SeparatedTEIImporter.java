@@ -34,9 +34,9 @@ import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Measure;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
-import uk.ac.ox.oucs.oxpoints.gaboto.entities.Organization;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
@@ -331,8 +331,8 @@ public class SeparatedTEIImporter {
 						relations.add(new Relation(Place.class, "setPrimaryPlace"));
 						relations.add(new Relation(Place.class, "setPrimarySite"));
 					} else if (relationName.equals("controls")) {
-						relations.add(new Relation(Organization.class, "setParent", true));
-						relations.add(new Relation(Organization.class, "setSubOrganizationOf", true));
+						relations.add(new Relation(Agent.class, "setParent", true));
+						relations.add(new Relation(Agent.class, "setSubOrganizationOf", true));
 					} else if (relationName.equals("member")) {
 						relations.add(new Relation(OxpEntity.class, "addMember"));
 					} else if (relationName.equals("supplies")) {
@@ -358,7 +358,12 @@ public class SeparatedTEIImporter {
 					entity.addRelation(
 							"setParent",
 							gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
-							elem, tagName.equals("place") ? Place.class : Organization.class, true
+							elem, tagName.equals("place") ? Place.class : Agent.class, true
+					);
+					entity.addRelation(
+							tagName.equals("place") ? "setContainedBy" : "setSubOrganizationOf",
+							gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
+							elem, tagName.equals("place") ? Place.class : Agent.class, true
 					);
 				} else if (tagName.equals("note")) {
 					NodeList figures = element.getElementsByTagName("figure");
