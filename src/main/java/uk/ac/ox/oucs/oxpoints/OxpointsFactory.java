@@ -52,9 +52,9 @@ public final class OxpointsFactory {
   }
   public static Gaboto getOxpointsFromXML(String filenameIn) { 
     System.err.println("Reading oxp from " + filenameIn);
-    File file = new File("examples/oxpoints/" + filenameIn);
+    File file = new File(filenameIn);
     if(! file.exists()) {
-      file = new File("examples/oxpoints/" + filename);      
+      file = new File(filename);      
       if(! file.exists()) {
         throw new RuntimeException ("Cannot open file " + filenameIn);
       }

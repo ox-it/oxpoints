@@ -162,7 +162,7 @@ public class TestGabotoSnapshot {
     Gaboto oxp = OxpointsFactory.getOxpointsFromXML();
     
     GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
-    EntityPool pool = nowSnap.loadEntitiesWithProperty(DC_11.title, "Somerville College");
+    EntityPool pool = nowSnap.loadEntitiesWithProperty(DC_11.title, "Merton College");
     long i = nowSnap.size();
     assertTrue("it is " + pool.getSize(), pool.getSize() == 1);
   }
@@ -175,20 +175,20 @@ public class TestGabotoSnapshot {
     Gaboto oxp = OxpointsFactory.getOxpointsFromXML();
     
     GabotoSnapshot nowSnap = oxp.getSnapshot(TimeInstant.now());
-    GabotoSnapshot whenGreenWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1980), new Integer(11), new Integer(2)));
-    GabotoSnapshot beforeGreenExisted = oxp.getSnapshot(new TimeInstant(new Integer(1978), new Integer(11), new Integer(2)));
+    GabotoSnapshot whenMertonWasExtant = oxp.getSnapshot(new TimeInstant(new Integer(1266), new Integer(11), new Integer(2)));
+    GabotoSnapshot beforeMertonExisted = oxp.getSnapshot(new TimeInstant(new Integer(1262), new Integer(11), new Integer(2)));
 
    // assertTrue("Input data has changed? Snapshot now contains " + nowSnap.size(), nowSnap.size() == 14906);
-    assertFalse(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
-    assertTrue(nowSnap.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
+    assertTrue(nowSnap.containsResource("http://oxpoints.oucs.ox.ac.uk/id/23232400"));
+    assertTrue(nowSnap.containsResource("http://oxpoints.oucs.ox.ac.uk/id/24000000"));
     
    // assertTrue("Input data has changed? Snapshot(1980) now contains " + whenGreenWasExtant.size(), whenGreenWasExtant.size() == 14905);
-    assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
-    assertTrue(whenGreenWasExtant.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
+    assertTrue(whenMertonWasExtant.containsResource("http://oxpoints.oucs.ox.ac.uk/id/23232400"));
+    assertTrue(whenMertonWasExtant.containsResource("http://oxpoints.oucs.ox.ac.uk/id/24000000"));
 
    // assertTrue("Input data has changed? Snapshot(1978) now contains " + beforeGreenExisted.size(), beforeGreenExisted.size() == 14883);
-    assertFalse(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232362"));
-    assertTrue(beforeGreenExisted.containsResource("http://m.ox.ac.uk/oxpoints/id/23232369"));
+    assertFalse(beforeMertonExisted.containsResource("http://oxpoints.oucs.ox.ac.uk/id/23232400"));
+    assertTrue(beforeMertonExisted.containsResource("http://oxpoints.oucs.ox.ac.uk/id/24000000"));
   }
 	
 	

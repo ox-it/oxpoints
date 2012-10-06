@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<org xmlns="http://www.tei-c.org/ns/1.0" oxpID="23232449" from="1278" corresp="http://dbpedia.org/resource/St_Edmund_Hall,_Oxford">
+  <idno type="oucs">sedm</idno>
+  <trait type="type" to="1957">
+    <desc>Hall</desc>
+  </trait>
+  <trait type="type" from="1957">
+    <desc>College</desc>
+  </trait>
+  <orgName>St Edmund Hall</orgName>
+  <orgName type="hidden">Teddy Hall</orgName>
+  <location type="address">
+    <address>
+      <addrLine>Queen's Lane</addrLine>
+      <addrLine>Oxford</addrLine>
+      <postCode>OX1 4AR</postCode>
+    </address>
+  </location>
+  <trait type="url">
+    <desc>
+      <ptr target="http://www.seh.ox.ac.uk/"/>
+    </desc>
+  </trait>
+  <trait type="iturl">
+    <desc>
+      <ptr target="http://www.seh.ox.ac.uk/it/"/>
+    </desc>
+  </trait>
+  <trait type="weblearn">
+    <desc>
+      <ptr target="http://weblearn.ox.ac.uk/site/colleges/seh/"/>
+    </desc>
+  </trait>
+  <relation passive="#32320080" name="controls"/>
+  <note>
+    <figure type="characteristic">
+      <graphic url="/colleges/small/sedm.jpg" width="167px" height="125px"/>
+      <figDesc>http://en.wikipedia.org/wiki/Image:SEHQuad.jpg</figDesc>
+      <note>from http://upload.wikimedia.org/wikipedia/en/4/40/SEHQuad.jpg</note>
+    </figure>
+  </note>
+  <relation name="occupies" passive="#23232450" type="primary"/>
+  <relation name="occupies" passive="#23232451" type="geo"/>
+  <relation name="occupies" passive="#23232452" type="geo"/>
+  <relation name="occupies" passive="#23232453" type="geo"/>
+  <note>
+    <figure type="logo">
+      <graphic url="/logos/colleges/sedm.png" width="69px" height="80px"/>
+    </figure>
+  </note>
+  <idno type="finance">SA</idno>
+  <orgName type="sort">Saint Edmund Hall</orgName>
+</org>
