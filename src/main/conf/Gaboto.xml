@@ -332,8 +332,11 @@
               <properties>
                 <property name="OUCSCode" type="String" uri="&oxp;hasOUCSCode"/>
                 <property name="financeCode" type="String" uri="&oxp;hasFinanceCode"/>
+                <property name="divisionCode" type="String" uri="&oxp;hasDivisionCode"/>
+                <property name="departmentCode" type="String" uri="&oxp;hasDepartmentCode"/>
                 <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                 <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
+                <property name="organizationalMemberOf" type="OrganizationalCollaboration" collection="bag" uri="&org;memberOf"/>
               </properties>
               <GabotoEntities>
                 <GabotoEntity name="Unit" type="&oxp;Unit">

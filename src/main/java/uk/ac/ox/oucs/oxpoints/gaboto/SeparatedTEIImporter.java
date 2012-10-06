@@ -37,6 +37,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Measure;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.OrganizationalCollaboration;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
@@ -279,13 +280,16 @@ public class SeparatedTEIImporter {
 						entity.addProperty("addOLISCode", elem);
 					else if (elemType.equals("finance"))
 						entity.addProperty("setFinanceCode", elem);
+					else if (elemType.equals("department"))
+						entity.addProperty("setDepartmentCode", elem);
+					else if (elemType.equals("division"))
+						entity.addProperty("setDivisionCode", elem);
 					else if (elemType.equals("olis-aleph"))
 						entity.addProperty("setOLISAlephCode", elem);
 					else if (elemType.equals("metering"))
 						entity.addProperty("setMeasureIdentifier", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
-						entity.addProperty("addSameAs", "http://linkedgeodata.org/triplify/"+elem.getTextContent()+"#id", elem);
 					} else if (elemType.equals("twitter")) {
 						OnlineAccount account = new OnlineAccount();
 						account.setAccountServiceHomepage("http://www.twitter.com/");
@@ -335,6 +339,8 @@ public class SeparatedTEIImporter {
 						relations.add(new Relation(Agent.class, "setSubOrganizationOf", true));
 					} else if (relationName.equals("member")) {
 						relations.add(new Relation(OxpEntity.class, "addMember"));
+					} else if (relationName.equals("memberOf")) {
+						relations.add(new Relation(OrganizationalCollaboration.class, "addOrganizationalMemberOf"));
 					} else if (relationName.equals("supplies")) {
 						// Gaboto thinks it's so clever, dropping the 's'
 						relations.add(new Relation(SpatialThing.class, "addSupplie"));
