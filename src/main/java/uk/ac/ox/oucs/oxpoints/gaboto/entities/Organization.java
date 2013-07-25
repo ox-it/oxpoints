@@ -146,12 +146,20 @@ public class Organization extends Agent {
     this.weblearn = weblearn;
   }
 
-  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId")
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
   public String getLibraryDataId(){
     return this.libraryDataId;
   }
 
-  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId")
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
   public void setLibraryDataId(String libraryDataId){
     this.libraryDataId = libraryDataId;
   }
@@ -223,11 +231,10 @@ public class Organization extends Agent {
       this.setWeblearn(((Resource) stmt.getObject()).getURI());
     }
 
-    // Load SIMPLE_RESOURCE_PROPERTY libraryDataId
+    // Load SIMPLE_LITERAL_PROPERTY libraryDataId
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId"));
-    if(stmt != null && stmt.getObject().isURIResource()){
-      this.setLibraryDataId(((Resource) stmt.getObject()).getURI());
-    }
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setLibraryDataId(((Literal)stmt.getObject()).getString());
 
     // Load BAG_URI_PROPERTY organizationalMemberOf
     {

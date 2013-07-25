@@ -336,7 +336,7 @@
                 <property name="departmentCode" type="String" uri="&oxp;hasDepartmentCode"/>
                 <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                 <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
-                <property name="libraryDataId" type="Resource" uri="&oxp;hasLibraryDataId"/>
+                <property name="libraryDataId" type="String" uri="&oxp;hasLibraryDataId"/>
                 <property name="organizationalMemberOf" type="OrganizationalCollaboration" collection="bag" uri="&org;memberOf"/>
               </properties>
               <GabotoEntities>
