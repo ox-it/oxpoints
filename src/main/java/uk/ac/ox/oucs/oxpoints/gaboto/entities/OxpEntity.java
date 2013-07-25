@@ -121,12 +121,12 @@ public class OxpEntity extends GabotoEntity {
     this.img = img;
   }
 
-  @BagResourceProperty("http://www.w3.org/2002/07/owl#sameAs")
+  @BagResourceProperty("http://www.w3.org/2004/02/skos/core#exactMatch")
   public Collection<String> getSameAss(){
     return this.sameAss;
   }
 
-  @BagResourceProperty("http://www.w3.org/2002/07/owl#sameAs")
+  @BagResourceProperty("http://www.w3.org/2004/02/skos/core#exactMatch")
   public void setSameAss(Collection<String> sameAss){
     this.sameAss = sameAss;
   }
@@ -381,7 +381,7 @@ public class OxpEntity extends GabotoEntity {
 
     // Load BAG_RESOURCE_PROPERTY sameAss
     {
-        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2002/07/owl#sameAs"));
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://www.w3.org/2004/02/skos/core#exactMatch"));
         while (stmts.hasNext()) {
             RDFNode node = stmts.next().getObject();
             if(node.isURIResource()){

@@ -40,6 +40,7 @@ public class Organization extends Agent {
   protected String departmentCode;
   protected String itHomepage;
   protected String weblearn;
+  protected String libraryDataId;
   protected Collection<OrganizationalCollaboration> organizationalMemberOf;
 
 
@@ -145,6 +146,16 @@ public class Organization extends Agent {
     this.weblearn = weblearn;
   }
 
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId")
+  public String getLibraryDataId(){
+    return this.libraryDataId;
+  }
+
+  @ResourceProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId")
+  public void setLibraryDataId(String libraryDataId){
+    this.libraryDataId = libraryDataId;
+  }
+
   @BagURIProperty("http://www.w3.org/ns/org#memberOf")
   public Collection<OrganizationalCollaboration> getOrganizationalMemberOf(){
     if(! this.isDirectReferencesResolved())
@@ -210,6 +221,12 @@ public class Organization extends Agent {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasWeblearn"));
     if(stmt != null && stmt.getObject().isURIResource()){
       this.setWeblearn(((Resource) stmt.getObject()).getURI());
+    }
+
+    // Load SIMPLE_RESOURCE_PROPERTY libraryDataId
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasLibraryDataId"));
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setLibraryDataId(((Resource) stmt.getObject()).getURI());
     }
 
     // Load BAG_URI_PROPERTY organizationalMemberOf

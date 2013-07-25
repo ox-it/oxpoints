@@ -151,7 +151,7 @@
         </property>
         <property name="images" type="Image" collection="bag" uri="&foaf;depiction"/>
         <property name="img" type="Image" uri="&foaf;img"/>
-        <property name="sameAss" type="Resource" collection="bag" uri="&owl;sameAs"/>
+        <property name="sameAss" type="Resource" collection="bag" uri="&skos;exactMatch"/>
         <property name="description" type="String" uri="&dc;description"/>
         <property name="homepage" type="Resource" uri="&foaf;homepage"/>
         <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
@@ -336,6 +336,7 @@
                 <property name="departmentCode" type="String" uri="&oxp;hasDepartmentCode"/>
                 <property name="itHomepage" type="Resource" uri="&oxp;hasITHomepage"/>
                 <property name="weblearn" type="Resource" uri="&oxp;hasWeblearn"/>
+                <property name="libraryDataId" type="Resource" uri="&oxp;hasLibraryDataId"/>
                 <property name="organizationalMemberOf" type="OrganizationalCollaboration" collection="bag" uri="&org;memberOf"/>
               </properties>
               <GabotoEntities>
