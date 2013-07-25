@@ -288,6 +288,8 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setOLISAlephCode", elem);
 					else if (elemType.equals("metering"))
 						entity.addProperty("setMeasureIdentifier", elem);
+					else if (elemType.equals("library-data-id"))
+						entity.addProperty("setLibraryDataId", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
 					} else if (elemType.equals("twitter")) {
