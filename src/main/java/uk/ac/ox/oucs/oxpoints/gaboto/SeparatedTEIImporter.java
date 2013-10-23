@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import net.sf.gaboto.EntityAlreadyExistsException;
 import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoFactory;
 import net.sf.gaboto.GabotoRuntimeException;
@@ -30,13 +31,13 @@ import org.xml.sax.SAXException;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Fax;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Voice;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Measure;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Image;
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OrganizationalCollaboration;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
@@ -294,10 +295,30 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setOsmId", elem);
 					} else if (elemType.equals("twitter")) {
 						OnlineAccount account = new OnlineAccount();
-						account.setAccountServiceHomepage("http://www.twitter.com/");
+						account.setUri("https://www.twitter.com/" + elem.getTextContent());
+						account.setAccountServiceHomepage("https://www.twitter.com/");
 						account.setAccountName(elem.getTextContent());
-						account.setAccountProfilePage("http://www.twitter.com/" + elem.getTextContent());
+						account.setAccountProfilePage("https://www.twitter.com/" + elem.getTextContent());
 						entity.addProperty("addOnlineAccount", account, elem);
+						try {
+							gaboto.add(account);
+						} catch (EntityAlreadyExistsException e) {
+							e.printStackTrace();
+						}
+					} else if (elemType.equals("nexus")) {
+						String email = elem.getTextContent();
+						if (email.indexOf('@') == -1)
+							email += "@nexus.ox.ac.uk";
+						OnlineAccount account = new OnlineAccount();
+						account.setUri("mailto:" + email);
+						account.setAccountServiceHomepage("https://nexus.ox.ac.uk/");
+						account.setAccountName(email);
+						entity.addProperty("addOnlineAccount", account, elem);
+						try {
+							gaboto.add(account);
+						} catch (EntityAlreadyExistsException e) {
+							e.printStackTrace();
+						}
 					}
 
 				} else if (tagName.equals("location")) {
