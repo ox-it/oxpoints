@@ -38,7 +38,6 @@ import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Tel;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
@@ -109,20 +108,29 @@ public class Agent extends OxpEntity {
     this.telephoneNumbers.add(telephoneNumberP);
   }
 
-  @BagComplexProperty("http://xmlns.com/foaf/0.1/account")
+  @BagURIProperty("http://xmlns.com/foaf/0.1/account")
   public Collection<OnlineAccount> getOnlineAccount(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
     return this.onlineAccount;
   }
 
-  @BagComplexProperty("http://xmlns.com/foaf/0.1/account")
+  @BagURIProperty("http://xmlns.com/foaf/0.1/account")
   public void setOnlineAccount(Collection<OnlineAccount> onlineAccount){
+    if( onlineAccount != null ){
+      for( GabotoEntity _entity : onlineAccount)
+        this.removeMissingReference( _entity.getUri() );
+    }
+
     this.onlineAccount = onlineAccount;
   }
 
-  public void addOnlineAccount(OnlineAccount onlineAccountP){
-    if(this.onlineAccount == null)
-      setOnlineAccount( new HashSet<OnlineAccount>() );
-    this.onlineAccount.add(onlineAccountP);
+  public void addOnlineAccount(OnlineAccount onlineAccount){
+    if( onlineAccount != null )
+      this.removeMissingReference( onlineAccount.getUri() );
+    if(this.onlineAccount == null )
+      this.onlineAccount = new HashSet<OnlineAccount>();
+    this.onlineAccount.add(onlineAccount);
   }
 
   @IndirectProperty({"http://www.w3.org/2003/01/geo/wgs84_pos#long","http://www.w3.org/2003/01/geo/wgs84_pos#lat"})
@@ -419,28 +427,22 @@ public class Agent extends OxpEntity {
 
     }
 
-    // Load BAG_COMPLEX_PROPERTY onlineAccount
+    // Load BAG_URI_PROPERTY onlineAccount
     {
         StmtIterator stmts = res.listProperties(snapshot.getProperty("http://xmlns.com/foaf/0.1/account"));
         while (stmts.hasNext()) {
             RDFNode node = stmts.next().getObject();
-            if(! node.isAnon())
-              throw new IllegalArgumentException("node should be a blank node");
+            if(! node.isResource())
+              throw new IllegalArgumentException("node should be a resource");
 
-            Resource anon_res = (Resource) node;
-            String type = anon_res.getProperty(snapshot.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).getObject().toString();
-            OnlineAccount prop;
-            try {
-                prop = (OnlineAccount) (new OxpointsGabotoOntologyLookup()).getBeanClassFor(type).newInstance();
-            } catch (InstantiationException e) {
-                throw new GabotoRuntimeException();
-            } catch (IllegalAccessException e) {
-                throw new GabotoRuntimeException();
+            Resource missingReference = (Resource)node;
+            EntityExistsCallback callback = new EntityExistsCallback(){
+              public void entityExists(EntityPool p, GabotoEntity entity) {
+                addOnlineAccount((OnlineAccount) entity);
             }
-            prop.loadFromResource(anon_res, snapshot, pool);
-            addOnlineAccount(prop);
-        }
-
+        };
+        this.addMissingReference(missingReference, callback);
+      }
     }
 
     // Load BAG_URI_PROPERTY site

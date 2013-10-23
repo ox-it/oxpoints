@@ -21,11 +21,13 @@ import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagComplexProperty;
+import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 import net.sf.gaboto.node.annotation.StaticProperty;
 
+import net.sf.gaboto.node.pool.EntityExistsCallback;
 import net.sf.gaboto.node.pool.EntityPool;
 import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 
@@ -46,6 +48,7 @@ public class Place extends SpatialThing {
   protected Address address;
   protected Float floor;
   protected String osmId;
+  protected Collection<OnlineAccount> onlineAccount;
   protected Collection<SpaceConfiguration> spaceConfiguration;
   protected Collection<SpaceConfiguration> primarySpaceConfiguration;
   private Collection<Agent> occupiedBy;
@@ -123,6 +126,31 @@ public class Place extends SpatialThing {
   )
   public void setOsmId(String osmId){
     this.osmId = osmId;
+  }
+
+  @BagURIProperty("http://xmlns.com/foaf/0.1/account")
+  public Collection<OnlineAccount> getOnlineAccount(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.onlineAccount;
+  }
+
+  @BagURIProperty("http://xmlns.com/foaf/0.1/account")
+  public void setOnlineAccount(Collection<OnlineAccount> onlineAccount){
+    if( onlineAccount != null ){
+      for( GabotoEntity _entity : onlineAccount)
+        this.removeMissingReference( _entity.getUri() );
+    }
+
+    this.onlineAccount = onlineAccount;
+  }
+
+  public void addOnlineAccount(OnlineAccount onlineAccount){
+    if( onlineAccount != null )
+      this.removeMissingReference( onlineAccount.getUri() );
+    if(this.onlineAccount == null )
+      this.onlineAccount = new HashSet<OnlineAccount>();
+    this.onlineAccount.add(onlineAccount);
   }
 
   @BagComplexProperty("http://purl.org/openorg/space-configuration/spaceConfiguration")
@@ -253,6 +281,24 @@ public class Place extends SpatialThing {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setOsmId(((Literal)stmt.getObject()).getString());
+
+    // Load BAG_URI_PROPERTY onlineAccount
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://xmlns.com/foaf/0.1/account"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isResource())
+              throw new IllegalArgumentException("node should be a resource");
+
+            Resource missingReference = (Resource)node;
+            EntityExistsCallback callback = new EntityExistsCallback(){
+              public void entityExists(EntityPool p, GabotoEntity entity) {
+                addOnlineAccount((OnlineAccount) entity);
+            }
+        };
+        this.addMissingReference(missingReference, callback);
+      }
+    }
 
     // Load BAG_COMPLEX_PROPERTY spaceConfiguration
     {

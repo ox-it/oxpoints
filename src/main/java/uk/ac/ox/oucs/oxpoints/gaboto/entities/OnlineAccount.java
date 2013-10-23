@@ -1,28 +1,40 @@
-package uk.ac.ox.oucs.oxpoints.gaboto.beans;
+package uk.ac.ox.oucs.oxpoints.gaboto.entities;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 
-import net.sf.gaboto.GabotoSnapshot;
+import java.lang.reflect.Method;
 
-import net.sf.gaboto.node.GabotoBean;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import net.sf.gaboto.GabotoSnapshot;
 
 import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
 
 import net.sf.gaboto.node.pool.EntityPool;
 
+import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
+
 
 /**
- * Gaboto generated bean.
+ * Gaboto generated Entity.
  * @see net.sf.gaboto.generation.GabotoGenerator
  */
-public class OnlineAccount extends GabotoBean {
+public class OnlineAccount extends OxpEntity {
   protected String accountServiceHomepage;
   protected String accountName;
   protected String accountProfilePage;
+
+
+  private static Map<String, List<Method>> indirectPropertyLookupTable;
+  static{
+    indirectPropertyLookupTable = new HashMap<String, List<Method>>();
+  }
 
   @Override
   public String getType(){
@@ -71,8 +83,10 @@ public class OnlineAccount extends GabotoBean {
 
 
 
-  public void loadFromResource(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
-    super.loadFromResource(res, snapshot, pool);
+
+
+  public void loadFromSnapshot(Resource res, GabotoSnapshot snapshot, EntityPool pool) {
+    super.loadFromSnapshot(res, snapshot, pool);
     Statement stmt;
 
     // Load SIMPLE_RESOURCE_PROPERTY accountServiceHomepage
@@ -93,7 +107,17 @@ public class OnlineAccount extends GabotoBean {
     }
 
   }
-  public String toString() {
-    return this.accountServiceHomepage + ", " + this.accountName + ", " + this.accountProfilePage ;
+  protected List<Method> getIndirectMethodsForProperty(String propertyURI){
+    List<Method> list = super.getIndirectMethodsForProperty(propertyURI);
+    if(list == null)
+      return indirectPropertyLookupTable.get(propertyURI);
+    
+    else{
+      List<Method> tmp = indirectPropertyLookupTable.get(propertyURI);
+      if(tmp != null)
+        list.addAll(tmp);
+    }
+    return list;
   }
+
 }

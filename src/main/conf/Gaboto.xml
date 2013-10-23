@@ -97,13 +97,6 @@
         <GabotoBean name="Fax" type="&vCard;Fax"/>
       </GabotoBeans>
     </GabotoBean>
-    <GabotoBean name="OnlineAccount" type="&foaf;OnlineAccount">
-      <properties>
-        <property name="accountServiceHomepage" type="Resource" uri="&foaf;accountServiceHomepage"/>
-        <property name="accountName" type="String" uri="&foaf;accountName"/>
-        <property name="accountProfilePage" type="Resource" uri="&foaf;accountProfilePage"/>
-      </properties>
-    </GabotoBean>
     <GabotoBean name="SpaceConfiguration" type="&oosc;SpaceConfiguration">
       <properties>
         <property name="capacity" type="int" uri="&oo;capacity"/>
@@ -176,6 +169,13 @@
 	  return collections;
   }]]></method></customMethods>
       <GabotoEntities>
+        <GabotoEntity name="OnlineAccount" type="&foaf;OnlineAccount">
+          <properties>
+            <property name="accountServiceHomepage" type="Resource" uri="&foaf;accountServiceHomepage"/>
+            <property name="accountName" type="String" uri="&foaf;accountName"/>
+            <property name="accountProfilePage" type="Resource" uri="&foaf;accountProfilePage"/>
+          </properties>
+        </GabotoEntity>
         <GabotoEntity name="SKOSCollection" type="&skos;Collection">
           <properties>
             <property name="member" type="OxpEntity" collection="bag" uri="&skos;member">
@@ -228,6 +228,7 @@
                 <property name="address" type="Address" uri="&vCard;adr"/>
                 <property name="floor" type="Float" uri="&oxp;floor"/>
                 <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
+                <property name="onlineAccount" type="OnlineAccount" uri="&foaf;account" collection="bag"/>
                 <property name="spaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;spaceConfiguration"/>
                 <property name="primarySpaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;primarySpaceConfiguration"/>
                 <passiveProperty name="occupiedBy" type="Agent" relationshipType="N:M" uri="&oxp;occupies"/>
