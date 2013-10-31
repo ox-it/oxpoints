@@ -45,6 +45,25 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 public class SeparatedTEIImporter {
+	
+	static class OnlineAccountType {
+		public String uriPrefix;
+		public String serviceHomepage;
+		public OnlineAccountType(String serviceHomepage) {
+			this.uriPrefix = serviceHomepage; this.serviceHomepage = serviceHomepage;
+		}
+		public OnlineAccountType(String uriPrefix, String serviceHomepage) {
+			this.uriPrefix = uriPrefix; this.serviceHomepage = serviceHomepage;
+		}
+	}
+	static Map<String,OnlineAccountType> onlineAccountTypes = new HashMap<String,OnlineAccountType>();
+	static {
+		onlineAccountTypes.put("twitter", new OnlineAccountType("https://www.twitter.com/"));
+		onlineAccountTypes.put("youtube", new OnlineAccountType("http://www.youtube.com/user/", "http://www.youtube.com/"));
+		onlineAccountTypes.put("facebook", new OnlineAccountType("https://www.facebook.com/"));
+		onlineAccountTypes.put("github", new OnlineAccountType("https://github.com/"));
+		onlineAccountTypes.put("linkedin", new OnlineAccountType("http://www.linkedin.com/company/", "http://www.linkedin.com/"));
+	}
 
 	private Gaboto gaboto;
 	private WarningHandler warningHandler;
@@ -293,12 +312,12 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setLibraryDataId", elem);
 					else if (elemType.equals("osm")) {
 						entity.addProperty("setOsmId", elem);
-					} else if (elemType.equals("twitter")) {
+					} else if (onlineAccountTypes.containsKey(elemType)) {
 						OnlineAccount account = new OnlineAccount();
-						account.setUri("https://www.twitter.com/" + elem.getTextContent());
-						account.setAccountServiceHomepage("https://www.twitter.com/");
+						OnlineAccountType onlineAccountType = onlineAccountTypes.get(elemType);
+						account.setUri(onlineAccountType.uriPrefix + elem.getTextContent());
+						account.setAccountServiceHomepage(onlineAccountType.serviceHomepage);
 						account.setAccountName(elem.getTextContent());
-						account.setAccountProfilePage("https://www.twitter.com/" + elem.getTextContent());
 						entity.addProperty("addOnlineAccount", account, elem);
 						try {
 							gaboto.add(account);
