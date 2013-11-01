@@ -45,6 +45,7 @@ public class OxpEntity extends GabotoEntity {
   protected Collection<String> sameAss;
   protected String description;
   protected String homepage;
+  protected String weblog;
   protected Collection<String> dcType;
   protected String prefLabel;
   protected Collection<String> altLabels;
@@ -163,6 +164,16 @@ public class OxpEntity extends GabotoEntity {
   @ResourceProperty("http://xmlns.com/foaf/0.1/homepage")
   public void setHomepage(String homepage){
     this.homepage = homepage;
+  }
+
+  @ResourceProperty("http://xmlns.com/foaf/0.1/weblog")
+  public String getWeblog(){
+    return this.weblog;
+  }
+
+  @ResourceProperty("http://xmlns.com/foaf/0.1/weblog")
+  public void setWeblog(String weblog){
+    this.weblog = weblog;
   }
 
   @BagLiteralProperty(
@@ -399,6 +410,12 @@ public class OxpEntity extends GabotoEntity {
     stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/homepage"));
     if(stmt != null && stmt.getObject().isURIResource()){
       this.setHomepage(((Resource) stmt.getObject()).getURI());
+    }
+
+    // Load SIMPLE_RESOURCE_PROPERTY weblog
+    stmt = res.getProperty(snapshot.getProperty("http://xmlns.com/foaf/0.1/weblog"));
+    if(stmt != null && stmt.getObject().isURIResource()){
+      this.setWeblog(((Resource) stmt.getObject()).getURI());
     }
 
     // Load BAG_LITERAL_PROPERTY dcType

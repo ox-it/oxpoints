@@ -147,6 +147,7 @@
         <property name="sameAss" type="Resource" collection="bag" uri="&skos;exactMatch"/>
         <property name="description" type="String" uri="&dc;description"/>
         <property name="homepage" type="Resource" uri="&foaf;homepage"/>
+        <property name="weblog" type="Resource" uri="&foaf;weblog"/>
         <property name="dcType" collection="bag" type="String" uri="&dc;type"/>
         <property name="prefLabel" type="String" uri="&skos;prefLabel"/>
         <property name="altLabels" type="String" collection="bag" uri="&skos;altLabel"/>

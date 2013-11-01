@@ -70,7 +70,12 @@ public class SeparatedTEIImporter {
 		onlineAccountTypes.put("github", new OnlineAccountType("https://github.com/"));
 		onlineAccountTypes.put("linkedin", new OnlineAccountType("http://www.linkedin.com/", "http://www.linkedin.com/company/"));
 		onlineAccountTypes.put("flickr", new OnlineAccountType("http://www.flickr.com/", "http://www.flickr.com/people/", "/"));
-		
+		onlineAccountTypes.put("delicious", new OnlineAccountType("https://delicious.com/"));
+		onlineAccountTypes.put("librarything", new OnlineAccountType("http://www.librarything.com/", "http://www.librarything.com/profile/"));
+		onlineAccountTypes.put("pinterest", new OnlineAccountType("http://www.pinterest.com/", "http://www.pinterest.com/", "/"));
+		onlineAccountTypes.put("slideshare", new OnlineAccountType("http://www.slideshare.net/"));
+		onlineAccountTypes.put("googleplus", new OnlineAccountType("https://plus.google.com/"));
+		onlineAccountTypes.put("worldcat", new OnlineAccountType("http://www.worldcat.org/", "http://www.worldcat.org/profiles/"));
 	}
 
 	private Gaboto gaboto;
@@ -246,6 +251,8 @@ public class SeparatedTEIImporter {
 					entity.addProperty("setLibraryHomepage", getWebsite(elem, filename, false), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("weblearn")) {
 					entity.addProperty("setWeblearn", getWebsite(elem, filename, false), from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("weblog")) {
+					entity.addProperty("setWeblog", getWebsite(elem, filename, true), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("telephone")) {
 					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("facsimile")) {
