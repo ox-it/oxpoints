@@ -69,7 +69,7 @@ public class SeparatedTEIImporter {
 		onlineAccountTypes.put("facebook", new OnlineAccountType("https://www.facebook.com/"));
 		onlineAccountTypes.put("github", new OnlineAccountType("https://github.com/"));
 		onlineAccountTypes.put("linkedin", new OnlineAccountType("http://www.linkedin.com/", "http://www.linkedin.com/company/"));
-		onlineAccountTypes.put("flickr", new OnlineAccountType("http://www.flickr.com/", "http://www.flickr.com/photos/", "/"));
+		onlineAccountTypes.put("flickr", new OnlineAccountType("http://www.flickr.com/", "http://www.flickr.com/people/", "/"));
 		
 	}
 
