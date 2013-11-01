@@ -48,21 +48,29 @@ public class SeparatedTEIImporter {
 	
 	static class OnlineAccountType {
 		public String uriPrefix;
+		public String uriSuffix = "";
 		public String serviceHomepage;
 		public OnlineAccountType(String serviceHomepage) {
-			this.uriPrefix = serviceHomepage; this.serviceHomepage = serviceHomepage;
+			this.serviceHomepage = serviceHomepage; this.uriPrefix = serviceHomepage;
 		}
-		public OnlineAccountType(String uriPrefix, String serviceHomepage) {
-			this.uriPrefix = uriPrefix; this.serviceHomepage = serviceHomepage;
+		public OnlineAccountType(String serviceHomepage, String uriPrefix) {
+			this.serviceHomepage = serviceHomepage; this.uriPrefix = uriPrefix;
+		}
+		public OnlineAccountType(String serviceHomepage, String uriPrefix, String uriSuffix) {
+			this.serviceHomepage = serviceHomepage;
+			this.uriPrefix = uriPrefix;
+			this.uriSuffix = uriSuffix;
 		}
 	}
 	static Map<String,OnlineAccountType> onlineAccountTypes = new HashMap<String,OnlineAccountType>();
 	static {
 		onlineAccountTypes.put("twitter", new OnlineAccountType("https://www.twitter.com/"));
-		onlineAccountTypes.put("youtube", new OnlineAccountType("http://www.youtube.com/user/", "http://www.youtube.com/"));
+		onlineAccountTypes.put("youtube", new OnlineAccountType("http://www.youtube.com/", "http://www.youtube.com/user/"));
 		onlineAccountTypes.put("facebook", new OnlineAccountType("https://www.facebook.com/"));
 		onlineAccountTypes.put("github", new OnlineAccountType("https://github.com/"));
-		onlineAccountTypes.put("linkedin", new OnlineAccountType("http://www.linkedin.com/company/", "http://www.linkedin.com/"));
+		onlineAccountTypes.put("linkedin", new OnlineAccountType("http://www.linkedin.com/", "http://www.linkedin.com/company/"));
+		onlineAccountTypes.put("flickr", new OnlineAccountType("http://www.flickr.com/", "http://www.flickr.com/photos/", "/"));
+		
 	}
 
 	private Gaboto gaboto;
@@ -315,7 +323,7 @@ public class SeparatedTEIImporter {
 					} else if (onlineAccountTypes.containsKey(elemType)) {
 						OnlineAccount account = new OnlineAccount();
 						OnlineAccountType onlineAccountType = onlineAccountTypes.get(elemType);
-						account.setUri(onlineAccountType.uriPrefix + elem.getTextContent());
+						account.setUri(onlineAccountType.uriPrefix + elem.getTextContent() + onlineAccountType.uriSuffix);
 						account.setAccountServiceHomepage(onlineAccountType.serviceHomepage);
 						account.setAccountName(elem.getTextContent());
 						entity.addProperty("addOnlineAccount", account, elem);
