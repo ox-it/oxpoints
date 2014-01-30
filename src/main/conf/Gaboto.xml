@@ -218,6 +218,7 @@
               <unstoredProperty uri="&gabotoKML;parent"/>
             </property>
             <property name="parent" type="Place" uri="&dct;isPartOf"/>
+            <property name="reception" type="Place" uri="&oxp;reception"/>
             <property name="longitude" type="Float" uri="&geo;long"/>
             <property name="latitude" type="Float" uri="&geo;lat"/>
             <passiveProperty name="containedPlaces" type="Place" relationshipType="1:N" uri="&dct;isPartOf"/>

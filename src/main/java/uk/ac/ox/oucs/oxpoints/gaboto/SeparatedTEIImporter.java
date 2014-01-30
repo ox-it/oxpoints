@@ -394,6 +394,8 @@ public class SeparatedTEIImporter {
 					} else if (relationName.equals("controls")) {
 						relations.add(new Relation(Agent.class, "setParent", true));
 						relations.add(new Relation(Agent.class, "setSubOrganizationOf", true));
+					} else if (relationName.equals("reception")) {
+						relations.add(new Relation(SpatialThing.class, "setReception"));
 					} else if (relationName.equals("member")) {
 						relations.add(new Relation(OxpEntity.class, "addMember"));
 					} else if (relationName.equals("memberOf")) {
