@@ -39,7 +39,6 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 public class SpatialThing extends OxpEntity {
   protected Place containedBy;
   protected Place parent;
-  protected Place reception;
   protected Float longitude;
   protected Float latitude;
   private Collection<Place> containedPlaces;
@@ -97,20 +96,6 @@ public class SpatialThing extends OxpEntity {
     if( parent != null )
       this.removeMissingReference( parent.getUri() );
     this.parent = parent;
-  }
-
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#reception")
-  public Place getReception(){
-    if(! this.isDirectReferencesResolved())
-      this.resolveDirectReferences();
-    return this.reception;
-  }
-
-  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#reception")
-  public void setReception(Place reception){
-    if( reception != null )
-      this.removeMissingReference( reception.getUri() );
-    this.reception = reception;
   }
 
   @SimpleLiteralProperty(
@@ -227,18 +212,6 @@ public class SpatialThing extends OxpEntity {
       EntityExistsCallback callback = new EntityExistsCallback(){
         public void entityExists(EntityPool p, GabotoEntity entity) {
           setParent((Place)entity);
-        }
-      };
-      this.addMissingReference(missingReference, callback);
-    }
-
-    // Load SIMPLE_URI_PROPERTY reception
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#reception"));
-    if(stmt != null && stmt.getObject().isResource()){
-      Resource missingReference = (Resource)stmt.getObject();
-      EntityExistsCallback callback = new EntityExistsCallback(){
-        public void entityExists(EntityPool p, GabotoEntity entity) {
-          setReception((Place)entity);
         }
       };
       this.addMissingReference(missingReference, callback);

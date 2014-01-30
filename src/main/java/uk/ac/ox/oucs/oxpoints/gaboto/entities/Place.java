@@ -25,6 +25,7 @@ import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
 import net.sf.gaboto.node.annotation.SimpleLiteralProperty;
+import net.sf.gaboto.node.annotation.SimpleURIProperty;
 import net.sf.gaboto.node.annotation.StaticProperty;
 
 import net.sf.gaboto.node.pool.EntityExistsCallback;
@@ -34,6 +35,7 @@ import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
+import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
@@ -46,6 +48,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 public class Place extends SpatialThing {
   protected String oBNCode;
   protected Address address;
+  protected Place reception;
   protected Float floor;
   protected String osmId;
   protected Collection<OnlineAccount> onlineAccount;
@@ -90,6 +93,20 @@ public class Place extends SpatialThing {
   @ComplexProperty("http://www.w3.org/2006/vcard/ns#adr")
   public void setAddress(Address address){
     this.address = address;
+  }
+
+  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#reception")
+  public Place getReception(){
+    if(! this.isDirectReferencesResolved())
+      this.resolveDirectReferences();
+    return this.reception;
+  }
+
+  @SimpleURIProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#reception")
+  public void setReception(Place reception){
+    if( reception != null )
+      this.removeMissingReference( reception.getUri() );
+    this.reception = reception;
   }
 
   @SimpleLiteralProperty(
@@ -270,6 +287,18 @@ public class Place extends SpatialThing {
       Address bean = new Address();
       bean.loadFromResource((Resource)stmt.getObject(), snapshot, pool);
       setAddress(bean);
+    }
+
+    // Load SIMPLE_URI_PROPERTY reception
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#reception"));
+    if(stmt != null && stmt.getObject().isResource()){
+      Resource missingReference = (Resource)stmt.getObject();
+      EntityExistsCallback callback = new EntityExistsCallback(){
+        public void entityExists(EntityPool p, GabotoEntity entity) {
+          setReception((Place)entity);
+        }
+      };
+      this.addMissingReference(missingReference, callback);
     }
 
     // Load SIMPLE_LITERAL_PROPERTY floor
