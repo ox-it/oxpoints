@@ -302,6 +302,14 @@ public class SeparatedTEIImporter {
 						entity.addProperty("addAltLabel", elem);
 					if (types.contains("hidden"))
 						entity.addProperty("addHiddenLabel", elem);
+					if (types.contains("short"))
+						entity.addProperty("setShortLabel", elem);
+					if (types.contains("map"))
+						entity.addProperty("setMapLabel", elem);
+					if (types.contains("acronym")) {
+						entity.addProperty("setAcronym", elem);
+						entity.addProperty("addAltLabel", elem);
+					}
 					
 				} else if (tagName.equals("desc")) {
 					entity.addProperty("setDescription", elem);

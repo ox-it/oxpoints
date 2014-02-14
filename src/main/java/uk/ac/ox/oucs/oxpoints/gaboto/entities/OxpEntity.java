@@ -50,7 +50,9 @@ public class OxpEntity extends GabotoEntity {
   protected String prefLabel;
   protected Collection<String> altLabels;
   protected Collection<String> hiddenLabels;
+  protected String shortLabel;
   protected String sortLabel;
+  protected String acronym;
   private Collection<SKOSCollection> memberOf;
 
 
@@ -267,6 +269,24 @@ public class OxpEntity extends GabotoEntity {
   }
 
   @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#shortLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getShortLabel(){
+    return this.shortLabel;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#shortLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setShortLabel(String shortLabel){
+    this.shortLabel = shortLabel;
+  }
+
+  @SimpleLiteralProperty(
     value = "http://open.vocab.org/terms/sortLabel",
     datatypeType = "javaprimitive",
     javaType = "String"
@@ -282,6 +302,24 @@ public class OxpEntity extends GabotoEntity {
   )
   public void setSortLabel(String sortLabel){
     this.sortLabel = sortLabel;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://open.vocab.org/terms/prefAcronym",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getAcronym(){
+    return this.acronym;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://open.vocab.org/terms/prefAcronym",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setAcronym(String acronym){
+    this.acronym = acronym;
   }
 
   @PassiveProperty(
@@ -459,10 +497,20 @@ public class OxpEntity extends GabotoEntity {
         }
     }
 
+    // Load SIMPLE_LITERAL_PROPERTY shortLabel
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#shortLabel"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setShortLabel(((Literal)stmt.getObject()).getString());
+
     // Load SIMPLE_LITERAL_PROPERTY sortLabel
     stmt = res.getProperty(snapshot.getProperty("http://open.vocab.org/terms/sortLabel"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setSortLabel(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY acronym
+    stmt = res.getProperty(snapshot.getProperty("http://open.vocab.org/terms/prefAcronym"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setAcronym(((Literal)stmt.getObject()).getString());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

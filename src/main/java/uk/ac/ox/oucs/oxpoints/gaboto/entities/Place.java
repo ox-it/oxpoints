@@ -50,6 +50,7 @@ public class Place extends SpatialThing {
   protected Address address;
   protected Place reception;
   protected Float floor;
+  protected String mapLabel;
   protected String osmId;
   protected Collection<OnlineAccount> onlineAccount;
   protected Collection<SpaceConfiguration> spaceConfiguration;
@@ -125,6 +126,24 @@ public class Place extends SpatialThing {
   )
   public void setFloor(Float floor){
     this.floor = floor;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#mapLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getMapLabel(){
+    return this.mapLabel;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#mapLabel",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setMapLabel(String mapLabel){
+    this.mapLabel = mapLabel;
   }
 
   @SimpleLiteralProperty(
@@ -305,6 +324,11 @@ public class Place extends SpatialThing {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#floor"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setFloor(((Literal)stmt.getObject()).getFloat());
+
+    // Load SIMPLE_LITERAL_PROPERTY mapLabel
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#mapLabel"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setMapLabel(((Literal)stmt.getObject()).getString());
 
     // Load SIMPLE_LITERAL_PROPERTY osmId
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));
