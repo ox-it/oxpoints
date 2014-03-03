@@ -334,7 +334,7 @@ public class SeparatedTEIImporter {
 					else if (elemType.equals("library-data-id"))
 						entity.addProperty("setLibraryDataId", elem);
 					else if (elemType.equals("osm")) {
-						entity.addProperty("setOsmId", elem);
+						entity.addProperty("addOsmId", elem);
 					} else if (onlineAccountTypes.containsKey(elemType)) {
 						OnlineAccount account = new OnlineAccount();
 						OnlineAccountType onlineAccountType = onlineAccountTypes.get(elemType);
