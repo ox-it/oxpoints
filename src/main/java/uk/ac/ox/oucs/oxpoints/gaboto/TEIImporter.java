@@ -564,7 +564,7 @@ public class TEIImporter {
 		for (int j = 0; j < refs.getLength(); j++) {
 			Element ref = (Element) refs.item(j);
 			if ("osm".equals(ref.getAttribute("type"))) {
-				building.setOsmId(ref.getTextContent());
+				building.addOsmId(ref.getTextContent());
 				System.out.println(ref.getTextContent());
 				//throw new RuntimeException();
 				break;
