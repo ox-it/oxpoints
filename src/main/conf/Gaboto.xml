@@ -232,7 +232,7 @@
 	            <property name="reception" type="Place" uri="&oxp;reception"/>
                 <property name="floor" type="Float" uri="&oxp;floor"/>
                 <property name="mapLabel" type="String" uri="&oxp;mapLabel"/>
-                <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier"/>
+                <property name="osmId" type="String" uri="&oxp;hasOSMIdentifier" collection="bag"/>
                 <property name="onlineAccount" type="OnlineAccount" uri="&foaf;account" collection="bag"/>
                 <property name="spaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;spaceConfiguration"/>
                 <property name="primarySpaceConfiguration" type="SpaceConfiguration" collection="bag" uri="&oosc;primarySpaceConfiguration"/>

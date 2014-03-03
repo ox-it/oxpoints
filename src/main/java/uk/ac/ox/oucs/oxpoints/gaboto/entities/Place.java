@@ -21,6 +21,7 @@ import net.sf.gaboto.GabotoSnapshot;
 import net.sf.gaboto.node.GabotoEntity;
 
 import net.sf.gaboto.node.annotation.BagComplexProperty;
+import net.sf.gaboto.node.annotation.BagLiteralProperty;
 import net.sf.gaboto.node.annotation.BagURIProperty;
 import net.sf.gaboto.node.annotation.ComplexProperty;
 import net.sf.gaboto.node.annotation.PassiveProperty;
@@ -35,7 +36,6 @@ import net.sf.gaboto.node.pool.PassiveEntitiesRequest;
 import uk.ac.ox.oucs.oxpoints.gaboto.OxpointsGabotoOntologyLookup;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.Address;
-import uk.ac.ox.oucs.oxpoints.gaboto.beans.OnlineAccount;
 import uk.ac.ox.oucs.oxpoints.gaboto.beans.SpaceConfiguration;
 
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
@@ -51,7 +51,7 @@ public class Place extends SpatialThing {
   protected Place reception;
   protected Float floor;
   protected String mapLabel;
-  protected String osmId;
+  protected Collection<String> osmId;
   protected Collection<OnlineAccount> onlineAccount;
   protected Collection<SpaceConfiguration> spaceConfiguration;
   protected Collection<SpaceConfiguration> primarySpaceConfiguration;
@@ -146,22 +146,28 @@ public class Place extends SpatialThing {
     this.mapLabel = mapLabel;
   }
 
-  @SimpleLiteralProperty(
+  @BagLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public String getOsmId(){
+  public Collection<String> getOsmId(){
     return this.osmId;
   }
 
-  @SimpleLiteralProperty(
+  @BagLiteralProperty(
     value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier",
     datatypeType = "javaprimitive",
     javaType = "String"
   )
-  public void setOsmId(String osmId){
+  public void setOsmId(Collection<String> osmId){
     this.osmId = osmId;
+  }
+
+  public void addOsmId(String osmIdP){
+    if(this.osmId == null)
+      setOsmId( new HashSet<String>() );
+    this.osmId.add(osmIdP);
   }
 
   @BagURIProperty("http://xmlns.com/foaf/0.1/account")
@@ -330,10 +336,17 @@ public class Place extends SpatialThing {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setMapLabel(((Literal)stmt.getObject()).getString());
 
-    // Load SIMPLE_LITERAL_PROPERTY osmId
-    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));
-    if(stmt != null && stmt.getObject().isLiteral())
-      this.setOsmId(((Literal)stmt.getObject()).getString());
+    // Load BAG_LITERAL_PROPERTY osmId
+    {
+        StmtIterator stmts = res.listProperties(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOSMIdentifier"));
+        while (stmts.hasNext()) {
+            RDFNode node = stmts.next().getObject();
+            if(! node.isLiteral())
+              throw new IllegalArgumentException("node should be a literal");
+
+            addOsmId(((Literal)node).getString());
+        }
+    }
 
     // Load BAG_URI_PROPERTY onlineAccount
     {
