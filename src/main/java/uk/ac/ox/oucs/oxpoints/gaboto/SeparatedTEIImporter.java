@@ -440,17 +440,27 @@ public class SeparatedTEIImporter {
 					);
 				} else if (tagName.equals("note")) {
 					NodeList figures = element.getElementsByTagName("figure");
+					boolean foundPrimaryImage = false;
+					String firstImageURI = null;
 					for (int j=0; j < figures.getLength(); j++) {
 						if (!(figures.item(j) instanceof Element))
 							continue;
 						String imageURI = loadImage((Element) figures.item(j), filename);
-						if (((Element) figures.item(j)).getAttribute("type").equals("logo"))
+						String type = ((Element) figures.item(j)).getAttribute("type");
+						if (type.equals("logo"))
 							entity.addRelation("setLogo", imageURI, element, Image.class);
-						else
+						else {
 							entity.addRelation("addImage", imageURI, element, Image.class);
-						if (((Element) figures.item(j)).getAttribute("type").equals("primary"))
+							if (firstImageURI == null ) firstImageURI = imageURI;
+						}
+						if (type.equals("primary")) {
 							entity.addRelation("setImg", imageURI, element, Image.class);
+							foundPrimaryImage = true;
+						}
 					}
+					if (!foundPrimaryImage && firstImageURI != null)
+						entity.addRelation("setImg", firstImageURI, element, Image.class);
+						
 				}
 			}
 
