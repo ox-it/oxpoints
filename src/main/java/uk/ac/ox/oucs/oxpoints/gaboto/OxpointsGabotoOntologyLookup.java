@@ -61,6 +61,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     entityClassLookupNames.put("http://www.w3.org/ns/org#OrganizationalCollaboration", "OrganizationalCollaboration");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Carpark", "Carpark");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Website", "Website");
+    entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#DTC", "DTC");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#University", "University");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Hall", "Hall");
     entityClassLookupNames.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Building", "Building");
@@ -104,6 +105,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
       entityClassLookupClass.put("http://www.w3.org/ns/org#OrganizationalCollaboration", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.OrganizationalCollaboration"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Carpark", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Website", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Website"));
+      entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#DTC", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.DTC"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#University", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.University"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Hall", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Hall"));
       entityClassLookupClass.put("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Building", (Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Building"));
@@ -172,6 +174,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.OrganizationalCollaboration"), "http://www.w3.org/ns/org#OrganizationalCollaboration");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Carpark"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Carpark");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Website"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Website");
+      classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.DTC"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#DTC");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.University"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#University");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Hall"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Hall");
       classToURILookup.put((Class<?  extends GabotoEntity>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.entities.Building"), "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Building");
@@ -216,6 +219,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     nameToURILookup.put("OrganizationalCollaboration", "http://www.w3.org/ns/org#OrganizationalCollaboration");
     nameToURILookup.put("Carpark", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Carpark");
     nameToURILookup.put("Website", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Website");
+    nameToURILookup.put("DTC", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#DTC");
     nameToURILookup.put("University", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#University");
     nameToURILookup.put("Hall", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Hall");
     nameToURILookup.put("Building", "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Building");
@@ -258,6 +262,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     entityTypes.add("http://www.w3.org/ns/org#OrganizationalCollaboration");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Carpark");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Website");
+    entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#DTC");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#University");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Hall");
     entityTypes.add("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#Building");
@@ -301,6 +306,7 @@ public class OxpointsGabotoOntologyLookup implements OntologyLookup {
     entityClassNames.add("Department");
     entityClassNames.add("Division");
     entityClassNames.add("Faculty");
+    entityClassNames.add("DTC");
     entityClassNames.add("Library");
     entityClassNames.add("SubLibrary");
     entityClassNames.add("Museum");

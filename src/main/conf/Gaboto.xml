@@ -376,6 +376,7 @@
                     <GabotoEntity name="Department" type="&oxp;Department"/>
                     <GabotoEntity name="Division" type="&oxp;Division"/>
                     <GabotoEntity name="Faculty" type="&oxp;Faculty"/>
+                    <GabotoEntity name="DTC" type="&oxp;DTC"/>
                     <GabotoEntity name="Library" type="&oxp;Library">
                       <properties>
                         <property name="OLISCode" collection="bag" type="String" uri="&oxp;hasOLISCode"/>
