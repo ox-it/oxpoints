@@ -267,6 +267,8 @@
                         </GabotoEntity>
 -->
                 <GabotoEntity name="Building" type="&oxp;Building"/>
+                <GabotoEntity name="BuildingPart" type="&oxp;BuildingPart"/>
+                <GabotoEntity name="BuildingGroup" type="&oxp;BuildingGroup"/>
                 <GabotoEntity name="Carpark" type="&oxp;Carpark">
                   <properties>
                     <property name="capacity" type="Integer" uri="&oxp;capacity"/>
