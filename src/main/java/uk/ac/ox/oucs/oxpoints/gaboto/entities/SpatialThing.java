@@ -42,6 +42,7 @@ public class SpatialThing extends OxpEntity {
   protected Float longitude;
   protected Float latitude;
   private Collection<Place> containedPlaces;
+  protected Boolean managedBuilding;
 
 
   private static Map<String, List<Method>> indirectPropertyLookupTable;
@@ -158,6 +159,24 @@ public class SpatialThing extends OxpEntity {
     this.containedPlaces.add(containedPlaceP);
   }
 
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#managedBuilding",
+    datatypeType = "javaprimitive",
+    javaType = "Boolean"
+  )
+  public Boolean getManagedBuilding(){
+    return this.managedBuilding;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#managedBuilding",
+    datatypeType = "javaprimitive",
+    javaType = "Boolean"
+  )
+  public void setManagedBuilding(Boolean managedBuilding){
+    this.managedBuilding = managedBuilding;
+  }
+
 
 
 
@@ -226,6 +245,11 @@ public class SpatialThing extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2003/01/geo/wgs84_pos#lat"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setLatitude(((Literal)stmt.getObject()).getFloat());
+
+    // Load SIMPLE_LITERAL_PROPERTY managedBuilding
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#managedBuilding"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setManagedBuilding(((Literal)stmt.getObject()).getBoolean());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

@@ -229,7 +229,9 @@ public class SeparatedTEIImporter {
 				TimeInstant from = new ImmutableTimeInstant(elem.getAttribute("inferredFrom"));
 				TimeInstant to = new ImmutableTimeInstant(elem.getAttribute("inferredTo"));
 
-				if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
+				if (tagName.equals("trait") && elem.getAttribute("type").equals("managedBuilding")) {
+					entity.addProperty("setManagedBuilding", true, from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
 					entity.addType(elem);
 					
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("subtype")) {
