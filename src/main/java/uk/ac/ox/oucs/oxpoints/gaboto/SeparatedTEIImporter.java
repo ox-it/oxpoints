@@ -95,7 +95,7 @@ public class SeparatedTEIImporter {
 		if (path.isDirectory())
 			loadDirectory(path);
 		else
-			loadFile(path);// Calculate default for displayInMapsDepartmentList
+			loadFile(path);
 	}
 	
 	public void loadDirectory(File directory) {
@@ -232,7 +232,7 @@ public class SeparatedTEIImporter {
 				if (tagName.equals("trait") && elem.getAttribute("type").equals("managedBuilding")) {
 					entity.addProperty("setManagedBuilding", true, from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("displayInMapsDepartmentList")) {
-					entity.addProperty("setDisplayInMapsDepartmentList", elem.getTextContent() == "true", from, to);
+					entity.addProperty("setDisplayInMapsDepartmentList", elem.getTextContent().equals("true"), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
 					entity.addType(elem);
 					
