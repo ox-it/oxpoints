@@ -95,7 +95,7 @@ public class SeparatedTEIImporter {
 		if (path.isDirectory())
 			loadDirectory(path);
 		else
-			loadFile(path);
+			loadFile(path);// Calculate default for displayInMapsDepartmentList
 	}
 	
 	public void loadDirectory(File directory) {
@@ -121,15 +121,15 @@ public class SeparatedTEIImporter {
 		
 		try {
 			document = XMLUtils.readInputFileIntoJAXPDoc(file);
-	} catch (IOException e) {
-		logger.warning("Could not read from file '" + file.getAbsolutePath() + "'");
-		return;
-	} catch (SAXException e) {
-		logger.warning("SAX exception parsing '" + file.getAbsolutePath() + "'");
-		return;
-	} catch (ParserConfigurationException e) {
-		throw new GabotoRuntimeException();
-	}
+		} catch (IOException e) {
+			logger.warning("Could not read from file '" + file.getAbsolutePath() + "'");
+			return;
+		} catch (SAXException e) {
+			logger.warning("SAX exception parsing '" + file.getAbsolutePath() + "'");
+			return;
+		} catch (ParserConfigurationException e) {
+			throw new GabotoRuntimeException();
+		}
 		
 		Element element = document.getDocumentElement();
 
@@ -231,6 +231,8 @@ public class SeparatedTEIImporter {
 
 				if (tagName.equals("trait") && elem.getAttribute("type").equals("managedBuilding")) {
 					entity.addProperty("setManagedBuilding", true, from, to);
+				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("displayInMapsDepartmentList")) {
+					entity.addProperty("setDisplayInMapsDepartmentList", elem.getTextContent() == "true", from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
 					entity.addType(elem);
 					

@@ -331,6 +331,7 @@
             <property name="logo" type="Image" uri="&foaf;logo"/>
             <property name="address" type="Address" uri="&vCard;adr"/>
             <property name="OLISAlephCode" type="String" uri="&oxp;hasOLISAlephCode"/>
+            <property name="displayInMapsDepartmentList" type="Boolean" uri="&oxp;displayInMapsDepartmentList"/>
             <passiveProperty name="hasChildren" type="Agent" relationshipType="1:N" uri="&dct;isPartOf"/>
             <passiveProperty name="subOrganizations" type="Agent" relationshipType="1:N" uri="&org;subOrganizationOf"/>
             

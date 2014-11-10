@@ -60,6 +60,7 @@ public class Agent extends OxpEntity {
   protected Image logo;
   protected Address address;
   protected String oLISAlephCode;
+  protected Boolean displayInMapsDepartmentList;
   private Collection<Agent> hasChildren;
   private Collection<Agent> subOrganizations;
 
@@ -293,6 +294,24 @@ public class Agent extends OxpEntity {
   )
   public void setOLISAlephCode(String oLISAlephCode){
     this.oLISAlephCode = oLISAlephCode;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#displayInMapsDepartmentList",
+    datatypeType = "javaprimitive",
+    javaType = "Boolean"
+  )
+  public Boolean getDisplayInMapsDepartmentList(){
+    return this.displayInMapsDepartmentList;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#displayInMapsDepartmentList",
+    datatypeType = "javaprimitive",
+    javaType = "Boolean"
+  )
+  public void setDisplayInMapsDepartmentList(Boolean displayInMapsDepartmentList){
+    this.displayInMapsDepartmentList = displayInMapsDepartmentList;
   }
 
   @PassiveProperty(
@@ -559,6 +578,11 @@ public class Agent extends OxpEntity {
     stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#hasOLISAlephCode"));
     if(stmt != null && stmt.getObject().isLiteral())
       this.setOLISAlephCode(((Literal)stmt.getObject()).getString());
+
+    // Load SIMPLE_LITERAL_PROPERTY displayInMapsDepartmentList
+    stmt = res.getProperty(snapshot.getProperty("http://ns.ox.ac.uk/namespace/oxpoints/2009/02/owl#displayInMapsDepartmentList"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setDisplayInMapsDepartmentList(((Literal)stmt.getObject()).getBoolean());
 
   }
   protected List<Method> getIndirectMethodsForProperty(String propertyURI){

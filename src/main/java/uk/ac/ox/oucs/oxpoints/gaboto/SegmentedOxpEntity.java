@@ -38,6 +38,16 @@ public class SegmentedOxpEntity {
 	private final Set<Property> properties = new HashSet<Property>();
 	private final Set<TypeSpan> types = new HashSet<TypeSpan>();
 	
+	private static final Set<String> divisionUris = new HashSet<String>();
+	static {
+		// divisionUris.add("http://oxpoints.oucs.ox.ac.uk/id/23233564"); // exclude UAS
+		divisionUris.add("http://oxpoints.oucs.ox.ac.uk/id/23232714");
+		divisionUris.add("http://oxpoints.oucs.ox.ac.uk/id/23233513");
+		divisionUris.add("http://oxpoints.oucs.ox.ac.uk/id/23233560");
+		divisionUris.add("http://oxpoints.oucs.ox.ac.uk/id/23232639");
+		divisionUris.add("http://oxpoints.oucs.ox.ac.uk/id/23233551");
+	}
+	
 	public SegmentedOxpEntity(Gaboto gaboto, SeparatedTEIImporter.WarningHandler warningHandler, String oxpID, Element element, String filename) {
 		this(
 				gaboto, warningHandler, oxpID,
@@ -295,6 +305,21 @@ public class SegmentedOxpEntity {
 
 		for (int i=0; i<entities.length-1; i++) {
 			OxpEntity entity = entities[i];
+			
+			// Calculate displayInMapsDepartmentList if it's not been overridden.
+			// Default to true iff the entity is a sub-unit of an Academic Division
+			// or ASUC.
+			if (entity instanceof Agent) {
+				Agent agent = (Agent) entity;
+				if (agent.getDisplayInMapsDepartmentList() == null) {
+					Agent parent = agent.getSubOrganizationOf();
+					if (parent == null)
+						agent.setDisplayInMapsDepartmentList(false);
+					else {
+						agent.setDisplayInMapsDepartmentList(divisionUris.contains(parent.getUri()));
+					}
+				}
+			}
 			try {
 				gaboto.add(entity, true, true);
 			} catch (EntityAlreadyExistsException e) {
