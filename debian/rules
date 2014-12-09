@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	mvn clean
+
+override_dh_auto_install:
+	mvn assembly:assembly -Dmaven.test.skip=true
+	mkdir -p debian/liboxpoints-legacy-java/usr/share/oxpoints
+	cp target/importer.jar debian/liboxpoints-legacy-java/usr/share/oxpoints
+

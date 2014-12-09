@@ -1,0 +1,15 @@
+Source: oxpoints-legacy
+Section: java
+Priority: extra
+Maintainer: Alexander Dutton <alexander.dutton@it.ox.ac.uk>
+Build-Depends: debhelper,
+               libgaboto-java
+Standards-Version: 3.8.4
+Homepage: https://github.com/ox-it/oxpoints-legacy
+Vcs-Git: git://github.com/ox-it/oxpoints-legacy.git
+
+Package: liboxpoints-legacy-java
+Section: java
+Architecture: all
+Description: Legacy OxPoints
+ Gaboto-based OxPoints.
