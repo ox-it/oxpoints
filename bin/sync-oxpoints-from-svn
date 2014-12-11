@@ -1,0 +1,100 @@
+#!/usr/bin/python
+
+from __future__ import with_statement
+
+import logging
+import os, sys, subprocess, smtplib, tempfile, shutil, time
+import os.path
+from StringIO import StringIO
+
+SVN_PATH = '/usr/bin/svn'
+
+FROM_ADDRESS = os.environ['FROM_ADDRESS']
+SMTP_SERVER = os.environ['SMTP_SERVER']
+NOTIFY_ADDRESS = os.environ['FROM_ADDRESS']
+CHECKOUT_PATH = os.environ['CHECKOUT_PATH']
+OUTPUT_PATH = os.environ['OUTPUT_PATH']
+RESTART_TOMCAT = ['service', 'tomcat7', 'restart']
+IMPORTER_PATH = os.environ.get('IMPORTER_PATH', '/usr/share/oxpoints/importer.jar')
+
+logger = logging.getLogger('oxpoints.update')
+if '-v' in sys.argv:
+    logging.basicConfig(level=logging.INFO)
+
+MESSAGE_TEMPLATE = """\
+From: {{from_addr}}
+Subject: ERROR: OxPoints update failed
+
+A commit from {{username}} had the following errors:
+
+{{output}}
+Because of these errors, any changes aren't yet live."""
+
+def update(force, restart_tomcat):
+    os.chdir(CHECKOUT_PATH)
+    
+    output = StringIO()
+    svn = subprocess.Popen([SVN_PATH, "up"], stdout=subprocess.PIPE)
+    while True:
+        data = svn.stdout.read()
+        if not data:
+            break
+        output.write(data)
+    svn.wait()
+    output = output.getvalue().decode('utf-8')
+    logger.info("`svn up`'d, got %d chars of output", len(output))
+
+    if not force:
+        for line in output.split('\n')[:-2]:
+            if line and line[0] in "UDA" and line[5:].startswith('data/'):
+                break
+        else:
+            logger.info("No changes; exiting")
+            return
+    else:
+        logger.info("Forced update")
+
+    temp_dir = tempfile.mkdtemp()
+    try:
+        with tempfile.TemporaryFile() as stderr:
+            importer = subprocess.Popen([
+                '/usr/bin/java', '-jar', IMPORTER_PATH,
+                os.path.join(CHECKOUT_PATH, 'data'), temp_dir
+                ], stderr=stderr)
+        
+            importer.wait()
+            stderr.flush()
+            stderr.seek(0)
+            output = stderr.read()
+            logger.info("Importer exit code: %d", importer.returncode)
+    
+        if output:
+            svn = subprocess.Popen([SVN_PATH, 'info'], stdout=subprocess.PIPE)
+            svn.wait()
+            svn_output = svn.stdout.read().split('\n')[:-2]
+            username = dict(line.split(': ', 1) for line in svn_output)['Last Changed Author']
+    
+            smtp_server = smtplib.SMTP('smtp.ox.ac.uk')
+    
+            message = MESSAGE_TEMPLATE.format(username=username, output=output, from_addr=FROM_ADDRESS)
+    
+            smtp_server.sendmail(FROM_ADDRESS, [NOTIFY_ADDRESS], message)
+            smtp_server.quit()
+    
+        else:
+            for filename in ['cdg.xml', 'graphs.rdf']:
+                shutil.copy(
+                    os.path.join(temp_dir, filename),
+                    os.path.join(OUTPUT_PATH, filename),
+                )
+    
+            if restart_tomcat:
+                subprocess.call(RESTART_TOMCAT)
+    finally:
+        shutil.rmtree(temp_dir)
+
+if __name__ == '__main__':
+
+    force = '-f' in sys.argv or '--force' in sys.argv
+    restart_tomcat = not ('-n' in sys.argv or '--no-restart' in sys.argv)
+    update(force, restart_tomcat)
