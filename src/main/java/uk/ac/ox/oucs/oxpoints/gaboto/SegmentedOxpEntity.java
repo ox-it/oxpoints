@@ -198,7 +198,7 @@ public class SegmentedOxpEntity {
 	
 	public void addToGaboto(Map<String,SegmentedOxpEntity> entityMapping) {
 		Set<TimeInstant> instants = new TreeSet<TimeInstant> ();
-		Map<TimeInstant,Integer> instantOffsets = new HashMap<TimeInstant,Integer>();
+		Map<String,Integer> instantOffsets = new HashMap<String,Integer>();
 		
 		for (Property property : properties) {
 			instants.add(property.from);
@@ -216,18 +216,17 @@ public class SegmentedOxpEntity {
 				instants.add(relation.to);
 			}
 		
-		
 		OxpEntity[] entities = new OxpEntity[instants.size()];
 		TimeInstant[] instantArray = instants.toArray(new TimeInstant[instants.size()]); 
-		TypeSpan[] typeArray = new TypeSpan[instants.size()]; 
-		
+		TypeSpan[] typeArray = new TypeSpan[instants.size()];
+
 		for (int i=0; i<instantArray.length; i++) {
 			TimeInstant instant = instantArray[i];
-			instantOffsets.put(instant, i);
+			instantOffsets.put(instant.toString(), i);
 		}
-		
+
 		for (TypeSpan typeSpan : types) {
-			for (int i=instantOffsets.get(typeSpan.from); i<instantOffsets.get(typeSpan.to); i++)
+			for (int i = instantOffsets.get(typeSpan.from.toString()); i < instantOffsets.get(typeSpan.to.toString()); i++)
 				typeArray[i] = typeSpan;
 		}
 		
@@ -252,7 +251,7 @@ public class SegmentedOxpEntity {
 		for (Property property : properties) {
 			Class<? extends OxpEntity> et=null;
 			try {
-				for (int i=instantOffsets.get(property.from); i<instantOffsets.get(property.to); i++) {
+				for (int i=instantOffsets.get(property.from.toString()); i<instantOffsets.get(property.to.toString()); i++) {
 					et = typeArray[i].entityClass;
 					Method m = typeArray[i].entityClass.getMethod(property.name, property.argumentClass);
 					m.invoke(entities[i], property.value);
@@ -277,7 +276,7 @@ public class SegmentedOxpEntity {
 				try {
 					proxy_ = relation.argumentClass.newInstance();
 					proxy_.setUri(relation.passive);
-					for (int i=instantOffsets.get(relation.from); i<instantOffsets.get(relation.to); i++) {
+					for (int i=instantOffsets.get(relation.from.toString()); i<instantOffsets.get(relation.to.toString()); i++) {
 						et = typeArray[i].entityClass;
 						Method m = typeArray[i].entityClass.getMethod(relation.name, relation.argumentClass); //proxy.getClass());
 						m.invoke(entities[i], proxy_);
