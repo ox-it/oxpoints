@@ -22,12 +22,12 @@ if '-v' in sys.argv:
     logging.basicConfig(level=logging.INFO)
 
 MESSAGE_TEMPLATE = """\
-From: {{from_addr}}
+From: {from_addr}
 Subject: ERROR: OxPoints update failed
 
-A commit from {{username}} had the following errors:
+A commit from {username} had the following errors:
 
-{{output}}
+{output}
 Because of these errors, any changes aren't yet live."""
 
 def update(force, restart_tomcat):
