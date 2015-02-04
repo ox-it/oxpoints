@@ -16,7 +16,6 @@ import net.sf.gaboto.GabotoRuntimeException;
 import net.sf.gaboto.time.ImmutableTimeInstant;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
-
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Agent;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.OxpEntity;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Place;
@@ -143,14 +142,10 @@ public class SegmentedOxpEntity {
 	}
 	
 	public void addProperty(String property, Object value, TimeInstant start, TimeInstant end) {
-		//System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
-		
 		properties.add(new Property(property, value, start, end, null));
 	}
 	
 	public void addProperty(String property, Object value, TimeInstant start, TimeInstant end, Class<?> argumentClass) {
-		//System.out.println("PRO "+property+", "+value.toString()+", "+start.toString()+", "+end.toString());
-		
 		properties.add(new Property(property, value, start, end, argumentClass));
 	}
 	
@@ -243,7 +238,6 @@ public class SegmentedOxpEntity {
 				entities[i] = typeArray[i].entityClass.newInstance();
 
 			} catch (NullPointerException e) {
-				//throw e;
 				warningHandler.addWarning(filename, "Entity "+uri+" has periods of its existence without a type.");
 				return;
 			} catch (InstantiationException e) {
@@ -303,9 +297,6 @@ public class SegmentedOxpEntity {
 				}
 			}
 
-			if (uri.endsWith("31337175")) {
-				System.out.println("x");
-			}
 		for (int i=0; i<entities.length-1; i++) {
 			OxpEntity entity = entities[i];
 			
@@ -344,7 +335,6 @@ public class SegmentedOxpEntity {
 		Class<? extends OxpEntity> argumentClass;
 		
 		public Relation(String active, String passive, String name, TimeInstant from, TimeInstant to, Class<? extends OxpEntity> argumentClass) {
-			//System.out.println("REL "+name+", "+active+", "+passive+", "+from.toString()+", "+to.toString());
 			if (active.equals(""))
 				throw new AssertionError();
 			this.active = active;
