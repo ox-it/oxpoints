@@ -1,3 +1,10 @@
+oxpoints-legacy (0.3.10) unstable; urgency=low
+
+  * Fix template substitutions in bin/sync-oxpoints-from-svn
+  * Build with newer gaboto
+
+ -- Alexander Dutton <alexander.dutton@it.ox.ac.uk>  Wed, 4 Feb 2015 14:05:39 +0000
+
 oxpoints-legacy (0.3.9) unstable; urgency=low
 
   * Fix notify_address in bin/sync-oxpoints-from-svn
