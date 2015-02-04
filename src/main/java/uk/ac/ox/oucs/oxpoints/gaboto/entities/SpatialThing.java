@@ -53,11 +53,11 @@ public class SpatialThing extends OxpEntity {
     try {
       list = new ArrayList<Method>();
       list.add(SpatialThing.class.getMethod("getContainedBy", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
 
       list = new ArrayList<Method>();
       list.add(SpatialThing.class.getMethod("getContainedBy", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
 
     } catch (Exception e) {
       throw new GabotoRuntimeException(e);

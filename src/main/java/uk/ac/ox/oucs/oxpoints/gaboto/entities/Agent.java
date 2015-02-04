@@ -75,13 +75,13 @@ public class Agent extends OxpEntity {
       list.add(Agent.class.getMethod("getPrimarySite", (Class<?>[])null));
       list.add(Agent.class.getMethod("getSubOrganizationOf", (Class<?>[])null));
       list.add(Agent.class.getMethod("getSite", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
 
       list = new ArrayList<Method>();
       list.add(Agent.class.getMethod("getPrimarySite", (Class<?>[])null));
       list.add(Agent.class.getMethod("getSubOrganizationOf", (Class<?>[])null));
       list.add(Agent.class.getMethod("getSite", (Class<?>[])null));
-      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#lat", list);
+      indirectPropertyLookupTable.put("http://www.w3.org/2003/01/geo/wgs84_pos#long", list);
 
     } catch (Exception e) {
       throw new GabotoRuntimeException(e);
@@ -366,12 +366,12 @@ public class Agent extends OxpEntity {
 
 
 
-  public Object getLongitude(){
-    return this.getPropertyValue("http://www.w3.org/2003/01/geo/wgs84_pos#long", false, true);
-  }
-
   public Object getLatitude(){
     return this.getPropertyValue("http://www.w3.org/2003/01/geo/wgs84_pos#lat", false, true);
+  }
+
+  public Object getLongitude(){
+    return this.getPropertyValue("http://www.w3.org/2003/01/geo/wgs84_pos#long", false, true);
   }
 
 
