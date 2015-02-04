@@ -31,15 +31,15 @@
   </licenses>
   
   <scm>
-    <url>https://${pom.artifactId}.svn.sourceforge.net/${pom.artifactId}/</url>
-    <connection>scm:svn:https://${pom.artifactId}.svn.sourceforge.net/${pom.artifactId}/</connection>
-    <developerConnection>scm:svn:https://${pom.artifactId}.svn.sourceforge.net/${pom.artifactId}/</developerConnection>
+    <url>https://${project.artifactId}.svn.sourceforge.net/${project.artifactId}/</url>
+    <connection>scm:svn:https://${project.artifactId}.svn.sourceforge.net/${project.artifactId}/</connection>
+    <developerConnection>scm:svn:https://${project.artifactId}.svn.sourceforge.net/${project.artifactId}/</developerConnection>
   </scm>
 
 
   <ciManagement>
     <system>Hudson</system>
-    <url>http://oucs-timp.oucs.ox.ac.uk:8080/hudson/job/${pom.artifactId}/</url>
+    <url>http://oucs-timp.oucs.ox.ac.uk:8080/hudson/job/${project.artifactId}/</url>
   </ciManagement>
 
   <dependencies>
@@ -291,7 +291,7 @@
   </repository>
   <site>
    <id>localhost</id>
-   <url>file://localhost/var/www/${pom.artifactId}/</url>
+   <url>file://localhost/var/www/${project.artifactId}/</url>
   </site>
    <downloadUrl>http://bogof.nsms.ox.ac.uk/maven2/</downloadUrl>
 -->
@@ -314,7 +314,7 @@
   </repository>
   <site>
    <id>bogof</id>
-   <url>scp://maven2@bogof.nsms.ox.ac.uk:/home/maven2/project/${pom.artifactId}</url>
+   <url>scp://maven2@bogof.nsms.ox.ac.uk:/home/maven2/project/${project.artifactId}</url>
   </site>
 
  </distributionManagement>
