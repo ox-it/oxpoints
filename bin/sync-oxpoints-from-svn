@@ -14,7 +14,7 @@ SMTP_SERVER = os.environ['SMTP_SERVER']
 NOTIFY_ADDRESS = os.environ['NOTIFY_ADDRESS']
 CHECKOUT_PATH = os.environ['CHECKOUT_PATH']
 OUTPUT_PATH = os.environ['OUTPUT_PATH']
-RESTART_TOMCAT = ['service', 'tomcat7', 'restart']
+RESTART_TOMCAT = ['/usr/sbin/service', 'tomcat7', 'restart']
 IMPORTER_PATH = os.environ.get('IMPORTER_PATH', '/usr/share/oxpoints/importer.jar')
 
 logger = logging.getLogger('oxpoints.update')
