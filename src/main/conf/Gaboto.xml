@@ -86,6 +86,7 @@
         <property name="extendedAddress" type="String" uri="&vCard;extended-address"/>
         <property name="locality" type="String" uri="&vCard;locality"/>
         <property name="postCode" type="String" uri="&vCard;postal-code"/>
+        <property name="country" type="String" uri="&vCard;country-name"/>
       </properties>
     </GabotoBean>
     <GabotoBean name="Tel" type="&vCard;Tel">

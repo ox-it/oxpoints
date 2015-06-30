@@ -577,6 +577,8 @@ public class SeparatedTEIImporter {
 				addrLines.add(addressPart.getTextContent());
 			else if (addressPart.getNodeName().equals("postCode"))
 				postCode += addressPart.getTextContent();
+			else if (addressPart.getNodeName().equals("country"))
+				address.setCountry(addressPart.getTextContent());
 			else
 				throw new RuntimeException("Unrecognized element:" + addressPart);
 		}
@@ -596,6 +598,8 @@ public class SeparatedTEIImporter {
 		}
 
 		address.setPostCode(postCode);
+		if (address.getCountry() == null)
+			address.setCountry("United Kingdom");
 		return address;
 	}
 	

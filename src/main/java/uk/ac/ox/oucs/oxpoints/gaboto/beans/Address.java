@@ -23,6 +23,7 @@ public class Address extends GabotoBean {
   protected String extendedAddress;
   protected String locality;
   protected String postCode;
+  protected String country;
 
   @Override
   public String getType(){
@@ -101,6 +102,24 @@ public class Address extends GabotoBean {
     this.postCode = postCode;
   }
 
+  @SimpleLiteralProperty(
+    value = "http://www.w3.org/2006/vcard/ns#country-name",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public String getCountry(){
+    return this.country;
+  }
+
+  @SimpleLiteralProperty(
+    value = "http://www.w3.org/2006/vcard/ns#country-name",
+    datatypeType = "javaprimitive",
+    javaType = "String"
+  )
+  public void setCountry(String country){
+    this.country = country;
+  }
+
 
 
 
@@ -129,8 +148,13 @@ public class Address extends GabotoBean {
     if(stmt != null && stmt.getObject().isLiteral())
       this.setPostCode(((Literal)stmt.getObject()).getString());
 
+    // Load SIMPLE_LITERAL_PROPERTY country
+    stmt = res.getProperty(snapshot.getProperty("http://www.w3.org/2006/vcard/ns#country-name"));
+    if(stmt != null && stmt.getObject().isLiteral())
+      this.setCountry(((Literal)stmt.getObject()).getString());
+
   }
   public String toString() {
-    return this.streetAddress + ", " + this.extendedAddress + ", " + this.locality + ", " + this.postCode ;
+    return this.streetAddress + ", " + this.extendedAddress + ", " + this.locality + ", " + this.postCode + ", " + this.country ;
   }
 }
