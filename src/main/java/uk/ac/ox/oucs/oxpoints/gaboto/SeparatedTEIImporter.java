@@ -83,9 +83,9 @@ public class SeparatedTEIImporter {
 	static Map<String,String> lyouSetters = new HashMap<String,String>();
 	static {
 		for (Method meth : OxpEntity.class.getMethods()) {
-			for (ResourceProperty anno : meth.getAnnotationsByType(ResourceProperty.class)) {
-				if (meth.getName().startsWith("setLyou"))
-					lyouSetters.put(anno.value(), meth.getName());
+			for (Annotation anno : meth.getAnnotations()) {
+				if (anno instanceof ResourceProperty && meth.getName().startsWith("setLyou"))
+					lyouSetters.put(((ResourceProperty) anno).value(), meth.getName());
 			}
 		}
 	}
