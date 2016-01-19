@@ -3,6 +3,7 @@ package uk.ac.ox.oucs.oxpoints.gaboto;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -19,6 +20,7 @@ import net.sf.gaboto.EntityAlreadyExistsException;
 import net.sf.gaboto.Gaboto;
 import net.sf.gaboto.GabotoFactory;
 import net.sf.gaboto.GabotoRuntimeException;
+import net.sf.gaboto.node.annotation.ResourceProperty;
 import net.sf.gaboto.time.ImmutableTimeInstant;
 import net.sf.gaboto.time.TimeInstant;
 import net.sf.gaboto.time.TimeSpan;
@@ -45,7 +47,7 @@ import uk.ac.ox.oucs.oxpoints.gaboto.entities.SpatialThing;
 import uk.ac.ox.oucs.oxpoints.gaboto.entities.Unit;
 
 public class SeparatedTEIImporter {
-	
+
 	static class OnlineAccountType {
 		public String uriPrefix;
 		public String uriSuffix = "";
@@ -78,6 +80,16 @@ public class SeparatedTEIImporter {
 		onlineAccountTypes.put("worldcat", new OnlineAccountType("http://www.worldcat.org/", "http://www.worldcat.org/profiles/"));
 	}
 
+	static Map<String,String> lyouSetters = new HashMap<String,String>();
+	static {
+		for (Method meth : OxpEntity.class.getMethods()) {
+			for (ResourceProperty anno : meth.getAnnotationsByType(ResourceProperty.class)) {
+				if (meth.getName().startsWith("setLyou"))
+					lyouSetters.put(anno.value(), meth.getName());
+			}
+		}
+	}
+
 	private Gaboto gaboto;
 	private WarningHandler warningHandler;
 
@@ -85,40 +97,40 @@ public class SeparatedTEIImporter {
 	private Logger logger = Logger.getLogger("uk.ac.ox.oucs.oxpoints.importer");
 
 	private Map<String, SegmentedOxpEntity> entitiesByURI = new HashMap<String, SegmentedOxpEntity>();
-	
+
 	public SeparatedTEIImporter(Gaboto gaboto) {
 		this.gaboto = gaboto;
 		this.warningHandler = new WarningHandler();
 	}
-	
+
 	public void load(File path) {
 		if (path.isDirectory())
 			loadDirectory(path);
 		else
 			loadFile(path);
 	}
-	
+
 	public void loadDirectory(File directory) {
 		assert directory.isDirectory();
-		
+
 		for (File file : directory.listFiles()) {
 			if (file.toString().endsWith(".xml"))
 				loadFile(file);
 		}
-		
+
 		SegmentedOxpEntity.constrainRelations(entitiesByURI, warningHandler);
-		
+
 		for (SegmentedOxpEntity entity : entitiesByURI.values()) {
 			entity.addToGaboto(entitiesByURI);
 		}
 	}
-	
+
 	public void loadFile(File file) {
 		warningHandler.setFilename(file.getName());
 		Vector<Element> elements = new Vector<Element>();
 		Document document = null;
 		String oxpID, uri;
-		
+
 		try {
 			document = XMLUtils.readInputFileIntoJAXPDoc(file);
 		} catch (IOException e) {
@@ -130,7 +142,7 @@ public class SeparatedTEIImporter {
 		} catch (ParserConfigurationException e) {
 			throw new GabotoRuntimeException();
 		}
-		
+
 		Element element = document.getDocumentElement();
 
 		// Handle lists of figures
@@ -146,7 +158,7 @@ public class SeparatedTEIImporter {
 
 		oxpID = element.getAttribute("oxpID");
 		uri = gaboto.getConfig().getNSData() + oxpID;
-		
+
 		if (element.getTagName().equals("listPlace") || element.getTagName().equals("listOrg")) {
 			NodeList nodes = element.getChildNodes();
 			for (int i = 0; i < nodes.getLength(); i++) {
@@ -159,42 +171,42 @@ public class SeparatedTEIImporter {
 		} else {
 			elements.add(element);
 		}
-		
+
 		// The oxpID of the entity described by this file must match the filename
 		if (!file.getName().equals(oxpID+".xml"))
 			warningHandler.addWarning(file.getName(), "oxpID '"+oxpID+"' doesn't match filename ('"+file.getName()+"'.");
-		
+
 		for (Element elem : elements) {
 			parseDates(elem, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		}
 
 		loadEntity(uri, elements, file.getName());
 	}
-	
+
 	public void loadEntity(String uri, Vector<Element> elements, String filename) {
 		loadEntity(uri, elements, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY, filename);
 	}
-	
+
 	public void loadEntity(String uri, Element element, TimeInstant lower, TimeInstant upper, String filename) {
 		Vector<Element> elements = new Vector<Element>();
 		elements.add(element);
 		loadEntity(uri, elements, lower, upper, filename);
 	}
-	
+
 	public void loadEntity(String uri, Vector<Element> elements, TimeInstant lower, TimeInstant upper, String filename) {
 		if (elements.size() > 1)
 			throw new AssertionError("We can't yet handle discontinuous entities.");
-		
+
 		if (uri.equals("")) {
 			warningHandler.addWarning("Entity has no oxpID");
 			return;
 		}
-		
+
 		if (entitiesByURI.containsKey(uri)) {
 			warningHandler.addWarning(filename, "Entity "+uri+" described more than once.");
 			return;
 		}
-			
+
 		SegmentedOxpEntity entity = new SegmentedOxpEntity(gaboto, warningHandler, uri, elements.get(0), filename);
 		entitiesByURI.put(uri, entity);
 
@@ -202,7 +214,7 @@ public class SeparatedTEIImporter {
 			if (sameAs.length() > 0) {
 				entity.addProperty("addSameAs", sameAs, elements.get(0));
 			}
-		
+
 		for (String subtype : elements.get(0).getAttribute("subtype").split(" "))
 			if (subtype.length() > 0)
 				entity.addProperty("addDcType", subtype, elements.get(0));
@@ -235,7 +247,7 @@ public class SeparatedTEIImporter {
 					entity.addProperty("setDisplayInMapsDepartmentList", elem.getTextContent().equals("true"), from, to);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("type")) {
 					entity.addType(elem);
-					
+
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("subtype")) {
 					try{
 						Element subtype = (Element) elem.getElementsByTagName("desc").item(0);
@@ -243,7 +255,7 @@ public class SeparatedTEIImporter {
 					} catch (Exception e) {
 						warningHandler.addWarning(filename, "subtype trait malformed.");
 					}
-				
+
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("measures")) {
 					Element desc = (Element) elem.getElementsByTagName("desc").item(0);
 					entity.addProperty("setMeasures", "http://purl.org/meter/resource/" + desc.getTextContent(), elem);
@@ -263,7 +275,7 @@ public class SeparatedTEIImporter {
 					entity.addProperty("addTelephoneNumber", getTelephoneNumber(elem), from, to, Tel.class);
 				} else if (tagName.equals("trait") && elem.getAttribute("type").equals("configuration")) {
 					String subtype = elem.getAttribute("subtype");
-					
+
 					try {
 						@SuppressWarnings("unchecked")
 						Class<? extends SpaceConfiguration> klass = (Class<? extends SpaceConfiguration>) Class.forName("uk.ac.ox.oucs.oxpoints.gaboto.beans."+subtype);
@@ -280,7 +292,7 @@ public class SeparatedTEIImporter {
 								sc.setComment(child.getTextContent());
 						}
 						entity.addProperty("addSpaceConfiguration", sc, from, to, SpaceConfiguration.class);
-								
+
 					} catch (ClassNotFoundException e) {
 						warningHandler.addWarning(filename, "Could not find SpaceConfiguration of type "+subtype+".");
 					} catch (ClassCastException e) {
@@ -314,7 +326,7 @@ public class SeparatedTEIImporter {
 						entity.addProperty("setAcronym", elem);
 						entity.addProperty("addAltLabel", elem);
 					}
-					
+
 				} else if (tagName.equals("desc")) {
 					entity.addProperty("setDescription", elem);
 
@@ -464,13 +476,29 @@ public class SeparatedTEIImporter {
 					}
 					if (!foundPrimaryImage && firstImageURI != null)
 						entity.addRelation("setImg", firstImageURI, element, Image.class);
-						
+
+				} else if (tagName.equals("group") && elemType.equals("lyou")) {
+					NodeList traits = elem.getElementsByTagName("trait");
+					for (int j=0; j < traits.getLength(); j++) {
+						if (!(traits.item(j) instanceof Element))
+							continue;
+						Element trait = (Element) traits.item(j);
+						TimeInstant elemFrom = new ImmutableTimeInstant(trait.getAttribute("inferredFrom"));
+						TimeInstant elemTo = new ImmutableTimeInstant(trait.getAttribute("inferredTo"));
+
+						// Strip 'lyou:' prefix on property name in type
+						String propertyURI = "http://purl.org/linkingyou/" + trait.getAttribute("type").substring(5);
+						if (lyouSetters.containsKey(propertyURI)) {
+							entity.addProperty(lyouSetters.get(propertyURI), getWebsite(trait, filename, true), elemFrom, elemTo);
+						} else {
+							warningHandler.addWarning(filename, "Unexpected lyou type: " + trait.getAttribute("type"));
+						}
+					}
 				}
 			}
-
-		}		
+		}
 	}
-	
+
 	private void loadChildEntity(Element elem, String filename) {
 		loadEntity(
 				gaboto.getConfig().getNSData()+elem.getAttribute("oxpID"),
@@ -500,15 +528,15 @@ public class SeparatedTEIImporter {
 		} catch (NullPointerException e) {
 			//warningHandler.addWarning(filename, "'figure' element must have a 'graphic' child element.");
 		}
-		
+
 		SegmentedOxpEntity image = new SegmentedOxpEntity(
 				gaboto, warningHandler, uri, TimeSpan.BIG_BANG,
 				TimeSpan.DOOMS_DAY, "figure", filename);
-		
+
 		for (String dcType : figure.getAttribute("type").split(" "))
 			if (dcType.length() > 0)
 				image.addProperty("addDcType", dcType, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
-		
+
 		for (String corresp : figure.getAttribute("corresp").split(" ")) {
 			if (corresp.length() == 0)
 				continue;
@@ -522,7 +550,7 @@ public class SeparatedTEIImporter {
 		image.addProperty("setHeight", height, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
 		if (description != null)
 			image.addProperty("setDescription", description, TimeSpan.BIG_BANG, TimeSpan.DOOMS_DAY);
-		
+
 		entitiesByURI.put(uri, image);
 		return uri;
 	}
@@ -530,7 +558,7 @@ public class SeparatedTEIImporter {
 	public void parseDates(Element element, TimeInstant lower, TimeInstant upper) {
 		String from = element.getAttribute("from");
 		String to = element.getAttribute("to");
-		
+
 		if (!from.equals("")) {
 			lower = latest(new ImmutableTimeInstant(from), lower);
 		}
@@ -539,28 +567,28 @@ public class SeparatedTEIImporter {
 		}
 		element.setAttribute("inferredFrom", lower.toString());
 		element.setAttribute("inferredTo", upper.toString());
-		
+
 		NodeList nodes = element.getChildNodes();
 		for (int i = 0; i < nodes.getLength(); i++)
 			if (nodes.item(i) instanceof Element)
 				parseDates((Element) nodes.item(i), lower, upper);
-		
+
 	}
-	
+
 	public static TimeInstant earliest(TimeInstant t1, TimeInstant t2) {
 		if (t1.compareTo(t2) == -1)
 			return t1;
 		else
 			return t2;
 	}
-	
+
 	public static TimeInstant latest(TimeInstant t1, TimeInstant t2) {
 		if (t1.compareTo(t2) == 1)
 			return t1;
 		else
 			return t2;
 	}
-	
+
 	private Address extractAddress(Element elem) {
 
 		String postCode = "";
@@ -582,7 +610,7 @@ public class SeparatedTEIImporter {
 			else
 				throw new RuntimeException("Unrecognized element:" + addressPart);
 		}
-		
+
 		if (addrLines.size() == 1) {
 			address.setStreetAddress(addrLines.getFirst());
 		} else if (addrLines.size() == 2) {
@@ -602,35 +630,35 @@ public class SeparatedTEIImporter {
 			address.setCountry("United Kingdom");
 		return address;
 	}
-	
+
 	public WarningHandler getWarningHandler() {
 		return warningHandler;
 	}
-	
+
 	public String getWebsite(Element elem, String filename, boolean requireUnique) {
 		NodeList ns = elem.getElementsByTagName("desc");
 		ns = ((Element) ns.item(0)).getElementsByTagName("ptr");
 		Element e = (Element) ns.item(0);
 		String url = e.getAttribute("target");
-		
+
 		return url;
 	}
-	
+
 	public Tel getTelephoneNumber(Element elem) {
 		NodeList ns = elem.getElementsByTagName("desc");
 		String value = ((Element) ns.item(0)).getTextContent();
-		
+
 		Tel tel;
 		if (elem.getAttribute("type").equals("telephone"))
 			tel = new Voice();
 		else
 			tel = new Fax();
-		
+
 		tel.setValue(value);
 		return tel;
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		String filename = args[0];
 		File directory = new File(filename);
@@ -641,7 +669,7 @@ public class SeparatedTEIImporter {
 		Gaboto gaboto = GabotoFactory.getEmptyInMemoryGaboto();
 		SeparatedTEIImporter importer = new SeparatedTEIImporter(gaboto);
 		importer.loadDirectory(directory);
-		
+
 		WarningHandler warningHandler = importer.getWarningHandler();
 		if (warningHandler.hasWarnings()) {
 			warningHandler.printWarnings(System.err);
@@ -687,7 +715,7 @@ public class SeparatedTEIImporter {
 			if (warnings.containsKey("")) {
 				out.println("Non-localised warnings:");
 				for (String warning : warnings.get(""))
-					out.println("    "+warning);					
+					out.println("    "+warning);
 			}
 		}
 	}
@@ -695,7 +723,7 @@ public class SeparatedTEIImporter {
 	public boolean hasWarnings() {
 		return warningHandler.hasWarnings();
 	}
-	
+
 	private class Relation {
 		Class<? extends OxpEntity> relationClass;
 		String relationMethod;

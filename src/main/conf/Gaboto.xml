@@ -9,6 +9,7 @@
 <!ENTITY gabotoKML "http://ns.ox.ac.uk/namespace/gaboto/kml/2009/03/owl#">
 <!ENTITY xhtml "http://www.w3.org/1999/xhtml">
 <!ENTITY exif "http://www.w3.org/2003/12/exif/ns#">
+<!ENTITY lyou "http://purl.org/linkingyou/">
 <!ENTITY owl "http://www.w3.org/2002/07/owl#">
 <!ENTITY org "http://www.w3.org/ns/org#">
 <!ENTITY geo "http://www.w3.org/2003/01/geo/wgs84_pos#">
@@ -49,7 +50,7 @@
     <database>
       <!-- We have our own copy of the driver, there is a bug in the jena one -->
       <engineName>HSQLDB_GABOTO</engineName>
-      <!-- 
+      <!--
                 <url>jdbc:hsqldb:/dist/gaboto/db/oxpoints</url>
             -->
       <url>jdbc:hsqldb:mem:oxpoints</url>
@@ -60,7 +61,7 @@
             <engineName>PostgreSQL</engineName>
             <url>jdbc:postgresql:oxpoints</url>
             <user>postgres</user>
-            <password></password>    
+            <password></password>
             <driver>org.postgresql.Driver</driver>
             -->
       <!--
@@ -156,7 +157,69 @@
         <property name="shortLabel" type="String" uri="&oxp;shortLabel"/>
         <property name="sortLabel" type="String" uri="&ov;sortLabel"/>
         <property name="acronym" type="String" uri="&ov;prefAcronym"/>
-        <passiveProperty name="memberOf" type="SKOSCollection" relationshipType="N:M" uri="&skos;member"/> 
+        <passiveProperty name="memberOf" type="SKOSCollection" relationshipType="N:M" uri="&skos;member"/>
+
+        <property name="lyouAbout" type="Resource" uri="&lyou;about"/>
+        <property name="lyouAboutExecutive" type="Resource" uri="&lyou;about-executive"/>
+        <property name="lyouAboutLeader" type="Resource" uri="&lyou;about-leader"/>
+        <property name="lyouAboutParents" type="Resource" uri="&lyou;about-parents"/>
+        <property name="lyouAboutSites" type="Resource" uri="&lyou;about-sites"/>
+        <property name="lyouAboutStrategy" type="Resource" uri="&lyou;about-strategy"/>
+        <property name="lyouAcademicDepts" type="Resource" uri="&lyou;academic-depts"/>
+        <property name="lyouBusiness" type="Resource" uri="&lyou;business"/>
+        <property name="lyouBusinessIncubation" type="Resource" uri="&lyou;business-incubation"/>
+        <property name="lyouBusinessKtp" type="Resource" uri="&lyou;business-ktp"/>
+        <property name="lyouConferenceFacilities" type="Resource" uri="&lyou;conference-facilities"/>
+        <property name="lyouConferences" type="Resource" uri="&lyou;conferences"/>
+        <property name="lyouContact" type="Resource" uri="&lyou;contact"/>
+        <property name="lyouContactStaff" type="Resource" uri="&lyou;contact-staff"/>
+        <property name="lyouCourses" type="Resource" uri="&lyou;courses"/>
+        <property name="lyouDepts" type="Resource" uri="&lyou;depts"/>
+        <property name="lyouEvents" type="Resource" uri="&lyou;events"/>
+        <property name="lyouEventsGraduation" type="Resource" uri="&lyou;events-graduation"/>
+        <property name="lyouFoundation" type="Resource" uri="&lyou;foundation"/>
+        <property name="lyouFoundationCourses" type="Resource" uri="&lyou;foundation-courses"/>
+        <property name="lyouFoundationCoursesEntryRequirements" type="Resource" uri="&lyou;foundation-courses-entry-requirements"/>
+        <property name="lyouFoundationProspectus" type="Resource" uri="&lyou;foundation-prospectus"/>
+        <property name="lyouIctSupport" type="Resource" uri="&lyou;ict-support"/>
+        <property name="lyouInternationalStudents" type="Resource" uri="&lyou;international-students"/>
+        <property name="lyouJobs" type="Resource" uri="&lyou;jobs"/>
+        <property name="lyouLegal" type="Resource" uri="&lyou;legal"/>
+        <property name="lyouLegalDataProtection" type="Resource" uri="&lyou;legal-data-protection"/>
+        <property name="lyouLegalEnvironment" type="Resource" uri="&lyou;legal-environment"/>
+        <property name="lyouLegalEquality" type="Resource" uri="&lyou;legal-equality"/>
+        <property name="lyouLegalEthics" type="Resource" uri="&lyou;legal-ethics"/>
+        <property name="lyouLegalFoi" type="Resource" uri="&lyou;legal-foi"/>
+        <property name="lyouLegalIct" type="Resource" uri="&lyou;legal-ict"/>
+        <property name="lyouLegalPolicies" type="Resource" uri="&lyou;legal-policies"/>
+        <property name="lyouLegalRegulations" type="Resource" uri="&lyou;legal-regulations"/>
+        <property name="lyouLegalWebsite" type="Resource" uri="&lyou;legal-website"/>
+        <property name="lyouNews" type="Resource" uri="&lyou;news"/>
+        <property name="lyouOpenData" type="Resource" uri="&lyou;open-data"/>
+        <property name="lyouOpendays" type="Resource" uri="&lyou;opendays"/>
+        <property name="lyouPostgraduate" type="Resource" uri="&lyou;postgraduate"/>
+        <property name="lyouPostgraduateResearch" type="Resource" uri="&lyou;postgraduate-research"/>
+        <property name="lyouPostgraduateResearchCourses" type="Resource" uri="&lyou;postgraduate-research-courses"/>
+        <property name="lyouPostgraduateResearchCoursesEntryRequirements" type="Resource" uri="&lyou;postgraduate-research-courses-entry-requirements"/>
+        <property name="lyouPostgraduateResearchProspectus" type="Resource" uri="&lyou;postgraduate-research-prospectus"/>
+        <property name="lyouPostgraduateTaught" type="Resource" uri="&lyou;postgraduate-taught"/>
+        <property name="lyouPostgraduateTaughtCourses" type="Resource" uri="&lyou;postgraduate-taught-courses"/>
+        <property name="lyouPostgraduateTaughtCoursesEntryRequirements" type="Resource" uri="&lyou;postgraduate-taught-courses-entry-requirements"/>
+        <property name="lyouPostgraduateTaughtProspectus" type="Resource" uri="&lyou;postgraduate-taught-prospectus"/>
+        <property name="lyouPress" type="Resource" uri="&lyou;press"/>
+        <property name="lyouPressFacts" type="Resource" uri="&lyou;press-facts"/>
+        <property name="lyouPublicLectures" type="Resource" uri="&lyou;public-lectures"/>
+        <property name="lyouResearch" type="Resource" uri="&lyou;research"/>
+        <property name="lyouSearch" type="Resource" uri="&lyou;search"/>
+        <property name="lyouSpaceAccessibility" type="Resource" uri="&lyou;space-accessibility"/>
+        <property name="lyouSupportDepts" type="Resource" uri="&lyou;support-depts"/>
+        <property name="lyouUkIcoPublicationScheme" type="Resource" uri="&lyou;uk-ico-publication-scheme"/>
+        <property name="lyouUndergraduate" type="Resource" uri="&lyou;undergraduate"/>
+        <property name="lyouUndergraduateCourses" type="Resource" uri="&lyou;undergraduate-courses"/>
+        <property name="lyouUndergraduateCoursesEntryRequirements" type="Resource" uri="&lyou;undergraduate-courses-entry-requirements"/>
+        <property name="lyouUndergraduateProspectus" type="Resource" uri="&lyou;undergraduate-prospectus"/>
+        <property name="lyouWebAccessibility" type="Resource" uri="&lyou;web-accessibility"/>
+
       </properties>
       <customMethods>
         <method><![CDATA[
@@ -225,7 +288,7 @@
             <property name="latitude" type="Float" uri="&geo;lat"/>
             <passiveProperty name="containedPlaces" type="Place" relationshipType="1:N" uri="&dct;isPartOf"/>
             <property name="managedBuilding" type="Boolean" uri="&oxp;managedBuilding"/>
-          </properties>    
+          </properties>
           <GabotoEntities>
             <GabotoEntity name="Place" type="&oxp;Place">
               <properties>
@@ -260,7 +323,7 @@
               </customMethods>
               <GabotoEntities>
                 <GabotoEntity name="Outside" type="&oxp;Outside"/>
-                <!--                        
+                <!--
                         <GabotoEntity name="Portal" type="&oxp;Portal">
                             <properties>
                                 <property name="format" collection="bag" type="String" uri="&dc;format"/>
@@ -335,7 +398,7 @@
             <property name="displayInMapsDepartmentList" type="Boolean" uri="&oxp;displayInMapsDepartmentList"/>
             <passiveProperty name="hasChildren" type="Agent" relationshipType="1:N" uri="&dct;isPartOf"/>
             <passiveProperty name="subOrganizations" type="Agent" relationshipType="1:N" uri="&org;subOrganizationOf"/>
-            
+
           </properties>
           <GabotoEntities>
             <GabotoEntity name="Group" type="&foaf;Group"/>
@@ -359,14 +422,14 @@
     @StaticProperty("http://purl.org/dc/elements/1.1/description")
     public String getDescription(){
         String description = "";
-        
+
         if(getHomepage() != null)
             description += "Website: <a href=\"" + getHomepage() + "\">" + getHomepage().getUri() + "</a><br/>";
         if(getImages() != null && getImages().size() > 0){
         	Image img = getImages().iterator().next();
         	description += "<img src=\"" + img.getUri() + "\" width=\"" + img.getWidth() + "\" height=\"" + img.getHeight() + "\"/>";
         }
-        
+
         return description;
     }
                     ]]>
