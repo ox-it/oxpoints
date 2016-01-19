@@ -1,3 +1,9 @@
+oxpoints-legacy (0.3.12) unstable; urgency=low
+
+  * Add support for linkingyou
+
+ -- Alexander Dutton <alexander.dutton@it.ox.ac.uk>  Tue, 19 Jan 2016 16:44:40 +0000
+
 oxpoints-legacy (0.3.11) unstable; urgency=low
 
   * Add country details to addresses
