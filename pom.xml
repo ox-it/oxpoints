@@ -7,7 +7,7 @@
 
   <groupId>uk.ac.ox.oucs.erewhon</groupId>
   <artifactId>oxpoints</artifactId>
-  <version>0.3.11</version>
+  <version>0.3.12</version>
   <packaging>jar</packaging>
 
   <name>Oxpoints</name>
