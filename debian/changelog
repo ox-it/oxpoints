@@ -1,3 +1,9 @@
+oxpoints-legacy (0.3.13) unstable; urgency=low
+
+  * Added lyou prefix to config
+
+ -- Alexander Dutton <alexander.dutton@it.ox.ac.uk>  Thu, 21 Jan 2016 09:00:58 +0000
+
 oxpoints-legacy (0.3.12) unstable; urgency=low
 
   * Add support for linkingyou
