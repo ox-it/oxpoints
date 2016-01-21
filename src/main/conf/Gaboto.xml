@@ -45,6 +45,7 @@
       <namespacePrefix prefix="oo" ns="&oo;"/>
       <namespacePrefix prefix="oosc" ns="&oosc;"/>
       <namespacePrefix prefix="org" ns="&org;"/>
+      <namespacePrefix prefix="lyou" ns="&lyou;"/>
     </namespacePrefixes>
     <dataDirectory>/var/lib/gaboto/oxpoints/0.3/</dataDirectory>
     <database>
